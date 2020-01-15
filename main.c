@@ -9,8 +9,8 @@ Rappels de compilation :
 #include <stdio.h>
 #include <stdlib.h>
 
-#define WINDOW_WIDTH 1920
-#define WINDOW_HEIGHT 1080
+#define WINDOW_WIDTH 1280
+#define WINDOW_HEIGHT 720
 
 void clean_ressources(SDL_Window *w, SDL_Renderer *r, SDL_Texture *t){
     if(t != NULL)
@@ -26,22 +26,22 @@ void clean_ressources(SDL_Window *w, SDL_Renderer *r, SDL_Texture *t){
 void move_image(SDL_Rect *img, int direction, SDL_Window *w){
     switch(direction){
         case 0:
-            img->y -= 50;
+            img->y -= 100;
             if(img->y < 0)
                 img->y = WINDOW_HEIGHT - img->h;
             break;
         case 1:
-            img->x -= 50;
+            img->x -= 10;
             if(img->x < 0)
                 img->x = WINDOW_WIDTH - img->w;
             break;
         case 2:
-            img->y += 50;
+            img->y += 100;
             if(img->y > WINDOW_HEIGHT - img->h)
                 img->y = 0;
             break;
         case 3:
-            img->x += 50;
+            img->x += 10;
             if(img->x > WINDOW_WIDTH - img->w)
                 img->x = 0;
             break;
@@ -50,12 +50,14 @@ void move_image(SDL_Rect *img, int direction, SDL_Window *w){
 
 int main(int argc, char **argv){
 
+    int double_jump = 0;
+
     SDL_Window *window = NULL;
     SDL_Renderer *renderer = NULL;
     SDL_Surface *picture = NULL;
     SDL_Texture *texture = NULL;
 
-    SDL_Rect personnage = {50, 0, 50, 90};
+    SDL_Rect personnage = {0, WINDOW_HEIGHT-90, 50, 90};
     SDL_Rect background = {0, 0, WINDOW_WIDTH, WINDOW_HEIGHT};
 
     //Lancement SDL
@@ -135,45 +137,30 @@ int main(int argc, char **argv){
             switch(event.type){
                 case SDL_KEYDOWN:
                     if(event.key.keysym.sym == SDLK_UP || event.key.keysym.scancode == SDL_SCANCODE_W){
-                        move_image(&personnage, 0, window);
-                        printf("UP, %dx:%dy\n", personnage.x, personnage.y);
+                        if(personnage.y < WINDOW_HEIGHT-90 && double_jump == 1){
+                            double_jump = 0;
+                            move_image(&personnage, 0, window);
+                        }
+                        else if (personnage.y == WINDOW_HEIGHT-90){
+                            move_image(&personnage, 0, window);
+                            double_jump = 1;
+                        }
                     }
                     if(event.key.keysym.sym == SDLK_LEFT || event.key.keysym.scancode == SDL_SCANCODE_A){
                         move_image(&personnage, 1, window);
-                        printf("LEFT, %dx:%dy\n", personnage.x, personnage.y);
                     }
-                    if(event.key.keysym.sym == SDLK_DOWN || event.key.keysym.scancode == SDL_SCANCODE_S){
+                    /*if(event.key.keysym.sym == SDLK_DOWN || event.key.keysym.scancode == SDL_SCANCODE_S){
                         move_image(&personnage, 2, window);
-                        printf("DOWN, %dx:%dy\n", personnage.x, personnage.y);
-                    }
+                    }*/
                     if(event.key.keysym.sym == SDLK_RIGHT || event.key.keysym.scancode == SDL_SCANCODE_D){
                         move_image(&personnage, 3, window);
-                        printf("RIGHT, %dx:%dy\n", personnage.x, personnage.y);
                     }
                     /*if(event.key.keysym.sym == SDLK_c){
                         SDL_GetWindowSize(window, window_w, window_h);      //DOESN'T WORK
                         printf("Taille de la fenetre : %dpx/%dpx\n", window_w, window_h);
                     }*/
-                    SDL_RenderClear(renderer);
-                    if(SDL_RenderCopy(renderer, texture, NULL, &personnage) != 0){
-                        SDL_Log("ERREUR > %s\n", SDL_GetError());
-                        clean_ressources(window, renderer, texture);
-                        exit(EXIT_FAILURE);
-                    }
-                    if(SDL_UpdateWindowSurfaceRects(window, &personnage, 1) != 0){
-                        SDL_Log("ERREUR > %s\n", SDL_GetError());
-                        clean_ressources(window, renderer, texture);
-                        exit(EXIT_FAILURE);
-                    }
-                    if(SDL_UpdateWindowSurface(window) != 0){
-                        SDL_Log("ERREUR > %s\n", SDL_GetError());
-                        clean_ressources(window, renderer, texture);
-                        exit(EXIT_FAILURE);
-                    }
-                    SDL_RenderPresent(renderer);
 
-                break;
-
+                    break;
 
                 case SDL_QUIT:
                     program_launched = SDL_FALSE;
@@ -183,6 +170,35 @@ int main(int argc, char **argv){
                     break;
             }
         }
+
+        SDL_Delay(1000/60);
+        
+        if(personnage.y < WINDOW_HEIGHT-90)
+            if(personnage.y + 3 > WINDOW_HEIGHT-90)
+                personnage.y = WINDOW_HEIGHT-90;
+            else
+                personnage.y += 3;
+
+        if(personnage.y == WINDOW_HEIGHT-90)
+            double_jump = 1;
+
+        SDL_RenderClear(renderer);
+        if(SDL_RenderCopy(renderer, texture, NULL, &personnage) != 0){
+            SDL_Log("ERREUR > %s\n", SDL_GetError());
+            clean_ressources(window, renderer, texture);
+            exit(EXIT_FAILURE);
+        }
+        if(SDL_UpdateWindowSurfaceRects(window, &personnage, 1) != 0){
+            SDL_Log("ERREUR > %s\n", SDL_GetError());
+            clean_ressources(window, renderer, texture);
+            exit(EXIT_FAILURE);
+        }
+        if(SDL_UpdateWindowSurface(window) != 0){
+            SDL_Log("ERREUR > %s\n", SDL_GetError());
+            clean_ressources(window, renderer, texture);
+            exit(EXIT_FAILURE);
+        }
+        SDL_RenderPresent(renderer);
     }
     /*-------------------------------------------------------------------*/
 
