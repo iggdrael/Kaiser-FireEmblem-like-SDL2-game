@@ -97,6 +97,26 @@ void aff_texture(SDL_Window *window, SDL_Renderer *renderer, SDL_Texture *textur
     SDL_RenderPresent(renderer);
 }
 
+void select_tile(SDL_Renderer *renderer, SDL_Texture *texture, int x, int y, int i, int j){
+	SDL_Rect Rect_dest;
+    SDL_Rect Rect_source;
+    Rect_source.w = LARGEUR_TILE;
+    Rect_dest.w   = LARGEUR_EDIT;
+    Rect_source.h = HAUTEUR_TILE;
+    Rect_dest.h   = LARGEUR_EDIT;
+
+	Rect_dest.x = y * LARGEUR_EDIT;
+    Rect_dest.y = x * LARGEUR_EDIT;
+    Rect_source.x = j * LARGEUR_TILE;
+    Rect_source.y = i * LARGEUR_TILE;
+
+	if(SDL_RenderCopy(renderer, texture, &Rect_source, &Rect_dest) != 0){
+		SDL_ExitWithError("Erreur à l'affichage\n", 0, renderer, texture);
+		exit(EXIT_FAILURE);
+	}
+    SDL_RenderPresent(renderer);
+}
+
 void creerTexte(SDL_Renderer *renderer, TTF_Font *police, char str[], int x, int y){
 	SDL_Surface *texte = NULL;
 	SDL_Rect txtDestRect;
@@ -124,20 +144,45 @@ SDL_bool valides(int x, int y){
 	return ((x >= 0 && x < N) && (y >= 0 && y < M));
 }
 
-void editeur_map(SDL_Window *window, SDL_Renderer *renderer, int *map){
-	SDL_Texture *texture_case_vide = creerTexture(window, renderer, "src/Kaiser/img/case_vide.png");
-	SDL_Texture *texture_case_presque_vide = creerTexture(window, renderer, "src/Kaiser/img/case_presque_vide.jpg");
-	SDL_Texture *texture_ciel = creerTexture(window, renderer, "src/Kaiser/img/ciel.jpg");
-	SDL_Texture *texture_eau = creerTexture(window, renderer, "src/Kaiser/img/eau.jpg");
-	SDL_Texture *texture_terre = creerTexture(window, renderer, "src/Kaiser/img/terre.jpg");
-	SDL_Texture *texture_herbe = creerTexture(window, renderer, "src/Kaiser/img/herbe.jpg");
-	SDL_Texture *texture_actuelle = texture_eau;
+/*void save_map(int *map){
+	FILE *fic = fopen(fic, );
 
-	SDL_bool editeur_launched = SDL_TRUE;
+
+}*/
+void editeur_map(SDL_Window *window, SDL_Renderer *renderer, int *map){
+	/*************************************************************/
+	SDL_Window *window_edit = NULL;
+	SDL_Window *window_actuelle = NULL;
+	SDL_Renderer *renderer_edit = NULL;
+
+    if (SDL_Init(SDL_INIT_VIDEO) != 0 )
+        SDL_ExitWithError("Initialisation SDL", NULL, NULL, NULL);
+
+	window_edit = SDL_CreateWindow("Textures", 1920-W_TEXTURES, 100, W_TEXTURES, H_TEXTURES, SDL_WINDOW_SHOWN|SDL_WINDOW_RESIZABLE);
+
+	if(window_edit == NULL)
+		SDL_ExitWithError("Erreur à la création de la fenetre\n", window_edit, NULL, NULL);
+
+	renderer_edit = SDL_CreateRenderer(window_edit, -1, SDL_RENDERER_ACCELERATED);
+	if(renderer_edit == NULL)
+		SDL_ExitWithError("Erreur à la création du renderer\n", window_edit, renderer_edit, NULL);
+
+	Uint32 id_window = SDL_GetWindowID(window), id_window_edit = SDL_GetWindowID(window_edit);
+
+	/*************************************************************/
+	SDL_Texture *texture_case_vide = creerTexture(window, renderer, "src/Kaiser/img/texture_hach.jpg");
+	SDL_Texture *texture_actuelle = NULL;
+	SDL_Texture *texture_ciel = creerTexture(window, renderer, "src/Kaiser/img/ciel.jpg");
+	SDL_Texture *texture_textures = creerTexture(window_edit, renderer_edit, "src/Kaiser/img/textures.png");
+	SDL_Texture *texture_tiles = creerTexture(window, renderer, "src/Kaiser/img/textures.png");
+
+
+	SDL_bool editeur_launched = SDL_TRUE, clic_long_gauche = SDL_FALSE, clic_long_droit = SDL_FALSE;
     SDL_Event event;
-	int case_actuelle = EAU, x, y;
+	int case_actuelle = 0, x, y, texture_actuelle_x, texture_actuelle_y;
 
 	aff_texture(window, renderer, texture_ciel, 0, 0, HUD, 0);
+	aff_texture(window_edit, renderer_edit, texture_textures, 0, 0, HUD, 0);
 
 	for (x = 0; x < (M*LARGEUR_EDIT); x += LARGEUR_EDIT)
         for (y = 0; y < (N*LARGEUR_EDIT); y += LARGEUR_EDIT)
@@ -145,60 +190,92 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer, int *map){
 
     while (editeur_launched){
         SDL_WaitEvent(&event);
-        switch(event.type){
-            case SDL_QUIT:
-                editeur_launched = SDL_FALSE;
-                break;
-            case SDL_MOUSEBUTTONDOWN:
-				x = event.button.y / LARGEUR_EDIT;
-				y = event.button.x / LARGEUR_EDIT;
-                if (event.button.button == SDL_BUTTON_LEFT){
+		if (event.window.windowID == id_window){
+			switch(event.type){
+				case SDL_QUIT:
+					editeur_launched = SDL_FALSE;
+					break;
+				case SDL_MOUSEBUTTONDOWN:
+					x = event.button.y / LARGEUR_EDIT;
+					y = event.button.x / LARGEUR_EDIT;
 					SDL_Log("%d-%d  --> map[%d][%d]\n", event.button.x, event.button.y, x, y);
 
-                    *(map + x * M + y) = case_actuelle;
-					aff_texture(window, renderer, texture_actuelle, (y * LARGEUR_EDIT), (x * LARGEUR_EDIT), CASE, LARGEUR_EDIT);
-				}        
-                else if (event.button.button == SDL_BUTTON_RIGHT){
-                    *(map + x * M + y) = VIDE;
-					aff_texture(window, renderer, texture_case_presque_vide, (y * LARGEUR_EDIT), (x * LARGEUR_EDIT), CASE, LARGEUR_EDIT);
-				}
-                break;
-            case SDL_KEYDOWN:
-                switch(event.key.keysym.sym){
-                    case SDLK_ESCAPE:
-                        editeur_launched = SDL_FALSE;
-                        break;
-                    case SDLK_s:
-                        //sauvegarderNiveau(carte);
-                        break;
-                    case SDLK_c:
-                        //chargerNiveau(carte);
-                        break;
-                    case SDLK_KP_1:
-						case_actuelle = EAU;
-                        texture_actuelle = texture_eau;
-                        break;
-                    case SDLK_KP_2:
-						case_actuelle = TERRE;
-                        texture_actuelle = texture_terre;
-                        break;
-                    case SDLK_KP_3:
-						case_actuelle = HERBE;
-                        texture_actuelle = texture_herbe;
-                        break;
-                    case SDLK_KP_4:
-						aff_map(map);
-						printf("\n\n");
-                        break;
-                }
-                break;
-        }
+					if (event.button.button == SDL_BUTTON_LEFT){
+						*(map + x * M + y) = case_actuelle;
+						select_tile(renderer, texture_tiles, x, y, texture_actuelle_x, texture_actuelle_y);
+						clic_long_gauche = SDL_TRUE;
+					}        
+					else if (event.button.button == SDL_BUTTON_RIGHT){
+						*(map + x * M + y) = VIDE;
+						aff_texture(window, renderer, texture_case_vide, (y * LARGEUR_EDIT), (x * LARGEUR_EDIT), CASE, LARGEUR_EDIT);
+						clic_long_droit = SDL_TRUE;
+					}
+					break;
+				case SDL_MOUSEBUTTONUP:
+					if (event.button.button == SDL_BUTTON_LEFT)
+						clic_long_gauche = SDL_FALSE;
+					else if (event.button.button == SDL_BUTTON_RIGHT)
+						clic_long_droit = SDL_FALSE;
+					break;
+				case SDL_MOUSEMOTION:
+					x = event.button.y / LARGEUR_EDIT;
+					y = event.button.x / LARGEUR_EDIT;
+
+					if (clic_long_gauche == SDL_TRUE){
+						*(map + x * M + y) = case_actuelle;
+						select_tile(renderer, texture_tiles, x, y, texture_actuelle_x, texture_actuelle_y);
+					}
+					else if (clic_long_droit == SDL_TRUE){
+						*(map + x * M + y) = VIDE;
+						aff_texture(window, renderer, texture_case_vide, (y * LARGEUR_EDIT), (x * LARGEUR_EDIT), CASE, LARGEUR_EDIT);
+					}
+					break;
+				case SDL_KEYDOWN:
+					switch(event.key.keysym.sym){
+						case SDLK_ESCAPE:
+							editeur_launched = SDL_FALSE;
+							break;
+						case SDLK_a:
+							aff_map(map);
+							break;
+						case SDLK_s:
+							//sauvegarderNiveau(carte);
+							break;
+						case SDLK_c:
+							//chargerNiveau(carte);
+							break;
+					}
+					break;
+			}
+		}
+		else if (event.window.windowID == id_window_edit){
+			switch(event.type){
+				case SDL_QUIT:
+					editeur_launched = SDL_FALSE;
+					break;
+				case SDL_KEYDOWN:
+					switch(event.key.keysym.sym){
+						case SDLK_ESCAPE:
+							editeur_launched = SDL_FALSE;
+							break;
+					}
+					break;
+				case SDL_MOUSEBUTTONDOWN:
+					texture_actuelle_x = event.button.y / (H_TEXTURES / NOMBRE_BLOCS_HAUTEUR);
+					texture_actuelle_y = event.button.x / (W_TEXTURES / NOMBRE_BLOCS_LARGEUR);
+					case_actuelle = texture_actuelle_x * NOMBRE_BLOCS_LARGEUR + texture_actuelle_y;
+
+					SDL_Log("%d-%d  --> textures[%d][%d]\n", event.button.x, event.button.y, texture_actuelle_x, texture_actuelle_y);
+				break;
+			}
+		}
 	}
-	SDL_DestroyTexture(texture_eau);
-	SDL_DestroyTexture(texture_terre);
-	SDL_DestroyTexture(texture_herbe);
 	SDL_DestroyTexture(texture_case_vide);
-	SDL_DestroyTexture(texture_case_presque_vide);
 	SDL_DestroyTexture(texture_ciel);
 	SDL_DestroyTexture(texture_actuelle);
+	SDL_DestroyTexture(texture_textures);
+	SDL_DestroyTexture(texture_tiles);
+
+	SDL_DestroyRenderer(renderer_edit);
+	SDL_DestroyWindow(window_edit);
 }

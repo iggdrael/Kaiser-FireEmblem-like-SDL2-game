@@ -12,7 +12,9 @@ int main(int argc, char** argv)
     if (SDL_Init(SDL_INIT_VIDEO) != 0 )
         SDL_ExitWithError("Initialisation SDL", NULL, NULL, NULL);
 
-	window = SDL_CreateWindow("Kaiser",SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN|SDL_WINDOW_RESIZABLE);
+	window = SDL_CreateWindow("Kaiser",0, 100, WIDTH, HEIGHT, SDL_WINDOW_SHOWN|SDL_WINDOW_RESIZABLE);
+	//window = SDL_CreateWindow("Textures",SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 736, 672, SDL_WINDOW_SHOWN|SDL_WINDOW_RESIZABLE);
+
 
 	if(window == NULL)
 		SDL_ExitWithError("Erreur à la création de la fenetre\n", window, NULL, NULL);
@@ -23,6 +25,8 @@ int main(int argc, char** argv)
 
 	//creer_map_rendu(window, renderer);
 	editeur_map(window, renderer, map);
+	//SDL_Texture *texture_case = creerTexture(window, renderer, "src/Kaiser/img/textures.png");
+	//aff_texture(window, renderer, texture_case, 0, 0, HUD, 0);
 
 /************************************************************************************************************************************************************************************/
 
@@ -37,8 +41,8 @@ int main(int argc, char** argv)
                 case SDL_MOUSEBUTTONDOWN:
 					graph.x = event.button.x;
 					graph.y = event.button.y;
-					mat.x = event.button.y / (HEIGHT / N);
-					mat.y = event.button.x / (WIDTH / M);
+					mat.x = event.button.y / (672 / 21);
+					mat.y = event.button.x / (736 / 23);
 
 					SDL_Log("%d-%d  --> grille[%d][%d]\n", graph.x, graph.y, mat.x, mat.y);
                     break;
@@ -52,6 +56,7 @@ int main(int argc, char** argv)
             }
         }
     }
+
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
     SDL_Quit();
