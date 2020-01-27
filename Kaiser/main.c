@@ -1,5 +1,6 @@
 #include "fonctions.h"
 //gcc src/main.c -o bin/prog -I include -L lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf
+//gcc src/kaiser/main.c .\src\kaiser\fonctions.c -o bin/prog -I include -L lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf
 
 int main(int argc, char** argv)
 {
@@ -12,7 +13,7 @@ int main(int argc, char** argv)
     if (SDL_Init(SDL_INIT_VIDEO) != 0 )
         SDL_ExitWithError("Initialisation SDL", NULL, NULL, NULL);
 
-	window = SDL_CreateWindow("Kaiser",0, 100, WIDTH, HEIGHT, SDL_WINDOW_SHOWN|SDL_WINDOW_RESIZABLE);
+	window = SDL_CreateWindow("Kaiser",0, 100, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
 	//window = SDL_CreateWindow("Textures",SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 736, 672, SDL_WINDOW_SHOWN|SDL_WINDOW_RESIZABLE);
 
 
@@ -25,8 +26,6 @@ int main(int argc, char** argv)
 
 	//creer_map_rendu(window, renderer);
 	editeur_map(window, renderer, map);
-	//SDL_Texture *texture_case = creerTexture(window, renderer, "src/Kaiser/img/textures.png");
-	//aff_texture(window, renderer, texture_case, 0, 0, HUD, 0);
 
 /************************************************************************************************************************************************************************************/
 
