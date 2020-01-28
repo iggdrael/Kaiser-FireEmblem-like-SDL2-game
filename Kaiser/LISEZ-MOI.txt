@@ -1,0 +1,6 @@
+Choisissez une texture, 
+f pour remplir la map avec,
+s pour sauvegarder la map (nom généré automatiquement, format : mapA.txt),
+c pour charger une map préalablement sauvegardée, on vous demande le nom du fichier en console, il faut bien écrire mapA.txt, mapB.txt etc en entier
+
+Enjoy !
