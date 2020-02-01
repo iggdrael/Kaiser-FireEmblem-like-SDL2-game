@@ -1,37 +1,21 @@
 #include "fonctions.h"
 
-void creer_map_rendu(SDL_Window *window, SDL_Renderer *renderer){
-	SDL_Texture *texture_hud = creerTexture(window, renderer, "gui.png");
-	int x, y;
-
-    for(x = 100; x < (M*LARGEUR_CASE); x += LARGEUR_CASE)
-        for (y = 100; y < (N*LARGEUR_CASE); y += LARGEUR_CASE)
-			//aff_texture(window, renderer, texture_case, x, y, CASE, LARGEUR_CASE);
-
-	
-	aff_texture(window, renderer, texture_hud, 0, 0, HUD, 0);
-	SDL_DestroyTexture(texture_hud);
-}
-
-int *init_map(){
+int *init_matrice(){
+/**Fonction qui initialise et retourne la matrice representant la map**/
 	int i, j;
-	int *grille = malloc(sizeof(int) * (N*M));
+	int *map = malloc(sizeof(int) * (N*M));
 
-	if (grille == NULL){
+	if (map == NULL){
 		fprintf(stderr, "Problème allocation mémoire\n");
-		free(grille); 
+		free(map); 
 		exit(EXIT_FAILURE);
 	}
 
-	for (i = 0; i < N; i++)
-        for (j = 0; j < M; j++)
-			*(grille + M*i + j) = VIDE;
-
-	return grille;
+	return map;
 }
 
-void aff_matrice(int *A)
-{
+void aff_matrice(int *A){
+/**Fonction affichant le contenu de la matrice passee en parametre sur la sortie standard**/ 
     int i, j;
     for(i = 0 ; i < N; i++){
         for (j = 0 ; j < M ; j++)
@@ -40,8 +24,8 @@ void aff_matrice(int *A)
     }
 }
 
-void SDL_ExitWithError(const char *message, SDL_Window *w, SDL_Renderer *r, SDL_Texture *t)
-{
+void SDL_ExitWithError(const char *message, SDL_Window *w, SDL_Renderer *r, SDL_Texture *t){
+/**Fonction de gestion d erreur qui affiche l erreur SDL rencontree et libere la memoire allouee avant de quitter le programme**/
     SDL_Log("ERREUR : %s > %s\n", message, SDL_GetError());
 	if(t != NULL)
         SDL_DestroyTexture(t);
@@ -50,10 +34,12 @@ void SDL_ExitWithError(const char *message, SDL_Window *w, SDL_Renderer *r, SDL_
     if(w != NULL)
         SDL_DestroyWindow(w);
     SDL_Quit();
+
     exit(EXIT_FAILURE);
 }
 
 SDL_Texture *creerTexture(SDL_Window *window, SDL_Renderer *renderer, char sourceIMG[30]){
+/**Fonction qui cree et retourne une texture associee au renderer et a la source passes en parametres**/
 	SDL_Surface *img_to_load = NULL;
 	SDL_Texture *texture = NULL;
     
@@ -69,52 +55,43 @@ SDL_Texture *creerTexture(SDL_Window *window, SDL_Renderer *renderer, char sourc
     	SDL_ExitWithError("Erreur à la création de la texture\n", window, renderer, texture);
 		exit(EXIT_FAILURE);
 	}
+
 	return (texture);
 }
 
-void aff_texture(SDL_Window *window, SDL_Renderer *renderer, SDL_Texture *texture, int x_texture, int y_texture, int type_texture, int type_largeur){
-	SDL_Rect DestR;
-	int out_render;
-
-	switch (type_texture){
-		case HUD:
-			out_render = SDL_RenderCopy(renderer, texture, NULL, NULL);
-			break;
-		case CASE:
-			DestR.x = x_texture;
-			DestR.y = y_texture;
-			DestR.w = DestR.h = type_largeur;
-			out_render = SDL_RenderCopy(renderer, texture, NULL, &DestR);
-			break;
-	}
-
-	if(out_render != 0){
-		SDL_ExitWithError("Erreur à l'affichage\n", window, renderer, texture);
-		exit(EXIT_FAILURE);
-	}
-    SDL_RenderPresent(renderer);
-}
-
-void select_tile(SDL_Renderer *renderer, SDL_Texture *texture, int x, int y, int i, int j){
+void aff_tile(SDL_Renderer *renderer, SDL_Texture *texture, int i, int j, int case_actuelle){
+/**Fonction affichant une portion de la texture sur le renderer (depuis sa case, -1 pour toute la texture)**/
 	SDL_Rect Rect_dest;
     SDL_Rect Rect_source;
-    Rect_source.w = LARGEUR_TILE;
-    Rect_dest.w   = LARGEUR_EDIT;
-    Rect_source.h = HAUTEUR_TILE;
-    Rect_dest.h   = LARGEUR_EDIT;
 
-	Rect_dest.x = y * LARGEUR_EDIT;
-    Rect_dest.y = x * LARGEUR_EDIT;
-    Rect_source.x = j * LARGEUR_TILE;
-    Rect_source.y = i * LARGEUR_TILE;
+	if (case_actuelle == -1){
+		if(SDL_RenderCopy(renderer, texture, NULL, NULL) != 0){
+			SDL_ExitWithError("Erreur à l'affichage\n", 0, renderer, texture);
+			exit(EXIT_FAILURE);
+		}
+	}
+	else{
+		coords_t coords = case_to_coords(case_actuelle);
 
-	if(SDL_RenderCopy(renderer, texture, &Rect_source, &Rect_dest) != 0){
-		SDL_ExitWithError("Erreur à l'affichage\n", 0, renderer, texture);
-		exit(EXIT_FAILURE);
+		Rect_source.w = LARGEUR_TILE;
+		Rect_dest.w   = LARGEUR_CASE;
+		Rect_source.h = HAUTEUR_TILE;
+		Rect_dest.h   = LARGEUR_CASE;
+
+		Rect_dest.x = j * LARGEUR_CASE;
+		Rect_dest.y = i * LARGEUR_CASE;
+		Rect_source.x = coords.y * LARGEUR_TILE;
+		Rect_source.y = coords.x * LARGEUR_TILE;
+
+		if(SDL_RenderCopy(renderer, texture, &Rect_source, &Rect_dest) != 0){
+			SDL_ExitWithError("Erreur à l'affichage\n", 0, renderer, texture);
+			exit(EXIT_FAILURE);
+		}
 	}
 }
 
-void creerTexte(SDL_Renderer *renderer, TTF_Font *police, char str[], int x, int y){
+void creerTexte(SDL_Renderer *renderer, TTF_Font *police, char *str, int x, int y){
+/**Fonction affichant un texte "str" sur le renderer aux coordonees passees en parametres**/
 	SDL_Surface *texte = NULL;
 	SDL_Rect txtDestRect;
 	SDL_Color NOIR = {0, 0, 0};
@@ -138,10 +115,12 @@ void creerTexte(SDL_Renderer *renderer, TTF_Font *police, char str[], int x, int
 }
 
 SDL_bool valides(int x, int y){
+/**Fonction qui retourne TRUE si les coordonnees passees en parametres sont dans les limites de la matrice**/
 	return ((x >= 0 && x < N) && (y >= 0 && y < M));
 }
 
 void save_map(int *map){
+/**Fonction permettant de creer un fichier texte et d y sauvegarder une map**/ 
 	FILE *fic = NULL;
 	char fname[8] = "mapA.txt";
 
@@ -163,9 +142,11 @@ void save_map(int *map){
 		fprintf(fic, "\n");
     }
 	fclose(fic);
+	SDL_Log("Sauvegarde reussie !!\n");
 }
 
 void load_matrice(int *map){
+/**Fonction permettant de charger la matrice "map" depuis un fichier texte**/
 	FILE *fic = NULL;
 	char fname[8] = "mapA.txt";
 
@@ -178,8 +159,7 @@ void load_matrice(int *map){
         exit(EXIT_FAILURE);
     }
 
-	int i, j, texture_actuelle_x, texture_actuelle_y, val_texture;
-	float p;
+	int i, j, val_texture;
 
 	for(i = 0; i < N; i++){
         for (j = 0 ; (j < M) && !feof(fic) ; j++){
@@ -191,31 +171,64 @@ void load_matrice(int *map){
 	printf("La map a bien ete chargee.\n");
 }
 
-void load_map(int *map, SDL_Renderer *renderer, SDL_Texture *texture_tiles){
-	int i, j, texture_actuelle_x, texture_actuelle_y;
-	float p;
+void aff_map(int *map, SDL_Renderer *renderer, SDL_Texture *pack_texture){
+/**Fonction affichant les textures de la matrice "map" sur le renderer**/
+	int i, j;
 
-	for(i = 0 ; i < N; i++){
-        for (j = 0; j < M; j++){
-			p = (float)*(map + M*i + j) / (float)NOMBRE_BLOCS_LARGEUR;
-			texture_actuelle_x = (int)p;
-			p = (p - texture_actuelle_x) * 100;
-			texture_actuelle_y = NOMBRE_BLOCS_LARGEUR * p / 100;
-			select_tile(renderer, texture_tiles, i, j, texture_actuelle_x, texture_actuelle_y);
-		}
-    }
+	for(i = 0 ; i < N; i++)
+        for (j = 0; j < M; j++)
+			aff_tile(renderer, pack_texture, i, j, *(map + M*i + j));
 	SDL_RenderPresent(renderer);
 }
 
-void editeur_map(SDL_Window *window, SDL_Renderer *renderer, int *map){
-	/*************************************************************/
+coords_t case_to_coords(int case_actuelle){
+/**Fonction qui transforme la case passee en parametres en coordonnees 
+ * de son emplacement dans le pack de texture et les retourne**/
+	coords_t coords;
+
+	coords.x = case_actuelle / NOMBRE_BLOCS_LARGEUR;
+	coords.y = case_actuelle - (coords.x * NOMBRE_BLOCS_LARGEUR);
+
+	return coords;
+}
+
+void fill_map(SDL_Renderer *renderer, SDL_Texture *pack_texture, int *map, int case_actuelle){
+/**Fonction permettant de remplir la carte avec la tile selectionnee depuis ses coordonnees**/
+	int i, j;
+
+	for (i = 0; i < N; i++)
+        for (j = 0; j < M; j++){
+			aff_tile(renderer, pack_texture, i, j, case_actuelle);
+			*(map + M*i + j) = case_actuelle; 
+		}
+    SDL_RenderPresent(renderer);
+}
+
+void ecraser_case_actuelle(SDL_Renderer *renderer, SDL_Texture *texture, int *map,  int i, int j, int case_actuelle){
+/**Fonction qui ecrase la case de la matrice par la "acse actuelle" et qui remplace cette case a l ecran**/
+	*(map + i * M + j) = case_actuelle;
+	aff_tile(renderer, texture, i, j, case_actuelle);
+	SDL_RenderPresent(renderer);
+}
+
+
+void editeur_map(SDL_Window *window, SDL_Renderer *renderer){
+/**Fonction permettant d editer une map
+ * Elle perment entre autre de :
+ * Choisir des textures depuis une deuxieme fenetre
+ * Remplir la carte avec cette texture avec la touche f
+ * Charger une map depuis un fichier texte avec la touche c
+ * Sauvegarder la map dans un fichier texte avec la touche s
+**/
+
+/**------------------Declaration de la fenetre et du renderer du pack de texture-------------**/
+
 	SDL_Window *window_edit = NULL;
 	SDL_Renderer *renderer_edit = NULL;
 
-    if (SDL_Init(SDL_INIT_VIDEO) != 0 )
-        SDL_ExitWithError("Initialisation SDL", NULL, NULL, NULL);
+/**------------------Initialisation de la fenetre et du renderer du pack de texture----------**/
 
-	window_edit = SDL_CreateWindow("Textures", 1680-W_TEXTURES, 100, W_TEXTURES, H_TEXTURES, SDL_WINDOW_SHOWN);
+	window_edit = SDL_CreateWindow("Textures", 1920-W_TEXTURES, 100, W_TEXTURES, H_TEXTURES, SDL_WINDOW_SHOWN);
 
 	if(window_edit == NULL)
 		SDL_ExitWithError("Erreur à la création de la fenetre\n", window_edit, NULL, NULL);
@@ -224,104 +237,91 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer, int *map){
 	if(renderer_edit == NULL)
 		SDL_ExitWithError("Erreur à la création du renderer\n", window_edit, renderer_edit, NULL);
 
-	Uint32 id_window = SDL_GetWindowID(window), id_window_edit = SDL_GetWindowID(window_edit);
-
-	/*************************************************************/
-	SDL_Texture *texture_textures = creerTexture(window_edit, renderer_edit, "texturesfull.png");
-	SDL_Texture *texture_tiles = creerTexture(window, renderer, "texturesfull.png");
-
-
+/**------------------Declaration variables secondaires----------------------------------------**/
+	
+	int *map = init_matrice();
 	SDL_bool editeur_launched = SDL_TRUE, clic_long_gauche = SDL_FALSE, clic_long_droit = SDL_FALSE;
     SDL_Event event;
-	int case_actuelle = 0, x, y, texture_actuelle_x, texture_actuelle_y;
+	int case_actuelle = 0;
 
-	aff_texture(window_edit, renderer_edit, texture_textures, 0, 0, HUD, 0);
+/**------------------Variables correspondant a l id des fenetres------------------------------**/
 
-	for (x = 0; x < N+1; x++)
-        for (y = 0; y < M+1; y++)
-			select_tile(renderer, texture_tiles, x, y, 0, 0);
-	SDL_RenderPresent(renderer);
+	Uint32 id_main_window = SDL_GetWindowID(window);
+	Uint32 id_window_edit = SDL_GetWindowID(window_edit);
+
+/**------------------Creation des textures----------------------------------------------------**/
+
+	SDL_Texture *pack_textures_for_window = creerTexture(window_edit, renderer_edit, "packtexture.png");
+	SDL_Texture *pack_texture = creerTexture(window, renderer, "packtexture.png");
+
+/**------------------Affichage des textures dans la deuxieme fenetre--------------------------
+ * ------------------Remplissage de la fenetre principale avec la tile case vide--------------**/
+
+	aff_tile(renderer_edit, pack_textures_for_window, 0, 0, -1);
+	SDL_RenderPresent(renderer_edit);
+	fill_map(renderer, pack_texture, map, 0);
+
+/**------------------Debut du programme de l editeur------------------------------------------**/
 
     while (editeur_launched){
         SDL_WaitEvent(&event);
-		if (event.window.windowID == id_window){
-			switch(event.type){
-				case SDL_QUIT:
-					editeur_launched = SDL_FALSE;
-					break;
-				case SDL_MOUSEBUTTONDOWN:
-					x = event.button.y / LARGEUR_EDIT;
-					y = event.button.x / LARGEUR_EDIT;
-					SDL_Log("%d-%d  --> map[%d][%d]\n", event.button.x, event.button.y, x, y);
 
+		if (event.window.windowID == id_main_window){
+/**------------------Evenement sur fenetre principale-----------------------------------------**/
+
+			switch(event.type){
+				case SDL_QUIT: editeur_launched = SDL_FALSE;break;
+
+				case SDL_MOUSEBUTTONDOWN:
 					if (event.button.button == SDL_BUTTON_LEFT){
-						*(map + x * M + y) = case_actuelle;
-						select_tile(renderer, texture_tiles, x, y, texture_actuelle_x, texture_actuelle_y);
-					    SDL_RenderPresent(renderer);
+						ecraser_case_actuelle(renderer, pack_texture, map, event.button.y / LARGEUR_CASE, event.button.x / LARGEUR_CASE, case_actuelle);
 						clic_long_gauche = SDL_TRUE;
-					}        
+					}  
 					else if (event.button.button == SDL_BUTTON_RIGHT){
-						*(map + x * M + y) = VIDE;
-						select_tile(renderer, texture_tiles, x, y, 0, 0);
-						SDL_RenderPresent(renderer);
+						ecraser_case_actuelle(renderer, pack_texture, map, event.button.y / LARGEUR_CASE, event.button.x / LARGEUR_CASE, 0);
 						clic_long_droit = SDL_TRUE;
 					}
 					break;
+
 				case SDL_MOUSEBUTTONUP:
 					if (event.button.button == SDL_BUTTON_LEFT)
 						clic_long_gauche = SDL_FALSE;
 					else if (event.button.button == SDL_BUTTON_RIGHT)
 						clic_long_droit = SDL_FALSE;
 					break;
-				case SDL_MOUSEMOTION:
-					x = event.button.y / LARGEUR_EDIT;
-					y = event.button.x / LARGEUR_EDIT;
 
-					if (clic_long_gauche == SDL_TRUE){
-						*(map + x * M + y) = case_actuelle;
-						select_tile(renderer, texture_tiles, x, y, texture_actuelle_x, texture_actuelle_y);
-						SDL_RenderPresent(renderer);
-					    SDL_RenderPresent(renderer);
-					}
+				case SDL_MOUSEMOTION:
+				/**Si l utilisateur maintient le clic enfonce, on affiche les textures a l emplacement du curseur**/
+					if (clic_long_gauche == SDL_TRUE)
+						ecraser_case_actuelle(renderer, pack_texture, map, event.button.y / LARGEUR_CASE, event.button.x / LARGEUR_CASE, case_actuelle);
 					else if (clic_long_droit == SDL_TRUE){
-						*(map + x * M + y) = VIDE;
-						select_tile(renderer, texture_tiles, x, y, 0, 0);
-						SDL_RenderPresent(renderer);
-					}
+						ecraser_case_actuelle(renderer, pack_texture, map, event.button.y / LARGEUR_CASE, event.button.x / LARGEUR_CASE, 0);
 					break;
+
 				case SDL_KEYDOWN:
 					switch(event.key.keysym.sym){
-						case SDLK_ESCAPE:
-							editeur_launched = SDL_FALSE;
-							break;
-						case SDLK_a:
-							aff_matrice(map);
-							break;
-						case SDLK_f:
-							for (x = 0; x < N+1; x++)
-        						for (y = 0; y < M+1; y++){
-									select_tile(renderer, texture_tiles, x, y, texture_actuelle_x, texture_actuelle_y);
-									*(map + M*x + y) = case_actuelle; 
-								}
-						    SDL_RenderPresent(renderer);
-							break;
-						case SDLK_s:
-							save_map(map);
-							SDL_Log("Sauvegarde reussie !!\n");
-							break;
+						case SDLK_ESCAPE: editeur_launched = SDL_FALSE;break;
+
+						case SDLK_a: aff_matrice(map);break;
+						case SDLK_f: fill_map(renderer, pack_texture, map, case_actuelle);break;
+						
+						case SDLK_s: save_map(map);break;
+
 						case SDLK_c:
 							load_matrice(map);
-							load_map(map, renderer, texture_tiles);
+							aff_map(map, renderer, pack_texture);
 							break;
 					}
 					break;
+				}
 			}
 		}
 		else if (event.window.windowID == id_window_edit){
+/**------------------Evenement sur fenetre textures------------------------------------------**/
+
 			switch(event.type){
-				case SDL_QUIT:
-					editeur_launched = SDL_FALSE;
-					break;
+				case SDL_QUIT: editeur_launched = SDL_FALSE;break;
+
 				case SDL_KEYDOWN:
 					switch(event.key.keysym.sym){
 						case SDLK_ESCAPE:
@@ -329,19 +329,19 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer, int *map){
 							break;
 					}
 					break;
-				case SDL_MOUSEBUTTONDOWN:
-					texture_actuelle_x = event.button.y / (H_TEXTURES / NOMBRE_BLOCS_HAUTEUR);
-					texture_actuelle_y = event.button.x / (W_TEXTURES / NOMBRE_BLOCS_LARGEUR);
-					case_actuelle = texture_actuelle_x * NOMBRE_BLOCS_LARGEUR + texture_actuelle_y;
 
-					SDL_Log("%d-%d  --> textures[%d][%d]\n", event.button.x, event.button.y, texture_actuelle_x, texture_actuelle_y);
-				break;
+				case SDL_MOUSEBUTTONDOWN: case_actuelle = (event.button.y / (H_TEXTURES / NOMBRE_BLOCS_HAUTEUR)) * NOMBRE_BLOCS_LARGEUR + (event.button.x / (W_TEXTURES / NOMBRE_BLOCS_LARGEUR));
 			}
 		}
 	}
-	SDL_DestroyTexture(texture_textures);
-	SDL_DestroyTexture(texture_tiles);
 
+/**------------------Liberation de la mémoire allouee----------------------------------------**/
+
+	SDL_DestroyTexture(pack_textures_for_window);
+	SDL_DestroyTexture(pack_texture);
 	SDL_DestroyRenderer(renderer_edit);
 	SDL_DestroyWindow(window_edit);
+	free(map);
+
+/**------------------Fin du programme de l editeur-------------------------------------------**/
 }
