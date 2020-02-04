@@ -37,3 +37,5 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer);
 SDL_bool valides(int x, int y);
 void creerTexte(SDL_Renderer *renderer, TTF_Font *police, char *str, int x, int y);
 void SDL_ExitWithError(const char *message, SDL_Window *w, SDL_Renderer *r, SDL_Texture *t);
+
+void menu(SDL_Window *window, SDL_Renderer *renderer);

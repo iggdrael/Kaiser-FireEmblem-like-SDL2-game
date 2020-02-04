@@ -13,11 +13,17 @@ int main(int argc, char** argv){
 	
 	SDL_Window *window = NULL;
 	SDL_Renderer *renderer = NULL;
+	TTF_Font *font;
 
 /**------------------Initialisation SDL et librairies------------------**/
 
     if (SDL_Init(SDL_INIT_VIDEO) != 0 )
         SDL_ExitWithError("Initialisation SDL", NULL, NULL, NULL);
+
+	if(!TTF_WasInit() && TTF_Init()==-1) {
+    	printf("TTF_Init: %s\n", TTF_GetError());
+    	exit(EXIT_FAILURE);
+	}
 
 	window = SDL_CreateWindow("Kaiser",SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
 
@@ -28,11 +34,12 @@ int main(int argc, char** argv){
 	if(renderer == NULL)
 		SDL_ExitWithError("Erreur à la création du renderer\n", window, renderer, NULL);
 
+
 /**------------------Declaration variables secondaires-------------------------**/
 
 	//int ;
-	SDL_bool program_launched = SDL_TRUE;
-	SDL_Event event;
+	//SDL_bool program_launched = SDL_TRUE;
+	//SDL_Event event;
 
 /**------------------Creation des textures-------------------------------------**/
 
@@ -40,7 +47,8 @@ int main(int argc, char** argv){
 
 /**------------------Debut du programme----------------------------------------**/
 
-    while (program_launched){
+	menu(window, renderer);
+    /*while (program_launched){
         while (SDL_PollEvent(&event)){
             switch(event.type){
 				case SDL_QUIT: program_launched = SDL_FALSE;break;
@@ -59,12 +67,13 @@ int main(int argc, char** argv){
 					break;
 			}
         }
-    }
+    }*/
 
 /**------------------Liberation de la mémoire allouee-------------------------**/
 
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
+	TTF_Quit();
     SDL_Quit();
 
 /**-----------------Fin du programme------------------------------------------**/

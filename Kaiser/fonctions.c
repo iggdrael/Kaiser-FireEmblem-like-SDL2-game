@@ -345,3 +345,59 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer){
 
 /**------------------Fin du programme de l editeur-------------------------------------------**/
 }
+
+/**------------------Menu--------------------------------------------------------------------**/
+
+void menu(SDL_Window *window, SDL_Renderer *renderer){
+	SDL_Event event;
+	SDL_bool menu_launched = SDL_TRUE;
+	SDL_Texture *background = NULL;
+	TTF_Font *police = TTF_OpenFont("caviardreams.ttf", 72);
+
+	if (!police)
+		SDL_ExitWithError("Erreur du chargement de la police", window, renderer, background);
+
+	background = creerTexture(window, renderer, "background.png");
+	SDL_RenderCopy(renderer, background, NULL, NULL);
+	creerTexte(renderer, police, "Jouer", WIDTH/2-72*2.5, HEIGHT-3*(HEIGHT/4));
+	creerTexte(renderer, police, "Settings", WIDTH/2-72*2.5, HEIGHT-2*(HEIGHT/4));
+	creerTexte(renderer, police, "Quitter", WIDTH/2-72*2.5, HEIGHT-1*(HEIGHT/4));
+
+ 	SDL_RenderPresent(renderer);
+
+	while (menu_launched){
+        SDL_WaitEvent(&event);
+
+			switch(event.type){
+				case SDL_QUIT: menu_launched = SDL_FALSE;break;
+
+				case SDL_MOUSEBUTTONDOWN:
+					if (event.button.button == SDL_BUTTON_LEFT){
+						if (	event.button.y > HEIGHT-3*(HEIGHT/4)-72 
+							&& 	event.button.y < HEIGHT-2*(HEIGHT/4)-72
+							){
+							printf("Jouer\n");
+						}
+						else if (event.button.y > HEIGHT-2*(HEIGHT/4)-72
+							&&	event.button.y < HEIGHT-1*(HEIGHT/4)-72
+							){
+							printf("Settings\n");
+						}
+						else if (event.button.y > HEIGHT-1*(HEIGHT/4)-72
+							&&	event.button.y < HEIGHT-72
+							){
+							menu_launched = SDL_FALSE;
+						}
+					}
+					break;
+
+				case SDL_KEYDOWN:
+					switch(event.key.keysym.sym){
+						case SDLK_ESCAPE: menu_launched = SDL_FALSE;break;
+
+					}
+			}
+	}
+	free(police);
+	SDL_DestroyTexture(background);
+}
