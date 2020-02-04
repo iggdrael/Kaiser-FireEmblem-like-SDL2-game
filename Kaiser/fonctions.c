@@ -146,7 +146,7 @@ SDL_bool valides(int x, int y){
 
 void save_map(case_t *map){
 /**Fonction permettant de creer un fichier texte et d y sauvegarder une map**/ 
-	/*FILE *fic = NULL;
+	FILE *fic = NULL;
 	char fname[8] = "mapA.txt";
 
 	while (access(fname, F_OK) != -1)
@@ -159,20 +159,25 @@ void save_map(case_t *map){
         exit(EXIT_FAILURE);
     }
 
-	int i, j;
+	int i, j, k;
 
 	for(i = 0 ; i < N; i++){
-        for (j = 0 ; j < M ; j++)
-            fprintf(fic, "%d ", *(map + M*i + j));
-		fprintf(fic, "\n");
+        for (j = 0 ; j < M ; j++){
+			fprintf(fic, "[");
+			for (k = 0; k < MAX_TEXTURES; k++)
+            	fprintf(fic, "%d ", (map + M*i + j)->textures[k]);
+			fprintf(fic, "]");
+		}
+        fprintf(fic, "\n");
     }
+
 	fclose(fic);
-	SDL_Log("Sauvegarde reussie !!\n");*/
+	SDL_Log("Sauvegarde reussie !!\n");
 }
 
 void load_matrice(case_t *map){
 /**Fonction permettant de charger la matrice "map" depuis un fichier texte**/
-	/*FILE *fic = NULL;
+	FILE *fic = NULL;
 	char fname[8] = "mapA.txt";
 
 	//printf("Nom de la map a charger : ");
@@ -184,16 +189,19 @@ void load_matrice(case_t *map){
         exit(EXIT_FAILURE);
     }
 
-	int i, j, val_texture;
+	int i, j, val1, val2, val3;
 
 	for(i = 0; i < N; i++){
         for (j = 0 ; (j < M) && !feof(fic) ; j++){
-			fscanf(fic, "%d ", &val_texture);
-            *(map + M*i + j) = val_texture;
+			fscanf(fic, "[%d %d %d ]", &val1, &val2, &val3);
+            (map + M*i + j)->textures[0] = val1;
+            (map + M*i + j)->textures[1] = val2;
+            (map + M*i + j)->textures[2] = val3;
 		}
+		fscanf(fic, "\n");
     }
 	fclose(fic);
-	printf("La map a bien ete chargee.\n");*/
+	printf("La map a bien ete chargee.\n");
 }
 
 void aff_map(case_t *map, SDL_Renderer *renderer, SDL_Texture *pack_texture){
@@ -383,10 +391,7 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer){
 						
 						case SDLK_s: save_map(map);break;
 
-						case SDLK_c:
-							load_matrice(map);
-							aff_map(map, renderer, pack_texture);
-							break;
+						case SDLK_c: load_matrice(map);break;
 					}
 					break;
 				}
