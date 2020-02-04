@@ -1,25 +1,50 @@
 #include "fonctions.h"
 
-int *init_matrice(){
+case_t *init_matrice(){
 /**Fonction qui initialise et retourne la matrice representant la map**/
-	int i, j;
-	int *map = malloc(sizeof(int) * (N*M));
+	int i, j, k;
+	case_t *map = malloc(sizeof(case_t) * (N*M));
 
 	if (map == NULL){
 		fprintf(stderr, "Problème allocation mémoire\n");
-		free(map); 
 		exit(EXIT_FAILURE);
 	}
+
+/**On alloue de la mémoire pour chaque case de la matrice**/
+	for (i = 0; i < N; i++)
+		for (j = 0; j < M; j++){
+			(map + i*M + j)->textures = malloc(sizeof(int) * MAX_TEXTURES);
+			
+			if ((map + i*M + j)->textures == NULL){
+				fprintf(stderr, "Problème allocation mémoire\n"); 
+				exit(EXIT_FAILURE);
+			}
+		}
 
 	return map;
 }
 
-void aff_matrice(int *A){
+void detruire_matrice(case_t *map){
+/**Fonction qui libere la memoire allouee a la matrice map**/
+	int i, j;
+
+	for (i = 0; i < N; i++)
+		for (j = 0; j < M; j++)
+			free((map + i*M + j)->textures);
+	free(map);
+}
+
+void aff_matrice(case_t *A){
 /**Fonction affichant le contenu de la matrice passee en parametre sur la sortie standard**/ 
-    int i, j;
+    int i, j, k;
+
     for(i = 0 ; i < N; i++){
-        for (j = 0 ; j < M ; j++)
-            printf("%d ", *(A + M*i + j));
+        for (j = 0 ; j < M ; j++){
+			printf("[");
+			for (k = 0; k < MAX_TEXTURES; k++)
+            	printf("%d ", (A + M*i + j)->textures[k]);
+			printf("]");
+		}
         printf("\n");
     }
 }
@@ -119,9 +144,9 @@ SDL_bool valides(int x, int y){
 	return ((x >= 0 && x < N) && (y >= 0 && y < M));
 }
 
-void save_map(int *map){
+void save_map(case_t *map){
 /**Fonction permettant de creer un fichier texte et d y sauvegarder une map**/ 
-	FILE *fic = NULL;
+	/*FILE *fic = NULL;
 	char fname[8] = "mapA.txt";
 
 	while (access(fname, F_OK) != -1)
@@ -142,12 +167,12 @@ void save_map(int *map){
 		fprintf(fic, "\n");
     }
 	fclose(fic);
-	SDL_Log("Sauvegarde reussie !!\n");
+	SDL_Log("Sauvegarde reussie !!\n");*/
 }
 
-void load_matrice(int *map){
+void load_matrice(case_t *map){
 /**Fonction permettant de charger la matrice "map" depuis un fichier texte**/
-	FILE *fic = NULL;
+	/*FILE *fic = NULL;
 	char fname[8] = "mapA.txt";
 
 	//printf("Nom de la map a charger : ");
@@ -168,16 +193,19 @@ void load_matrice(int *map){
 		}
     }
 	fclose(fic);
-	printf("La map a bien ete chargee.\n");
+	printf("La map a bien ete chargee.\n");*/
 }
 
-void aff_map(int *map, SDL_Renderer *renderer, SDL_Texture *pack_texture){
+void aff_map(case_t *map, SDL_Renderer *renderer, SDL_Texture *pack_texture){
 /**Fonction affichant les textures de la matrice "map" sur le renderer**/
-	int i, j;
+	int i, j, k;
 
 	for(i = 0 ; i < N; i++)
         for (j = 0; j < M; j++)
-			aff_tile(renderer, pack_texture, i, j, *(map + M*i + j));
+			for (k = 0; k < MAX_TEXTURES; k++){
+				if ((map + M*i + j)->textures[k] != SUPR)
+					aff_tile(renderer, pack_texture, i, j, (map + M*i + j)->textures[k]);
+			}
 	SDL_RenderPresent(renderer);
 }
 
@@ -192,25 +220,71 @@ coords_t case_to_coords(int case_actuelle){
 	return coords;
 }
 
-void fill_map(SDL_Renderer *renderer, SDL_Texture *pack_texture, int *map, int case_actuelle){
+type_t type_texture(int case_actuelle){
+/**Fonction qui retourne le type de la texture 
+ * case vide, 
+ * texture fond (ex : terre, eau), 
+ * texture decor (ex : montagne, pont))
+ * RP (ex : personnage, equipement)**/
+	if (case_actuelle == 0)
+		return VIDE;
+	else if ((case_actuelle > 0 && case_actuelle < 332) || (case_actuelle >= 374 && case_actuelle < 412))
+		return FOND;
+	else if ((case_actuelle >= 332 && case_actuelle < 374) || (case_actuelle >= 412 && case_actuelle < 473))
+		return DECOR;
+	else
+		return RP;
+}
+
+type_t type_case(int case_actuelle){
+/**Fonction qui retourne le type de la case
+ * Franchissable (ex : pierre)
+ * Infranchissable (ex : lave)
+ * RP (ex : personnage ou equipement)**/
+	if (case_actuelle < 375)
+		return LIBRE;
+	else if (case_actuelle >= 375 && case_actuelle < 474)
+		return NON_LIBRE;
+	else if (case_actuelle >= 474)
+		return RP;
+}
+
+void fill_map(case_t *map, int case_actuelle){
 /**Fonction permettant de remplir la carte avec la tile selectionnee depuis ses coordonnees**/
 	int i, j;
 
 	for (i = 0; i < N; i++)
-        for (j = 0; j < M; j++){
-			aff_tile(renderer, pack_texture, i, j, case_actuelle);
-			*(map + M*i + j) = case_actuelle; 
-		}
-    SDL_RenderPresent(renderer);
+        for (j = 0; j < M; j++)
+			ajout_texture_case(map, i, j, case_actuelle);
 }
 
-void ecraser_case_actuelle(SDL_Renderer *renderer, SDL_Texture *texture, int *map,  int i, int j, int case_actuelle){
-/**Fonction qui ecrase la case de la matrice par la "acse actuelle" et qui remplace cette case a l ecran**/
-	*(map + i * M + j) = case_actuelle;
-	aff_tile(renderer, texture, i, j, case_actuelle);
-	SDL_RenderPresent(renderer);
-}
+void ajout_texture_case(case_t *map,  int i, int j, int case_actuelle){
+/**Fonction qui ecrase la case de la matrice par la "case actuelle" et qui remplace cette case a l ecran**/
+	int type = type_texture(case_actuelle);
 
+	if (type == VIDE){
+		/**On reinitialise la case**/
+		(map + i * M + j)->textures[0] = case_actuelle;
+		(map + i * M + j)->textures[1] = SUPR;
+		(map + i * M + j)->textures[2] = SUPR;
+	}
+	else if (type == FOND){
+		/**On change le fond**/
+		(map + i * M + j)->textures[0] = case_actuelle;
+	}
+	else if (type == DECOR){
+		/**On change l element**/
+		(map + i * M + j)->textures[1] = case_actuelle;
+	}
+	else if (type == RP){
+		/**On change l element**/
+		(map + i * M + j)->textures[2] = case_actuelle;
+	}
+
+	#ifdef DEBUG
+		printf("type : %d, case_actuelle : %d, tex[0] : %d, text[1] : %d, tex[2] : %d\n\n", type, case_actuelle, (map + i * M + j)->textures[0], (map + i * M + j)->textures[1], (map + i * M + j)->textures[2]);
+	#endif
+}
 
 void editeur_map(SDL_Window *window, SDL_Renderer *renderer){
 /**Fonction permettant d editer une map
@@ -239,7 +313,7 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer){
 
 /**------------------Declaration variables secondaires----------------------------------------**/
 	
-	int *map = init_matrice();
+	case_t *map = init_matrice();
 	SDL_bool editeur_launched = SDL_TRUE, clic_long_gauche = SDL_FALSE, clic_long_droit = SDL_FALSE;
     SDL_Event event;
 	int case_actuelle = 0;
@@ -259,7 +333,9 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer){
 
 	aff_tile(renderer_edit, pack_textures_for_window, 0, 0, -1);
 	SDL_RenderPresent(renderer_edit);
-	fill_map(renderer, pack_texture, map, 0);
+	fill_map(map, VIDE);
+	aff_map(map, renderer, pack_texture);
+	SDL_RenderPresent(renderer);
 
 /**------------------Debut du programme de l editeur------------------------------------------**/
 
@@ -274,11 +350,11 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer){
 
 				case SDL_MOUSEBUTTONDOWN:
 					if (event.button.button == SDL_BUTTON_LEFT){
-						ecraser_case_actuelle(renderer, pack_texture, map, event.button.y / LARGEUR_CASE, event.button.x / LARGEUR_CASE, case_actuelle);
+						ajout_texture_case(map, event.button.y / LARGEUR_CASE, event.button.x / LARGEUR_CASE, case_actuelle);
 						clic_long_gauche = SDL_TRUE;
 					}  
 					else if (event.button.button == SDL_BUTTON_RIGHT){
-						ecraser_case_actuelle(renderer, pack_texture, map, event.button.y / LARGEUR_CASE, event.button.x / LARGEUR_CASE, 0);
+						ajout_texture_case(map, event.button.y / LARGEUR_CASE, event.button.x / LARGEUR_CASE, 0);
 						clic_long_droit = SDL_TRUE;
 					}
 					break;
@@ -293,9 +369,9 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer){
 				case SDL_MOUSEMOTION:
 				/**Si l utilisateur maintient le clic enfonce, on affiche les textures a l emplacement du curseur**/
 					if (clic_long_gauche == SDL_TRUE)
-						ecraser_case_actuelle(renderer, pack_texture, map, event.button.y / LARGEUR_CASE, event.button.x / LARGEUR_CASE, case_actuelle);
+						ajout_texture_case(map, event.button.y / LARGEUR_CASE, event.button.x / LARGEUR_CASE, case_actuelle);
 					else if (clic_long_droit == SDL_TRUE){
-						ecraser_case_actuelle(renderer, pack_texture, map, event.button.y / LARGEUR_CASE, event.button.x / LARGEUR_CASE, 0);
+						ajout_texture_case(map, event.button.y / LARGEUR_CASE, event.button.x / LARGEUR_CASE, 0);
 					break;
 
 				case SDL_KEYDOWN:
@@ -303,7 +379,7 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer){
 						case SDLK_ESCAPE: editeur_launched = SDL_FALSE;break;
 
 						case SDLK_a: aff_matrice(map);break;
-						case SDLK_f: fill_map(renderer, pack_texture, map, case_actuelle);break;
+						case SDLK_f: fill_map(map, case_actuelle);break;
 						
 						case SDLK_s: save_map(map);break;
 
@@ -315,6 +391,10 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer){
 					break;
 				}
 			}
+			SDL_RenderClear(renderer);
+			//SDL_FillRect(renderer, NULL, SDL_MapRGB(renderer->format, 255, 255, 255));
+			aff_map(map, renderer, pack_texture);
+			SDL_RenderPresent(renderer);
 		}
 		else if (event.window.windowID == id_window_edit){
 /**------------------Evenement sur fenetre textures------------------------------------------**/
@@ -341,14 +421,14 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer){
 	SDL_DestroyTexture(pack_texture);
 	SDL_DestroyRenderer(renderer_edit);
 	SDL_DestroyWindow(window_edit);
-	free(map);
+	detruire_matrice(map);
 
 /**------------------Fin du programme de l editeur-------------------------------------------**/
 }
 
-/**------------------Menu--------------------------------------------------------------------**/
 
 void menu(SDL_Window *window, SDL_Renderer *renderer){
+/**Fonction affichant un menu permettant a l utilisateur de naviguer dans le programme**/
 	SDL_Event event;
 	SDL_bool menu_launched = SDL_TRUE;
 	SDL_Texture *background = NULL;
@@ -360,7 +440,7 @@ void menu(SDL_Window *window, SDL_Renderer *renderer){
 	background = creerTexture(window, renderer, "background.png");
 	SDL_RenderCopy(renderer, background, NULL, NULL);
 	creerTexte(renderer, police, "Jouer", WIDTH/2-72*2.5, HEIGHT-3*(HEIGHT/4));
-	creerTexte(renderer, police, "Settings", WIDTH/2-72*2.5, HEIGHT-2*(HEIGHT/4));
+	creerTexte(renderer, police, "Editeur", WIDTH/2-72*2.5, HEIGHT-2*(HEIGHT/4));
 	creerTexte(renderer, police, "Quitter", WIDTH/2-72*2.5, HEIGHT-1*(HEIGHT/4));
 
  	SDL_RenderPresent(renderer);
@@ -381,7 +461,8 @@ void menu(SDL_Window *window, SDL_Renderer *renderer){
 						else if (event.button.y > HEIGHT-2*(HEIGHT/4)-72
 							&&	event.button.y < HEIGHT-1*(HEIGHT/4)-72
 							){
-							printf("Settings\n");
+							SDL_RenderClear(renderer);
+							editeur_map(window, renderer);
 						}
 						else if (event.button.y > HEIGHT-1*(HEIGHT/4)-72
 							&&	event.button.y < HEIGHT-72

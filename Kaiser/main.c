@@ -34,40 +34,9 @@ int main(int argc, char** argv){
 	if(renderer == NULL)
 		SDL_ExitWithError("Erreur à la création du renderer\n", window, renderer, NULL);
 
-
-/**------------------Declaration variables secondaires-------------------------**/
-
-	//int ;
-	//SDL_bool program_launched = SDL_TRUE;
-	//SDL_Event event;
-
-/**------------------Creation des textures-------------------------------------**/
-
-	//SDL_Texture *texture;
-
-/**------------------Debut du programme----------------------------------------**/
+/**------------------Affichage du Menu----------------------------------------**/
 
 	menu(window, renderer);
-    /*while (program_launched){
-        while (SDL_PollEvent(&event)){
-            switch(event.type){
-				case SDL_QUIT: program_launched = SDL_FALSE;break;
-
-                case SDL_MOUSEBUTTONDOWN:
-					//case jouer:jouer()
-					//case editeur:editeur()
-					//case reglages:reglages()
-                    break;
-				
-				case SDL_KEYDOWN:
-					switch(event.key.keysym.sym){
-						case SDLK_ESCAPE: program_launched = SDL_FALSE;break;
-						case SDLK_a: editeur_map(window, renderer);break;
-            		}
-					break;
-			}
-        }
-    }*/
 
 /**------------------Liberation de la mémoire allouee-------------------------**/
 
