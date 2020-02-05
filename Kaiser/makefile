@@ -1,7 +1,7 @@
 CC=gcc
 FLAGS=-Wall -g
 
-SDL_DIR=${HOME}/SDL2
+SDL_DIR=${HOME}/SDLBIS
 SDL_LIB_DIR=${SDL_DIR}/lib
 SDL_INC_DIR=${SDL_DIR}/include
 

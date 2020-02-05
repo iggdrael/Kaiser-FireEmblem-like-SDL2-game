@@ -2,7 +2,8 @@
 
 case_t *init_matrice(){
 /**Fonction qui initialise et retourne la matrice representant la map**/
-	int i, j, k;
+	int i, j;
+
 	case_t *map = malloc(sizeof(case_t) * (N*M));
 
 	if (map == NULL){
@@ -255,6 +256,7 @@ type_t type_case(int case_actuelle){
 		return NON_LIBRE;
 	else if (case_actuelle >= 474)
 		return RP;
+	return -1;
 }
 
 void fill_map(case_t *map, int case_actuelle){
@@ -268,30 +270,33 @@ void fill_map(case_t *map, int case_actuelle){
 
 void ajout_texture_case(case_t *map,  int i, int j, int case_actuelle){
 /**Fonction qui ecrase la case de la matrice par la "case actuelle" et qui remplace cette case a l ecran**/
-	int type = type_texture(case_actuelle);
+	
+	if (valides(i, j)){
+		int type = type_texture(case_actuelle);
 
-	if (type == VIDE){
-		/**On reinitialise la case**/
-		(map + i * M + j)->textures[0] = case_actuelle;
-		(map + i * M + j)->textures[1] = SUPR;
-		(map + i * M + j)->textures[2] = SUPR;
-	}
-	else if (type == FOND){
-		/**On change le fond**/
-		(map + i * M + j)->textures[0] = case_actuelle;
-	}
-	else if (type == DECOR){
-		/**On change l element**/
-		(map + i * M + j)->textures[1] = case_actuelle;
-	}
-	else if (type == RP){
-		/**On change l element**/
-		(map + i * M + j)->textures[2] = case_actuelle;
-	}
+		if (type == VIDE){
+			/**On reinitialise la case**/
+			(map + i * M + j)->textures[0] = case_actuelle;
+			(map + i * M + j)->textures[1] = SUPR;
+			(map + i * M + j)->textures[2] = SUPR;
+		}
+		else if (type == FOND){
+			/**On change le fond**/
+			(map + i * M + j)->textures[0] = case_actuelle;
+		}
+		else if (type == DECOR){
+			/**On change l element**/
+			(map + i * M + j)->textures[1] = case_actuelle;
+		}
+		else if (type == RP){
+			/**On change l element**/
+			(map + i * M + j)->textures[2] = case_actuelle;
+		}
 
-	#ifdef DEBUG
-		printf("type : %d, case_actuelle : %d, tex[0] : %d, text[1] : %d, tex[2] : %d\n\n", type, case_actuelle, (map + i * M + j)->textures[0], (map + i * M + j)->textures[1], (map + i * M + j)->textures[2]);
-	#endif
+		#ifdef DEBUG
+			printf("type : %d, case_actuelle : %d, tex[0] : %d, text[1] : %d, tex[2] : %d\n\n", type, case_actuelle, (map + i * M + j)->textures[0], (map + i * M + j)->textures[1], (map + i * M + j)->textures[2]);
+		#endif
+	}
 }
 
 void editeur_map(SDL_Window *window, SDL_Renderer *renderer){
@@ -443,10 +448,10 @@ void menu(SDL_Window *window, SDL_Renderer *renderer){
 		SDL_ExitWithError("Erreur du chargement de la police", window, renderer, background);
 
 	background = creerTexture(window, renderer, "background.png");
-	SDL_RenderCopy(renderer, background, NULL, NULL);
-	creerTexte(renderer, police, "Jouer", WIDTH/2-72*2.5, HEIGHT-3*(HEIGHT/4));
-	creerTexte(renderer, police, "Editeur", WIDTH/2-72*2.5, HEIGHT-2*(HEIGHT/4));
-	creerTexte(renderer, police, "Quitter", WIDTH/2-72*2.5, HEIGHT-1*(HEIGHT/4));
+	aff_tile(renderer, background, 0, 0, -1);
+	//creerTexte(renderer, police, "Jouer", WIDTH/2-72*2.5, HEIGHT-3*(HEIGHT/4));
+	//creerTexte(renderer, police, "Editeur", WIDTH/2-72*2.5, HEIGHT-2*(HEIGHT/4));
+	//creerTexte(renderer, police, "Quitter", WIDTH/2-72*2.5, HEIGHT-1*(HEIGHT/4));
 
  	SDL_RenderPresent(renderer);
 

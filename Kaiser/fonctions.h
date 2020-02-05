@@ -8,8 +8,8 @@
 
 //#define DEBUG SDL_TRUE
 
-#define WIDTH 1366 /**Largeur de la fenetre principale**/
-#define HEIGHT 768 /**Hauteur de la fenetre principale**/
+#define WIDTH 1280 /**Largeur de la fenetre principale**/
+#define HEIGHT 720 /**Hauteur de la fenetre principale**/
 #define W_TEXTURES 544 /**Largeur de la fenetre du pack de texture**/
 #define H_TEXTURES 960 /**Hauteur de la fenetre du pack de texture**/
 #define LARGEUR_TILE 32 /**Taille d un tile en pixels**/

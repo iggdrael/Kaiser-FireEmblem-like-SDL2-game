@@ -13,25 +13,22 @@ int main(int argc, char** argv){
 	
 	SDL_Window *window = NULL;
 	SDL_Renderer *renderer = NULL;
-	TTF_Font *font;
 
 /**------------------Initialisation SDL et librairies------------------**/
 
-    if (SDL_Init(SDL_INIT_VIDEO) != 0 )
-        SDL_ExitWithError("Initialisation SDL", NULL, NULL, NULL);
+    	if (SDL_Init(SDL_INIT_VIDEO) != 0 )
+        	SDL_ExitWithError("Initialisation SDL", NULL, NULL, NULL);
 
-	if(!TTF_WasInit() && TTF_Init()==-1) {
-    	printf("TTF_Init: %s\n", TTF_GetError());
-    	exit(EXIT_FAILURE);
-	}
+	if(!TTF_WasInit() && TTF_Init() == -1)
+		SDL_ExitWithError("TTF_Init", NULL, NULL, NULL);
 
 	window = SDL_CreateWindow("Kaiser",SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
 
-	if(window == NULL)
+	if (window == NULL)
 		SDL_ExitWithError("Erreur à la création de la fenetre\n", window, NULL, NULL);
 
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-	if(renderer == NULL)
+	if (renderer == NULL)
 		SDL_ExitWithError("Erreur à la création du renderer\n", window, renderer, NULL);
 
 /**------------------Affichage du Menu----------------------------------------**/
@@ -43,10 +40,10 @@ int main(int argc, char** argv){
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 	TTF_Quit();
-    SDL_Quit();
+	SDL_Quit();
 
 /**-----------------Fin du programme------------------------------------------**/
 
-    return EXIT_SUCCESS;
+	return EXIT_SUCCESS;
 }
 
