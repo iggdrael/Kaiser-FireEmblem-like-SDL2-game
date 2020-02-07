@@ -463,8 +463,24 @@ void menu(SDL_Window *window, SDL_Renderer *renderer){
 
 	if (!police)
 		SDL_ExitWithError("Erreur du chargement de la police", window, renderer, background);
+    
+	back_rect = IMG_Load("background.png");
+    if(back_rect == NULL){
+    	SDL_ExitWithError("Erreur à la création de l'image\n", window, renderer, NULL);
+		exit(EXIT_FAILURE);
+	}
+	SDL_FillRect(back_rect, &rect_jouer, SDL_MapRGB(back_rect->format, 133, 133, 133));
+	SDL_FillRect(back_rect, &rect_editeur, SDL_MapRGB(back_rect->format, 133, 133, 133));
+	SDL_FillRect(back_rect, &rect_quitter, SDL_MapRGB(back_rect->format, 133, 133, 133));
 
-	background = creerTexture(window, renderer, "background.png");
+	background = SDL_CreateTextureFromSurface(renderer, back_rect);
+    SDL_FreeSurface(back_rect);
+    if(background == NULL){
+    	SDL_ExitWithError("Erreur à la création de la texture\n", window, renderer, background);
+		exit(EXIT_FAILURE);
+	}
+
+	//background = creerTexture(window, renderer, "background.png");
 	aff_tile(renderer, background, 0, 0, -1);
 
 	/// Affichage des rectangles sous les textes.
