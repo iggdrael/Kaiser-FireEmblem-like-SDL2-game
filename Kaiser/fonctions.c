@@ -442,6 +442,23 @@ void menu(SDL_Window *window, SDL_Renderer *renderer){
 	SDL_Event event;
 	SDL_bool menu_launched = SDL_TRUE;
 	SDL_Texture *background = NULL;
+	SDL_Rect rect_jouer;
+		rect_jouer.x = WIDTH/2-72*4;
+		rect_jouer.y = HEIGHT-3*(HEIGHT/4)+10;
+		rect_jouer.w = WIDTH-WIDTH*0.65;
+		rect_jouer.h = 72;
+	SDL_Rect rect_editeur;
+		rect_editeur.x = WIDTH/2-72*4;
+		rect_editeur.y = HEIGHT-2*(HEIGHT/4)+10;
+		rect_editeur.w = WIDTH-WIDTH*0.65;
+		rect_editeur.h = 72;
+	SDL_Rect rect_quitter;
+		rect_quitter.x = WIDTH/2-72*4;
+		rect_quitter.y = HEIGHT-1*(HEIGHT/4)+10;
+		rect_quitter.w = WIDTH-WIDTH*0.65;
+		rect_quitter.h = 72;
+
+	SDL_Surface *back_rect = NULL;
 	TTF_Font *police = TTF_OpenFont("caviardreams.ttf", 72);
 
 	if (!police)
@@ -449,9 +466,16 @@ void menu(SDL_Window *window, SDL_Renderer *renderer){
 
 	background = creerTexture(window, renderer, "background.png");
 	aff_tile(renderer, background, 0, 0, -1);
-	//creerTexte(renderer, police, "Jouer", WIDTH/2-72*2.5, HEIGHT-3*(HEIGHT/4));
-	//creerTexte(renderer, police, "Editeur", WIDTH/2-72*2.5, HEIGHT-2*(HEIGHT/4));
-	//creerTexte(renderer, police, "Quitter", WIDTH/2-72*2.5, HEIGHT-1*(HEIGHT/4));
+
+	/// Affichage des rectangles sous les textes.
+	SDL_RenderDrawRect(renderer, &rect_jouer);
+	SDL_RenderDrawRect(renderer, &rect_editeur);
+	SDL_RenderDrawRect(renderer, &rect_quitter);
+
+	/// Affichage des textes sur les rectangles.
+	creerTexte(renderer, police, "Jouer", WIDTH/2-72*2.5, HEIGHT-3*(HEIGHT/4));
+	creerTexte(renderer, police, "Editeur", WIDTH/2-72*2.5, HEIGHT-2*(HEIGHT/4));
+	creerTexte(renderer, police, "Quitter", WIDTH/2-72*2.5, HEIGHT-1*(HEIGHT/4));
 
  	SDL_RenderPresent(renderer);
 
@@ -463,19 +487,25 @@ void menu(SDL_Window *window, SDL_Renderer *renderer){
 
 				case SDL_MOUSEBUTTONDOWN:
 					if (event.button.button == SDL_BUTTON_LEFT){
-						if (	event.button.y > HEIGHT-3*(HEIGHT/4)-72 
-							&& 	event.button.y < HEIGHT-2*(HEIGHT/4)-72
+						if (	event.button.y > rect_jouer.y 
+							&& 	event.button.y < rect_jouer.y + rect_jouer.h
+							&& 	event.button.x > rect_jouer.x
+							&&	event.button.x < rect_jouer.x + rect_jouer.w
 							){
 							printf("Jouer\n");
 						}
-						else if (event.button.y > HEIGHT-2*(HEIGHT/4)-72
-							&&	event.button.y < HEIGHT-1*(HEIGHT/4)-72
+						else if (	event.button.y > rect_editeur.y 
+							&& 		event.button.y < rect_editeur.y + rect_editeur.h
+							&& 		event.button.x > rect_editeur.x
+							&&		event.button.x < rect_editeur.x + rect_editeur.w
 							){
 							SDL_RenderClear(renderer);
 							editeur_map(window, renderer);
 						}
-						else if (event.button.y > HEIGHT-1*(HEIGHT/4)-72
-							&&	event.button.y < HEIGHT-72
+						else if (	event.button.y > rect_quitter.y 
+							&& 		event.button.y < rect_quitter.y + rect_quitter.h
+							&& 		event.button.x > rect_quitter.x
+							&&		event.button.x < rect_quitter.x + rect_quitter.w
 							){
 							menu_launched = SDL_FALSE;
 						}
