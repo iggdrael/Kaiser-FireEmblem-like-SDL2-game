@@ -441,15 +441,6 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer){
 
 
 
-
-
-
-
-
-
-
-
-
 void settings(SDL_Window *window, SDL_Renderer *renderer){
 /**Fonction affichant un menu permettant a l utilisateur de naviguer dans le programme**/
 	SDL_Event event;
@@ -457,17 +448,17 @@ void settings(SDL_Window *window, SDL_Renderer *renderer){
 	SDL_bool menu_asked = SDL_FALSE;
 	SDL_Texture *background = NULL;
 	SDL_Rect rect_taille_1, rect_taille_2, rect_taille_3, rect_taille_4, rect_quitter;
-	const int taille_police = 50;
+	const int taille_police = 40;
 	const int taille_police_titre = 72;
 
 	rect_taille_1.w = rect_taille_2.w = rect_taille_3.w = rect_taille_4.w = WIDTH/6;
-	rect_taille_1.h = rect_taille_2.h = rect_taille_3.h = rect_taille_3.h = taille_police;
-	rect_taille_1.y = rect_taille_2.y = rect_taille_3.y = rect_taille_4.y = HEIGHT-3*(HEIGHT/4)+5;
+	rect_taille_1.h = rect_taille_2.h = rect_taille_3.h = rect_taille_4.h = taille_police;
+	rect_taille_1.y = rect_taille_2.y = rect_taille_3.y = rect_taille_4.y = HEIGHT-3*(HEIGHT/5)+5;
 
-	rect_taille_1.y = (WIDTH-rect_taille_1.w)/4;
-	rect_taille_2.y = (WIDTH-rect_taille_1.w)/3;
-	rect_taille_3.y = (WIDTH-rect_taille_1.w)/2;
-	rect_taille_4.y = (WIDTH-rect_taille_1.w)/2;
+	rect_taille_1.x = (rect_taille_1.w)/6;
+	rect_taille_2.x = (rect_taille_1.w)*1.7;
+	rect_taille_3.x = (rect_taille_1.w)*3.2;
+	rect_taille_4.x = (rect_taille_1.w)*4.8;
 
 	rect_quitter.w = WIDTH-WIDTH*0.65;
 	rect_quitter.h = taille_police_titre;
@@ -475,10 +466,13 @@ void settings(SDL_Window *window, SDL_Renderer *renderer){
 	rect_quitter.y = HEIGHT-1*(HEIGHT/4)+5;
 
 	SDL_Surface *back_rect = NULL;
-	TTF_Font *police = TTF_OpenFont("caviardreams.ttf", taille_police_titre);
+	TTF_Font *police_titre = TTF_OpenFont("caviardreams.ttf", taille_police_titre);
+	TTF_Font *police =TTF_OpenFont("caviardreams.ttf", taille_police);
 
 	if (!police)
 		SDL_ExitWithError("Erreur du chargement de la police", window, renderer, background);
+	if (!police_titre)
+		SDL_ExitWithError("Erreur du chargement de la police titre(Option)", window, renderer, background);
 
 	back_rect = IMG_Load("background.png");
     if(back_rect == NULL){
@@ -509,9 +503,14 @@ void settings(SDL_Window *window, SDL_Renderer *renderer){
 
 	SDL_RenderDrawRect(renderer, &rect_quitter);
 
-	creerTexte(renderer, police, "Affichage", WIDTH/2 - 5 * 18, (HEIGHT-3*(HEIGHT/4)+5) - 5);
-	creerTexte(renderer, police, "Son", WIDTH/2 - 7 * 15, (HEIGHT-2*(HEIGHT/4)+5) - 5);
-	creerTexte(renderer, police, "Retour", WIDTH/2 - 6 * 20, rect_quitter.y - 5);
+	creerTexte(renderer, police_titre, "Affichage", WIDTH/2 - 5 * 34, (HEIGHT-3*(HEIGHT/4)+5) - 5);
+	creerTexte(renderer, police_titre, "Son", WIDTH/2 - 7 * 13, (HEIGHT-2*(HEIGHT/4)+5) - 5);
+	creerTexte(renderer, police_titre, "Retour", WIDTH/2 - 6 * 20, rect_quitter.y - 5);
+
+	creerTexte(renderer, police, "1280x720", rect_taille_1.w/6, rect_taille_1.y-5);
+	creerTexte(renderer, police, "1366x768", rect_taille_1.w*1.7, rect_taille_1.y-5);
+	creerTexte(renderer, police, "1600x900", rect_taille_1.w*3.2, rect_taille_1.y-5);
+	creerTexte(renderer, police, "1920x1080", rect_taille_1.w*4.8, rect_taille_1.y-5);
 
  	SDL_RenderPresent(renderer);
 
@@ -528,15 +527,38 @@ void settings(SDL_Window *window, SDL_Renderer *renderer){
 							&& 	event.button.x > rect_taille_1.x
 							&&	event.button.x < rect_taille_1.x + rect_taille_1.w
 							){
-								printf("Affichage\n");
+								WIDTH=1280;
+								HEIGHT=720;
+								SDL_SetWindowSize(window, WIDTH, HEIGHT);
 						}
-						/*else if (	event.button.y > rect_editeur.y
-							&& 		event.button.y < rect_editeur.y + rect_editeur.h
-							&& 		event.button.x > rect_editeur.x
-							&&		event.button.x < rect_editeur.x + rect_editeur.w
+						else if (	event.button.y > rect_taille_2.y
+							&& 	event.button.y < rect_taille_2.y + rect_taille_2.h
+							&& 	event.button.x > rect_taille_2.x
+							&&	event.button.x < rect_taille_2.x + rect_taille_2.w
 							){
-								printf("Son\n");
-						}*/
+								WIDTH=1366;
+								HEIGHT=768;
+								SDL_SetWindowSize(window, WIDTH, HEIGHT);
+						}
+						else if (	event.button.y > rect_taille_3.y
+							&& 	event.button.y < rect_taille_3.y + rect_taille_3.h
+							&& 	event.button.x > rect_taille_3.x
+							&&	event.button.x < rect_taille_3.x + rect_taille_3.w
+							){
+								WIDTH=1600;
+								HEIGHT=900;
+								SDL_SetWindowSize(window, WIDTH, HEIGHT);
+								SDL_RenderPresent(renderer);
+						}
+						else if (	event.button.y > rect_taille_4.y
+							&& 	event.button.y < rect_taille_4.y + rect_taille_4.h
+							&& 	event.button.x > rect_taille_4.x
+							&&	event.button.x < rect_taille_4.x + rect_taille_4.w
+							){
+								WIDTH=1920;
+								HEIGHT=1080;
+								SDL_SetWindowSize(window, WIDTH, HEIGHT);
+						}
 						else if (	event.button.y > rect_quitter.y
 							&& 		event.button.y < rect_quitter.y + rect_quitter.h
 							&& 		event.button.x > rect_quitter.x
@@ -561,15 +583,6 @@ void settings(SDL_Window *window, SDL_Renderer *renderer){
 	if (menu_asked)
 		menu(window, renderer);
 }
-
-
-
-
-
-
-
-
-
 
 
 
