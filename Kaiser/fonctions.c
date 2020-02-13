@@ -15,9 +15,9 @@ case_t *init_matrice(){
 	for (i = 0; i < N; i++)
 		for (j = 0; j < M; j++){
 			(map + i*M + j)->textures = malloc(sizeof(int) * MAX_TEXTURES);
-			
+
 			if ((map + i*M + j)->textures == NULL){
-				fprintf(stderr, "Problème allocation mémoire\n"); 
+				fprintf(stderr, "Problème allocation mémoire\n");
 				exit(EXIT_FAILURE);
 			}
 		}
@@ -36,7 +36,7 @@ void detruire_matrice(case_t *map){
 }
 
 void aff_matrice(case_t *A){
-/**Fonction affichant le contenu de la matrice passee en parametre sur la sortie standard**/ 
+/**Fonction affichant le contenu de la matrice passee en parametre sur la sortie standard**/
     int i, j, k;
 
     for(i = 0 ; i < N; i++){
@@ -68,7 +68,7 @@ SDL_Texture *creerTexture(SDL_Window *window, SDL_Renderer *renderer, char sourc
 /**Fonction qui cree et retourne une texture associee au renderer et a la source passes en parametres**/
 	SDL_Surface *img_to_load = NULL;
 	SDL_Texture *texture = NULL;
-    
+
 	img_to_load = IMG_Load(sourceIMG);
     if(img_to_load == NULL){
     	SDL_ExitWithError("Erreur à la création de l'image\n", window, renderer, NULL);
@@ -134,10 +134,9 @@ void creerTexte(SDL_Renderer *renderer, TTF_Font *police, char *str, int x, int 
 	}
 	SDL_FreeSurface(texte);
 	txtDestRect.x = x;
-    txtDestRect.y = y;
+  txtDestRect.y = y;
 	SDL_QueryTexture(texte_tex, NULL, NULL, &(txtDestRect.w), &(txtDestRect.h));
 	SDL_RenderCopy(renderer, texte_tex, NULL, &txtDestRect);
-	SDL_RenderPresent(renderer);
 }
 
 SDL_bool valides(int x, int y){
@@ -146,7 +145,7 @@ SDL_bool valides(int x, int y){
 }
 
 void save_map(case_t *map){
-/**Fonction permettant de creer un fichier texte et d y sauvegarder une map**/ 
+/**Fonction permettant de creer un fichier texte et d y sauvegarder une map**/
 	FILE *fic = NULL;
 	char fname[8] = "mapA.txt";
 
@@ -219,7 +218,7 @@ void aff_map(case_t *map, SDL_Renderer *renderer, SDL_Texture *pack_texture){
 }
 
 coords_t case_to_coords(int case_actuelle){
-/**Fonction qui transforme la case passee en parametres en coordonnees 
+/**Fonction qui transforme la case passee en parametres en coordonnees
  * de son emplacement dans le pack de texture et les retourne**/
 	coords_t coords;
 
@@ -230,9 +229,9 @@ coords_t case_to_coords(int case_actuelle){
 }
 
 type_t type_texture(int case_actuelle){
-/**Fonction qui retourne le type de la texture 
- * case vide, 
- * texture fond (ex : terre, eau), 
+/**Fonction qui retourne le type de la texture
+ * case vide,
+ * texture fond (ex : terre, eau),
  * texture decor (ex : montagne, pont))
  * RP (ex : personnage, equipement)**/
 	if (case_actuelle == 0)
@@ -270,7 +269,7 @@ void fill_map(case_t *map, int case_actuelle){
 
 void ajout_texture_case(case_t *map,  int i, int j, int case_actuelle){
 /**Fonction qui ecrase la case de la matrice par la "case actuelle" et qui remplace cette case a l ecran**/
-	
+
 	if (valides(i, j)){
 		int type = type_texture(case_actuelle);
 
@@ -325,7 +324,7 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer){
 		SDL_ExitWithError("Erreur à la création du renderer\n", window_edit, renderer_edit, NULL);
 
 /**------------------Declaration variables secondaires----------------------------------------**/
-	
+
 	case_t *map = init_matrice();
 	SDL_bool editeur_launched = SDL_TRUE, clic_long_gauche = SDL_FALSE, clic_long_droit = SDL_FALSE;
     SDL_Event event;
@@ -365,7 +364,7 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer){
 					if (event.button.button == SDL_BUTTON_LEFT){
 						ajout_texture_case(map, event.button.y / LARGEUR_CASE, event.button.x / LARGEUR_CASE, case_actuelle);
 						clic_long_gauche = SDL_TRUE;
-					}  
+					}
 					else if (event.button.button == SDL_BUTTON_RIGHT){
 						ajout_texture_case(map, event.button.y / LARGEUR_CASE, event.button.x / LARGEUR_CASE, 0);
 						clic_long_droit = SDL_TRUE;
@@ -393,7 +392,7 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer){
 
 						case SDLK_a: aff_matrice(map);break;
 						case SDLK_f: fill_map(map, case_actuelle);break;
-						
+
 						case SDLK_s: save_map(map);break;
 
 						case SDLK_c: load_matrice(map);break;
@@ -437,50 +436,198 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer){
 }
 
 
-void menu(SDL_Window *window, SDL_Renderer *renderer){
+
+
+
+
+
+void settings(SDL_Window *window, SDL_Renderer *renderer){
 /**Fonction affichant un menu permettant a l utilisateur de naviguer dans le programme**/
 	SDL_Event event;
-	SDL_bool menu_launched = SDL_TRUE;
+	SDL_bool set_launched = SDL_TRUE;
+	SDL_bool menu_asked = SDL_FALSE;
 	SDL_Texture *background = NULL;
-	SDL_Rect rect_jouer;
-		rect_jouer.x = WIDTH/2-72*4;
-		rect_jouer.y = HEIGHT-3*(HEIGHT/4)+10;
-		rect_jouer.w = WIDTH-WIDTH*0.65;
-		rect_jouer.h = 72;
-	SDL_Rect rect_editeur;
-		rect_editeur.x = WIDTH/2-72*4;
-		rect_editeur.y = HEIGHT-2*(HEIGHT/4)+10;
-		rect_editeur.w = WIDTH-WIDTH*0.65;
-		rect_editeur.h = 72;
-	SDL_Rect rect_quitter;
-		rect_quitter.x = WIDTH/2-72*4;
-		rect_quitter.y = HEIGHT-1*(HEIGHT/4)+10;
-		rect_quitter.w = WIDTH-WIDTH*0.65;
-		rect_quitter.h = 72;
+	SDL_Rect rect_taille_1, rect_taille_2, rect_taille_3, rect_taille_4, rect_quitter;
+	const int taille_police = 40;
+	const int taille_police_titre = 72;
+
+	rect_taille_1.w = rect_taille_2.w = rect_taille_3.w = rect_taille_4.w = WIDTH/6;
+	rect_taille_1.h = rect_taille_2.h = rect_taille_3.h = rect_taille_4.h = taille_police;
+	rect_taille_1.y = rect_taille_2.y = rect_taille_3.y = rect_taille_4.y = HEIGHT-3*(HEIGHT/5)+5;
+
+	rect_taille_1.x = (rect_taille_1.w)/6;
+	rect_taille_2.x = (rect_taille_1.w)*1.7;
+	rect_taille_3.x = (rect_taille_1.w)*3.2;
+	rect_taille_4.x = (rect_taille_1.w)*4.8;
+
+	rect_quitter.w = WIDTH-WIDTH*0.65;
+	rect_quitter.h = taille_police_titre;
+	rect_quitter.x = (WIDTH-(WIDTH-WIDTH*0.65))/2;
+	rect_quitter.y = HEIGHT-1*(HEIGHT/4)+5;
 
 	SDL_Surface *back_rect = NULL;
-	TTF_Font *police = TTF_OpenFont("caviardreams.ttf", 72);
+	TTF_Font *police_titre = TTF_OpenFont("caviardreams.ttf", taille_police_titre);
+	TTF_Font *police =TTF_OpenFont("caviardreams.ttf", taille_police);
 
 	if (!police)
 		SDL_ExitWithError("Erreur du chargement de la police", window, renderer, background);
-    
+	if (!police_titre)
+		SDL_ExitWithError("Erreur du chargement de la police titre(Option)", window, renderer, background);
+
 	back_rect = IMG_Load("background.png");
     if(back_rect == NULL){
     	SDL_ExitWithError("Erreur à la création de l'image\n", window, renderer, NULL);
 		exit(EXIT_FAILURE);
 	}
+
+	SDL_FillRect(back_rect, &rect_taille_1, SDL_MapRGB(back_rect->format, 133, 133, 133));
+	SDL_FillRect(back_rect, &rect_taille_2, SDL_MapRGB(back_rect->format, 133, 133, 133));
+	SDL_FillRect(back_rect, &rect_taille_3, SDL_MapRGB(back_rect->format, 133, 133, 133));
+	SDL_FillRect(back_rect, &rect_taille_4, SDL_MapRGB(back_rect->format, 133, 133, 133));
+
+	SDL_FillRect(back_rect, &rect_quitter, SDL_MapRGB(back_rect->format, 133, 133, 133));
+
+	background = SDL_CreateTextureFromSurface(renderer, back_rect);
+  SDL_FreeSurface(back_rect);
+    if(background == NULL){
+    	SDL_ExitWithError("Erreur à la création de la texture\n", window, renderer, background);
+		exit(EXIT_FAILURE);
+	}
+	aff_tile(renderer, background, 0, 0, -1);
+
+	/// Affichage des rectangles sous les textes.
+	SDL_RenderDrawRect(renderer, &rect_taille_1);
+	SDL_RenderDrawRect(renderer, &rect_taille_2);
+	SDL_RenderDrawRect(renderer, &rect_taille_3);
+	SDL_RenderDrawRect(renderer, &rect_taille_4);
+
+	SDL_RenderDrawRect(renderer, &rect_quitter);
+
+	creerTexte(renderer, police_titre, "Affichage", WIDTH/2 - 5 * 34, (HEIGHT-3*(HEIGHT/4)+5) - 5);
+	creerTexte(renderer, police_titre, "Son", WIDTH/2 - 7 * 13, (HEIGHT-2*(HEIGHT/4)+5) - 5);
+	creerTexte(renderer, police_titre, "Retour", WIDTH/2 - 6 * 20, rect_quitter.y - 5);
+
+	creerTexte(renderer, police, "1280x720", rect_taille_1.w/6, rect_taille_1.y-5);
+	creerTexte(renderer, police, "1366x768", rect_taille_1.w*1.7, rect_taille_1.y-5);
+	creerTexte(renderer, police, "1600x900", rect_taille_1.w*3.2, rect_taille_1.y-5);
+	creerTexte(renderer, police, "1920x1080", rect_taille_1.w*4.8, rect_taille_1.y-5);
+
+ 	SDL_RenderPresent(renderer);
+
+	while (set_launched && menu_asked == SDL_FALSE){
+        SDL_WaitEvent(&event);
+ 
+			switch(event.type){
+				case SDL_QUIT: set_launched = SDL_FALSE;break;
+
+				case SDL_MOUSEBUTTONDOWN:
+					if (event.button.button == SDL_BUTTON_LEFT){
+						if (	event.button.y > rect_taille_1.y
+							&& 	event.button.y < rect_taille_1.y + rect_taille_1.h
+							&& 	event.button.x > rect_taille_1.x
+							&&	event.button.x < rect_taille_1.x + rect_taille_1.w
+							){
+								WIDTH=1280;
+								HEIGHT=720;
+								SDL_SetWindowSize(window, WIDTH, HEIGHT);
+								menu_asked=SDL_TRUE;
+						}
+						else if (	event.button.y > rect_taille_2.y
+							&& 	event.button.y < rect_taille_2.y + rect_taille_2.h
+							&& 	event.button.x > rect_taille_2.x
+							&&	event.button.x < rect_taille_2.x + rect_taille_2.w
+							){
+								WIDTH=1366;
+								HEIGHT=768;
+								SDL_SetWindowSize(window, WIDTH, HEIGHT);
+								menu_asked=SDL_TRUE;
+						}
+						else if (	event.button.y > rect_taille_3.y
+							&& 	event.button.y < rect_taille_3.y + rect_taille_3.h
+							&& 	event.button.x > rect_taille_3.x
+							&&	event.button.x < rect_taille_3.x + rect_taille_3.w
+							){
+								WIDTH=1600;
+								HEIGHT=900;
+								SDL_SetWindowSize(window, WIDTH, HEIGHT);
+								menu_asked=SDL_TRUE;
+						}
+						else if (	event.button.y > rect_taille_4.y
+							&& 	event.button.y < rect_taille_4.y + rect_taille_4.h
+							&& 	event.button.x > rect_taille_4.x
+							&&	event.button.x < rect_taille_4.x + rect_taille_4.w
+							){
+								WIDTH=1920;
+								HEIGHT=1080;
+								SDL_SetWindowSize(window, WIDTH, HEIGHT);
+								menu_asked=SDL_TRUE;
+						}
+						else if (	event.button.y > rect_quitter.y
+							&& 		event.button.y < rect_quitter.y + rect_quitter.h
+							&& 		event.button.x > rect_quitter.x
+							&&		event.button.x < rect_quitter.x + rect_quitter.w
+							){
+								menu_asked=SDL_TRUE;
+						}
+					}
+					break;
+
+				case SDL_KEYDOWN:
+					switch(event.key.keysym.sym){
+						case SDLK_ESCAPE: set_launched = SDL_FALSE;break;
+
+					}
+			}
+	}
+
+	free(police);
+	SDL_DestroyTexture(background);
+
+	if (menu_asked)
+		menu(window, renderer);
+}
+
+
+
+
+void menu(SDL_Window *window, SDL_Renderer *renderer){
+/**Fonction affichant un menu permettant a l utilisateur de naviguer dans le programme**/
+	SDL_Event event;
+	SDL_bool menu_launched = SDL_TRUE;
+	SDL_bool setting_asked = SDL_FALSE;
+	SDL_Texture *background = NULL;
+	SDL_Rect rect_jouer, rect_editeur, rect_quitter;
+	const int taille_police = 72;
+
+	rect_jouer.w = rect_editeur.w = rect_quitter.w = WIDTH-WIDTH*0.65;
+	rect_jouer.h = rect_editeur.h = rect_quitter.h = taille_police;
+	rect_jouer.x = rect_editeur.x = rect_quitter.x = (WIDTH-rect_jouer.w)/2;
+	rect_jouer.y = HEIGHT-3*(HEIGHT/4)+5;
+	rect_editeur.y = HEIGHT-2*(HEIGHT/4)+5;
+	rect_quitter.y = HEIGHT-1*(HEIGHT/4)+5;
+
+	SDL_Surface *back_rect = NULL;
+	TTF_Font *police = TTF_OpenFont("caviardreams.ttf", taille_police);
+
+	if (!police)
+		SDL_ExitWithError("Erreur du chargement de la police", window, renderer, background);
+
+	back_rect = IMG_Load("background.png");
+    if(back_rect == NULL){
+    	SDL_ExitWithError("Erreur à la création de l'image\n", window, renderer, NULL);
+		exit(EXIT_FAILURE);
+	}
+
 	SDL_FillRect(back_rect, &rect_jouer, SDL_MapRGB(back_rect->format, 133, 133, 133));
 	SDL_FillRect(back_rect, &rect_editeur, SDL_MapRGB(back_rect->format, 133, 133, 133));
 	SDL_FillRect(back_rect, &rect_quitter, SDL_MapRGB(back_rect->format, 133, 133, 133));
 
 	background = SDL_CreateTextureFromSurface(renderer, back_rect);
-    SDL_FreeSurface(back_rect);
+  SDL_FreeSurface(back_rect);
     if(background == NULL){
     	SDL_ExitWithError("Erreur à la création de la texture\n", window, renderer, background);
 		exit(EXIT_FAILURE);
 	}
-
-	//background = creerTexture(window, renderer, "background.png");
 	aff_tile(renderer, background, 0, 0, -1);
 
 	/// Affichage des rectangles sous les textes.
@@ -488,14 +635,13 @@ void menu(SDL_Window *window, SDL_Renderer *renderer){
 	SDL_RenderDrawRect(renderer, &rect_editeur);
 	SDL_RenderDrawRect(renderer, &rect_quitter);
 
-	/// Affichage des textes sur les rectangles.
-	creerTexte(renderer, police, "Jouer", WIDTH/2-72*2.5, HEIGHT-3*(HEIGHT/4));
-	creerTexte(renderer, police, "Editeur", WIDTH/2-72*2.5, HEIGHT-2*(HEIGHT/4));
-	creerTexte(renderer, police, "Quitter", WIDTH/2-72*2.5, HEIGHT-1*(HEIGHT/4));
+	creerTexte(renderer, police, "Jouer", WIDTH/2 - 5 * 18, rect_jouer.y - 5);
+	creerTexte(renderer, police, "Editeur", WIDTH/2 - 7 * 15, rect_editeur.y - 5);
+	creerTexte(renderer, police, "Option", WIDTH/2 - 6 * 20, rect_quitter.y - 5);
 
  	SDL_RenderPresent(renderer);
 
-	while (menu_launched){
+	while (menu_launched && setting_asked == SDL_FALSE){
         SDL_WaitEvent(&event);
 
 			switch(event.type){
@@ -503,14 +649,14 @@ void menu(SDL_Window *window, SDL_Renderer *renderer){
 
 				case SDL_MOUSEBUTTONDOWN:
 					if (event.button.button == SDL_BUTTON_LEFT){
-						if (	event.button.y > rect_jouer.y 
+						if (	event.button.y > rect_jouer.y
 							&& 	event.button.y < rect_jouer.y + rect_jouer.h
 							&& 	event.button.x > rect_jouer.x
 							&&	event.button.x < rect_jouer.x + rect_jouer.w
 							){
 							printf("Jouer\n");
 						}
-						else if (	event.button.y > rect_editeur.y 
+						else if (	event.button.y > rect_editeur.y
 							&& 		event.button.y < rect_editeur.y + rect_editeur.h
 							&& 		event.button.x > rect_editeur.x
 							&&		event.button.x < rect_editeur.x + rect_editeur.w
@@ -518,12 +664,12 @@ void menu(SDL_Window *window, SDL_Renderer *renderer){
 							SDL_RenderClear(renderer);
 							editeur_map(window, renderer);
 						}
-						else if (	event.button.y > rect_quitter.y 
+						else if (	event.button.y > rect_quitter.y
 							&& 		event.button.y < rect_quitter.y + rect_quitter.h
 							&& 		event.button.x > rect_quitter.x
 							&&		event.button.x < rect_quitter.x + rect_quitter.w
 							){
-							menu_launched = SDL_FALSE;
+							setting_asked=SDL_TRUE;
 						}
 					}
 					break;
@@ -535,6 +681,10 @@ void menu(SDL_Window *window, SDL_Renderer *renderer){
 					}
 			}
 	}
+
 	free(police);
 	SDL_DestroyTexture(background);
+
+	if (setting_asked)
+		settings(window, renderer);
 }

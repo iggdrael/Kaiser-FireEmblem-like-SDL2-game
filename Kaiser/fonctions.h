@@ -7,9 +7,10 @@
 #include <SDL_ttf.h>
 
 //#define DEBUG SDL_TRUE
-
-#define WIDTH 1280 /**Largeur de la fenetre principale**/
-#define HEIGHT 720 /**Hauteur de la fenetre principale**/
+int WIDTH;
+int HEIGHT;
+//#define WIDTH 1280 /**Largeur de la fenetre principale**/
+//#define HEIGHT 720 /**Hauteur de la fenetre principale**/
 #define W_TEXTURES 544 /**Largeur de la fenetre du pack de texture**/
 #define H_TEXTURES 960 /**Hauteur de la fenetre du pack de texture**/
 #define LARGEUR_TILE 32 /**Taille d un tile en pixels**/
@@ -18,7 +19,7 @@
 #define NOMBRE_BLOCS_HAUTEUR 30
 #define MAX_TEXTURES 3 /**Nombre maximum de textures qu une case de la matrice peut avoir**/
 
-#define M 39 /**Matrice de N * M cases, N est calculee automatiquement pour rester en 16/9**/ 
+#define M 39 /**Matrice de N * M cases, N est calculee automatiquement pour rester en 16/9**/
 #define N (int)(M / (16.0/9.0) + 1)
 
 #define LARGEUR_CASE (WIDTH / M) /**Largeur en pixels d une case en fonction de la taille de la fenetre**/

@@ -10,14 +10,16 @@ int main(int argc, char** argv){
 **/
 
 /**------------------Declaration des variables principales-------------**/
-	
+
 	SDL_Window *window = NULL;
 	SDL_Renderer *renderer = NULL;
+	WIDTH=1280;
+	HEIGHT=720;
 
 /**------------------Initialisation SDL et librairies------------------**/
 
-    	if (SDL_Init(SDL_INIT_VIDEO) != 0 )
-        	SDL_ExitWithError("Initialisation SDL", NULL, NULL, NULL);
+  if (SDL_Init(SDL_INIT_VIDEO) != 0 )
+  	SDL_ExitWithError("Initialisation SDL", NULL, NULL, NULL);
 
 	if(!TTF_WasInit() && TTF_Init() == -1)
 		SDL_ExitWithError("TTF_Init", NULL, NULL, NULL);
@@ -46,4 +48,3 @@ int main(int argc, char** argv){
 
 	return EXIT_SUCCESS;
 }
-
