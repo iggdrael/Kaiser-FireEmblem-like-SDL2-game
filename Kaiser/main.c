@@ -13,8 +13,8 @@ int main(int argc, char** argv){
 
 	SDL_Window *window = NULL;
 	SDL_Renderer *renderer = NULL;
-	WIDTH=1280;
-	HEIGHT=720;
+	WIDTH=1366;
+	HEIGHT=768;
 
 /**------------------Initialisation SDL et librairies------------------**/
 
@@ -33,12 +33,21 @@ int main(int argc, char** argv){
 	if (renderer == NULL)
 		SDL_ExitWithError("Erreur à la création du renderer\n", window, renderer, NULL);
 
+/**------------------Initialisation map---------------------------------------**/
+
+	case_t *map = init_matrice();
+
+/**------------------Chargement des textures----------------------------------**/
+
+	SDL_Texture *pack_texture = creerTexture(window, renderer, "packtexture.png");
+
 /**------------------Affichage du Menu----------------------------------------**/
 
-	menu(window, renderer);
+	menu(window, renderer, map, pack_texture);
 
 /**------------------Liberation de la mémoire allouee-------------------------**/
 
+	SDL_DestroyTexture(pack_texture);
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 	TTF_Quit();

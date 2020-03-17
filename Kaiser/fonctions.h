@@ -7,10 +7,8 @@
 #include <SDL_ttf.h>
 
 //#define DEBUG SDL_TRUE
-int WIDTH;
-int HEIGHT;
-//#define WIDTH 1280 /**Largeur de la fenetre principale**/
-//#define HEIGHT 720 /**Hauteur de la fenetre principale**/
+int WIDTH; /**Largeur de la fenetre principale**/
+int HEIGHT; /**Largeur de la fenetre principale**/
 #define W_TEXTURES 544 /**Largeur de la fenetre du pack de texture**/
 #define H_TEXTURES 960 /**Hauteur de la fenetre du pack de texture**/
 #define LARGEUR_TILE 32 /**Taille d un tile en pixels**/
@@ -47,7 +45,6 @@ typedef struct perso_s{
 
 enum{GUERRIER, MAGE, VOLEUR, ARCHER, PRETRE};
 enum{HUMAIN, GOBELIN, ELFE, NAIN};
-
 
 /**Fin jeu**/
 
@@ -120,7 +117,7 @@ void ajout_texture_case(case_t *map,  int i, int j, int case_actuelle);
 * \fn void editeur_map(SDL_Window *window, SDL_Renderer *renderer)
 * \param window,renderer Edition d'une carte, choix texture,remplir,charger un carte deja creer,sauvegarder avec les touche f,c et s
 */
-void editeur_map(SDL_Window *window, SDL_Renderer *renderer);
+void editeur_map(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Texture *pack_texture);
 
 /**
 * \fn SDL_bool valides(int x, int y)
@@ -156,10 +153,12 @@ type_t type_texture(int case_actuelle);
 * \fn void settings(SDL_Window *window, SDL_Renderer *renderer)
 * \param window,renderer Affiche les paramètres du jeu
 */
-void settings(SDL_Window *window, SDL_Renderer *renderer);
+void settings(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Texture *pack_texture);
 
 /**
 * \fn void menu(SDL_Window *window, SDL_Renderer *renderer)
 * \param window,renderer Affichele menu
 */
-void menu(SDL_Window *window, SDL_Renderer *renderer);
+void menu(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Texture *pack_texture);
+
+SDL_bool clickSurCase(SDL_Event click, SDL_Rect caseRect);
