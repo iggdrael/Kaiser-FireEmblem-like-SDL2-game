@@ -313,7 +313,7 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Te
 
 /**------------------Initialisation de la fenetre et du renderer du pack de texture----------**/
 
-	window_edit = SDL_CreateWindow("Textures", 1920-W_TEXTURES, 100, W_TEXTURES, H_TEXTURES, SDL_WINDOW_SHOWN);
+	window_edit = SDL_CreateWindow("Textures", (WIDTH * 1.4)-W_TEXTURES, 10, W_TEXTURES, H_TEXTURES, SDL_WINDOW_SHOWN);
 
 	if(window_edit == NULL)
 		SDL_ExitWithError("Erreur à la création de la fenetre\n", window_edit, NULL, NULL);
@@ -326,6 +326,9 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Te
 
 	SDL_bool editeur_launched = SDL_TRUE, clic_long_gauche = SDL_FALSE, clic_long_droit = SDL_FALSE;
     SDL_Event event;
+	SDL_Rect rect_select;
+	coords_t case_select;
+	rect_select.w = rect_select.h = 32;
 	int case_actuelle = 0;
 
 /**------------------Variables correspondant a l id des fenetres------------------------------**/
@@ -340,6 +343,7 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Te
 /**------------------Affichage des textures dans la deuxieme fenetre--------------------------
  * ------------------Remplissage de la fenetre principale avec la tile case vide--------------**/
 
+	SDL_SetRenderDrawBlendMode(renderer_edit, SDL_BLENDMODE_BLEND);
 	aff_tile(renderer_edit, pack_textures_for_window, 0, 0, -1);
 	SDL_RenderPresent(renderer_edit);
 	fill_map(map, VIDE);
@@ -398,7 +402,6 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Te
 				}
 			}
 			SDL_RenderClear(renderer);
-			//SDL_FillRect(renderer, NULL, SDL_MapRGB(renderer->format, 255, 255, 255));
 			aff_map(map, renderer, pack_texture);
 			SDL_RenderPresent(renderer);
 		}
@@ -416,7 +419,19 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Te
 					}
 					break;
 
-				case SDL_MOUSEBUTTONDOWN: case_actuelle = (event.button.y / (H_TEXTURES / NOMBRE_BLOCS_HAUTEUR)) * NOMBRE_BLOCS_LARGEUR + (event.button.x / (W_TEXTURES / NOMBRE_BLOCS_LARGEUR));
+				case SDL_MOUSEBUTTONDOWN: 
+					case_actuelle = (event.button.y / (H_TEXTURES / NOMBRE_BLOCS_HAUTEUR)) * NOMBRE_BLOCS_LARGEUR + (event.button.x / (W_TEXTURES / NOMBRE_BLOCS_LARGEUR));
+					case_select = case_to_coords(case_actuelle);
+					rect_select.x = case_select.y * LARGEUR_TILE;
+					rect_select.y = case_select.x * LARGEUR_TILE;
+
+					SDL_RenderClear(renderer_edit);
+					aff_tile(renderer_edit, pack_textures_for_window, 0, 0, -1);
+					SDL_SetRenderDrawColor(renderer_edit, 255, 0, 0, 128);
+					SDL_RenderFillRect(renderer_edit, &rect_select);
+					SDL_SetRenderDrawColor(renderer_edit, 0, 0, 0, 255);
+					SDL_RenderPresent(renderer_edit);
+					break;
 			}
 		}
 	}
