@@ -5,12 +5,15 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
+#include <time.h>
 
 //#define DEBUG SDL_TRUE
 int WIDTH; /**Largeur de la fenetre principale**/
-int HEIGHT; /**Largeur de la fenetre principale**/
-#define W_TEXTURES 544 /**Largeur de la fenetre du pack de texture**/
-#define H_TEXTURES 960 /**Hauteur de la fenetre du pack de texture**/
+int HEIGHT; /**Hauteur de la fenetre principale**/
+int W_GUI; /**Largeur de la fenetre interface combat**/
+int H_GUI; /**Hauteur de la fenetre interface combat**/
+#define W_TEXTURES 408/**Largeur de la fenetre du pack de texture**/
+#define H_TEXTURES 720/**Hauteur de la fenetre du pack de texture**/
 #define LARGEUR_TILE 32 /**Taille d un tile en pixels**/
 #define HAUTEUR_TILE 32
 #define NOMBRE_BLOCS_LARGEUR 17 /**Nombre de tiles sur le pack de texture**/
@@ -31,23 +34,6 @@ typedef struct case_s{
 
 typedef struct coords_s{int x, y;}coords_t;
 /**Structure de coordonees x, y**/
-
-/**Debut trucs jeu**/
-
-typedef struct perso_s{
-	int classe;
-	int race;
-	int pv;
-	int atk;
-	int def;
-	int esq;
-}perso_t;
-
-enum{GUERRIER, MAGE, VOLEUR, ARCHER, PRETRE};
-enum{HUMAIN, GOBELIN, ELFE, NAIN};
-
-/**Fin jeu**/
-
 /**
 * \fn case_t *init_matrice(void)
 */
@@ -157,8 +143,12 @@ void settings(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Textu
 
 /**
 * \fn void menu(SDL_Window *window, SDL_Renderer *renderer)
-* \param window,renderer Affichele menu
+* \param window,renderer Affiche le menu
 */
 void menu(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Texture *pack_texture);
 
+/**
+* \fn SDL_bool clickSurCase(SDL_Event click, SDL_Rect caseRect);
+* \param click, caseRect Test si un click est dans un rectangle
+*/
 SDL_bool clickSurCase(SDL_Event click, SDL_Rect caseRect);

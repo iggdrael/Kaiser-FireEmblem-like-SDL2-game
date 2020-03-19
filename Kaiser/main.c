@@ -24,7 +24,7 @@ int main(int argc, char** argv){
 	if(!TTF_WasInit() && TTF_Init() == -1)
 		SDL_ExitWithError("TTF_Init", NULL, NULL, NULL);
 
-	window = SDL_CreateWindow("Kaiser",10, 10, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
+	window = SDL_CreateWindow("Kaiser",10, 50, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
 
 	if (window == NULL)
 		SDL_ExitWithError("Erreur à la création de la fenetre\n", window, NULL, NULL);

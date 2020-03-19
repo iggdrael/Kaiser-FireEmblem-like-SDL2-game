@@ -17,4 +17,7 @@ typedef struct joueur_s{
 enum{GUERRIER, MAGE, VOLEUR, ARCHER, PRETRE};
 enum{HUMAIN, GOBELIN, ELFE, NAIN};
 
+int randint(int min, int max);
+void lancer_jeu(SDL_Window *window, SDL_Renderer *renderer, SDL_Texture *pack_texture, case_t *map);
+
 #endif

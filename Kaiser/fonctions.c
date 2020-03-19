@@ -1,4 +1,5 @@
 #include "fonctions.h"
+#include "jeu.h"
 
 case_t *init_matrice(){
 /**Fonction qui initialise et retourne la matrice representant la map**/
@@ -134,7 +135,7 @@ void creerTexte(SDL_Renderer *renderer, TTF_Font *police, char *str, int x, int 
 	}
 	SDL_FreeSurface(texte);
 	txtDestRect.x = x;
-  txtDestRect.y = y;
+  	txtDestRect.y = y;
 	SDL_QueryTexture(texte_tex, NULL, NULL, &(txtDestRect.w), &(txtDestRect.h));
 	SDL_RenderCopy(renderer, texte_tex, NULL, &txtDestRect);
 }
@@ -313,7 +314,7 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Te
 
 /**------------------Initialisation de la fenetre et du renderer du pack de texture----------**/
 
-	window_edit = SDL_CreateWindow("Textures", (WIDTH * 1.4)-W_TEXTURES, 10, W_TEXTURES, H_TEXTURES, SDL_WINDOW_SHOWN);
+	window_edit = SDL_CreateWindow("Textures", WIDTH+15, 50, W_TEXTURES, H_TEXTURES, SDL_WINDOW_SHOWN);
 
 	if(window_edit == NULL)
 		SDL_ExitWithError("Erreur à la création de la fenetre\n", window_edit, NULL, NULL);
@@ -328,7 +329,7 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Te
     SDL_Event event;
 	SDL_Rect rect_select;
 	coords_t case_select;
-	rect_select.w = rect_select.h = 32;
+	rect_select.w = rect_select.h = 24;
 	int case_actuelle = 0;
 
 /**------------------Variables correspondant a l id des fenetres------------------------------**/
@@ -422,8 +423,8 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Te
 				case SDL_MOUSEBUTTONDOWN: 
 					case_actuelle = (event.button.y / (H_TEXTURES / NOMBRE_BLOCS_HAUTEUR)) * NOMBRE_BLOCS_LARGEUR + (event.button.x / (W_TEXTURES / NOMBRE_BLOCS_LARGEUR));
 					case_select = case_to_coords(case_actuelle);
-					rect_select.x = case_select.y * LARGEUR_TILE;
-					rect_select.y = case_select.x * LARGEUR_TILE;
+					rect_select.x = case_select.y * 24;
+					rect_select.y = case_select.x * 24;
 
 					SDL_RenderClear(renderer_edit);
 					aff_tile(renderer_edit, pack_textures_for_window, 0, 0, -1);
@@ -448,6 +449,7 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Te
 }
 
 SDL_bool clickSurCase(SDL_Event click, SDL_Rect caseRect){
+/**Fonction testant si un click a lieu dans le rectangle en paramètres**/
 	return (	click.button.y > caseRect.y
 			&& 	click.button.y < caseRect.y + caseRect.h
 			&& 	click.button.x > caseRect.x
@@ -627,7 +629,8 @@ void menu(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Texture *
 				case SDL_MOUSEBUTTONDOWN:
 					if (event.button.button == SDL_BUTTON_LEFT){
 						if (clickSurCase(event, rect_jouer)){
-							printf("Jouer\n");
+							SDL_RenderClear(renderer);
+							lancer_jeu(window, renderer, pack_texture, map);
 						}
 						else if (clickSurCase(event, rect_editeur)){
 							SDL_RenderClear(renderer);
