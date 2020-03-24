@@ -51,6 +51,10 @@ void lancer_jeu(SDL_Window *window, SDL_Renderer *renderer, SDL_Texture *pack_te
 
 /**------------------Autres variables-----------------------------------------------------**/
 
+	///Determine quel joueur commence à jouer
+	//int tour_joueur = randint(0, 1);
+
+
 	SDL_bool jeu_launched = SDL_TRUE;
     SDL_Event event;
 
