@@ -1,6 +1,6 @@
-#include "fonctions.h"
+#include "commun.h"
 //gcc src/main.c -o bin/prog -I include -L lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf
-//gcc src/kaiser/main.c .\src\kaiser\fonctions.c -o bin/prog -I include -L lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf
+//gcc .\src\ProjetS4\Kaiser\main.c .\src\ProjetS4\Kaiser\fonctions.c .\src\ProjetS4\Kaiser\selection_equipe.c  .\src\ProjetS4\Kaiser\jeu.c -o bin/prog -I include -L lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf  
 
 int main(int argc, char** argv){
 /**La fonction main constitue un menu permettant :

@@ -1,5 +1,4 @@
-#include "fonctions.h"
-#include "jeu.h"
+#include "commun.h"
 
 case_t *init_matrice(){
 /**Fonction qui initialise et retourne la matrice representant la map**/
@@ -630,7 +629,9 @@ void menu(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Texture *
 					if (event.button.button == SDL_BUTTON_LEFT){
 						if (clickSurCase(event, rect_jouer)){
 							SDL_RenderClear(renderer);
-							lancer_jeu(window, renderer, pack_texture, map);
+							perso_t team;
+							create_team(window, renderer, map, pack_texture, &team, 5);
+							//lancer_jeu(window, renderer, pack_texture, map);
 						}
 						else if (clickSurCase(event, rect_editeur)){
 							SDL_RenderClear(renderer);

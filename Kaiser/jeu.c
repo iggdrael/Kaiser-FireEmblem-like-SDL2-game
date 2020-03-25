@@ -1,5 +1,4 @@
-#include "fonctions.h"
-#include "jeu.h"
+#include "commun.h"
 
 int randint(int min, int max){
 /**Fonction générant un entier aléatoire entre deux bornes en paramètres**/

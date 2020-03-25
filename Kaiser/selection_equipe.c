@@ -1,6 +1,4 @@
-#include "fonctions.h"
-#include "selection_equipe.h"
-#include "jeu.h"
+#include "commun.h"
 
 /*
 	Au lieu de changer les positions de l'archer pour le placer entre le + et le -
@@ -308,6 +306,6 @@ void create_team(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Te
 		for(int i=0; i<NB_PERS; i++){
 			printf("%d\n", team[i].CLASSE);
 		}
-		//lancer_jeu(window, renderer);
+		lancer_jeu(window, renderer, pack_texture, map);
 	}
 }
