@@ -1,71 +1,64 @@
 #include "commun.h"
 
-/*
-	Au lieu de changer les positions de l'archer pour le placer entre le + et le -
-	Changer les positions du + et du - en fonction des coordonnées de l'archer
-
-*/
-
-
 void rectPosWH(SDL_Rect * rectP, SDL_Rect * rectM, int valeur){
 	rectP->w = rectP->h = rectM->w = rectM->h = valeur;
 }
 
 void validation_team(perso_t * team, int g, int m, int a, int h, int v){ //Guerrier, Mage, Archer, Healer, Voleur
-	int i;
-	for (i=0; i<g; i++){
-		team[i].CLASSE = GUERRIER;
-		team[i].PV 	= 100;
-		team[i].ATK = 40;
-		team[i].DEF = 10;
-		team[i].ESQ = 0;
-		team[i].CRIT= 5;
-		team[i].POR = 1;
-		team[i].DEP = 3;
+	int i, j = 0;
+	for (i=0; i<g; i++, j++){
+		team[j].CLASSE = GUERRIER;
+		team[j].PV 	= 100;
+		team[j].ATK = 40;
+		team[j].DEF = 10;
+		team[j].ESQ = 0;
+		team[j].CRIT= 5;
+		team[j].POR = 1;
+		team[j].DEP = 3;
 	}
 
-	for (i=0; i<m; i++){
-		team[i].CLASSE = MAGE;
-		team[i].PV 	= 65;
-		team[i].ATK = 60;
-		team[i].DEF = 3;
-		team[i].ESQ = 5;
-		team[i].CRIT= 8;
-		team[i].POR = 2;
-		team[i].DEP = 4;
+	for (i=0; i<m; i++, j++){
+		team[j].CLASSE = MAGE;
+		team[j].PV 	= 65;
+		team[j].ATK = 60;
+		team[j].DEF = 3;
+		team[j].ESQ = 5;
+		team[j].CRIT= 8;
+		team[j].POR = 2;
+		team[j].DEP = 4;
 	}
 
-	for (i=0; i<a; i++){
-		team[i].CLASSE = ARCHER;
-		team[i].PV 	= 60;
-		team[i].ATK = 50;
-		team[i].DEF = 4;
-		team[i].ESQ = 5;
-		team[i].CRIT= 6;
-		team[i].POR = 3;
-		team[i].DEP = 4;
+	for (i=0; i<a; i++, j++){
+		team[j].CLASSE = ARCHER;
+		team[j].PV 	= 60;
+		team[j].ATK = 50;
+		team[j].DEF = 4;
+		team[j].ESQ = 5;
+		team[j].CRIT= 6;
+		team[j].POR = 3;
+		team[j].DEP = 4;
 	}
 
-	for (i=0; i<h; i++){
-		team[i].CLASSE = PRETRE;
-		team[i].PV 	= 80;
-		team[i].ATK = 15;
-		team[i].DEF = 0;
-		team[i].ESQ = 2;
-		team[i].CRIT= 5;
-		team[i].POR = 2;
-		team[i].DEP = 4;
+	for (i=0; i<h; i++, j++){
+		team[j].CLASSE = PRETRE;
+		team[j].PV 	= 80;
+		team[j].ATK = 15;
+		team[j].DEF = 0;
+		team[j].ESQ = 2;
+		team[j].CRIT= 5;
+		team[j].POR = 2;
+		team[j].DEP = 4;
 	}
 
-	for (i=0; i<v; i++){
-		team[i].CLASSE = VOLEUR;
-		team[i].PV 	= 45;
-		team[i].ATK = 65;
-		team[i].DEF = 3;
-		team[i].ESQ = 20;
-		team[i].CRIT= 33;
-		team[i].POR = 1;
-		team[i].DEP = 5;
+	for (i=0; i<v; i++, j++){
+		team[j].CLASSE = VOLEUR;
+		team[j].PV 	= 45;
+		team[j].ATK = 65;
+		team[j].DEF = 3;
+		team[j].ESQ = 20;
+		team[j].CRIT= 33;
+		team[j].POR = 1;
+		team[j].DEP = 5;
 	}
 }
 
@@ -216,70 +209,70 @@ void create_team(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Te
 							if (nb_perso_actuel < NB_PERS){
 								guerrier.h++;
 								nb_perso_actuel++;
-								printf("+Guerrier : %d\n", nb_perso_actuel);
+								printf("+Guerrier : %d, Total : %d\n", guerrier.h, nb_perso_actuel);
 							}
 						}
 						else if (clickSurCase(event, rect_mg)){
 							if (nb_perso_actuel > 0 && guerrier.h > 0){
 								guerrier.h--;
 								nb_perso_actuel--;
-								printf("-Guerrier : %d\n", nb_perso_actuel);
+								printf("-Guerrier : %d, Total : %d\n", guerrier.h, nb_perso_actuel);
 							}
 						}
 						else if (clickSurCase(event, rect_pm)){//Mage
 							if (nb_perso_actuel < NB_PERS){
 								mage.h++;
 								nb_perso_actuel++;
-								printf("+Mage : %d\n", nb_perso_actuel);
+								printf("+Mage : %d, Total : %d\n", mage.h, nb_perso_actuel);
 							}
 						}
 						else if (clickSurCase(event, rect_mm)){
 							if (nb_perso_actuel > 0 && mage.h > 0){
 								mage.h--;
 								nb_perso_actuel--;
-								printf("-Mage : %d\n", nb_perso_actuel);
+								printf("-Mage : %d, Total : %d\n", mage.h, nb_perso_actuel);
 							}
 						}
 						else if (clickSurCase(event, rect_pa)){//Archer
 							if (nb_perso_actuel < NB_PERS){
 								archer.h++;
 								nb_perso_actuel++;
-								printf("+Archer : %d\n", nb_perso_actuel);
+								printf("+Archer : %d, Total : %d\n", archer.h, nb_perso_actuel);
 							}
 						}
 						else if (clickSurCase(event, rect_ma)){
 							if (nb_perso_actuel > 0 && archer.h > 0){
 								archer.h--;
 								nb_perso_actuel--;
-								printf("-Archer : %d\n", nb_perso_actuel);
+								printf("-Archer : %d, Total : %d\n", archer.h, nb_perso_actuel);
 							}
 						}
 						else if (clickSurCase(event, rect_ph)){//Healer
 							if (nb_perso_actuel < NB_PERS){
 								healer.h++;
 								nb_perso_actuel++;
-								printf("+Healer : %d\n", nb_perso_actuel);
+								printf("+Healer : %d, Total : %d\n", healer.h, nb_perso_actuel);
 							}
 						}
 						else if (clickSurCase(event, rect_mh)){
 							if (nb_perso_actuel > 0 && healer.h > 0){
 								healer.h--;
 								nb_perso_actuel--;
-								printf("-Healer : %d\n", nb_perso_actuel);
+								printf("-Healer : %d, Total : %d\n", healer.h, nb_perso_actuel);
 							}
 						}
 						else if (clickSurCase(event, rect_pv)){//Voleur
 							if (nb_perso_actuel < NB_PERS){
 								voleur.h++;
 								nb_perso_actuel++;
-								printf("+Voleur : %d\n", nb_perso_actuel);
+								printf("+Voleur : %d, Total : %d\n", voleur.h, nb_perso_actuel);
 							}
 						}
 						else if (clickSurCase(event, rect_mv)){ 
 							if (nb_perso_actuel > 0 && voleur.h > 0){
 								voleur.h--; 
 								nb_perso_actuel--;
-								printf("-Voleur : %d\n", nb_perso_actuel);
+								printf("-Voleur : %d, Total : %d\n", voleur.h, nb_perso_actuel);
 							}
 						}
 						else if (clickSurCase(event, validation)){
