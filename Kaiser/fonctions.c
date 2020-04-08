@@ -20,6 +20,14 @@ case_t *init_matrice(){
 				fprintf(stderr, "Problème allocation mémoire\n");
 				exit(EXIT_FAILURE);
 			}
+			(map + i*M + j)->perso = malloc(sizeof(perso_t));
+
+			if ((map + i*M + j)->perso == NULL){
+				fprintf(stderr, "Problème allocation mémoire\n");
+				exit(EXIT_FAILURE);
+			}
+			(map + i*M + j)->is_perso = SDL_FALSE;
+			clean_perso((map + i*M + j)->perso);
 		}
 
 	return map;
@@ -85,7 +93,7 @@ SDL_Texture *creerTexture(SDL_Window *window, SDL_Renderer *renderer, char sourc
 	return (texture);
 }
 
-void aff_tile(SDL_Renderer *renderer, SDL_Texture *texture, int i, int j, int case_actuelle){
+void aff_tile(SDL_Renderer *renderer, SDL_Texture *texture, int i, int j, int case_actuelle, float multi){
 /**Fonction affichant une portion de la texture sur le renderer (depuis sa case, -1 pour toute la texture)**/
 	SDL_Rect Rect_dest;
     SDL_Rect Rect_source;
@@ -100,9 +108,9 @@ void aff_tile(SDL_Renderer *renderer, SDL_Texture *texture, int i, int j, int ca
 		coords_t coords = case_to_coords(case_actuelle);
 
 		Rect_source.w = LARGEUR_TILE;
-		Rect_dest.w   = LARGEUR_CASE;
+		Rect_dest.w   = (int)(LARGEUR_CASE * multi);
 		Rect_source.h = HAUTEUR_TILE;
-		Rect_dest.h   = LARGEUR_CASE;
+		Rect_dest.h   = (int)(LARGEUR_CASE * multi);
 
 		Rect_dest.x = j * LARGEUR_CASE;
 		Rect_dest.y = i * LARGEUR_CASE;
@@ -120,12 +128,12 @@ void creerTexte(SDL_Renderer *renderer, TTF_Font *police, char *str, int x, int 
 /**Fonction affichant un texte "str" sur le renderer aux coordonees passees en parametres**/
 	SDL_Surface *texte = NULL;
 	SDL_Rect txtDestRect;
-	SDL_Color NOIR = {0, 0, 0};
+	SDL_Color NOIR = {P_R, P_G, P_B};
 
 	texte = TTF_RenderUTF8_Blended(police, str, NOIR);
 	if (!texte){
 		fprintf (stderr, "Erreur a la creation du texte : %s\n", SDL_GetError ());
-		exit (EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
 	SDL_Texture * texte_tex = SDL_CreateTextureFromSurface(renderer, texte);
 	if (!texte_tex){
@@ -147,7 +155,7 @@ SDL_bool valides(int x, int y){
 void save_map(case_t *map){
 /**Fonction permettant de creer un fichier texte et d y sauvegarder une map**/
 	FILE *fic = NULL;
-	char fname[8] = "mapA.txt";
+	char fname[8] = "map1.txt";
 
 	while (access(fname, F_OK) != -1)
 		fname[3]++;
@@ -175,13 +183,12 @@ void save_map(case_t *map){
 	SDL_Log("Sauvegarde reussie !!\n");
 }
 
-void load_matrice(case_t *map){
+void load_matrice(case_t *map, int n_map){
 /**Fonction permettant de charger la matrice "map" depuis un fichier texte**/
 	FILE *fic = NULL;
-	char fname[8] = "mapA.txt";
+	char fname[8] = "map0.txt";
 
-	//printf("Nom de la map a charger : ");
-	//scanf("%s", fname);
+	fname[3] = '0' + n_map;
 
 	fic = fopen(fname, "r");
 	if (fic == NULL) {
@@ -210,10 +217,9 @@ void aff_map(case_t *map, SDL_Renderer *renderer, SDL_Texture *pack_texture){
 	for(i = 0 ; i < N; i++)
         for (j = 0; j < M; j++)
 			for (k = 0; k < MAX_TEXTURES; k++){
-				if ((map + M*i + j)->textures[k] != SUPR)
-					aff_tile(renderer, pack_texture, i, j, (map + M*i + j)->textures[k]);
+				if ((map + M*i + j)->textures[k] != RIEN)
+					aff_tile(renderer, pack_texture, i, j, (map + M*i + j)->textures[k], 1);
 			}
-	SDL_RenderPresent(renderer);
 }
 
 coords_t case_to_coords(int case_actuelle){
@@ -248,10 +254,10 @@ type_t type_case(int case_actuelle){
  * Franchissable (ex : pierre)
  * Infranchissable (ex : lave)
  * RP (ex : personnage ou equipement)**/
-	if (case_actuelle < 375)
-		return LIBRE;
-	else if (case_actuelle >= 375 && case_actuelle < 474)
+	if ((case_actuelle >= 374 && case_actuelle < 474) || case_actuelle == 358)
 		return NON_LIBRE;
+	else if (case_actuelle < 374 && case_actuelle != RIEN)
+		return LIBRE;
 	else if (case_actuelle >= 474)
 		return RP;
 	return -1;
@@ -275,15 +281,15 @@ void ajout_texture_case(case_t *map,  int i, int j, int case_actuelle){
 		if (type == VIDE){
 			/**On reinitialise la case**/
 			(map + i * M + j)->textures[0] = case_actuelle;
-			(map + i * M + j)->textures[1] = SUPR;
-			(map + i * M + j)->textures[2] = SUPR;
+			(map + i * M + j)->textures[1] = RIEN;
+			(map + i * M + j)->textures[2] = RIEN;
 		}
 		else if (type == FOND){
 			/**On change le fond**/
 			(map + i * M + j)->textures[0] = case_actuelle;
 		}
 		else if (type == DECOR){
-			/**On change l element**/
+			/**On change le decor**/
 			(map + i * M + j)->textures[1] = case_actuelle;
 		}
 		else if (type == RP){
@@ -330,6 +336,7 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Te
 	coords_t case_select;
 	rect_select.w = rect_select.h = 24;
 	int case_actuelle = 0;
+	int n_map;
 
 /**------------------Variables correspondant a l id des fenetres------------------------------**/
 
@@ -343,8 +350,9 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Te
 /**------------------Affichage des textures dans la deuxieme fenetre--------------------------
  * ------------------Remplissage de la fenetre principale avec la tile case vide--------------**/
 
+	SDL_RenderClear(renderer);
 	SDL_SetRenderDrawBlendMode(renderer_edit, SDL_BLENDMODE_BLEND);
-	aff_tile(renderer_edit, pack_textures_for_window, 0, 0, -1);
+	aff_tile(renderer_edit, pack_textures_for_window, 0, 0, -1, 1);
 	SDL_RenderPresent(renderer_edit);
 	fill_map(map, VIDE);
 	aff_map(map, renderer, pack_texture);
@@ -367,7 +375,7 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Te
 						clic_long_gauche = SDL_TRUE;
 					}
 					else if (event.button.button == SDL_BUTTON_RIGHT){
-						ajout_texture_case(map, event.button.y / LARGEUR_CASE, event.button.x / LARGEUR_CASE, 0);
+						ajout_texture_case(map, event.button.y / LARGEUR_CASE, event.button.x / LARGEUR_CASE, VIDE);
 						clic_long_droit = SDL_TRUE;
 					}
 					break;
@@ -384,7 +392,7 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Te
 					if (clic_long_gauche == SDL_TRUE)
 						ajout_texture_case(map, event.button.y / LARGEUR_CASE, event.button.x / LARGEUR_CASE, case_actuelle);
 					else if (clic_long_droit == SDL_TRUE){
-						ajout_texture_case(map, event.button.y / LARGEUR_CASE, event.button.x / LARGEUR_CASE, 0);
+						ajout_texture_case(map, event.button.y / LARGEUR_CASE, event.button.x / LARGEUR_CASE, VIDE);
 					break;
 
 				case SDL_KEYDOWN:
@@ -396,7 +404,11 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Te
 
 						case SDLK_s: save_map(map);break;
 
-						case SDLK_c: load_matrice(map);break;
+						case SDLK_c: 
+							printf("Numero de la map a charger : ");
+							scanf("%d", &n_map);
+							load_matrice(map, n_map);
+							break;
 					}
 					break;
 				}
@@ -426,7 +438,7 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Te
 					rect_select.y = case_select.x * 24;
 
 					SDL_RenderClear(renderer_edit);
-					aff_tile(renderer_edit, pack_textures_for_window, 0, 0, -1);
+					aff_tile(renderer_edit, pack_textures_for_window, 0, 0, -1, 1);
 					SDL_SetRenderDrawColor(renderer_edit, 255, 0, 0, 128);
 					SDL_RenderFillRect(renderer_edit, &rect_select);
 					SDL_SetRenderDrawColor(renderer_edit, 0, 0, 0, 255);
@@ -475,18 +487,18 @@ void settings(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Textu
 	rect_quitter.x = (WIDTH-(WIDTH-WIDTH*0.65))/2;
 	rect_quitter.y = HEIGHT-1*(HEIGHT/4)+5;
 
-	TTF_Font *police_titre = TTF_OpenFont("caviardreams.ttf", taille_police_titre);
-	TTF_Font *police =TTF_OpenFont("caviardreams.ttf", taille_police);
+	TTF_Font *police_titre = TTF_OpenFont(NOM_FONT, taille_police_titre);
+	TTF_Font *police =TTF_OpenFont(NOM_FONT, taille_police);
 
 	if (!police)
 		SDL_ExitWithError("Erreur du chargement de la police", window, renderer, NULL);
 	if (!police_titre)
 		SDL_ExitWithError("Erreur du chargement de la police titre(Option)", window, renderer, NULL);
 
-	load_matrice(map);
+	load_matrice(map, 0);
 	aff_map(map, renderer, pack_texture);
 
-	SDL_SetRenderDrawColor(renderer, 46, 180, 100, 255);
+	SDL_SetRenderDrawColor(renderer, R_R,  R_G, R_B, 255);
 
 	SDL_RenderFillRect(renderer, &rect_taille_1);
 	SDL_RenderFillRect(renderer, &rect_taille_2);
@@ -589,15 +601,15 @@ void menu(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Texture *
 	rect_editeur.y = HEIGHT-2*(HEIGHT/4);
 	rect_quitter.y = HEIGHT-1*(HEIGHT/4);
 
-	TTF_Font *police = TTF_OpenFont("caviardreams.ttf", taille_police);
+	TTF_Font *police = TTF_OpenFont(NOM_FONT, taille_police);
 
 	if (!police)
 		SDL_ExitWithError("Erreur du chargement de la police", window, renderer, NULL);
 
-	load_matrice(map);
+	load_matrice(map, 0);
 	aff_map(map, renderer, pack_texture);
 
-	SDL_SetRenderDrawColor(renderer, 46, 180, 100, 255);
+	SDL_SetRenderDrawColor(renderer, R_R,  R_G, R_B, 255);
 
 	SDL_RenderFillRect(renderer, &rect_jouer);
 	SDL_RenderFillRect(renderer, &rect_editeur);
@@ -609,17 +621,20 @@ void menu(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Texture *
 	SDL_RenderDrawRect(renderer, &rect_editeur);
 	SDL_RenderDrawRect(renderer, &rect_quitter);
 
-	creerTexte(renderer, police, "Jouer", WIDTH/2 - 5 * 18, rect_jouer.y - 5);
-	creerTexte(renderer, police, "Editeur", WIDTH/2 - 7 * 15, rect_editeur.y - 5);
-	creerTexte(renderer, police, "Options", WIDTH/2 - 7 * 20, rect_quitter.y - 5);
+	creerTexte(renderer, police, "JOUER", WIDTH/2 - 5 * 18, rect_jouer.y - 5);
+	creerTexte(renderer, police, "EDITEUR", WIDTH/2 - 7 * 15, rect_editeur.y - 5);
+	creerTexte(renderer, police, "OPTIONS", WIDTH/2 - 7 * 20, rect_quitter.y - 5);
 
  	SDL_RenderPresent(renderer);
 
 
 	SDL_Event event;
 	SDL_bool menu_launched = SDL_TRUE;
+	SDL_bool jeu_asked = SDL_FALSE;
+	SDL_bool editeur_asked = SDL_FALSE;
 	SDL_bool setting_asked = SDL_FALSE;
-	while (menu_launched && setting_asked == SDL_FALSE){
+
+	while (menu_launched){
         SDL_WaitEvent(&event);
 
 			switch(event.type){
@@ -628,17 +643,16 @@ void menu(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Texture *
 				case SDL_MOUSEBUTTONDOWN:
 					if (event.button.button == SDL_BUTTON_LEFT){
 						if (clickSurCase(event, rect_jouer)){
-							SDL_RenderClear(renderer);
-							perso_t team;
-							create_team(window, renderer, map, pack_texture, &team, 5);
-							//lancer_jeu(window, renderer, pack_texture, map);
+							jeu_asked = SDL_TRUE; 
+							menu_launched = SDL_FALSE;
 						}
 						else if (clickSurCase(event, rect_editeur)){
-							SDL_RenderClear(renderer);
-							editeur_map(window, renderer, map, pack_texture);
+							editeur_asked = SDL_TRUE;
+							menu_launched = SDL_FALSE;
 						}
 						else if (clickSurCase(event, rect_quitter)){
-							setting_asked=SDL_TRUE;
+							setting_asked = SDL_TRUE;
+							menu_launched = SDL_FALSE;
 						}
 					}
 					break;
@@ -646,13 +660,16 @@ void menu(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Texture *
 				case SDL_KEYDOWN:
 					switch(event.key.keysym.sym){
 						case SDLK_ESCAPE: menu_launched = SDL_FALSE;break;
-
 					}
 			}
 	}
 
 	free(police);
 
-	if (setting_asked)
+	if (jeu_asked)
+		lancer_jeu(window, renderer, pack_texture, map);
+	else if (editeur_asked)
+		editeur_map(window, renderer, map, pack_texture);
+	else if (setting_asked)
 		settings(window, renderer, map, pack_texture);
 }

@@ -1,13 +1,16 @@
 #ifndef _FONCTIONS_H_
 #define _FONCTIONS_H_
 
-#include "commun.h"
+typedef enum libre_s{LIBRE, NON_LIBRE}libre_t; /**Types de cases**/
+typedef enum type_s{FOND, DECOR, RP}type_t; /**Types de cases**/
+#define VIDE 0
+#define RIEN -1 /**Texture inexistante**/
 
-typedef enum type_s{VIDE, LIBRE, NON_LIBRE, RP, FOND, DECOR}type_t; /**Types de cases**/
-#define SUPR -1 /**Texture inexistante**/
 
 typedef struct case_s{
 	int *textures;
+	struct perso_s *perso;
+	SDL_bool is_perso;
 }case_t;
 
 typedef struct coords_s{int x, y;}coords_t;
@@ -30,14 +33,15 @@ void detruire_matrice(case_t *map);
 void aff_matrice(case_t *A);
 
 /**
-* \fn void load_matrice(case_t *map)
+* \fn void load_matrice(case_t *map, int n_map)
 * \param map Charge la matrice.
+* \param n_map numero de la map a charger
 */
-void load_matrice(case_t *map);
+void load_matrice(case_t *map, int n_map);
 
 /**
 * \fn void save_map(case_t *map)
-* \param map Carte à sauvegarder
+* \param map Carte a sauvegarder
 */
 void save_map(case_t *map);
 
@@ -57,7 +61,7 @@ SDL_Texture *creerTexture(SDL_Window *window, SDL_Renderer *renderer, char sourc
 * \fn void aff_tile(SDL_Renderer *renderer, SDL_Texture *texture, int i, int j, int case_actuelle)
 * \param renderer,texture,i,j,case_actuelle Affiche une portion de la texture sur le renderer
 */
-void aff_tile(SDL_Renderer *renderer, SDL_Texture *texture, int i, int j, int case_actuelle);
+void aff_tile(SDL_Renderer *renderer, SDL_Texture *texture, int i, int j, int case_actuelle,  float multi);
 
 /**
 * \fn coords_t case_to_coords(int case_actuelle)

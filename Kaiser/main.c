@@ -33,6 +33,8 @@ int main(int argc, char** argv){
 	if (renderer == NULL)
 		SDL_ExitWithError("Erreur à la création du renderer\n", window, renderer, NULL);
 
+	SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
+
 /**------------------Initialisation map---------------------------------------**/
 
 	case_t *map = init_matrice();
