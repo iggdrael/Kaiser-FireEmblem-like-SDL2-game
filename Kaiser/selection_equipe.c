@@ -157,6 +157,7 @@ void clean_perso(perso_t *perso){
 	perso->J 		= RIEN;
 	perso->x 		= RIEN;
 	perso->y        = RIEN;
+	perso->indice   = RIEN;
 }
 
 void perso_copy(perso_t *src, perso_t *dest){
@@ -173,6 +174,7 @@ void perso_copy(perso_t *src, perso_t *dest){
 	dest->J =		src->J;
 	dest->x =		src->x;
 	dest->y =		src->y;
+	dest->indice =	src->indice;
 }
 
 void move_perso(case_t *map, int i, int j, int old_i, int old_j){
@@ -393,6 +395,7 @@ void validation_team(perso_t * team, int g, int m, int a, int h, int v, J_t J){ 
 	}
 
 	for (i = 0; i < j; i++){
+		(team+i)->indice = i;
 		if (J == J1)
 			(team+i)->J = J1;
 		else if (J == BOT)

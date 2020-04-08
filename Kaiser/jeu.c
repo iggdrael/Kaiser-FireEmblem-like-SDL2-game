@@ -168,7 +168,7 @@ void aff_radius_perso(SDL_Renderer *renderer, case_t *map, int x, int y, int DEP
 
 SDL_bool tour_joueur(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *police,
  SDL_Window *window_gui, SDL_Renderer *renderer_gui, TTF_Font *police_gui, case_t *map,
-  SDL_Texture *pack_texture, SDL_Texture *pack_texture_gui, SDL_Texture *interface){
+  joueur_t *joueurs, SDL_Texture *pack_texture, SDL_Texture *pack_texture_gui, SDL_Texture *interface){
 /**Fonction gérant le tour du joueur**/
 
 	Uint32 id_main_window = SDL_GetWindowID(window);
@@ -227,9 +227,10 @@ SDL_bool tour_joueur(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *polic
 										if(chercher_chemin(tab, old_i, old_j, i, j)){
 											marquer_chemin(tab, i, j, &nb_dep);
 
-											aff_perso_console((map + M*i + j)->perso);
-											if ((map + M*old_i + old_j)->perso->DEP >= nb_dep - 1)
+											if ((map + M*old_i + old_j)->perso->DEP >= nb_dep - 1){
 												move_perso(map, i, j, old_i, old_j);
+												perso_copy((map + M*i + j)->perso, ((joueurs+J1)->team + (map + M*i + j)->perso->indice));
+											}
 										}
 									}
 									aff_map(map, renderer, pack_texture);
@@ -436,9 +437,14 @@ SDL_bool tour_bot(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *police,
 		exit(EXIT_FAILURE);
 	}
 
+	aff_team_console((joueurs + J1)->team, (joueurs + J1)->nb_persos);
+
 	for (i = 0; i < (joueurs+BOT)->nb_persos; i++){
 		xd = ((joueurs+BOT)->team+i)->x;
 		yd = ((joueurs+BOT)->team+i)->y;
+
+		if (!valides(xd, yd))
+			continue;
 
 		#ifdef DEBUG
 			printf("BOT : %d-%d\n", xd, yd);
@@ -468,19 +474,22 @@ SDL_bool tour_bot(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *police,
 			}
 		}
 
-		#ifdef DEBUG
+		//#ifdef DEBUG
 			printf("\n%d : Perso le plus proche : %d-%d, %d deps\n\n", i, x_min, y_min, min);
-		#endif
+		//#endif
+
+		if (!valides(x_min, y_min))
+			continue;
 
 		if(chercher_chemin(tab_copy, xd, yd, x_min, y_min)){
 			marquer_chemin(tab_copy, x_min, y_min, &nb_dep);
 
 			c_a = remarquer_chemin(tab_copy, xd, yd, ((joueurs+BOT)->team+i)->DEP);
 
-			#ifdef DEBUG
+			//#ifdef DEBUG
 				printf("From %d-%d to %d-%d\n", xd, yd, c_a.x, c_a.y);
-			#endif
-			//aff_perso_console((joueurs+BOT)->team+i);
+			//#endif
+			aff_perso_console((joueurs+BOT)->team+i);
 
 		}
 
@@ -611,7 +620,7 @@ void lancer_jeu(SDL_Window *window, SDL_Renderer *renderer, SDL_Texture *pack_te
 
 	while (jeu_launched){
 		if (tour_j1)
-			jeu_launched = tour_joueur(window, renderer, police, window_gui, renderer_gui, police_gui, map, pack_texture, pack_texture_gui, interface);
+			jeu_launched = tour_joueur(window, renderer, police, window_gui, renderer_gui, police_gui, map, joueurs, pack_texture, pack_texture_gui, interface);
 		else
 			jeu_launched = tour_bot(window, renderer, police, window_gui, renderer_gui, police_gui, map, joueurs, pack_texture, pack_texture_gui, interface);		
 

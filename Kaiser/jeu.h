@@ -28,23 +28,23 @@
 #define G_ESQ 	0
 #define G_CRIT 	5
 #define G_POR	1
-#define G_DEP 	3
+#define G_DEP 	5
 
 #define M_PV 	65
 #define M_ATK 	60
 #define M_DEF 	3
 #define M_ESQ 	5
 #define M_CRIT 	8
-#define M_POR	2
-#define M_DEP 	4
+#define M_POR	4
+#define M_DEP 	6
 
 #define A_PV 	60
 #define A_ATK 	50
 #define A_DEF 	4
 #define A_ESQ 	5
 #define A_CRIT 	6
-#define A_POR	3
-#define A_DEP 	4
+#define A_POR	5
+#define A_DEP 	6
 
 #define H_PV 	80
 #define H_ATK 	15
@@ -52,7 +52,7 @@
 #define H_ESQ 	2
 #define H_CRIT 	5
 #define H_POR	2
-#define H_DEP 	4
+#define H_DEP 	6
 
 #define V_PV 	45
 #define V_ATK 	65
@@ -60,7 +60,7 @@
 #define V_ESQ 	20
 #define V_CRIT  33
 #define V_POR	1
-#define V_DEP 	3
+#define V_DEP 	6
 
 #define TAILLE_FONT_GUI 30
 #define TAILLE_MAIN_FONT 50
@@ -75,7 +75,7 @@ typedef enum J_s{J1, BOT}J_t;
 
 typedef struct perso_s{
 	int CLASSE, RACE, PV, ATK, DEF, ESQ, CRIT, POR, DEP;
-	int x, y;
+	int x, y, indice;
 	J_t J;
 }perso_t;
 
