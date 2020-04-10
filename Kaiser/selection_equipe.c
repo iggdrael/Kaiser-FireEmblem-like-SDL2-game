@@ -31,7 +31,7 @@ void change_val_text(case_t *map, int n_text, int i, int j, int val){
 
 SDL_bool case_valide(case_t *map, int i, int j){
 /**Fonction qui retourne vrai si la case est accessible par un perso**/
-	if ((map + M*i + j)->textures[RP] == RIEN){
+	if ((map + M*i + j)->textures[RP] == RIEN || (map + M*i + j)->textures[RP] == PERSO_MORT){
 		if ((map + M*i + j)->textures[DECOR] == RIEN)
 			return (type_case((map + M*i + j)->textures[FOND]) == LIBRE);
 		else if ((type_case((map + M*i + j)->textures[DECOR]) == LIBRE))
@@ -84,7 +84,7 @@ void placer_persos(case_t *map, perso_t *team, const int NB_PERS, int col_inf, i
 		(team+k)->x = i;
 		(team+k)->y = j;
 
-		(map + M*i + j)->perso = (team + k);
+		perso_copy((team + k), (map + M*i + j)->perso);
 		(map + M*i + j)->is_perso = SDL_TRUE; 
 	}
 }
@@ -110,7 +110,7 @@ void aff_deplacements_deb(SDL_Renderer *renderer, case_t *map){
 	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 }
 
-SDL_bool perso_allie(int n_text){
+SDL_bool perso_joueur(int n_text){
 /**Fonction qui return vrai si le numero de la texture passe en parametre correspond a un perso allie**/
 	switch (n_text){
 		case TEXT_ARCHER:
@@ -132,6 +132,13 @@ SDL_bool perso_bot(int n_text){
 		case TEXT_VOLEUR_BOT: return SDL_TRUE; break;
 		default: return SDL_FALSE;
 	}
+}
+
+SDL_bool perso_allie(J_t J, int n_text){
+	if (J == BOT)
+		return perso_bot(n_text);
+	else if (J == J1)
+		return perso_joueur(n_text);
 }
 
 void bouton_check(SDL_Renderer *renderer, SDL_Rect * validation, TTF_Font *police){
@@ -183,6 +190,9 @@ void move_perso(case_t *map, int i, int j, int old_i, int old_j){
 	perso_copy((map + old_i*M + old_j)->perso, (map + i*M + j)->perso);
 	(map + i*M + j)->is_perso = SDL_TRUE;
 
+	(map + i*M + j)->perso->x = i;
+	(map + i*M + j)->perso->y = j;
+
 	change_val_text(map, RP, old_i, old_j, RIEN);
 	clean_perso((map + old_i*M + old_j)->perso);
 	(map + old_i*M + old_j)->is_perso = SDL_FALSE;
@@ -198,13 +208,16 @@ void deplacer_persos(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *polic
 	rect_select.w = rect_select.h = LARGEUR_CASE;
 
 	SDL_Rect validation;
-	validation.w = TAILLE_MAIN_FONT*5;
-	validation.h = TAILLE_MAIN_FONT;
-	validation.x = WIDTH/2 - validation.w/2;
+	validation.w = TAILLE_FONT_GUI*5;
+	validation.h = TAILLE_FONT_GUI;
+	validation.x = (WIDTH / 3.5)/2 - validation.w/2;
 	validation.y = HEIGHT - validation.h;
 
-	bouton_check(renderer, &validation, police);
-	SDL_RenderPresent(renderer);
+	Uint32 id_main_window = SDL_GetWindowID(window);
+	Uint32 id_window_gui = SDL_GetWindowID(window_gui);
+
+	bouton_check(renderer_gui, &validation, police_gui);
+	SDL_RenderPresent(renderer_gui);
 
 	SDL_Event event;
 	SDL_bool dep_launched = SDL_TRUE, menu_asked = SDL_FALSE, click = SDL_FALSE;
@@ -212,18 +225,15 @@ void deplacer_persos(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *polic
 	while(dep_launched){
 		SDL_WaitEvent(&event);
 
-		switch(event.type){
-			case SDL_QUIT: 
-				dep_launched = SDL_FALSE; 
-				menu_asked = SDL_TRUE;
-				break;
+		if (event.window.windowID == id_main_window){
+			switch(event.type){
+				case SDL_QUIT: 
+					dep_launched = SDL_FALSE; 
+					menu_asked = SDL_TRUE;
+					break;
 
-			case SDL_MOUSEBUTTONDOWN:
-				if (event.button.button == SDL_BUTTON_LEFT){
-
-					if (clickSurCase(event, validation))
-						dep_launched = SDL_FALSE;
-					else{
+				case SDL_MOUSEBUTTONDOWN:
+					if (event.button.button == SDL_BUTTON_LEFT){
 						i = event.button.y / LARGEUR_CASE;
 						j = event.button.x / LARGEUR_CASE;
 
@@ -235,7 +245,7 @@ void deplacer_persos(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *polic
 							aff_map(map, renderer, pack_texture);
 							click = SDL_FALSE;
 						}
-						else if (perso_allie( (map + M*i + j)->textures[RP])){
+						else if (perso_joueur( (map + M*i + j)->textures[RP])){
 							SDL_RenderClear(renderer_gui);
 							aff_tile(renderer_gui, interface, 0, 0, -1, 1);
 
@@ -244,6 +254,7 @@ void deplacer_persos(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *polic
 							#endif
 
 							aff_perso(renderer_gui, pack_texture_gui, police_gui, (map + M*i +j)->perso, VIDE);
+							bouton_check(renderer_gui, &validation, police_gui);
 							SDL_RenderPresent(renderer_gui);
 
 							rect_select.x = j * LARGEUR_CASE;
@@ -263,27 +274,48 @@ void deplacer_persos(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *polic
 							SDL_RenderClear(renderer_gui);
 							aff_tile(renderer_gui, interface, 0, 0, -1, 1);
 							aff_perso(renderer_gui, pack_texture_gui, police_gui, (map + M*i +j)->perso, VIDE);
+							bouton_check(renderer_gui, &validation, police_gui);
 							SDL_RenderPresent(renderer_gui);
 
 							aff_map(map, renderer, pack_texture);
 						}
 						else
 							aff_map(map, renderer, pack_texture);
-						
-						bouton_check(renderer, &validation, police);
 						SDL_RenderPresent(renderer);
 					}
-				}
-				break;
+					break;
 
-			case SDL_KEYDOWN:
-				switch(event.key.keysym.sym){
-					case SDLK_ESCAPE: 
+				case SDL_KEYDOWN:
+					switch(event.key.keysym.sym){
+						case SDLK_ESCAPE: 
+							dep_launched = SDL_FALSE;
+							menu_asked = SDL_TRUE;
+							break;
+					}
+					break;
+			}
+		}
+		else if (event.window.windowID == id_window_gui){
+			switch(event.type){
+				case SDL_QUIT: 
+					dep_launched = SDL_FALSE; 
+					menu_asked = SDL_TRUE;
+					break;
+
+				case SDL_MOUSEBUTTONDOWN:
+					if (clickSurCase(event, validation))
 						dep_launched = SDL_FALSE;
-						menu_asked = SDL_TRUE;
-						break;
-				}
-				break;
+					break;
+
+				case SDL_KEYDOWN:
+					switch(event.key.keysym.sym){
+						case SDLK_ESCAPE: 
+							dep_launched = SDL_FALSE;
+							menu_asked = SDL_TRUE;
+							break;
+					}
+					break;
+			}
 		}
 	}
 
@@ -322,7 +354,7 @@ perso_t * create_team_bot(const int NB_PERS){
 void aff_team_console(perso_t *team, int nb_persos){
 /**Fonction qui affiche la constitution de l equipe en console**/
 	for (int i = 0; i < nb_persos; i++){
-		printf("classe: %d pv: %d atk: %d def: %d esq: %d crit: %d por: %d dep: %d J: %d x: %d y: %d\n", (team+i)->CLASSE, (team+i)->PV, (team+i)->ATK, (team+i)->DEF, (team+i)->ESQ, (team+i)->CRIT, (team+i)->POR, (team+i)->DEP, (team+i)->J, (team+i)->x, (team+i)->y);
+		printf("classe: %d pv: %d atk: %d def: %d esq: %d crit: %d por: %d dep: %d J: %d x: %d y: %d indice : %d\n", (team+i)->CLASSE, (team+i)->PV, (team+i)->ATK, (team+i)->DEF, (team+i)->ESQ, (team+i)->CRIT, (team+i)->POR, (team+i)->DEP, (team+i)->J, (team+i)->x, (team+i)->y, (team+i)->indice);
 	}
 }
 
@@ -417,9 +449,9 @@ perso_t * create_team(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *poli
 			rect_pv, rect_mv;	//Voleur
 
 	SDL_Rect validation;
-	validation.w = TAILLE_MAIN_FONT*5;
-	validation.h = TAILLE_MAIN_FONT;
-	validation.x = WIDTH/2 - validation.w/2;
+	validation.w = TAILLE_FONT_GUI*5;
+	validation.h = TAILLE_FONT_GUI;
+	validation.x = (WIDTH / 3.5)/2 - validation.w/2;
 	validation.y = HEIGHT - validation.h;
 
 	SDL_Rect guerrier, mage, archer, healer, voleur;
@@ -468,6 +500,10 @@ perso_t * create_team(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *poli
 
 	SDL_RenderClear(renderer); aff_map(map, renderer, pack_texture); SDL_SetRenderDrawColor(renderer, R_R,  R_G, R_B, 255);SDL_RenderFillRect(renderer, &rect_pg);SDL_RenderFillRect(renderer, &rect_mg); SDL_RenderFillRect(renderer, &rect_pm);SDL_RenderFillRect(renderer, &rect_mm); SDL_RenderFillRect(renderer, &rect_pa);SDL_RenderFillRect(renderer, &rect_ma); SDL_RenderFillRect(renderer, &rect_ph);SDL_RenderFillRect(renderer, &rect_mh); SDL_RenderFillRect(renderer, &rect_pv);SDL_RenderFillRect(renderer, &rect_mv); SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); SDL_RenderDrawRect(renderer, &rect_pg);SDL_RenderDrawRect(renderer, &rect_mg); SDL_RenderDrawRect(renderer, &rect_pm);SDL_RenderDrawRect(renderer, &rect_mm); SDL_RenderDrawRect(renderer, &rect_pa); SDL_RenderDrawRect(renderer, &rect_ma); SDL_RenderDrawRect(renderer, &rect_ph);SDL_RenderDrawRect(renderer, &rect_mh); SDL_RenderDrawRect(renderer, &rect_pv);SDL_RenderDrawRect(renderer, &rect_mv);creerTexte(renderer, police, "+", rect_pg.x, rect_pg.y);creerTexte(renderer, police, "-", rect_mg.x, rect_mg.y);creerTexte(renderer, police, "0", rect_pg.x + 100, rect_pg.y); creerTexte(renderer, police, "+", rect_pm.x, rect_pm.y);creerTexte(renderer, police, "-", rect_mm.x, rect_mm.y); creerTexte(renderer, police, "0", rect_pm.x + 100, rect_pm.y); creerTexte(renderer, police, "+", rect_pa.x, rect_pa.y);creerTexte(renderer, police, "-", rect_ma.x, rect_ma.y); creerTexte(renderer, police, "0", rect_pa.x + 100, rect_pa.y); creerTexte(renderer, police, "+", rect_ph.x, rect_ph.y);creerTexte(renderer, police, "-", rect_mh.x, rect_mh.y); creerTexte(renderer, police, "0", rect_ph.x + 100, rect_ph.y); creerTexte(renderer, police, "+", rect_pv.x, rect_pv.y);creerTexte(renderer, police, "-", rect_mv.x, rect_mv.y); creerTexte(renderer, police, "0", rect_pv.x + 100, rect_pv.y);aff_tile(renderer, pack_textures_for_window, guerrier.y-1, guerrier.x-1, guerrier.w, 3); aff_tile(renderer, pack_textures_for_window, mage.y-1, mage.x-1, mage.w, 3); aff_tile(renderer, pack_textures_for_window, archer.y-1, archer.x-1, archer.w, 3); aff_tile(renderer, pack_textures_for_window, healer.y-1, healer.x-1, healer.w, 3); aff_tile(renderer, pack_textures_for_window, voleur.y-1, voleur.x-1, voleur.w, 3); SDL_RenderPresent(renderer);
 	
+	bouton_check(renderer_gui, &validation, police_gui);
+	SDL_RenderPresent(renderer_gui);
+
+
 	SDL_Event event;
 	SDL_bool selection_launched = SDL_TRUE;
 	SDL_bool menu_asked = SDL_FALSE;
@@ -497,6 +533,7 @@ perso_t * create_team(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *poli
 						SDL_RenderClear(renderer_gui);
 						aff_tile(renderer_gui, interface, 0, 0, -1, 1);
 						aff_perso(renderer_gui, pack_texture_gui, police_gui, NULL, TEXT_GUERRIER);
+						bouton_check(renderer_gui, &validation, police_gui);
 						SDL_RenderPresent(renderer_gui);
 					}
 					else if (clickSurCase(event, rect_mg)){
@@ -511,6 +548,7 @@ perso_t * create_team(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *poli
 						SDL_RenderClear(renderer_gui);
 						aff_tile(renderer_gui, interface, 0, 0, -1, 1);
 						aff_perso(renderer_gui, pack_texture_gui, police_gui, NULL, TEXT_GUERRIER);
+						bouton_check(renderer_gui, &validation, police_gui);
 						SDL_RenderPresent(renderer_gui);
 					}
 					else if (clickSurCase(event, rect_pm)){//Mage
@@ -525,6 +563,7 @@ perso_t * create_team(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *poli
 						SDL_RenderClear(renderer_gui);
 						aff_tile(renderer_gui, interface, 0, 0, -1, 1);
 						aff_perso(renderer_gui, pack_texture_gui, police_gui, NULL, TEXT_MAGE);
+						bouton_check(renderer_gui, &validation, police_gui);
 						SDL_RenderPresent(renderer_gui);
 					}
 					else if (clickSurCase(event, rect_mm)){
@@ -539,6 +578,7 @@ perso_t * create_team(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *poli
 						SDL_RenderClear(renderer_gui);
 						aff_tile(renderer_gui, interface, 0, 0, -1, 1);
 						aff_perso(renderer_gui, pack_texture_gui, police_gui, NULL, TEXT_MAGE);
+						bouton_check(renderer_gui, &validation, police_gui);
 						SDL_RenderPresent(renderer_gui);
 					}
 					else if (clickSurCase(event, rect_pa)){//Archer
@@ -553,6 +593,7 @@ perso_t * create_team(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *poli
 						SDL_RenderClear(renderer_gui);
 						aff_tile(renderer_gui, interface, 0, 0, -1, 1);
 						aff_perso(renderer_gui, pack_texture_gui, police_gui, NULL, TEXT_ARCHER);
+						bouton_check(renderer_gui, &validation, police_gui);
 						SDL_RenderPresent(renderer_gui);
 					}
 					else if (clickSurCase(event, rect_ma)){
@@ -567,6 +608,7 @@ perso_t * create_team(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *poli
 						SDL_RenderClear(renderer_gui);
 						aff_tile(renderer_gui, interface, 0, 0, -1, 1);
 						aff_perso(renderer_gui, pack_texture_gui, police_gui, NULL, TEXT_ARCHER);
+						bouton_check(renderer_gui, &validation, police_gui);
 						SDL_RenderPresent(renderer_gui);
 					}
 					else if (clickSurCase(event, rect_ph)){//Healer
@@ -581,6 +623,7 @@ perso_t * create_team(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *poli
 						SDL_RenderClear(renderer_gui);
 						aff_tile(renderer_gui, interface, 0, 0, -1, 1);
 						aff_perso(renderer_gui, pack_texture_gui, police_gui, NULL, TEXT_HEALER);
+						bouton_check(renderer_gui, &validation, police_gui);
 						SDL_RenderPresent(renderer_gui);
 					}
 					else if (clickSurCase(event, rect_mh)){
@@ -595,6 +638,7 @@ perso_t * create_team(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *poli
 						SDL_RenderClear(renderer_gui);
 						aff_tile(renderer_gui, interface, 0, 0, -1, 1);
 						aff_perso(renderer_gui, pack_texture_gui, police_gui, NULL, TEXT_HEALER);
+						bouton_check(renderer_gui, &validation, police_gui);
 						SDL_RenderPresent(renderer_gui);
 					}
 					else if (clickSurCase(event, rect_pv)){//Voleur
@@ -609,6 +653,7 @@ perso_t * create_team(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *poli
 						SDL_RenderClear(renderer_gui);
 						aff_tile(renderer_gui, interface, 0, 0, -1, 1);
 						aff_perso(renderer_gui, pack_texture_gui, police_gui, NULL, TEXT_VOLEUR);
+						bouton_check(renderer_gui, &validation, police_gui);
 						SDL_RenderPresent(renderer_gui);
 					}
 					else if (clickSurCase(event, rect_mv)){ 
@@ -623,6 +668,7 @@ perso_t * create_team(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *poli
 						SDL_RenderClear(renderer_gui);
 						aff_tile(renderer_gui, interface, 0, 0, -1, 1);
 						aff_perso(renderer_gui, pack_texture_gui, police_gui, NULL, TEXT_VOLEUR);
+						bouton_check(renderer_gui, &validation, police_gui);
 						SDL_RenderPresent(renderer_gui);
 					}
 					else if (clickSurCase(event, validation)){
@@ -677,9 +723,6 @@ perso_t * create_team(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *poli
 					creerTexte(renderer, police, "+", rect_pv.x, rect_pv.y);//Voleur
 					creerTexte(renderer, police, "-", rect_mv.x, rect_mv.y);
 					creerTexte(renderer, police, ft_itoa(voleur.h, 10), rect_pv.x + 100, rect_pv.y);
-
-					if ((guerrier.h + mage.h + archer.h + healer.h + voleur.h) == NB_PERS)
-						bouton_check(renderer, &validation, police);
 
 				/* AFFICHAGE DES CLASSES ENTRE LES CARRÉS */
 					aff_tile(renderer, pack_textures_for_window, guerrier.y - 1, guerrier.x - 1, guerrier.w, 3);

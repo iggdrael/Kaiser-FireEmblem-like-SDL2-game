@@ -28,9 +28,11 @@ void deplacer_persos(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *polic
 
 void bouton_check(SDL_Renderer *renderer, SDL_Rect * validation, TTF_Font *police);
 
-SDL_bool perso_allie(int n_text);
+SDL_bool perso_joueur(int n_text);
 
 SDL_bool perso_bot(int n_text);
+
+SDL_bool perso_allie(J_t J, int n_text);
 
 void validation_team(perso_t * team, int g, int m, int a, int h, int v, J_t J);
 /**

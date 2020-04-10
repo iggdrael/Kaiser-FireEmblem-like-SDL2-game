@@ -20,11 +20,13 @@
 #define	TEXT_HEALER_BOT		483
 #define	TEXT_VOLEUR_BOT 	486
 
+#define PERSO_MORT 			488
+
 /**Stats par classe**/
 
 #define G_PV 	100
 #define G_ATK 	40
-#define G_DEF 	10
+#define G_DEF 	20
 #define G_ESQ 	0
 #define G_CRIT 	5
 #define G_POR	1
@@ -32,7 +34,7 @@
 
 #define M_PV 	65
 #define M_ATK 	60
-#define M_DEF 	3
+#define M_DEF 	8
 #define M_ESQ 	5
 #define M_CRIT 	8
 #define M_POR	4
@@ -40,7 +42,7 @@
 
 #define A_PV 	60
 #define A_ATK 	50
-#define A_DEF 	4
+#define A_DEF 	9
 #define A_ESQ 	5
 #define A_CRIT 	6
 #define A_POR	5
@@ -48,15 +50,15 @@
 
 #define H_PV 	80
 #define H_ATK 	15
-#define H_DEF 	0
+#define H_DEF 	10
 #define H_ESQ 	2
 #define H_CRIT 	5
 #define H_POR	2
 #define H_DEP 	6
 
 #define V_PV 	45
-#define V_ATK 	65
-#define V_DEF 	3
+#define V_ATK 	80
+#define V_DEF 	0
 #define V_ESQ 	20
 #define V_CRIT  33
 #define V_POR	1
@@ -67,8 +69,8 @@
 
 /**Opacite des cases couleur**/
 
-#define OP_R 128
-#define OP_V 128
+#define OP_R 100
+#define OP_V 80
 #define OP_B 64
 
 typedef enum J_s{J1, BOT}J_t;
@@ -97,7 +99,7 @@ SDL_bool chercher_chemin(int *tab,int xd, int yd, int xa, int ya);
 
 void marquer_chemin(int *tab,int x, int y, int *lgmin);
 
-void *map_to_bool(case_t *map, int *tab);
+void *map_to_bool(case_t *map, int *tab, int xa, int ya);
 
 void aff_mat(int *tab);
 
@@ -105,6 +107,7 @@ void mat_copy(int *src, int *dest);
 
 coords_t remarquer_chemin(int *tab, int x1, int y1, int dep);
 
+void retirer_perso(case_t *map, joueur_t *joueur, int indice);
 
 
 #endif

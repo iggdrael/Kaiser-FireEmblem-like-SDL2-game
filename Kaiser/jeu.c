@@ -130,17 +130,32 @@ void aff_radius_perso(SDL_Renderer *renderer, case_t *map, int x, int y, int DEP
 	SDL_Rect rect_select;
 	rect_select.w = rect_select.h = LARGEUR_CASE;
 
-	int i, j, k, rad;
+	int i, j, k, rad, *tab, nb_dep, POR = (map + x*M + y)->perso->POR, J = (map + x*M + y)->perso->J;
+
+	if (!(tab = malloc(sizeof(int) * (N*M)))){
+		printf("Erreur allocation mémoire map_to_bool\n");
+		exit(EXIT_FAILURE);
+	}
 
 	for (i = x - DEP, rad = 0; i < (x+1); i++, rad++){
 		for (j = y - rad, k = 0; k < (rad * 2+1); j++, k++){
-			if (i == x && j == y)
-				continue;
 			if (valides(i, j)){
+				if (perso_allie(J, (map + i*M + j)->textures[RP]))
+					continue;
 				rect_select.x = j * LARGEUR_CASE;
 				rect_select.y = i * LARGEUR_CASE;
-				if (case_valide(map, i, j) == SDL_TRUE)
-					SDL_SetRenderDrawColor(renderer, 0, 0, 255, OP_B);
+				if (case_valide(map, i, j) == SDL_TRUE){
+
+					map_to_bool(map, tab, i, j);
+					if (chercher_chemin(tab, x, y, i, j)){
+						marquer_chemin(tab, i, j, &nb_dep);
+
+						if (DEP >= nb_dep - 1)
+							SDL_SetRenderDrawColor(renderer, 0, 0, 255, OP_B);
+						else
+							SDL_SetRenderDrawColor(renderer, 255, 0, 0, OP_R);
+					}
+				}
 				else
 					SDL_SetRenderDrawColor(renderer, 255, 0, 0, OP_R);
 
@@ -151,10 +166,22 @@ void aff_radius_perso(SDL_Renderer *renderer, case_t *map, int x, int y, int DEP
 	for (i = x + DEP, rad = 0; i > x; i--, rad++){
 		for (j = y - rad, k = 0; k < (rad * 2+1); j++, k++){
 			if (valides(i, j)){
+				if (perso_joueur((map + i*M + j)->textures[RP]) || perso_bot((map + i*M + j)->textures[RP]))
+					continue;
 				rect_select.x = j * LARGEUR_CASE;
 				rect_select.y = i * LARGEUR_CASE;
-				if (case_valide(map, i, j) == SDL_TRUE)
-					SDL_SetRenderDrawColor(renderer, 0, 0, 255, OP_B);
+				if (case_valide(map, i, j) == SDL_TRUE){
+
+					map_to_bool(map, tab, i, j);
+					if (chercher_chemin(tab, x, y, i, j)){
+						marquer_chemin(tab, i, j, &nb_dep);
+
+						if (DEP >= nb_dep - 1)
+							SDL_SetRenderDrawColor(renderer, 0, 0, 255, OP_B);
+						else
+							SDL_SetRenderDrawColor(renderer, 255, 0, 0, OP_R);
+					}
+				}
 				else
 					SDL_SetRenderDrawColor(renderer, 255, 0, 0, OP_R);
 
@@ -163,7 +190,82 @@ void aff_radius_perso(SDL_Renderer *renderer, case_t *map, int x, int y, int DEP
 		}
 	}
 
+	for (i = x - DEP - POR - 1; i < (x + DEP + POR + 1); i++){
+		for (j = y - DEP - POR - 1; j < (y + DEP + POR + 1); j++){
+			if (valides(i, j)){
+				if (perso_joueur((map + i*M + j)->textures[RP]) || perso_bot((map + i*M + j)->textures[RP])){
+					map_to_bool(map, tab, i, j);
+					if (chercher_chemin(tab, x, y, i, j)){
+						marquer_chemin(tab, i, j, &nb_dep);
+
+						if (DEP + POR >= nb_dep - 1){
+							rect_select.x = j * LARGEUR_CASE;
+							rect_select.y = i * LARGEUR_CASE;
+
+							if (perso_allie(!J, (map + i*M + j)->textures[RP]))
+								SDL_SetRenderDrawColor(renderer, 186, 85, 211, 165);
+							else
+								SDL_SetRenderDrawColor(renderer, 0, 255, 0, OP_V);
+							SDL_RenderFillRect(renderer, &rect_select);
+						}
+					}
+				}
+			}
+		}
+	}
+
+
 	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+	free(tab);
+}
+
+void perso_attaquer(case_t *map, joueur_t *joueurs, perso_t *p1, perso_t *p2){
+	p2->PV -= (p1->ATK - p2->DEF);
+
+	if (p2->PV <= 0){
+		change_val_text(map, RP, p2->x, p2->y, PERSO_MORT);
+		clean_perso((map + M*(p2->x) + p2->y)->perso);
+		(map + M*(p2->x) + p2->y)->is_perso = SDL_FALSE;
+		retirer_perso(map, (joueurs + p2->J), p2->indice);
+	}
+	else{
+		perso_copy(p2, (map + M*(p2->x) + p2->y)->perso);
+
+		if (p2->POR >= p1->POR){
+			p1->PV -= (p2->ATK - p1->DEF);
+
+			if (p1->PV <= 0){
+				change_val_text(map, RP, p1->x, p1->y, PERSO_MORT);
+				clean_perso((map + M*(p1->x) + p1->y)->perso);
+				(map + M*(p1->x) + p1->y)->is_perso = SDL_FALSE;
+				retirer_perso(map, (joueurs + p1->J), p1->indice);
+			}
+			else
+				perso_copy(p1, (map + M*(p1->x) + p1->y)->perso);
+		}
+	}
+}
+
+int indice_perso(joueur_t *team, J_t J, int x, int y){
+	int i;
+
+	for (i = 0; i < (team + J)->nb_persos; i++)
+		if (((team+J)->team+i)->x == x && ((team+J)->team+i)->y == y)
+			return i;
+	
+	return -1;
+}
+
+void retirer_perso(case_t *map, joueur_t *joueur, int indice){
+	int i;
+
+	for (i = indice; i < joueur->nb_persos - 1; i++){
+		(joueur->team+i+1)->indice--;
+		perso_copy((joueur->team+i+1), (joueur->team+i));
+		perso_copy((joueur->team+i), (map + M * ((joueur->team+i)->x) + ((joueur->team+i)->y ))->perso );
+	}
+	clean_perso((joueur->team+i));
+	joueur->nb_persos--;
 }
 
 SDL_bool tour_joueur(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *police,
@@ -177,13 +279,16 @@ SDL_bool tour_joueur(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *polic
 	/**------------------Autres variables-----------------------------------------------------**/
 
 	SDL_Rect validation;
-	validation.w = TAILLE_MAIN_FONT*5;
-	validation.h = TAILLE_MAIN_FONT;
-	validation.x = WIDTH/2 - validation.w/2;
+	validation.w = TAILLE_FONT_GUI*5;
+	validation.h = TAILLE_FONT_GUI;
+	validation.x = (WIDTH / 3.5)/2 - validation.w/2;
 	validation.y = HEIGHT - validation.h;
+
 
 	SDL_Rect rect_select;
 	rect_select.w = rect_select.h = LARGEUR_CASE;
+
+	coords_t c_a;
 
 	int i, j, old_i, old_j, nb_dep;
 	int *tab;
@@ -193,7 +298,13 @@ SDL_bool tour_joueur(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *polic
 		exit(EXIT_FAILURE);
 	}
 
-	SDL_bool tour_launched = SDL_TRUE, click = SDL_FALSE, menu_asked = SDL_FALSE, jeu_launched = SDL_TRUE;
+	SDL_RenderClear(renderer_gui);
+	aff_tile(renderer_gui, interface, 0, 0, -1, 1);
+	creerTexte(renderer_gui, police, "Vous jouez !", 90, 500);
+	bouton_check(renderer_gui, &validation, police_gui);
+	SDL_RenderPresent(renderer_gui);
+
+	SDL_bool tour_launched = SDL_TRUE, click = SDL_FALSE, jeu_launched = SDL_TRUE;
     SDL_Event event;
 
 /**----------------------Debut du tour--------------------------------------------------------**/
@@ -206,74 +317,94 @@ SDL_bool tour_joueur(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *polic
 			switch(event.type){
 				case SDL_QUIT: 
 					tour_launched = SDL_FALSE;
-					menu_asked = SDL_TRUE;
+					jeu_launched = SDL_FALSE;
 					break;
 
 				case SDL_MOUSEBUTTONDOWN:
 
 					switch(event.button.button){
 						case SDL_BUTTON_LEFT:
-							if (clickSurCase(event, validation))
-								tour_launched = SDL_FALSE;
-							else{
-								i = event.button.y / LARGEUR_CASE;
-								j = event.button.x / LARGEUR_CASE;
+							i = event.button.y / LARGEUR_CASE;
+							j = event.button.x / LARGEUR_CASE;
 
-								SDL_RenderClear(renderer);
+							SDL_RenderClear(renderer);
 
-								if (click == SDL_TRUE){
-									if (case_valide(map, i, j)){
-										map_to_bool(map, tab);
-										if(chercher_chemin(tab, old_i, old_j, i, j)){
-											marquer_chemin(tab, i, j, &nb_dep);
+							if (click == SDL_TRUE){
+								map_to_bool(map, tab, i, j);
+								if(chercher_chemin(tab, old_i, old_j, i, j)){
+									marquer_chemin(tab, i, j, &nb_dep);
 
-											if ((map + M*old_i + old_j)->perso->DEP >= nb_dep - 1){
+									nb_dep--;
+									if (perso_bot((map + M*i + j)->textures[RP]) && ((map + M*old_i + old_j)->perso->DEP + (map + M*old_i + old_j)->perso->POR) >= nb_dep){
+										if (nb_dep > 1){
+											c_a = remarquer_chemin(tab, old_i, old_j, (nb_dep - (map + M*old_i + old_j)->perso->POR));
+
+											#ifdef DEBUG
+												printf("from %d-%d to %d-%d\n", old_i, old_j, c_a.x, c_a.y);
+											#endif
+
+											if (old_i != c_a.x || old_j != c_a.y){
+											/**Attaque**/
+												move_perso(map, c_a.x, c_a.y, old_i, old_j);
+												perso_copy((map + M*c_a.x + c_a.y)->perso, ((joueurs+J1)->team + (map + M*c_a.x + c_a.y)->perso->indice));
+											}
+										}
+										else{
+											c_a.x = i;
+											c_a.y = j;
+										}
+										int indice = indice_perso(joueurs, BOT, i, j);
+										perso_attaquer(map, joueurs, ((joueurs+J1)->team + (map + M*c_a.x + c_a.y)->perso->indice), ((joueurs+BOT)->team+indice));
+									}
+									else if (case_valide(map, i, j)){
+											if ((map + M*old_i + old_j)->perso->DEP >= nb_dep){
 												move_perso(map, i, j, old_i, old_j);
 												perso_copy((map + M*i + j)->perso, ((joueurs+J1)->team + (map + M*i + j)->perso->indice));
 											}
-										}
 									}
-									aff_map(map, renderer, pack_texture);
-									click = SDL_FALSE;
 								}
-								else if (perso_allie( (map + M*i + j)->textures[RP])){
-									SDL_RenderClear(renderer_gui);
-									aff_tile(renderer_gui, interface, 0, 0, -1, 1);
-
-									#ifdef DEBUG
-										aff_perso_console((map + M*i +j)->perso);
-									#endif
-
-									aff_perso(renderer_gui, pack_texture_gui, police_gui, (map + M*i +j)->perso, VIDE);
-									SDL_RenderPresent(renderer_gui);
-
-									rect_select.x = j * LARGEUR_CASE;
-									rect_select.y = i * LARGEUR_CASE;
-
-									aff_map(map, renderer, pack_texture);
-									SDL_SetRenderDrawColor(renderer, 0, 255, 0, OP_V);
-									SDL_RenderFillRect(renderer, &rect_select);
-
-									aff_radius_perso(renderer, map, i, j, (map + M*i +j)->perso->DEP);
-
-									click = SDL_TRUE;
-									old_i = i;
-									old_j = j;
-								}
-								else if (perso_bot( (map + M*i + j)->textures[RP])){
-									SDL_RenderClear(renderer_gui);
-									aff_tile(renderer_gui, interface, 0, 0, -1, 1);
-									aff_perso(renderer_gui, pack_texture_gui, police_gui, (map + M*i +j)->perso, VIDE);
-									SDL_RenderPresent(renderer_gui);
-
-									aff_map(map, renderer, pack_texture);
-								}
-								else
-									aff_map(map, renderer, pack_texture);
-								
-								bouton_check(renderer, &validation, police);
-								SDL_RenderPresent(renderer);
+								aff_map(map, renderer, pack_texture);
+								click = SDL_FALSE;
 							}
+							else if (perso_joueur( (map + M*i + j)->textures[RP])){
+								SDL_RenderClear(renderer_gui);
+								aff_tile(renderer_gui, interface, 0, 0, -1, 1);
+
+								#ifdef DEBUG
+									aff_perso_console((map + M*i +j)->perso);
+								#endif
+
+								aff_perso(renderer_gui, pack_texture_gui, police_gui, (map + M*i +j)->perso, VIDE);
+								bouton_check(renderer_gui, &validation, police_gui);
+								creerTexte(renderer_gui, police, "Vous jouez !", 90, 500);
+								SDL_RenderPresent(renderer_gui);
+
+								rect_select.x = j * LARGEUR_CASE;
+								rect_select.y = i * LARGEUR_CASE;
+
+								aff_map(map, renderer, pack_texture);
+								SDL_SetRenderDrawColor(renderer, 0, 255, 0, OP_V);
+								SDL_RenderFillRect(renderer, &rect_select);
+
+								aff_radius_perso(renderer, map, i, j, (map + M*i +j)->perso->DEP);
+
+								click = SDL_TRUE;
+								old_i = i;
+								old_j = j;
+							}
+							else if (perso_bot( (map + M*i + j)->textures[RP]) && click == SDL_FALSE){
+								SDL_RenderClear(renderer_gui);
+								aff_tile(renderer_gui, interface, 0, 0, -1, 1);
+								aff_perso(renderer_gui, pack_texture_gui, police_gui, (map + M*i +j)->perso, VIDE);
+								bouton_check(renderer_gui, &validation, police_gui);
+								creerTexte(renderer_gui, police, "Vous jouez !", 90, 500);
+								SDL_RenderPresent(renderer_gui);
+
+								aff_map(map, renderer, pack_texture);
+							}
+							else
+								aff_map(map, renderer, pack_texture);
+							SDL_RenderPresent(renderer);
 							break;
 					}
 					break;
@@ -283,44 +414,45 @@ SDL_bool tour_joueur(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *polic
 					switch(event.key.keysym.sym){
 						case SDLK_ESCAPE:
 							tour_launched = SDL_FALSE;
-							menu_asked = SDL_TRUE;
+							jeu_launched = SDL_FALSE;
 							break;
 
-						case SDLK_e:
-							jeu_launched = SDL_FALSE;
+						case SDLK_a:
+							aff_persos_console(map);
+							break;
 					}
 			}
 		}
 		else if (event.window.windowID == id_window_gui){
 /**------------------Evenement sur fenetre interface------------------------------------------**/
-
 			switch(event.type){
 				case SDL_QUIT: 
 					tour_launched = SDL_FALSE;
-					menu_asked = SDL_TRUE;
+					jeu_launched = SDL_FALSE;
+					break;
+
+				case SDL_MOUSEBUTTONDOWN:
+					if (clickSurCase(event, validation))
+						tour_launched = SDL_FALSE;
 					break;
 
 				case SDL_KEYDOWN:
 					switch(event.key.keysym.sym){
 						case SDLK_ESCAPE:
 							tour_launched = SDL_FALSE;
-							menu_asked = SDL_TRUE;
+							jeu_launched = SDL_FALSE;
 							break;
 					}
 			}
 		}
+
+		if ((joueurs + BOT)->nb_persos == 0 || (joueurs + J1)->nb_persos == 0){
+			tour_launched = SDL_FALSE;
+			jeu_launched = SDL_FALSE;
+		}
 	}
 	free(tab);
 
-	if (menu_asked){
-		free(police_gui);
-		free(police);
-		SDL_DestroyTexture(pack_texture_gui);
-		SDL_DestroyTexture(interface);
-		SDL_DestroyRenderer(renderer_gui);
-		SDL_DestroyWindow(window_gui);
-		menu(window, renderer, map, pack_texture);
-	}
 	return jeu_launched;
 }
 
@@ -368,13 +500,13 @@ void marquer_chemin(int *tab,int x, int y, int *lgmin){
 
 }
 
-void *map_to_bool(case_t *map, int *tab){
+void *map_to_bool(case_t *map, int *tab, int xa, int ya){
 /**Fonction qui transforme la map en couloirs/murs**/
 	int i, j;
 
 	for (i = 0; i < N; i++)
 		for (j = 0; j < M; j++){
-			if (case_valide(map, i, j) || perso_allie((map+i*M+j)->textures[RP]))
+			if (case_valide(map, i, j) || (i == xa && j == ya))
 				*(tab + i*M + j) = 0;
 			else
 				*(tab + i*M + j) = -1;	
@@ -402,15 +534,15 @@ coords_t remarquer_chemin(int *tab, int x1, int y1, int dep){
 	int i, j, k;
 	coords_t c;
 
-
 	for (i = x1, j = y1, k = 0; k < dep;){
-		for (; valides(i-1, j) && *(tab + (i-1)*M + j) == -2 && k < dep; i--, k++);
-		for (; valides(i+1, j) && *(tab + (i+1)*M + j) == -2 && k < dep; i++, k++);
-		for (; valides(i, j-1) && *(tab + i*M + (j-1)) == -2 && k < dep; j--, k++);
-		for (; valides(i, j+1) && *(tab + i*M + (j+1)) == -2 && k < dep; j++, k++);
+		for (; valides(i-1, j) && *(tab + (i-1)*M + j) == -2 && k < dep; *(tab + i*M + j) = 0, i--, k++);
+		for (; valides(i+1, j) && *(tab + (i+1)*M + j) == -2 && k < dep; *(tab + i*M + j) = 0, i++, k++);
+		for (; valides(i, j-1) && *(tab + i*M + (j-1)) == -2 && k < dep; *(tab + i*M + j) = 0, j--, k++);
+		for (; valides(i, j+1) && *(tab + i*M + (j+1)) == -2 && k < dep; *(tab + i*M + j) = 0, j++, k++);
 	}
 	c.x = i;
 	c.y = j;
+
 	return c;
 }
 
@@ -421,8 +553,7 @@ SDL_bool tour_bot(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *police,
 	
 	int i, j, xd, yd, xa, ya, nb_dep, min, x_min, y_min;
 
-	SDL_Rect rect_select;
-	rect_select.w = rect_select.h = LARGEUR_CASE;
+	SDL_bool do_attaque = SDL_FALSE;
 
 	coords_t c_a;
 
@@ -437,7 +568,9 @@ SDL_bool tour_bot(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *police,
 		exit(EXIT_FAILURE);
 	}
 
-	aff_team_console((joueurs + J1)->team, (joueurs + J1)->nb_persos);
+	#ifdef DEBUG
+		aff_team_console((joueurs + J1)->team, (joueurs + J1)->nb_persos);
+	#endif
 
 	for (i = 0; i < (joueurs+BOT)->nb_persos; i++){
 		xd = ((joueurs+BOT)->team+i)->x;
@@ -449,15 +582,12 @@ SDL_bool tour_bot(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *police,
 		#ifdef DEBUG
 			printf("BOT : %d-%d\n", xd, yd);
 		#endif
-		map_to_bool(map, tab);
-		mat_copy(tab, tab_copy);
 
 		for (j = 0, min = 1000; j < (joueurs+J1)->nb_persos; j++){
-			if (j > 0)
-				map_to_bool(map, tab);
-
 			xa = ((joueurs+J1)->team+j)->x;
 			ya = ((joueurs+J1)->team+j)->y;
+
+			map_to_bool(map, tab, xa, ya);
 
 			if(chercher_chemin(tab, xd, yd, xa, ya)){
 				marquer_chemin(tab, xa, ya, &nb_dep);
@@ -466,48 +596,52 @@ SDL_bool tour_bot(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *police,
 					printf("J1 : %d-%d\n", xa, ya);
 					printf("%d-%d, Nb deps : %d\n", xa, ya, nb_dep);
 				#endif
-			}
-			if (nb_dep < min){
-				min = nb_dep;
-				x_min = xa;
-				y_min = ya;
+
+				if (((joueurs+BOT)->team+i)->DEP + ((joueurs+BOT)->team+i)->POR >= nb_dep - 1){
+					do_attaque = SDL_TRUE;
+					x_min = xa;
+					y_min = ya;
+					nb_dep--;
+					min = nb_dep;
+					mat_copy(tab, tab_copy);
+					break;
+				}
+				else if (nb_dep < min){
+					min = nb_dep;
+					x_min = xa;
+					y_min = ya;
+
+					mat_copy(tab, tab_copy);
+				}
 			}
 		}
 
-		//#ifdef DEBUG
-			printf("\n%d : Perso le plus proche : %d-%d, %d deps\n\n", i, x_min, y_min, min);
-		//#endif
-
-		if (!valides(x_min, y_min))
-			continue;
+		#ifdef DEBUG
+			printf("%d : Perso le plus proche : %d-%d, %d deps\n\n", i, x_min, y_min, min);
+		#endif
 
 		if(chercher_chemin(tab_copy, xd, yd, x_min, y_min)){
 			marquer_chemin(tab_copy, x_min, y_min, &nb_dep);
 
-			c_a = remarquer_chemin(tab_copy, xd, yd, ((joueurs+BOT)->team+i)->DEP);
+			if (do_attaque)
+				c_a = remarquer_chemin(tab_copy, xd, yd, min - ((joueurs+BOT)->team+i)->POR);
+			else
+				c_a = remarquer_chemin(tab_copy, xd, yd, ((joueurs+BOT)->team+i)->DEP - 1);
 
-			//#ifdef DEBUG
+			#ifdef DEBUG
 				printf("From %d-%d to %d-%d\n", xd, yd, c_a.x, c_a.y);
-			//#endif
-			aff_perso_console((joueurs+BOT)->team+i);
-
+			#endif
 		}
 
-		if (valides(c_a.x, c_a.y) && case_valide(map, c_a.x, c_a.y)){
+		if (valides(c_a.x, c_a.y)){
 			SDL_RenderClear(renderer_gui);
 			aff_tile(renderer_gui, interface, 0, 0, -1, 1);
 			aff_perso(renderer_gui, pack_texture_gui, police_gui,  ((joueurs+BOT)->team+i), VIDE);
+			creerTexte(renderer_gui, police, "Tour du BOT !", 70, 500);
 			SDL_RenderPresent(renderer_gui);
 
 			SDL_RenderClear(renderer);
 			aff_map(map, renderer, pack_texture);
-
-			rect_select.x = ((joueurs+BOT)->team+i)->y * LARGEUR_CASE;
-			rect_select.y = ((joueurs+BOT)->team+i)->x * LARGEUR_CASE;
-
-			aff_map(map, renderer, pack_texture);
-			SDL_SetRenderDrawColor(renderer, 0, 255, 0, OP_V);
-			SDL_RenderFillRect(renderer, &rect_select);
 
 			aff_radius_perso(renderer, map, ((joueurs+BOT)->team+i)->x, ((joueurs+BOT)->team+i)->y, ((joueurs+BOT)->team+i)->DEP);
 			SDL_RenderPresent(renderer);
@@ -515,23 +649,32 @@ SDL_bool tour_bot(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *police,
 
 			SDL_RenderClear(renderer);
 
-			move_perso(map, c_a.x, c_a.y,  ((joueurs+BOT)->team+i)->x,  ((joueurs+BOT)->team+i)->y);
-			perso_copy((map + c_a.x*M + c_a.y)->perso, ((joueurs+BOT)->team+i));
+			if (c_a.x != ((joueurs+BOT)->team+i)->x || c_a.y != ((joueurs+BOT)->team+i)->y){
+				move_perso(map, c_a.x, c_a.y,  ((joueurs+BOT)->team+i)->x,  ((joueurs+BOT)->team+i)->y);
+				perso_copy((map + c_a.x*M + c_a.y)->perso, ((joueurs+BOT)->team+i));
 
-			((joueurs+BOT)->team+i)->x = c_a.x;
-			((joueurs+BOT)->team+i)->y = c_a.y;
+				((joueurs+BOT)->team+i)->x = c_a.x;
+				((joueurs+BOT)->team+i)->y = c_a.y;
+			}
+
+			if (do_attaque){
+				int indice = indice_perso(joueurs, J1, xa, ya);
+				perso_attaquer(map, joueurs, ((joueurs+BOT)->team+i), ((joueurs+J1)->team+indice));
+			}
 
 			aff_map(map, renderer, pack_texture);
 			SDL_RenderPresent(renderer);
 
 			SDL_Delay(800);
 		}
+		if (do_attaque)
+			do_attaque = SDL_FALSE;
 	}
 
 	free(tab);
 	free(tab_copy);
 
-	return SDL_TRUE;
+	return (!((joueurs + BOT)->nb_persos == 0 || (joueurs + J1)->nb_persos == 0));
 }
 
 joueur_t *creer_joueurs(int nb_persos){
@@ -575,7 +718,7 @@ void lancer_jeu(SDL_Window *window, SDL_Renderer *renderer, SDL_Texture *pack_te
 
 /**------------------Initialisation Jeu---------------------------------------------------**/
 
-	int nb_persos = randint(MIN_PERSO, MAX_PERSO);
+	int nb_persos = 5;//randint(MIN_PERSO, MAX_PERSO);
 	
 	aff_tile(renderer_gui, interface, 0, 0, -1, 1);
 	SDL_RenderPresent(renderer_gui);
@@ -585,7 +728,7 @@ void lancer_jeu(SDL_Window *window, SDL_Renderer *renderer, SDL_Texture *pack_te
 	(joueurs + J1)->team = create_team(window, renderer, police, window_gui, renderer_gui, police_gui, map, pack_texture, pack_texture_gui, interface, nb_persos);
 	(joueurs + BOT)->team = create_team_bot(nb_persos);
 
-	load_matrice(map, randint(1, NB_MAPS));
+	load_matrice(map, 5);//randint(1, 5));//NB_MAPS));
 	placer_persos(map, (joueurs + J1)->team, nb_persos, 0, 5);
 	placer_persos(map, (joueurs + BOT)->team, nb_persos, M-6, M-1);
 
@@ -614,7 +757,7 @@ void lancer_jeu(SDL_Window *window, SDL_Renderer *renderer, SDL_Texture *pack_te
 
 	///Determine quel joueur commence à jouer
 
-	SDL_bool jeu_launched = SDL_TRUE, tour_j1 = randint(0, 1);
+	SDL_bool jeu_launched = SDL_TRUE, tour_j1 = 1;//;randint(0, 1);
 
 /**------------------Debut du programme de jeu------------------------------------------**/
 
@@ -625,6 +768,23 @@ void lancer_jeu(SDL_Window *window, SDL_Renderer *renderer, SDL_Texture *pack_te
 			jeu_launched = tour_bot(window, renderer, police, window_gui, renderer_gui, police_gui, map, joueurs, pack_texture, pack_texture_gui, interface);		
 
 		(tour_j1)?(tour_j1 = SDL_FALSE):(tour_j1 = SDL_TRUE);
+	}
+
+	if ((joueurs + BOT)->nb_persos == 0 || (joueurs + J1)->nb_persos == 0){
+
+		police = TTF_OpenFont(NOM_FONT, 120);
+		if (!police)
+			SDL_ExitWithError("Erreur du chargement de la police", window, renderer, NULL);
+
+		if ((joueurs + BOT)->nb_persos == 0 && (joueurs + J1)->nb_persos == 0)
+			creerTexte(renderer, police, "Match nul !!!", HEIGHT / 2, (WIDTH/2)- 13 * 120);
+		else if ((joueurs + BOT)->nb_persos == 0)
+			creerTexte(renderer, police, "Vous gagnez la partie !!!", 150, 300);//HEIGHT / 2, (WIDTH/2)- 25 * 120);
+		else if ((joueurs + J1)->nb_persos == 0)
+			creerTexte(renderer, police, "Vous perdez la partie !!!", HEIGHT / 2, (WIDTH/2)- 25 * 120);
+
+		SDL_RenderPresent(renderer);
+		SDL_Delay(3000);
 	}
 
     
