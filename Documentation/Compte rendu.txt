@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-a
-=======
-Après des jours de recherche pour pouvoir régler des problèmes de portabilité niveau réseau, nous avons décidé d'abandonner cette partie au profit d'un adversaire type "IA" car il était impossible pour nous de travailler convenablement à distance avec différentes librairies réseaux (nous avons chacun un OS différent).
+Nous avons été confronté à divers problèmes nous empêchant d'atteindre notre but initial. Impossibilité de mettre le jeu en réseau en raison du manque de portabilité du code. La SDL a de gros problèmes de compatibilités, en raison d'un manque de matériel, notre code fonctionne sur nos machines Windows "puissantes" mais notre programme souffre de gros problèmes d'affichages avec des oridnateurs moins puissants.
 
-A l'heure actuelle, le programme intègre un éditeur de maps, des paramètres, toute la partie mise en place/configuration des équipes, initialisation des persos avec leurs stats, déplacements des personnages. L'adversaire déplace ses personnages en utilisant un pathfinding pour être le plus pertinent dans ses déplacements. Toute la partie visuelle est aussi achevée, une capture de jeu sera jointe dans ce dossier. Les personnages sont capables de s'attaquer les uns les autres, le jeu avance très bien. Le tout est de rendre l'adversaire plus intélligent.
->>>>>>> 5abb0c21c49c1cf1de6a46c4ddd654fce5ec5982
+Malgré ces problèmes, le programme intègre un éditeur de map, des paramètres, et le jeu.
+Le jeu est totalement fonctionnel bien qu'il bug sur les machines peu puissantes.
