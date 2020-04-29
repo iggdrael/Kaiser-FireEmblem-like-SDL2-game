@@ -165,6 +165,7 @@ void clean_perso(perso_t *perso){
 	perso->x 		= RIEN;
 	perso->y        = RIEN;
 	perso->indice   = RIEN;
+	perso->is_dep	= RIEN;
 }
 
 void perso_copy(perso_t *src, perso_t *dest){
@@ -182,6 +183,7 @@ void perso_copy(perso_t *src, perso_t *dest){
 	dest->x =		src->x;
 	dest->y =		src->y;
 	dest->indice =	src->indice;
+	dest->is_dep = 	src->is_dep;
 }
 
 void move_perso(case_t *map, int i, int j, int old_i, int old_j){

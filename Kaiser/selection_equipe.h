@@ -111,16 +111,12 @@ void deplacer_persos(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *polic
  */
 void bouton_check(SDL_Renderer *renderer, SDL_Rect * validation, TTF_Font *police);
 
-<<<<<<< HEAD
-SDL_bool perso_joueur(int n_text);
-=======
 /**
  * \fn perso_allie(int n_text)
  * \brief Retourne vrai si le numéro de la texture passée en paramètre correspond à un personnage allié
  * \param n_text Contient le numéro de la texture passée en paramètre
  */
-SDL_bool perso_allie(int n_text);
->>>>>>> b3862c3cb8132cf4b073af91de7638271002ac76
+SDL_bool perso_allie(J_t J, int n_text);
 
 /**
  * \fn perso_bot(int n_text)
@@ -129,12 +125,13 @@ SDL_bool perso_allie(int n_text);
  */
 SDL_bool perso_bot(int n_text);
 
-<<<<<<< HEAD
-SDL_bool perso_allie(J_t J, int n_text);
+/**
+ * \fn perso_joueur(int n_text)
+ * \brief Retourne vrai si le numéro de la texture passée en paramètre correspond à un personnage joueur
+ * \param n_text Contient le numéro de la texture passée en paramètre
+ */
+SDL_bool perso_joueur(int n_text);
 
-void validation_team(perso_t * team, int g, int m, int a, int h, int v, J_t J);
-=======
->>>>>>> b3862c3cb8132cf4b073af91de7638271002ac76
 /**
  * \fn validation_team(perso_t * team, int g, int m, int a, int h, int v)
  * \brief Confirme l'équipe sélectionnée par le joueur

@@ -298,6 +298,14 @@ SDL_bool tour_joueur(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *polic
 		exit(EXIT_FAILURE);
 	}
 
+	SDL_RenderClear(renderer);
+	for (i = 0; i < N; i++)
+		for (j = 0; j < M; j++)
+			if ((map + M*i + j)->is_perso == SDL_TRUE)
+				(map + M*i + j)->perso->is_dep = SDL_FALSE;
+	aff_map(map, renderer, pack_texture);
+	SDL_RenderPresent(renderer);
+
 	SDL_RenderClear(renderer_gui);
 	aff_tile(renderer_gui, interface, 0, 0, -1, 1);
 	creerTexte(renderer_gui, police, "Vous jouez !", 90, 500);
@@ -345,6 +353,7 @@ SDL_bool tour_joueur(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *polic
 
 											if (old_i != c_a.x || old_j != c_a.y){
 											/**Attaque**/
+												(map + M*old_i + old_j)->perso->is_dep = SDL_TRUE;
 												move_perso(map, c_a.x, c_a.y, old_i, old_j);
 												perso_copy((map + M*c_a.x + c_a.y)->perso, ((joueurs+J1)->team + (map + M*c_a.x + c_a.y)->perso->indice));
 											}
@@ -358,6 +367,7 @@ SDL_bool tour_joueur(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *polic
 									}
 									else if (case_valide(map, i, j)){
 											if ((map + M*old_i + old_j)->perso->DEP >= nb_dep){
+												(map + M*old_i + old_j)->perso->is_dep = SDL_TRUE;
 												move_perso(map, i, j, old_i, old_j);
 												perso_copy((map + M*i + j)->perso, ((joueurs+J1)->team + (map + M*i + j)->perso->indice));
 											}
@@ -388,7 +398,9 @@ SDL_bool tour_joueur(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *polic
 
 								aff_radius_perso(renderer, map, i, j, (map + M*i +j)->perso->DEP);
 
-								click = SDL_TRUE;
+								if ((map + M*i +j)->perso->is_dep == SDL_FALSE)
+									click = SDL_TRUE;
+
 								old_i = i;
 								old_j = j;
 							}
@@ -718,7 +730,7 @@ void lancer_jeu(SDL_Window *window, SDL_Renderer *renderer, SDL_Texture *pack_te
 
 /**------------------Initialisation Jeu---------------------------------------------------**/
 
-	int nb_persos = 5;//randint(MIN_PERSO, MAX_PERSO);
+	int nb_persos = randint(MIN_PERSO, MAX_PERSO);
 	
 	aff_tile(renderer_gui, interface, 0, 0, -1, 1);
 	SDL_RenderPresent(renderer_gui);
@@ -728,7 +740,7 @@ void lancer_jeu(SDL_Window *window, SDL_Renderer *renderer, SDL_Texture *pack_te
 	(joueurs + J1)->team = create_team(window, renderer, police, window_gui, renderer_gui, police_gui, map, pack_texture, pack_texture_gui, interface, nb_persos);
 	(joueurs + BOT)->team = create_team_bot(nb_persos);
 
-	load_matrice(map, 5);//randint(1, 5));//NB_MAPS));
+	load_matrice(map, randint(1, NB_MAPS));
 	placer_persos(map, (joueurs + J1)->team, nb_persos, 0, 5);
 	placer_persos(map, (joueurs + BOT)->team, nb_persos, M-6, M-1);
 
@@ -757,7 +769,7 @@ void lancer_jeu(SDL_Window *window, SDL_Renderer *renderer, SDL_Texture *pack_te
 
 	///Determine quel joueur commence à jouer
 
-	SDL_bool jeu_launched = SDL_TRUE, tour_j1 = 1;//;randint(0, 1);
+	SDL_bool jeu_launched = SDL_TRUE, tour_j1 = randint(0, 1);
 
 /**------------------Debut du programme de jeu------------------------------------------**/
 

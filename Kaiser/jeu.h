@@ -78,6 +78,7 @@ typedef enum J_s{J1, BOT}J_t;
 typedef struct perso_s{
 	int CLASSE, RACE, PV, ATK, DEF, ESQ, CRIT, POR, DEP;
 	int x, y, indice;
+	SDL_bool is_dep;
 	J_t J;
 }perso_t;
 

@@ -213,12 +213,24 @@ void load_matrice(case_t *map, int n_map){
 void aff_map(case_t *map, SDL_Renderer *renderer, SDL_Texture *pack_texture){
 /**Fonction affichant les textures de la matrice "map" sur le renderer**/
 	int i, j, k;
+	SDL_Rect rect_select;
+	rect_select.w = rect_select.h = LARGEUR_CASE;
 
 	for(i = 0 ; i < N; i++)
         for (j = 0; j < M; j++)
 			for (k = 0; k < MAX_TEXTURES; k++){
-				if ((map + M*i + j)->textures[k] != RIEN)
+				if ((map + M*i + j)->textures[k] != RIEN){
 					aff_tile(renderer, pack_texture, i, j, (map + M*i + j)->textures[k], 1);
+
+					if ((map + M*i + j)->is_perso == SDL_TRUE){
+						if ((map + M*i + j)->perso->is_dep == SDL_TRUE){
+							rect_select.x = j * LARGEUR_CASE;
+							rect_select.y = i * LARGEUR_CASE;
+							SDL_SetRenderDrawColor(renderer, 0, 0, 0, 64);
+							SDL_RenderFillRect(renderer, &rect_select);
+						}
+					}
+				}
 			}
 }
 
