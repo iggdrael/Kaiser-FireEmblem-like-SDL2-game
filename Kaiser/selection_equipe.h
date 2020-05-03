@@ -1,3 +1,9 @@
+/**
+ * \file selection_equipe.h
+ * \brief fichier regroupant les fonctions pour la selection d'équipe avant de jouer
+ * \author GUYON Arthur SANNA Florian RICHEFEU Mattéo
+ */
+
 #ifndef _SELECTION_EQUIPE_H_
 #define _SELECTION_EQUIPE_H_
 
@@ -5,7 +11,7 @@
  * \fn perso_copy(perso_t *src, perso_t *dest)
  * \brief Fonction permettant de copier le perso src dans le perso dest
  * \param src Personnage source
- * \param dest 
+ * \param dest
  */
 void perso_copy(perso_t *src, perso_t *dest);
 
@@ -33,45 +39,45 @@ void aff_persos_console(case_t *map);
 /**
  * \fn classe_to_text(int n_classe, J_t J)
  * \brief Fonction qui retourne le numéro de la texture correspondant à la classe du perso en fonction de son équipe
- * \param n_classe 
- * \param J 
+ * \param n_classe
+ * \param J
  */
 int classe_to_text(int n_classe, J_t J);
 
 /**
  * \fn change_val_text(case_t *map, int n_text, int i, int j, int val)
  * \brief Fonction permettant de changer la valeur d'une texture sur une case passée en paramètre
- * \param map 
- * \param n_text 
- * \param i,j 
- * \param val 
+ * \param map
+ * \param n_text
+ * \param i,j
+ * \param val
  */
 void change_val_text(case_t *map, int n_text, int i, int j, int val);
 
 /**
  * \fn case_valide(case_t *map, int i, int j)
  * \brief Fonction qui retourne vrai si la case passée en paramètre est accessible par un personnage
- * \param map 
- * \param i,j 
+ * \param map
+ * \param i,j
  */
 SDL_bool case_valide(case_t *map, int i, int j);
 
 /**
  * \fn aff_deplacements_deb(SDL_Renderer *renderer, case_t *map)
  * \brief Fonction affichant où l'on peut déplacer ses personnagess en début de partie
- * \param renderer 
- * \param map 
+ * \param renderer
+ * \param map
  */
 void aff_deplacements_deb(SDL_Renderer *renderer, case_t *map);
 
 /**
  * \fn placer_persos(case_t *map, perso_t *team, const int NB_PERS, int col_inf, int col_sup)
  * \brief Fonction permettant au joueur de placer ses personnagess en début de partie
- * \param map 
- * \param team 
- * \param NB_PERS 
- * \param col_inf 
- * \param col_sup 
+ * \param map
+ * \param team
+ * \param NB_PERS
+ * \param col_inf
+ * \param col_sup
  */
 void placer_persos(case_t *map, perso_t *team, const int NB_PERS, int col_inf, int col_sup);
 

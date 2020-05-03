@@ -1,3 +1,10 @@
+/**
+ * \file commun.h
+ * \brief fichier regroupant les constante utilisées dans les différents fichiers
+ * \author GUYON Arthur SANNA Florian RICHEFEU Mattéo
+ */
+
+
 #ifndef _COMMUN_H_
 #define _COMMUN_H_
 

@@ -1,3 +1,10 @@
+/**
+ * \file lib.h
+ * \brief fichier regroupant les fonctions créer pour la simplification de certaine tache
+ * \author GUYON Arthur SANNA Florian RICHEFEU Mattéo
+ */
+
+
 #ifndef _lib_H_
 #define _lib_H_
 
@@ -10,7 +17,7 @@ int randint(int min, int max);
 
 int int_len(unsigned x);
 /**
- * \fn int int_len(unsigned x); 
+ * \fn int int_len(unsigned x);
  * \param x l entier a etudier
 **/
 

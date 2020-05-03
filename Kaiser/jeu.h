@@ -1,3 +1,9 @@
+/**
+ * \file jeu.h
+ * \brief fichier regroupant les fonctions permettantde jouer
+ * \author GUYON Arthur SANNA Florian RICHEFEU Mattéo
+ */
+
 #ifndef _JEU_H_
 #define _JEU_H_
 
@@ -73,41 +79,148 @@
 #define OP_V 80
 #define OP_B 64
 
+
+/**
+ * \enum J_t
+ * \brief definir si c'est le joueur ou le bot
+ */
 typedef enum J_s{J1, BOT}J_t;
 
+
+/**
+ * \struct perso_t
+ * \brief definie un perso
+ */
 typedef struct perso_s{
-	int CLASSE, RACE, PV, ATK, DEF, ESQ, CRIT, POR, DEP;
-	int x, y, indice;
+	int CLASSE, RACE, PV, ATK, DEF, ESQ, CRIT, POR, DEP;  /*!< caractéristique des personnage */
+	int x, y, indice; /*!< emplacement du personnage */
 	SDL_bool is_dep;
-	J_t J;
+	J_t J; /*!< savoir si c'est un personnage joueur ou bot */
 }perso_t;
 
+
+
+/**
+ * \struct joueur_t
+ * \brief definie l'équipe et le nombre de personnags d'un joueur
+ */
 typedef struct joueur_s{
-	perso_t *team;
-	int nb_persos;
+	perso_t *team; /*!< l'équipe du joueur */
+	int nb_persos; /*!< nombre de personnage  */
 }joueur_t;
 
+
+/**
+ * \enum classe_t
+ * \brief definir la calsse d'un personnage
+ */
 typedef enum classe_s{GUERRIER, MAGE, VOLEUR, ARCHER, PRETRE}classe_t;
+
+/**
+ * \enum race_t
+ * \brief definir la race d'un personnage
+ */
 typedef enum race_s{HUMAIN, ELFE}race_t;
 
+
+/**
+ * \fn creer_joueurs(int nb_persos);
+ * \brief Fonction qui initialise les joueurs
+ * \param nb_persos Contientle nombre de personnages
+ * \return les personnages initialisés
+ */
 joueur_t *creer_joueurs(int nb_persos);
 
+
+
+/**
+ * \fn aff_perso(SDL_Renderer *renderer, SDL_Texture *pack_texture, TTF_Font *police, perso_t *perso, int text_perso);
+ * \brief Fonction qui affiche le personnage et les statistiques d'un personnage donnée
+ * \param renderer affichage
+ * \param pack_texture prend le pack de texture
+ * \param police prend la police
+ * \param perso Le personnagea afficher
+ * \param text_perso permet de savoir les différentes statistiques du personnage
+ */
 void aff_perso(SDL_Renderer *renderer, SDL_Texture *pack_texture, TTF_Font *police, perso_t *perso, int text_perso);
 
+/**
+ * \fn lancer_jeu(SDL_Window *window, SDL_Renderer *renderer, SDL_Texture *pack_texture, case_t *map);
+ * \brief Fonction principal qui permet de jouer
+ * \param window, renderer Affichage
+ * \param pack_texture charge le pack de texture
+ * \param map
+ */
 void lancer_jeu(SDL_Window *window, SDL_Renderer *renderer, SDL_Texture *pack_texture, case_t *map);
 
+/**
+ * \fn chercher_chemin(int *tab,int xd, int yd, int xa, int ya);
+ * \brief Fonction qui cherche le chemin le plus court entre deux points
+ * \param  tab
+ * \param xd, yd, xa, ya coordonnées
+ * \return vrai si le chemin existe, si non renvoi faux
+ */
 SDL_bool chercher_chemin(int *tab,int xd, int yd, int xa, int ya);
 
+
+/**
+ * \fn marquer_chemin(int *tab,int x, int y, int *lgmin);
+ * \brief Marque le chemin le plus court a partir de *(tab+x*M+y)
+ * \param  tab
+ * \param x, y coordonnées
+ * \param lgmin prend la taille du chemin
+ */
 void marquer_chemin(int *tab,int x, int y, int *lgmin);
 
+
+/**
+ * \fn map_to_bool(case_t *map, int *tab, int xa, int ya);
+ * \brief Fonction qui transforme la map en couloirs/murs
+ * \param  map,tab
+ * \param xa, ya coordonnées
+ */
 void *map_to_bool(case_t *map, int *tab, int xa, int ya);
 
+
+
+/**
+ * \fn aff_mat(int *tab);
+ * \brief affiche une matrice
+ * \param  tab la matrice
+ */
 void aff_mat(int *tab);
 
+
+
+/**
+ * \fn mat_copy(int *src, int *dest);
+ * \brief Copie une matrice
+ * \param scr la matrice a copié
+ * \param dest copie de la matrice
+ */
 void mat_copy(int *src, int *dest);
 
+
+
+/**
+ * \fn remarquer_chemin(int *tab, int x1, int y1, int dep);
+ * \brief remarque le chemin, regarde autour de chaque position si elle est valide
+ * \param tab
+ * \param x1, y1 coordonnées
+ * \param dep depart
+ * \return les coordonnées d'arrivées
+ */
 coords_t remarquer_chemin(int *tab, int x1, int y1, int dep);
 
+
+
+/**
+ * \fn retirer_perso(case_t *map, joueur_t *joueur, int indice);
+ * \brief retire personnage de la carte
+ * \param map
+ * \param joueur joueur a retirer
+ * \param indice
+ */
 void retirer_perso(case_t *map, joueur_t *joueur, int indice);
 
 

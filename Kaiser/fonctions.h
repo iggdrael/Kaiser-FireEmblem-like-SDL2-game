@@ -1,3 +1,9 @@
+/**
+ * \file fonction.h
+ * \brief fichier regroupant les fonctions pour l'utilisation de SDL
+ * \author GUYON Arthur SANNA Florian RICHEFEU Mattéo
+ */
+
 #ifndef _FONCTIONS_H_
 #define _FONCTIONS_H_
 
