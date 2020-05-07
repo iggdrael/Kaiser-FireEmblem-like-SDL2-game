@@ -1,6 +1,4 @@
-#include "commun.h"
-//gcc src/main.c -o bin/prog -I include -L lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf
-//gcc .\src\ProjetS4\Kaiser\main.c .\src\ProjetS4\Kaiser\fonctions.c .\src\ProjetS4\Kaiser\selection_equipe.c  .\src\ProjetS4\Kaiser\jeu.c -o bin/prog -I include -L lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf  
+#include "libs/commun.h"
 
 int main(int argc, char** argv){
 /**La fonction main constitue un menu permettant :
@@ -41,7 +39,7 @@ int main(int argc, char** argv){
 
 /**------------------Chargement des textures----------------------------------**/
 
-	SDL_Texture *pack_texture = creerTexture(window, renderer, "packtexture.png");
+	SDL_Texture *pack_texture = creerTexture(window, renderer, "imgs/packtexture.png");
 
 /**------------------Affichage du Menu----------------------------------------**/
 

@@ -1,4 +1,4 @@
-#include "commun.h"
+#include "libs/commun.h"
 
 int classe_to_text(int n_classe, J_t J){
 /**Fonction qui retourne le numero de la texture correspondant à la classe du perso en fonction de son equipe**/
@@ -496,7 +496,7 @@ perso_t * create_team(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *poli
 
 	rect_mg.x = rect_mm.x = rect_ma.x = rect_mh.x = rect_mv.x = (guerrier.x*LARGEUR_CASE)-(3*LARGEUR_CASE);
 
-	SDL_Texture *pack_textures_for_window = creerTexture(window, renderer, "packtexture.png");
+	SDL_Texture *pack_textures_for_window = creerTexture(window, renderer, "imgs/packtexture.png");
 
 	load_matrice(map, 0);
 

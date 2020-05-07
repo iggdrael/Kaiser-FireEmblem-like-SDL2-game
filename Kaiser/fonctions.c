@@ -1,4 +1,4 @@
-#include "commun.h"
+#include "libs/commun.h"
 
 case_t *init_matrice(){
 /**Fonction qui initialise et retourne la matrice representant la map**/
@@ -186,9 +186,9 @@ void save_map(case_t *map){
 void load_matrice(case_t *map, int n_map){
 /**Fonction permettant de charger la matrice "map" depuis un fichier texte**/
 	FILE *fic = NULL;
-	char fname[8] = "map0.txt";
+	char fname[13] = "maps/map0.txt";
 
-	fname[3] = '0' + n_map;
+	fname[8] = '0' + n_map;
 
 	fic = fopen(fname, "r");
 	if (fic == NULL) {
@@ -357,7 +357,7 @@ void editeur_map(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Te
 
 /**------------------Creation des textures----------------------------------------------------**/
 
-	SDL_Texture *pack_textures_for_window = creerTexture(window_edit, renderer_edit, "packtexture.png");
+	SDL_Texture *pack_textures_for_window = creerTexture(window_edit, renderer_edit, "imgs/packtexture.png");
 
 /**------------------Affichage des textures dans la deuxieme fenetre--------------------------
  * ------------------Remplissage de la fenetre principale avec la tile case vide--------------**/

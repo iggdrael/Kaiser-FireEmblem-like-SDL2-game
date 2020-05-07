@@ -1,4 +1,4 @@
-#include "commun.h"
+#include "libs/commun.h"
 
 void aff_perso(SDL_Renderer *renderer, SDL_Texture *pack_texture, TTF_Font *police, perso_t *perso, int text_perso){
 	int W_GUI = (WIDTH / 3.5);
@@ -725,8 +725,8 @@ void lancer_jeu(SDL_Window *window, SDL_Renderer *renderer, SDL_Texture *pack_te
 
 /**------------------Creation des textures----------------------------------------------------**/
 
-	SDL_Texture *interface = creerTexture(window_gui, renderer_gui, "gui.png");
-	SDL_Texture *pack_texture_gui = creerTexture(window_gui, renderer_gui, "packtexture.png");
+	SDL_Texture *interface = creerTexture(window_gui, renderer_gui, "imgs/gui.png");
+	SDL_Texture *pack_texture_gui = creerTexture(window_gui, renderer_gui, "imgs/packtexture.png");
 
 /**------------------Initialisation Jeu---------------------------------------------------**/
 
