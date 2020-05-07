@@ -1,6 +1,7 @@
 #include "libs/commun.h"
 
 void aff_perso(SDL_Renderer *renderer, SDL_Texture *pack_texture, TTF_Font *police, perso_t *perso, int text_perso){
+/**Fonction qui affiche les stats d un perso sur le gui**/
 	int W_GUI = (WIDTH / 3.5);
 	char classe[9], race[9];
 
@@ -220,6 +221,7 @@ void aff_radius_perso(SDL_Renderer *renderer, case_t *map, int x, int y, int DEP
 }
 
 void perso_attaquer(case_t *map, joueur_t *joueurs, perso_t *p1, perso_t *p2){
+/**Fonction gerant le combat entre deux persos**/
 	p2->PV -= (p1->ATK - p2->DEF);
 
 	if (p2->PV <= 0){
@@ -247,6 +249,7 @@ void perso_attaquer(case_t *map, joueur_t *joueurs, perso_t *p1, perso_t *p2){
 }
 
 int indice_perso(joueur_t *team, J_t J, int x, int y){
+/**Fonction renvoyant l indice d un perso dans une team**/
 	int i;
 
 	for (i = 0; i < (team + J)->nb_persos; i++)
@@ -525,16 +528,8 @@ void *map_to_bool(case_t *map, int *tab, int xa, int ya){
 		}
 }
 
-void aff_mat(int *tab){
-	int i, j;
-
-	for (i = 0; i < N; i++){
-		for (j = 0; j < M; printf("%d ", *(tab + i*M + j)), j++);
-		putchar('\n');
-	}
-}
-
 void mat_copy(int *src, int *dest){
+/**Fonction copiant une matrice**/
 	int i, j;
 
 	for (i = 0; i < N; i++)
@@ -543,6 +538,7 @@ void mat_copy(int *src, int *dest){
 }
 
 coords_t remarquer_chemin(int *tab, int x1, int y1, int dep){
+/**Fonction qui remarque les n deplacements du perso et renvoie les coords de fin**/
 	int i, j, k;
 	coords_t c;
 

@@ -19,7 +19,6 @@ typedef struct case_s{
 	SDL_bool is_perso;
 }case_t;
 
-typedef struct coords_s{int x, y;}coords_t;
 /**Structure de coordonees x, y**/
 /**
 * \fn case_t *init_matrice(void)
@@ -70,12 +69,6 @@ SDL_Texture *creerTexture(SDL_Window *window, SDL_Renderer *renderer, char sourc
 void aff_tile(SDL_Renderer *renderer, SDL_Texture *texture, int i, int j, int case_actuelle,  float multi);
 
 /**
-* \fn coords_t case_to_coords(int case_actuelle)
-* \param case_actuelle Transforme la case en coordonees de son emplacement dans le pack de texture
-*/
-coords_t case_to_coords(int case_actuelle);
-
-/**
 * \fn void fill_map(case_t *map, int case_actuelle)
 * \param map,case_actuelle Fonction permettant de remplir la carte avec la touche selectionnee depuis ses coordonnees
 */
@@ -94,22 +87,10 @@ void ajout_texture_case(case_t *map,  int i, int j, int case_actuelle);
 void editeur_map(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Texture *pack_texture);
 
 /**
-* \fn SDL_bool valides(int x, int y)
-* \param x,y coordonnees dans une matrice
-*/
-SDL_bool valides(int x, int y);
-
-/**
 * \fn void creerTexte(SDL_Renderer *renderer, TTF_Font *police, char *str, int x, int y)
 * \param renderer,police,str,x,y Affiche un texte a l'écran au coordonees x y
 */
 void creerTexte(SDL_Renderer *renderer, TTF_Font *police, char *str, int x, int y);
-
-/**
-* \fn void SDL_ExitWithError(const char *message, SDL_Window *w, SDL_Renderer *r, SDL_Texture *t)
-* \param massage,x,r,t  Gestion des erreurs et l'affiche
-*/
-void SDL_ExitWithError(const char *message, SDL_Window *w, SDL_Renderer *r, SDL_Texture *t);
 
 /**
 * \fn type_t type_case(int case_actuelle)

@@ -181,17 +181,6 @@ void marquer_chemin(int *tab,int x, int y, int *lgmin);
  */
 void *map_to_bool(case_t *map, int *tab, int xa, int ya);
 
-
-
-/**
- * \fn aff_mat(int *tab);
- * \brief affiche une matrice
- * \param  tab la matrice
- */
-void aff_mat(int *tab);
-
-
-
 /**
  * \fn mat_copy(int *src, int *dest);
  * \brief Copie une matrice
@@ -199,8 +188,6 @@ void aff_mat(int *tab);
  * \param dest copie de la matrice
  */
 void mat_copy(int *src, int *dest);
-
-
 
 /**
  * \fn remarquer_chemin(int *tab, int x1, int y1, int dep);

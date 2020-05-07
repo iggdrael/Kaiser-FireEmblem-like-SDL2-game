@@ -1,5 +1,6 @@
 #include "libs/commun.h"
 
+
 /**primitives de files**/
 
 void initfile(void){
@@ -113,4 +114,44 @@ char* ft_itoa(int num, int base){
     reverse(str, i); 
   
     return str; 
+}
+
+void aff_mat(int *tab){
+/**Fonction affichant une matrice en console**/
+	int i, j;
+
+	for (i = 0; i < N; i++){
+		for (j = 0; j < M; printf("%d ", *(tab + i*M + j)), j++);
+		putchar('\n');
+	}
+}
+
+void SDL_ExitWithError(const char *message, SDL_Window *w, SDL_Renderer *r, SDL_Texture *t){
+/**Fonction de gestion d erreur qui affiche l erreur SDL rencontree et libere la memoire allouee avant de quitter le programme**/
+    SDL_Log("ERREUR : %s > %s\n", message, SDL_GetError());
+	if(t != NULL)
+        SDL_DestroyTexture(t);
+    if(r != NULL)
+        SDL_DestroyRenderer(r);
+    if(w != NULL)
+        SDL_DestroyWindow(w);
+    SDL_Quit();
+
+    exit(EXIT_FAILURE);
+}
+
+SDL_bool valides(int x, int y){
+/**Fonction qui retourne TRUE si les coordonnees passees en parametres sont dans les limites de la matrice**/
+	return ((x >= 0 && x < N) && (y >= 0 && y < M));
+}
+
+coords_t case_to_coords(int case_actuelle){
+/**Fonction qui transforme la case passee en parametres en coordonnees
+ * de son emplacement dans le pack de texture et les retourne**/
+	coords_t coords;
+
+	coords.x = case_actuelle / NOMBRE_BLOCS_LARGEUR;
+	coords.y = case_actuelle - (coords.x * NOMBRE_BLOCS_LARGEUR);
+
+	return coords;
 }
