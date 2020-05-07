@@ -1,4 +1,1 @@
-Nous avons été confronté à divers problèmes nous empêchant d'atteindre notre but initial. Impossibilité de mettre le jeu en réseau en raison du manque de portabilité du code. La SDL a de gros problèmes de compatibilités, en raison d'un manque de matériel, notre code fonctionne sur nos machines Windows "puissantes" mais notre programme souffre de gros problèmes d'affichages avec des oridnateurs moins puissants.
-
-Malgré ces problèmes, le programme intègre un éditeur de map, des paramètres, et le jeu.
-Le jeu est totalement fonctionnel bien qu'il bug sur les machines peu puissantes.
+Le travail prévu pour cette séance est de continuer le rapport de projet et de commencer la présentation.
