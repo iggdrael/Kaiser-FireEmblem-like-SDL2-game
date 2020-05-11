@@ -218,6 +218,10 @@ void deplacer_persos(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *polic
 	Uint32 id_main_window = SDL_GetWindowID(window);
 	Uint32 id_window_gui = SDL_GetWindowID(window_gui);
 
+	SDL_RenderClear(renderer_gui);
+	aff_tile(renderer_gui, interface, 0, 0, -1, 1);
+	creerTexte(renderer_gui, police_gui, "Placez vos persos", WIDTH / 3.5 / 2 - TAILLE_FONT_GUI * 5 / 2 - 20, HEIGHT / 1.5);
+
 	bouton_check(renderer_gui, &validation, police_gui);
 	SDL_RenderPresent(renderer_gui);
 
@@ -257,6 +261,7 @@ void deplacer_persos(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *polic
 
 							aff_perso(renderer_gui, pack_texture_gui, police_gui, (map + M*i +j)->perso, VIDE);
 							bouton_check(renderer_gui, &validation, police_gui);
+							creerTexte(renderer_gui, police_gui, "Placez vos persos", WIDTH / 3.5 / 2 - TAILLE_FONT_GUI * 5 / 2 - 20, HEIGHT / 1.5);
 							SDL_RenderPresent(renderer_gui);
 
 							rect_select.x = j * LARGEUR_CASE;
@@ -277,6 +282,7 @@ void deplacer_persos(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *polic
 							aff_tile(renderer_gui, interface, 0, 0, -1, 1);
 							aff_perso(renderer_gui, pack_texture_gui, police_gui, (map + M*i +j)->perso, VIDE);
 							bouton_check(renderer_gui, &validation, police_gui);
+							creerTexte(renderer_gui, police_gui, "Placez vos persos", WIDTH / 3.5 / 2 - TAILLE_FONT_GUI * 5 / 2 - 20, HEIGHT / 1.5);
 							SDL_RenderPresent(renderer_gui);
 
 							aff_map(map, renderer, pack_texture);
@@ -502,7 +508,13 @@ perso_t * create_team(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *poli
 
 	SDL_RenderClear(renderer); aff_map(map, renderer, pack_texture); SDL_SetRenderDrawColor(renderer, R_R,  R_G, R_B, 255);SDL_RenderFillRect(renderer, &rect_pg);SDL_RenderFillRect(renderer, &rect_mg); SDL_RenderFillRect(renderer, &rect_pm);SDL_RenderFillRect(renderer, &rect_mm); SDL_RenderFillRect(renderer, &rect_pa);SDL_RenderFillRect(renderer, &rect_ma); SDL_RenderFillRect(renderer, &rect_ph);SDL_RenderFillRect(renderer, &rect_mh); SDL_RenderFillRect(renderer, &rect_pv);SDL_RenderFillRect(renderer, &rect_mv); SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); SDL_RenderDrawRect(renderer, &rect_pg);SDL_RenderDrawRect(renderer, &rect_mg); SDL_RenderDrawRect(renderer, &rect_pm);SDL_RenderDrawRect(renderer, &rect_mm); SDL_RenderDrawRect(renderer, &rect_pa); SDL_RenderDrawRect(renderer, &rect_ma); SDL_RenderDrawRect(renderer, &rect_ph);SDL_RenderDrawRect(renderer, &rect_mh); SDL_RenderDrawRect(renderer, &rect_pv);SDL_RenderDrawRect(renderer, &rect_mv);creerTexte(renderer, police, "+", rect_pg.x, rect_pg.y);creerTexte(renderer, police, "-", rect_mg.x, rect_mg.y);creerTexte(renderer, police, "0", rect_pg.x + 100, rect_pg.y); creerTexte(renderer, police, "+", rect_pm.x, rect_pm.y);creerTexte(renderer, police, "-", rect_mm.x, rect_mm.y); creerTexte(renderer, police, "0", rect_pm.x + 100, rect_pm.y); creerTexte(renderer, police, "+", rect_pa.x, rect_pa.y);creerTexte(renderer, police, "-", rect_ma.x, rect_ma.y); creerTexte(renderer, police, "0", rect_pa.x + 100, rect_pa.y); creerTexte(renderer, police, "+", rect_ph.x, rect_ph.y);creerTexte(renderer, police, "-", rect_mh.x, rect_mh.y); creerTexte(renderer, police, "0", rect_ph.x + 100, rect_ph.y); creerTexte(renderer, police, "+", rect_pv.x, rect_pv.y);creerTexte(renderer, police, "-", rect_mv.x, rect_mv.y); creerTexte(renderer, police, "0", rect_pv.x + 100, rect_pv.y);aff_tile(renderer, pack_textures_for_window, guerrier.y-1, guerrier.x-1, guerrier.w, 3); aff_tile(renderer, pack_textures_for_window, mage.y-1, mage.x-1, mage.w, 3); aff_tile(renderer, pack_textures_for_window, archer.y-1, archer.x-1, archer.w, 3); aff_tile(renderer, pack_textures_for_window, healer.y-1, healer.x-1, healer.w, 3); aff_tile(renderer, pack_textures_for_window, voleur.y-1, voleur.x-1, voleur.w, 3); SDL_RenderPresent(renderer);
 	
+	char str_nb_pers[13] = "0 / x persos";
+
+	str_nb_pers[4] = NB_PERS + '0';
+	str_nb_pers[12] = '\0';
+
 	bouton_check(renderer_gui, &validation, police_gui);
+	creerTexte(renderer_gui, police_gui, str_nb_pers, WIDTH / 3.5 / 2 - TAILLE_FONT_GUI * 5 / 2, HEIGHT / 1.5);
 	SDL_RenderPresent(renderer_gui);
 
 
@@ -536,6 +548,8 @@ perso_t * create_team(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *poli
 						aff_tile(renderer_gui, interface, 0, 0, -1, 1);
 						aff_perso(renderer_gui, pack_texture_gui, police_gui, NULL, TEXT_GUERRIER);
 						bouton_check(renderer_gui, &validation, police_gui);
+						str_nb_pers[0] = nb_perso_actuel + '0';
+						creerTexte(renderer_gui, police_gui, str_nb_pers, WIDTH / 3.5 / 2 - TAILLE_FONT_GUI * 5 / 2, HEIGHT / 1.5);
 						SDL_RenderPresent(renderer_gui);
 					}
 					else if (clickSurCase(event, rect_mg)){
@@ -551,6 +565,8 @@ perso_t * create_team(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *poli
 						aff_tile(renderer_gui, interface, 0, 0, -1, 1);
 						aff_perso(renderer_gui, pack_texture_gui, police_gui, NULL, TEXT_GUERRIER);
 						bouton_check(renderer_gui, &validation, police_gui);
+						str_nb_pers[0] = nb_perso_actuel + '0';
+						creerTexte(renderer_gui, police_gui, str_nb_pers, WIDTH / 3.5 / 2 - TAILLE_FONT_GUI * 5 / 2, HEIGHT / 1.5);
 						SDL_RenderPresent(renderer_gui);
 					}
 					else if (clickSurCase(event, rect_pm)){//Mage
@@ -566,6 +582,8 @@ perso_t * create_team(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *poli
 						aff_tile(renderer_gui, interface, 0, 0, -1, 1);
 						aff_perso(renderer_gui, pack_texture_gui, police_gui, NULL, TEXT_MAGE);
 						bouton_check(renderer_gui, &validation, police_gui);
+						str_nb_pers[0] = nb_perso_actuel + '0';
+						creerTexte(renderer_gui, police_gui, str_nb_pers, WIDTH / 3.5 / 2 - TAILLE_FONT_GUI * 5 / 2, HEIGHT / 1.5);
 						SDL_RenderPresent(renderer_gui);
 					}
 					else if (clickSurCase(event, rect_mm)){
@@ -581,6 +599,8 @@ perso_t * create_team(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *poli
 						aff_tile(renderer_gui, interface, 0, 0, -1, 1);
 						aff_perso(renderer_gui, pack_texture_gui, police_gui, NULL, TEXT_MAGE);
 						bouton_check(renderer_gui, &validation, police_gui);
+						str_nb_pers[0] = nb_perso_actuel + '0';
+						creerTexte(renderer_gui, police_gui, str_nb_pers, WIDTH / 3.5 / 2 - TAILLE_FONT_GUI * 5 / 2, HEIGHT / 1.5);
 						SDL_RenderPresent(renderer_gui);
 					}
 					else if (clickSurCase(event, rect_pa)){//Archer
@@ -596,6 +616,8 @@ perso_t * create_team(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *poli
 						aff_tile(renderer_gui, interface, 0, 0, -1, 1);
 						aff_perso(renderer_gui, pack_texture_gui, police_gui, NULL, TEXT_ARCHER);
 						bouton_check(renderer_gui, &validation, police_gui);
+						str_nb_pers[0] = nb_perso_actuel + '0';
+						creerTexte(renderer_gui, police_gui, str_nb_pers, WIDTH / 3.5 / 2 - TAILLE_FONT_GUI * 5 / 2, HEIGHT / 1.5);
 						SDL_RenderPresent(renderer_gui);
 					}
 					else if (clickSurCase(event, rect_ma)){
@@ -611,6 +633,8 @@ perso_t * create_team(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *poli
 						aff_tile(renderer_gui, interface, 0, 0, -1, 1);
 						aff_perso(renderer_gui, pack_texture_gui, police_gui, NULL, TEXT_ARCHER);
 						bouton_check(renderer_gui, &validation, police_gui);
+						str_nb_pers[0] = nb_perso_actuel + '0';
+						creerTexte(renderer_gui, police_gui, str_nb_pers, WIDTH / 3.5 / 2 - TAILLE_FONT_GUI * 5 / 2, HEIGHT / 1.5);
 						SDL_RenderPresent(renderer_gui);
 					}
 					else if (clickSurCase(event, rect_ph)){//Healer
@@ -626,6 +650,8 @@ perso_t * create_team(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *poli
 						aff_tile(renderer_gui, interface, 0, 0, -1, 1);
 						aff_perso(renderer_gui, pack_texture_gui, police_gui, NULL, TEXT_HEALER);
 						bouton_check(renderer_gui, &validation, police_gui);
+						str_nb_pers[0] = nb_perso_actuel + '0';
+						creerTexte(renderer_gui, police_gui, str_nb_pers, WIDTH / 3.5 / 2 - TAILLE_FONT_GUI * 5 / 2, HEIGHT / 1.5);
 						SDL_RenderPresent(renderer_gui);
 					}
 					else if (clickSurCase(event, rect_mh)){
@@ -641,6 +667,8 @@ perso_t * create_team(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *poli
 						aff_tile(renderer_gui, interface, 0, 0, -1, 1);
 						aff_perso(renderer_gui, pack_texture_gui, police_gui, NULL, TEXT_HEALER);
 						bouton_check(renderer_gui, &validation, police_gui);
+						str_nb_pers[0] = nb_perso_actuel + '0';
+						creerTexte(renderer_gui, police_gui, str_nb_pers, WIDTH / 3.5 / 2 - TAILLE_FONT_GUI * 5 / 2, HEIGHT / 1.5);
 						SDL_RenderPresent(renderer_gui);
 					}
 					else if (clickSurCase(event, rect_pv)){//Voleur
@@ -656,6 +684,8 @@ perso_t * create_team(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *poli
 						aff_tile(renderer_gui, interface, 0, 0, -1, 1);
 						aff_perso(renderer_gui, pack_texture_gui, police_gui, NULL, TEXT_VOLEUR);
 						bouton_check(renderer_gui, &validation, police_gui);
+						str_nb_pers[0] = nb_perso_actuel + '0';
+						creerTexte(renderer_gui, police_gui, str_nb_pers, WIDTH / 3.5 / 2 - TAILLE_FONT_GUI * 5 / 2, HEIGHT / 1.5);
 						SDL_RenderPresent(renderer_gui);
 					}
 					else if (clickSurCase(event, rect_mv)){ 
@@ -671,6 +701,8 @@ perso_t * create_team(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *poli
 						aff_tile(renderer_gui, interface, 0, 0, -1, 1);
 						aff_perso(renderer_gui, pack_texture_gui, police_gui, NULL, TEXT_VOLEUR);
 						bouton_check(renderer_gui, &validation, police_gui);
+						str_nb_pers[0] = nb_perso_actuel + '0';
+						creerTexte(renderer_gui, police_gui, str_nb_pers, WIDTH / 3.5 / 2 - TAILLE_FONT_GUI * 5 / 2, HEIGHT / 1.5);
 						SDL_RenderPresent(renderer_gui);
 					}
 					else if (clickSurCase(event, validation)){

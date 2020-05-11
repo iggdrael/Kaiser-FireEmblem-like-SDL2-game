@@ -8,7 +8,7 @@
 #define _JEU_H_
 
 #define MIN_PERSO 5
-#define MAX_PERSO 10
+#define MAX_PERSO 9
 #define NB_MAPS 5
 #define NB_CLASSES 5
 
@@ -63,7 +63,7 @@
 #define H_DEP 	6
 
 #define V_PV 	45
-#define V_ATK 	80
+#define V_ATK 	60
 #define V_DEF 	0
 #define V_ESQ 	20
 #define V_CRIT  33

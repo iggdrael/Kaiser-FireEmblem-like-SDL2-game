@@ -222,7 +222,16 @@ void aff_radius_perso(SDL_Renderer *renderer, case_t *map, int x, int y, int DEP
 
 void perso_attaquer(case_t *map, joueur_t *joueurs, perso_t *p1, perso_t *p2){
 /**Fonction gerant le combat entre deux persos**/
-	p2->PV -= (p1->ATK - p2->DEF);
+
+	int dmg;
+
+	if (randint(1, 100) > p2->ESQ){
+		///Le perso n esquive pas
+		dmg = p1->ATK;
+		if (randint(1, 100) <= p1->CRIT) ///Si le perso porte un coup critique
+			dmg *= 1.25;
+		p2->PV -= (dmg - p2->DEF);
+	}
 
 	if (p2->PV <= 0){
 		change_val_text(map, RP, p2->x, p2->y, PERSO_MORT);
@@ -234,7 +243,13 @@ void perso_attaquer(case_t *map, joueur_t *joueurs, perso_t *p1, perso_t *p2){
 		perso_copy(p2, (map + M*(p2->x) + p2->y)->perso);
 
 		if (p2->POR >= p1->POR){
-			p1->PV -= (p2->ATK - p1->DEF);
+			if (randint(1, 100) > p1->ESQ){
+				///Le perso n esquive pas
+				dmg = p2->ATK;
+				if (randint(1, 100) <= p2->CRIT) ///Si le perso porte un coup critique
+					dmg *= 1.25;
+				p1->PV -= (dmg - p1->DEF);
+			}
 
 			if (p1->PV <= 0){
 				change_val_text(map, RP, p1->x, p1->y, PERSO_MORT);
@@ -784,9 +799,7 @@ void lancer_jeu(SDL_Window *window, SDL_Renderer *renderer, SDL_Texture *pack_te
 		if (!police)
 			SDL_ExitWithError("Erreur du chargement de la police", window, renderer, NULL);
 
-		if ((joueurs + BOT)->nb_persos == 0 && (joueurs + J1)->nb_persos == 0)
-			creerTexte(renderer, police, "Match nul !!!", HEIGHT / 2, (WIDTH/2)- 13 * 120);
-		else if ((joueurs + BOT)->nb_persos == 0)
+		if ((joueurs + BOT)->nb_persos == 0)
 			creerTexte(renderer, police, "Vous gagnez la partie !!!", 150, 300);//HEIGHT / 2, (WIDTH/2)- 25 * 120);
 		else if ((joueurs + J1)->nb_persos == 0)
 			creerTexte(renderer, police, "Vous perdez la partie !!!", HEIGHT / 2, (WIDTH/2)- 25 * 120);
