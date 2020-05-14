@@ -4,19 +4,31 @@
 
 # Kaiser
 
-![Recordit GIF](http://g.recordit.co/feK6HTXUcS.gif)
-
-
-
 ## Installation
 
 ### Clone
 
 - Vous pouvez cloner le repo à cette adresse : `https://github.com/iggdrael/ProjetS4`
 
-## Tests
+## Le Programme
 
----
+### Le jeu
+
+![Recordit GIF](http://g.recordit.co/1awayUkE9E.gif)
+
+![Recordit GIF](http://g.recordit.co/ACcv1xpPfG.gif)
+
+![Recordit GIF](http://g.recordit.co/uDkxkfqXEX.gif)
+
+![Recordit GIF](http://g.recordit.co/tlAwqUGRIS.gif)
+
+### L'éditeur de maps
+
+![Recordit GIF](http://g.recordit.co/feK6HTXUcS.gif)
+
+### Les paramètres
+
+![Recordit GIF](http://g.recordit.co/Wq8CDqMWUf.gif)
 
 ## Les devs
 
