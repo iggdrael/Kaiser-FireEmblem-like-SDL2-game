@@ -28,7 +28,7 @@
 
 ### Les paramètres
 
-![Recordit GIF](http://g.recordit.co/Wq8CDqMWUf.gif)
+![Recordit GIF](http://g.recordit.co/PsfCPAeJhK.gif)
 
 ## Les devs
 
