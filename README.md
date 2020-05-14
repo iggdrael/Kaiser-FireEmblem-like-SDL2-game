@@ -1,5 +1,7 @@
 <img src="https://image.noelshack.com/fichiers/2020/19/4/1588844836-logokaiser.png" title="logoKaiser" alt="logo">
 
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d85460.5237931366!2d0.12565301722481978!3d47.98199106811464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e288d214f3aa31%3A0x69025d4c6a7de07f!2sLe%20Mans!5e0!3m2!1sfr!2sfr!4v1589465844441!5m2!1sfr!2sfr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
 ***Projet L2 S4 2020***
 
 # Kaiser
