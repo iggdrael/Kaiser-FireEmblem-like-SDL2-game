@@ -10,8 +10,8 @@
 
 ### Clone
 
-- Vous pouvez télécharger le repo à cette adresse : `https://github.com/iggdrael/ProjetS4`
-- Le cloner en ligne de commande : $ git clone https://github.com/iggdrael/ProjetS4.git
+- Vous pouvez télécharger le repo à cette adresse : https://github.com/iggdrael/ProjetS4
+- Le cloner en ligne de commande : $ `git clone https://github.com/iggdrael/ProjetS4.git`
 
 ## Le Programme
 
