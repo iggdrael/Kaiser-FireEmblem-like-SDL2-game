@@ -4,12 +4,7 @@
 
 # Kaiser
 
-> Sah quel plaisir !!!
-
-<!--
-[![INSERT YOUR GRAPHIC HERE](http://i.imgur.com/dt8AUb6.png)]()
-![Recordit GIF](http://g.recordit.co/iLN6A0vSD8.gif)
--->
+![Recordit GIF](http://g.recordit.co/feK6HTXUcS.gif)
 
 
 
