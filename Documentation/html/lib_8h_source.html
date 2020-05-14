@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.18"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Kaiser:  Fichier source de lib.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Kaiser
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.18 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">lib.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="lib_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef _lib_H_</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define _lib_H_</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="lib_8h.html#ae2550f9b6ba95e9ea93c5c85d1c396fe">   11</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="lib_8h.html#ae2550f9b6ba95e9ea93c5c85d1c396fe">randint</a>(<span class="keywordtype">int</span> min, <span class="keywordtype">int</span> max);</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="lib_8h.html#acaacdc53a59c8305f6a70f6fa579e074">   18</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="lib_8h.html#acaacdc53a59c8305f6a70f6fa579e074">int_len</a>(<span class="keywordtype">unsigned</span> x);</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="lib_8h.html#a0137aa26814ffee19c55092f41aafe4b">   24</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="lib_8h.html#a0137aa26814ffee19c55092f41aafe4b">swap</a>(<span class="keywordtype">char</span> *c1, <span class="keywordtype">char</span> *c2);</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="lib_8h.html#af2c0f95bdedc4d81b85aefdbf5dfce19">   31</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="lib_8h.html#af2c0f95bdedc4d81b85aefdbf5dfce19">reverse</a>(<span class="keywordtype">char</span> str[], <span class="keywordtype">int</span> length);</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="lib_8h.html#a88f06757a018a7b74dd69876925de407">   38</a></span>&#160;<span class="keywordtype">char</span>* <a class="code" href="lib_8h.html#a88f06757a018a7b74dd69876925de407">ft_itoa</a>(<span class="keywordtype">int</span> num, <span class="keywordtype">int</span> base);</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="lib_8h.html#aaa9f09bf55fb32a9090e2dc051b75a6a">   47</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structelement.html">element</a> {<span class="keywordtype">int</span> <a class="code" href="structelement.html#aacbf3787b6c3ec89b6fe7053892a6249">nombre</a>; <span class="keyword">struct </span><a class="code" href="structelement.html">element</a>* <a class="code" href="structelement.html#ab0ff0cce38b0754773e888a3872e0782">suivant</a>;} <a class="code" href="lib_8h.html#aaa9f09bf55fb32a9090e2dc051b75a6a">t_element</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="lib_8h.html#ac64a6a741ed90e894c695c6f92ad31b8">   49</a></span>&#160;<a class="code" href="structelement.html">t_element</a>* <a class="code" href="lib_8h.html#ac64a6a741ed90e894c695c6f92ad31b8">tete</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="lib_8h.html#ae8f83cc1f73001fbaedaa4ee4e4312ae">   50</a></span>&#160;<a class="code" href="structelement.html">t_element</a>* <a class="code" href="lib_8h.html#ae8f83cc1f73001fbaedaa4ee4e4312ae">queue</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="lib_8h.html#a273907fa64f10a578e107dde70a12876">   52</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="lib_8h.html#a273907fa64f10a578e107dde70a12876">initfile</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="lib_8h.html#ac7273bd1a4e188d9e2035a1b7575aad4">   53</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="lib_8h.html#ac7273bd1a4e188d9e2035a1b7575aad4">ajouter</a>(<span class="keywordtype">int</span> v);</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="lib_8h.html#a08eddf9603567f4706419d8328ffcce0">   54</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="lib_8h.html#a08eddf9603567f4706419d8328ffcce0">retirer</a>(<span class="keywordtype">int</span>* v);</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="lib_8h.html#a4b48b65698f5783adf206700444ea9bd">   55</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="lib_8h.html#a4b48b65698f5783adf206700444ea9bd">filevide</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="astructelement_html_aacbf3787b6c3ec89b6fe7053892a6249"><div class="ttname"><a href="structelement.html#aacbf3787b6c3ec89b6fe7053892a6249">element::nombre</a></div><div class="ttdeci">int nombre</div><div class="ttdef"><b>Definition:</b> lib.h:47</div></div>
+<div class="ttc" id="alib_8h_html_af2c0f95bdedc4d81b85aefdbf5dfce19"><div class="ttname"><a href="lib_8h.html#af2c0f95bdedc4d81b85aefdbf5dfce19">reverse</a></div><div class="ttdeci">void reverse(char str[], int length)</div></div>
+<div class="ttc" id="alib_8h_html_ae8f83cc1f73001fbaedaa4ee4e4312ae"><div class="ttname"><a href="lib_8h.html#ae8f83cc1f73001fbaedaa4ee4e4312ae">queue</a></div><div class="ttdeci">t_element * queue</div><div class="ttdef"><b>Definition:</b> lib.h:50</div></div>
+<div class="ttc" id="astructelement_html_ab0ff0cce38b0754773e888a3872e0782"><div class="ttname"><a href="structelement.html#ab0ff0cce38b0754773e888a3872e0782">element::suivant</a></div><div class="ttdeci">struct element * suivant</div><div class="ttdef"><b>Definition:</b> lib.h:47</div></div>
+<div class="ttc" id="alib_8h_html_ae2550f9b6ba95e9ea93c5c85d1c396fe"><div class="ttname"><a href="lib_8h.html#ae2550f9b6ba95e9ea93c5c85d1c396fe">randint</a></div><div class="ttdeci">int randint(int min, int max)</div></div>
+<div class="ttc" id="alib_8h_html_aaa9f09bf55fb32a9090e2dc051b75a6a"><div class="ttname"><a href="lib_8h.html#aaa9f09bf55fb32a9090e2dc051b75a6a">t_element</a></div><div class="ttdeci">struct element t_element</div></div>
+<div class="ttc" id="alib_8h_html_ac7273bd1a4e188d9e2035a1b7575aad4"><div class="ttname"><a href="lib_8h.html#ac7273bd1a4e188d9e2035a1b7575aad4">ajouter</a></div><div class="ttdeci">void ajouter(int v)</div></div>
+<div class="ttc" id="alib_8h_html_ac64a6a741ed90e894c695c6f92ad31b8"><div class="ttname"><a href="lib_8h.html#ac64a6a741ed90e894c695c6f92ad31b8">tete</a></div><div class="ttdeci">t_element * tete</div><div class="ttdef"><b>Definition:</b> lib.h:49</div></div>
+<div class="ttc" id="alib_8h_html_a273907fa64f10a578e107dde70a12876"><div class="ttname"><a href="lib_8h.html#a273907fa64f10a578e107dde70a12876">initfile</a></div><div class="ttdeci">void initfile(void)</div></div>
+<div class="ttc" id="alib_8h_html_acaacdc53a59c8305f6a70f6fa579e074"><div class="ttname"><a href="lib_8h.html#acaacdc53a59c8305f6a70f6fa579e074">int_len</a></div><div class="ttdeci">int int_len(unsigned x)</div></div>
+<div class="ttc" id="alib_8h_html_a0137aa26814ffee19c55092f41aafe4b"><div class="ttname"><a href="lib_8h.html#a0137aa26814ffee19c55092f41aafe4b">swap</a></div><div class="ttdeci">void swap(char *c1, char *c2)</div></div>
+<div class="ttc" id="alib_8h_html_a08eddf9603567f4706419d8328ffcce0"><div class="ttname"><a href="lib_8h.html#a08eddf9603567f4706419d8328ffcce0">retirer</a></div><div class="ttdeci">void retirer(int *v)</div></div>
+<div class="ttc" id="astructelement_html"><div class="ttname"><a href="structelement.html">element</a></div><div class="ttdef"><b>Definition:</b> lib.h:47</div></div>
+<div class="ttc" id="alib_8h_html_a88f06757a018a7b74dd69876925de407"><div class="ttname"><a href="lib_8h.html#a88f06757a018a7b74dd69876925de407">ft_itoa</a></div><div class="ttdeci">char * ft_itoa(int num, int base)</div></div>
+<div class="ttc" id="alib_8h_html_a4b48b65698f5783adf206700444ea9bd"><div class="ttname"><a href="lib_8h.html#a4b48b65698f5783adf206700444ea9bd">filevide</a></div><div class="ttdeci">int filevide(void)</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.18
+</small></address>
+</body>
+</html>

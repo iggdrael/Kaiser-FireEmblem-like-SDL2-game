@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.18"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Kaiser:  Fichier source de jeu.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Kaiser
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.18 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">jeu.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="jeu_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef _JEU_H_</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define _JEU_H_</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define MIN_PERSO 5</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="jeu_8h.html#a2347ca44d2772ecfa07c3e0ab3116f48">   11</a></span>&#160;<span class="preprocessor">#define MAX_PERSO 10</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="jeu_8h.html#a533c1fb65994e993f3ed70e6472ba40e">   12</a></span>&#160;<span class="preprocessor">#define NB_MAPS 5</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="jeu_8h.html#a0a783f4545da71a8de28369b6f0804e8">   13</a></span>&#160;<span class="preprocessor">#define NB_CLASSES 5</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="jeu_8h.html#a43d5d30fb665e6fd574678226134fbba">   14</a></span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">//Emplacement sur le pack de texture :</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#define TEXT_GUERRIER       481</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="jeu_8h.html#aa3f5f1ff00df0715db97068dc408541d">   18</a></span>&#160;<span class="preprocessor">#define TEXT_MAGE           476</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="jeu_8h.html#aed3cfc424d952a4f60169354183068fb">   19</a></span>&#160;<span class="preprocessor">#define TEXT_ARCHER         478</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="jeu_8h.html#a6d8217e948740099f2606599bc283bca">   20</a></span>&#160;<span class="preprocessor">#define TEXT_HEALER         477</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="jeu_8h.html#af7d8bc195633830c009465966dce6723">   21</a></span>&#160;<span class="preprocessor">#define TEXT_VOLEUR         480</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="jeu_8h.html#af92238b8fa70a5aaebb94d2db0edac1c">   22</a></span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#define TEXT_GUERRIER_BOT   487</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="jeu_8h.html#af87ec967d02ea02ac6ceb5e9afa5549e">   24</a></span>&#160;<span class="preprocessor">#define TEXT_MAGE_BOT       482</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="jeu_8h.html#a34685c7cda7886b2228cdeb58d117d77">   25</a></span>&#160;<span class="preprocessor">#define TEXT_ARCHER_BOT     484</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="jeu_8h.html#a48f0e9f47561669954e5b347603e15b2">   26</a></span>&#160;<span class="preprocessor">#define TEXT_HEALER_BOT     483</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="jeu_8h.html#a7ad0e623c512c7c80b057d745d54e275">   27</a></span>&#160;<span class="preprocessor">#define TEXT_VOLEUR_BOT     486</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="jeu_8h.html#a209ee8efc08a9f7725db1d6dfe1cae1b">   28</a></span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#define PERSO_MORT          488</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="jeu_8h.html#a85d5d132440cb4991f8d99622f5d81ae">   30</a></span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#define G_PV    100</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="jeu_8h.html#a4d00779ade2a26536563afbe14eb0e5a">   34</a></span>&#160;<span class="preprocessor">#define G_ATK   40</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="jeu_8h.html#ac66c30c4a8fdeaf0c71b2a77a7582f5b">   35</a></span>&#160;<span class="preprocessor">#define G_DEF   20</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="jeu_8h.html#a8fc9228b93af2f206c1737f49ad731d8">   36</a></span>&#160;<span class="preprocessor">#define G_ESQ   0</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="jeu_8h.html#af4c4fce75a4d862e523c95a16b3b212c">   37</a></span>&#160;<span class="preprocessor">#define G_CRIT  5</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="jeu_8h.html#a4def1b1d71abcf9c7ad1a71d685222dc">   38</a></span>&#160;<span class="preprocessor">#define G_POR   1</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="jeu_8h.html#abb909806ce3b45f5337cb985b0337ec2">   39</a></span>&#160;<span class="preprocessor">#define G_DEP   5</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="jeu_8h.html#a656d11457667b01f48b3176a8d074333">   40</a></span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#define M_PV    65</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="jeu_8h.html#aec523545fc74f1f49de4c1f0ab21b3a7">   42</a></span>&#160;<span class="preprocessor">#define M_ATK   60</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="jeu_8h.html#a575e2032f6c4f45a17a18a6d78f152f0">   43</a></span>&#160;<span class="preprocessor">#define M_DEF   8</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="jeu_8h.html#a60226dd28b626ae5011f1d1c9b7283fa">   44</a></span>&#160;<span class="preprocessor">#define M_ESQ   5</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="jeu_8h.html#a43236143b4a28d49436087c8c2403b1f">   45</a></span>&#160;<span class="preprocessor">#define M_CRIT  8</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="jeu_8h.html#abe12c9d4698738a67a81d4a291611411">   46</a></span>&#160;<span class="preprocessor">#define M_POR   4</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="jeu_8h.html#a576e56b1338573b625c04941f6228d7b">   47</a></span>&#160;<span class="preprocessor">#define M_DEP   6</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="jeu_8h.html#a8782f68d22ccf49a1a786f85c416f303">   48</a></span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#define A_PV    60</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="jeu_8h.html#ab3131540d98a58068c217c116fe60d15">   50</a></span>&#160;<span class="preprocessor">#define A_ATK   50</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="jeu_8h.html#a4a8bca5ecc67e6a489d38cf3110437c5">   51</a></span>&#160;<span class="preprocessor">#define A_DEF   9</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="jeu_8h.html#a6f9343aa1d78e32f099ad2ed9d32112c">   52</a></span>&#160;<span class="preprocessor">#define A_ESQ   5</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="jeu_8h.html#ad02ad21ad65ea9cc6aa70347d20338af">   53</a></span>&#160;<span class="preprocessor">#define A_CRIT  6</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="jeu_8h.html#adf21fcbad231261d7a1bbdd9e634ef42">   54</a></span>&#160;<span class="preprocessor">#define A_POR   5</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="jeu_8h.html#a67ef9543e4df7bf839d87af6dcdda83e">   55</a></span>&#160;<span class="preprocessor">#define A_DEP   6</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="jeu_8h.html#a66981259d7bc0d37753b66e4fa734353">   56</a></span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#define H_PV    80</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="jeu_8h.html#aae39e5b04226f9495f7d80bde53e6b6f">   58</a></span>&#160;<span class="preprocessor">#define H_ATK   15</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="jeu_8h.html#ad71c62d8b6bc463ea3fb0f9e75000173">   59</a></span>&#160;<span class="preprocessor">#define H_DEF   10</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="jeu_8h.html#a0172615e8e00c916ab478c1751f5a45e">   60</a></span>&#160;<span class="preprocessor">#define H_ESQ   2</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="jeu_8h.html#a71a1c97b66356faf17112c7c89faf729">   61</a></span>&#160;<span class="preprocessor">#define H_CRIT  5</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="jeu_8h.html#a0d3201623b0fa389a55227320e1df1d3">   62</a></span>&#160;<span class="preprocessor">#define H_POR   2</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="jeu_8h.html#a43137eee58ff89d5be21d5a2538109d0">   63</a></span>&#160;<span class="preprocessor">#define H_DEP   6</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="jeu_8h.html#a029ce0fb4dd422027428eed058cfcb55">   64</a></span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#define V_PV    45</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="jeu_8h.html#afa538c8d401342bf82d09d0d2386bc3f">   66</a></span>&#160;<span class="preprocessor">#define V_ATK   80</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="jeu_8h.html#ae6dcf4e33eb148b32539514aeb839217">   67</a></span>&#160;<span class="preprocessor">#define V_DEF   0</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="jeu_8h.html#a05fb245d0f3f0c7f49ab877b44cf955c">   68</a></span>&#160;<span class="preprocessor">#define V_ESQ   20</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="jeu_8h.html#a54c0b308c462c31b39b29eebdbe686e2">   69</a></span>&#160;<span class="preprocessor">#define V_CRIT  33</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="jeu_8h.html#a5db56554d32a8297170136c8bb284da1">   70</a></span>&#160;<span class="preprocessor">#define V_POR   1</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="jeu_8h.html#a0397c5d14848f56259e0ebea9189ffb0">   71</a></span>&#160;<span class="preprocessor">#define V_DEP   6</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="jeu_8h.html#af66d25c8d7cf0e8b85ee30a953a50f2e">   72</a></span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#define TAILLE_FONT_GUI 30</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="jeu_8h.html#a9cb742a1d41e4969b71f0f2fc8240006">   74</a></span>&#160;<span class="preprocessor">#define TAILLE_MAIN_FONT 50</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="jeu_8h.html#a942e78b6e953faf6dc70d34446c6d131">   75</a></span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#define OP_R 100</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="jeu_8h.html#a75553ae510eff0cdad9d71d775819c56">   79</a></span>&#160;<span class="preprocessor">#define OP_V 80</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="jeu_8h.html#a354df2fbb3c485a0d7f968673157e0a0">   80</a></span>&#160;<span class="preprocessor">#define OP_B 64</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="jeu_8h.html#a568af57a9d65600bf6d3dcb0a5ebeae4">   81</a></span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="jeu_8h.html#a99f492ae970bd50ebb199960995114d0">   87</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> <a class="code" href="jeu_8h.html#a9c6ae526d3bb89d5285b8d3da4920db5">J_s</a>{<a class="code" href="jeu_8h.html#a9c6ae526d3bb89d5285b8d3da4920db5a0da67f12aaf41e79f0bc7b68d0a69183">J1</a>, <a class="code" href="jeu_8h.html#a9c6ae526d3bb89d5285b8d3da4920db5a8701d7066e8b0fb9f21e9d933739062e">BOT</a>}<a class="code" href="jeu_8h.html#a99f492ae970bd50ebb199960995114d0">J_t</a>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="structperso__s.html">   94</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structperso__s.html">perso_s</a>{</div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="structperso__s.html#aec8708341a2fd999cc98b0e5b802c429">   95</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structperso__s.html#a95fd7d52eeeddfb64d7b32cdac7f7e0b">CLASSE</a>, <a class="code" href="structperso__s.html#aec8708341a2fd999cc98b0e5b802c429">RACE</a>, <a class="code" href="structperso__s.html#a843175380c2816fdf98bac37a3cd39f5">PV</a>, <a class="code" href="structperso__s.html#a3b3918526788ae6b163c41dc25326396">ATK</a>, <a class="code" href="structperso__s.html#a30707041436614e9e3759b7bf533b201">DEF</a>, <a class="code" href="structperso__s.html#a15c31440dc3d25e4aaf7753b5478bba3">ESQ</a>, <a class="code" href="structperso__s.html#aff526064a490722470639873f61f65b4">CRIT</a>, <a class="code" href="structperso__s.html#af06dddfedbc1de10a213700b2b470cb3">POR</a>, <a class="code" href="structperso__s.html#a1a4295320b09160e77c907b513dec180">DEP</a>;  </div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="structperso__s.html#a0a2f84ed7838f07779ae24c5a9086d33">   96</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structperso__s.html#a6150e0515f7202e2fb518f7206ed97dc">x</a>, <a class="code" href="structperso__s.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a>, <a class="code" href="structperso__s.html#aeb5a293641a5914dcff4a1ca75870431">indice</a>; </div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="structperso__s.html#a5636a4ebdc0c774b9fdf3affa8291f00">   97</a></span>&#160;    SDL_bool <a class="code" href="structperso__s.html#a5636a4ebdc0c774b9fdf3affa8291f00">is_dep</a>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="structperso__s.html#ae7f4d3dd040d4d28d747b8897b40ebbc">   98</a></span>&#160;    <a class="code" href="jeu_8h.html#a99f492ae970bd50ebb199960995114d0">J_t</a> <a class="code" href="structperso__s.html#ae7f4d3dd040d4d28d747b8897b40ebbc">J</a>; </div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="jeu_8h.html#a550089442e996a6b42d393992dbc5436">   99</a></span>&#160;}<a class="code" href="jeu_8h.html#a550089442e996a6b42d393992dbc5436">perso_t</a>;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="structjoueur__s.html">  107</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structjoueur__s.html">joueur_s</a>{</div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="structjoueur__s.html#a0ddf60688308da4ba675ceecbcf5e6ee">  108</a></span>&#160;    <a class="code" href="structperso__t.html">perso_t</a> *<a class="code" href="structjoueur__s.html#a0ddf60688308da4ba675ceecbcf5e6ee">team</a>; </div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="structjoueur__s.html#ad3171a86d7f393170e82de88b63dbbe8">  109</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structjoueur__s.html#ad3171a86d7f393170e82de88b63dbbe8">nb_persos</a>; </div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="jeu_8h.html#a78cda65cd9b26fc9f1ef13f89b316b94">  110</a></span>&#160;}<a class="code" href="jeu_8h.html#a78cda65cd9b26fc9f1ef13f89b316b94">joueur_t</a>;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="jeu_8h.html#aba5a9724d6577776000cc8030a620addae954102adce155b6de15962072532fcf">  117</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum class</span>e_s{<a class="code" href="jeu_8h.html#aba5a9724d6577776000cc8030a620adda9f0ec0dd34ceeb8f08d0fed8679a031c">GUERRIER</a>, <a class="code" href="jeu_8h.html#aba5a9724d6577776000cc8030a620adda010931f222a7946e90308d51d6ac283e">MAGE</a>, <a class="code" href="jeu_8h.html#aba5a9724d6577776000cc8030a620addae954102adce155b6de15962072532fcf">VOLEUR</a>, <a class="code" href="jeu_8h.html#aba5a9724d6577776000cc8030a620addac482cec9850564270fde1520e0027024">ARCHER</a>, <a class="code" href="jeu_8h.html#aba5a9724d6577776000cc8030a620adda8103cd625bbb9cc0e917a7e84cc7cd9b">PRETRE</a>}<a class="code" href="jeu_8h.html#ad9c715cb868cbeb4aa829ec92a8c8bba">classe_t</a>;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="jeu_8h.html#adf1321d2260a7ff3db7e7607fb48e135">  123</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> <a class="code" href="jeu_8h.html#a99a4cd6eba2d81ce2389cb24df5c7d70">race_s</a>{<a class="code" href="jeu_8h.html#a99a4cd6eba2d81ce2389cb24df5c7d70ae37e61af10160d34a35b97427a55c28c">HUMAIN</a>, <a class="code" href="jeu_8h.html#a99a4cd6eba2d81ce2389cb24df5c7d70a337e679eccf22a9d84b40cb45a1de433">ELFE</a>}<a class="code" href="jeu_8h.html#adf1321d2260a7ff3db7e7607fb48e135">race_t</a>;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="jeu_8h.html#a2be04d090298a8438afdb53a8ce5ab90">  132</a></span>&#160;<a class="code" href="structjoueur__t.html">joueur_t</a> *<a class="code" href="jeu_8h.html#a2be04d090298a8438afdb53a8ce5ab90">creer_joueurs</a>(<span class="keywordtype">int</span> nb_persos);</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00145"></a><span class="lineno"><a class="line" href="jeu_8h.html#a5eeafb4d3f11c02c69b978507dc51e96">  145</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="jeu_8h.html#a5eeafb4d3f11c02c69b978507dc51e96">aff_perso</a>(SDL_Renderer *renderer, SDL_Texture *pack_texture, TTF_Font *police, <a class="code" href="structperso__t.html">perso_t</a> *perso, <span class="keywordtype">int</span> text_perso);</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00154"></a><span class="lineno"><a class="line" href="jeu_8h.html#ad2fa98981ae7b781fee96206135927b8">  154</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="jeu_8h.html#ad2fa98981ae7b781fee96206135927b8">lancer_jeu</a>(SDL_Window *window, SDL_Renderer *renderer, SDL_Texture *pack_texture, <a class="code" href="structcase__s.html">case_t</a> *map);</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno"><a class="line" href="jeu_8h.html#a12b6fe52a150b8f92fe32a7f2df7de7b">  163</a></span>&#160;SDL_bool <a class="code" href="jeu_8h.html#a12b6fe52a150b8f92fe32a7f2df7de7b">chercher_chemin</a>(<span class="keywordtype">int</span> *tab,<span class="keywordtype">int</span> xd, <span class="keywordtype">int</span> yd, <span class="keywordtype">int</span> xa, <span class="keywordtype">int</span> ya);</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
+<div class="line"><a name="l00173"></a><span class="lineno"><a class="line" href="jeu_8h.html#a9c93c102c9e98fda2cc99b7429348ef4">  173</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="jeu_8h.html#a9c93c102c9e98fda2cc99b7429348ef4">marquer_chemin</a>(<span class="keywordtype">int</span> *tab,<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> *lgmin);</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
+<div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="jeu_8h.html#aa2e9a5380109a24a2635e7087549d0ac">  182</a></span>&#160;<span class="keywordtype">void</span> *<a class="code" href="jeu_8h.html#aa2e9a5380109a24a2635e7087549d0ac">map_to_bool</a>(<a class="code" href="structcase__s.html">case_t</a> *map, <span class="keywordtype">int</span> *tab, <span class="keywordtype">int</span> xa, <span class="keywordtype">int</span> ya);</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00191"></a><span class="lineno"><a class="line" href="jeu_8h.html#aae253c1335dbb7e01f0239b4568612d9">  191</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="jeu_8h.html#aae253c1335dbb7e01f0239b4568612d9">aff_mat</a>(<span class="keywordtype">int</span> *tab);</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
+<div class="line"><a name="l00201"></a><span class="lineno"><a class="line" href="jeu_8h.html#a80da571dae12fd52ab483f319e2b47b4">  201</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="jeu_8h.html#a80da571dae12fd52ab483f319e2b47b4">mat_copy</a>(<span class="keywordtype">int</span> *src, <span class="keywordtype">int</span> *dest);</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
+<div class="line"><a name="l00213"></a><span class="lineno"><a class="line" href="jeu_8h.html#ae22433b72901c6a2ecab552c02a69b7e">  213</a></span>&#160;<a class="code" href="structcoords__s.html">coords_t</a> <a class="code" href="jeu_8h.html#ae22433b72901c6a2ecab552c02a69b7e">remarquer_chemin</a>(<span class="keywordtype">int</span> *tab, <span class="keywordtype">int</span> x1, <span class="keywordtype">int</span> y1, <span class="keywordtype">int</span> dep);</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; </div>
+<div class="line"><a name="l00224"></a><span class="lineno"><a class="line" href="jeu_8h.html#a955e9415334551d6e257524ebdffa251">  224</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="jeu_8h.html#a955e9415334551d6e257524ebdffa251">retirer_perso</a>(<a class="code" href="structcase__s.html">case_t</a> *map, <a class="code" href="structjoueur__t.html">joueur_t</a> *joueur, <span class="keywordtype">int</span> indice);</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="ajeu_8h_html_aba5a9724d6577776000cc8030a620addae954102adce155b6de15962072532fcf"><div class="ttname"><a href="jeu_8h.html#aba5a9724d6577776000cc8030a620addae954102adce155b6de15962072532fcf">VOLEUR</a></div><div class="ttdeci">@ VOLEUR</div><div class="ttdef"><b>Definition:</b> jeu.h:117</div></div>
+<div class="ttc" id="ajeu_8h_html_a99a4cd6eba2d81ce2389cb24df5c7d70a337e679eccf22a9d84b40cb45a1de433"><div class="ttname"><a href="jeu_8h.html#a99a4cd6eba2d81ce2389cb24df5c7d70a337e679eccf22a9d84b40cb45a1de433">ELFE</a></div><div class="ttdeci">@ ELFE</div><div class="ttdef"><b>Definition:</b> jeu.h:123</div></div>
+<div class="ttc" id="astructjoueur__t_html"><div class="ttname"><a href="structjoueur__t.html">joueur_t</a></div><div class="ttdoc">definie l'équipe et le nombre de personnags d'un joueur</div></div>
+<div class="ttc" id="astructperso__t_html"><div class="ttname"><a href="structperso__t.html">perso_t</a></div><div class="ttdoc">definie un perso</div></div>
+<div class="ttc" id="ajeu_8h_html_ae22433b72901c6a2ecab552c02a69b7e"><div class="ttname"><a href="jeu_8h.html#ae22433b72901c6a2ecab552c02a69b7e">remarquer_chemin</a></div><div class="ttdeci">coords_t remarquer_chemin(int *tab, int x1, int y1, int dep)</div><div class="ttdoc">remarque le chemin, regarde autour de chaque position si elle est valide</div></div>
+<div class="ttc" id="astructperso__s_html_a95fd7d52eeeddfb64d7b32cdac7f7e0b"><div class="ttname"><a href="structperso__s.html#a95fd7d52eeeddfb64d7b32cdac7f7e0b">perso_s::CLASSE</a></div><div class="ttdeci">int CLASSE</div><div class="ttdef"><b>Definition:</b> jeu.h:95</div></div>
+<div class="ttc" id="astructperso__s_html_a0a2f84ed7838f07779ae24c5a9086d33"><div class="ttname"><a href="structperso__s.html#a0a2f84ed7838f07779ae24c5a9086d33">perso_s::y</a></div><div class="ttdeci">int y</div><div class="ttdef"><b>Definition:</b> jeu.h:96</div></div>
+<div class="ttc" id="ajeu_8h_html_aba5a9724d6577776000cc8030a620adda9f0ec0dd34ceeb8f08d0fed8679a031c"><div class="ttname"><a href="jeu_8h.html#aba5a9724d6577776000cc8030a620adda9f0ec0dd34ceeb8f08d0fed8679a031c">GUERRIER</a></div><div class="ttdeci">@ GUERRIER</div><div class="ttdef"><b>Definition:</b> jeu.h:117</div></div>
+<div class="ttc" id="ajeu_8h_html_a5eeafb4d3f11c02c69b978507dc51e96"><div class="ttname"><a href="jeu_8h.html#a5eeafb4d3f11c02c69b978507dc51e96">aff_perso</a></div><div class="ttdeci">void aff_perso(SDL_Renderer *renderer, SDL_Texture *pack_texture, TTF_Font *police, perso_t *perso, int text_perso)</div><div class="ttdoc">Fonction qui affiche le personnage et les statistiques d'un personnage donnée.</div></div>
+<div class="ttc" id="astructjoueur__s_html"><div class="ttname"><a href="structjoueur__s.html">joueur_s</a></div><div class="ttdef"><b>Definition:</b> jeu.h:107</div></div>
+<div class="ttc" id="astructperso__s_html_a3b3918526788ae6b163c41dc25326396"><div class="ttname"><a href="structperso__s.html#a3b3918526788ae6b163c41dc25326396">perso_s::ATK</a></div><div class="ttdeci">int ATK</div><div class="ttdef"><b>Definition:</b> jeu.h:95</div></div>
+<div class="ttc" id="astructjoueur__s_html_a0ddf60688308da4ba675ceecbcf5e6ee"><div class="ttname"><a href="structjoueur__s.html#a0ddf60688308da4ba675ceecbcf5e6ee">joueur_s::team</a></div><div class="ttdeci">perso_t * team</div><div class="ttdef"><b>Definition:</b> jeu.h:108</div></div>
+<div class="ttc" id="astructcase__s_html"><div class="ttname"><a href="structcase__s.html">case_s</a></div><div class="ttdef"><b>Definition:</b> fonctions.h:16</div></div>
+<div class="ttc" id="ajeu_8h_html_aa2e9a5380109a24a2635e7087549d0ac"><div class="ttname"><a href="jeu_8h.html#aa2e9a5380109a24a2635e7087549d0ac">map_to_bool</a></div><div class="ttdeci">void * map_to_bool(case_t *map, int *tab, int xa, int ya)</div><div class="ttdoc">Fonction qui transforme la map en couloirs/murs.</div></div>
+<div class="ttc" id="ajeu_8h_html_ad2fa98981ae7b781fee96206135927b8"><div class="ttname"><a href="jeu_8h.html#ad2fa98981ae7b781fee96206135927b8">lancer_jeu</a></div><div class="ttdeci">void lancer_jeu(SDL_Window *window, SDL_Renderer *renderer, SDL_Texture *pack_texture, case_t *map)</div><div class="ttdoc">Fonction principal qui permet de jouer.</div></div>
+<div class="ttc" id="astructperso__s_html_a843175380c2816fdf98bac37a3cd39f5"><div class="ttname"><a href="structperso__s.html#a843175380c2816fdf98bac37a3cd39f5">perso_s::PV</a></div><div class="ttdeci">int PV</div><div class="ttdef"><b>Definition:</b> jeu.h:95</div></div>
+<div class="ttc" id="astructperso__s_html_ae7f4d3dd040d4d28d747b8897b40ebbc"><div class="ttname"><a href="structperso__s.html#ae7f4d3dd040d4d28d747b8897b40ebbc">perso_s::J</a></div><div class="ttdeci">J_t J</div><div class="ttdef"><b>Definition:</b> jeu.h:98</div></div>
+<div class="ttc" id="astructperso__s_html_a15c31440dc3d25e4aaf7753b5478bba3"><div class="ttname"><a href="structperso__s.html#a15c31440dc3d25e4aaf7753b5478bba3">perso_s::ESQ</a></div><div class="ttdeci">int ESQ</div><div class="ttdef"><b>Definition:</b> jeu.h:95</div></div>
+<div class="ttc" id="ajeu_8h_html_a80da571dae12fd52ab483f319e2b47b4"><div class="ttname"><a href="jeu_8h.html#a80da571dae12fd52ab483f319e2b47b4">mat_copy</a></div><div class="ttdeci">void mat_copy(int *src, int *dest)</div><div class="ttdoc">Copie une matrice.</div></div>
+<div class="ttc" id="ajeu_8h_html_a2be04d090298a8438afdb53a8ce5ab90"><div class="ttname"><a href="jeu_8h.html#a2be04d090298a8438afdb53a8ce5ab90">creer_joueurs</a></div><div class="ttdeci">joueur_t * creer_joueurs(int nb_persos)</div><div class="ttdoc">Fonction qui initialise les joueurs.</div></div>
+<div class="ttc" id="ajeu_8h_html_a99a4cd6eba2d81ce2389cb24df5c7d70"><div class="ttname"><a href="jeu_8h.html#a99a4cd6eba2d81ce2389cb24df5c7d70">race_s</a></div><div class="ttdeci">race_s</div><div class="ttdef"><b>Definition:</b> jeu.h:123</div></div>
+<div class="ttc" id="astructperso__s_html_a5636a4ebdc0c774b9fdf3affa8291f00"><div class="ttname"><a href="structperso__s.html#a5636a4ebdc0c774b9fdf3affa8291f00">perso_s::is_dep</a></div><div class="ttdeci">SDL_bool is_dep</div><div class="ttdef"><b>Definition:</b> jeu.h:97</div></div>
+<div class="ttc" id="astructperso__s_html_a6150e0515f7202e2fb518f7206ed97dc"><div class="ttname"><a href="structperso__s.html#a6150e0515f7202e2fb518f7206ed97dc">perso_s::x</a></div><div class="ttdeci">int x</div><div class="ttdef"><b>Definition:</b> jeu.h:96</div></div>
+<div class="ttc" id="astructperso__s_html_aff526064a490722470639873f61f65b4"><div class="ttname"><a href="structperso__s.html#aff526064a490722470639873f61f65b4">perso_s::CRIT</a></div><div class="ttdeci">int CRIT</div><div class="ttdef"><b>Definition:</b> jeu.h:95</div></div>
+<div class="ttc" id="ajeu_8h_html_a99f492ae970bd50ebb199960995114d0"><div class="ttname"><a href="jeu_8h.html#a99f492ae970bd50ebb199960995114d0">J_t</a></div><div class="ttdeci">enum J_s J_t</div></div>
+<div class="ttc" id="astructjoueur__s_html_ad3171a86d7f393170e82de88b63dbbe8"><div class="ttname"><a href="structjoueur__s.html#ad3171a86d7f393170e82de88b63dbbe8">joueur_s::nb_persos</a></div><div class="ttdeci">int nb_persos</div><div class="ttdef"><b>Definition:</b> jeu.h:109</div></div>
+<div class="ttc" id="ajeu_8h_html_adf1321d2260a7ff3db7e7607fb48e135"><div class="ttname"><a href="jeu_8h.html#adf1321d2260a7ff3db7e7607fb48e135">race_t</a></div><div class="ttdeci">enum race_s race_t</div></div>
+<div class="ttc" id="ajeu_8h_html_aba5a9724d6577776000cc8030a620adda8103cd625bbb9cc0e917a7e84cc7cd9b"><div class="ttname"><a href="jeu_8h.html#aba5a9724d6577776000cc8030a620adda8103cd625bbb9cc0e917a7e84cc7cd9b">PRETRE</a></div><div class="ttdeci">@ PRETRE</div><div class="ttdef"><b>Definition:</b> jeu.h:117</div></div>
+<div class="ttc" id="astructperso__s_html_a30707041436614e9e3759b7bf533b201"><div class="ttname"><a href="structperso__s.html#a30707041436614e9e3759b7bf533b201">perso_s::DEF</a></div><div class="ttdeci">int DEF</div><div class="ttdef"><b>Definition:</b> jeu.h:95</div></div>
+<div class="ttc" id="ajeu_8h_html_aba5a9724d6577776000cc8030a620adda010931f222a7946e90308d51d6ac283e"><div class="ttname"><a href="jeu_8h.html#aba5a9724d6577776000cc8030a620adda010931f222a7946e90308d51d6ac283e">MAGE</a></div><div class="ttdeci">@ MAGE</div><div class="ttdef"><b>Definition:</b> jeu.h:117</div></div>
+<div class="ttc" id="astructperso__s_html_a1a4295320b09160e77c907b513dec180"><div class="ttname"><a href="structperso__s.html#a1a4295320b09160e77c907b513dec180">perso_s::DEP</a></div><div class="ttdeci">int DEP</div><div class="ttdef"><b>Definition:</b> jeu.h:95</div></div>
+<div class="ttc" id="ajeu_8h_html_a955e9415334551d6e257524ebdffa251"><div class="ttname"><a href="jeu_8h.html#a955e9415334551d6e257524ebdffa251">retirer_perso</a></div><div class="ttdeci">void retirer_perso(case_t *map, joueur_t *joueur, int indice)</div><div class="ttdoc">retire personnage de la carte</div></div>
+<div class="ttc" id="ajeu_8h_html_aae253c1335dbb7e01f0239b4568612d9"><div class="ttname"><a href="jeu_8h.html#aae253c1335dbb7e01f0239b4568612d9">aff_mat</a></div><div class="ttdeci">void aff_mat(int *tab)</div><div class="ttdoc">affiche une matrice</div></div>
+<div class="ttc" id="ajeu_8h_html_a9c6ae526d3bb89d5285b8d3da4920db5a0da67f12aaf41e79f0bc7b68d0a69183"><div class="ttname"><a href="jeu_8h.html#a9c6ae526d3bb89d5285b8d3da4920db5a0da67f12aaf41e79f0bc7b68d0a69183">J1</a></div><div class="ttdeci">@ J1</div><div class="ttdef"><b>Definition:</b> jeu.h:87</div></div>
+<div class="ttc" id="ajeu_8h_html_a550089442e996a6b42d393992dbc5436"><div class="ttname"><a href="jeu_8h.html#a550089442e996a6b42d393992dbc5436">perso_t</a></div><div class="ttdeci">struct perso_s perso_t</div></div>
+<div class="ttc" id="ajeu_8h_html_a99a4cd6eba2d81ce2389cb24df5c7d70ae37e61af10160d34a35b97427a55c28c"><div class="ttname"><a href="jeu_8h.html#a99a4cd6eba2d81ce2389cb24df5c7d70ae37e61af10160d34a35b97427a55c28c">HUMAIN</a></div><div class="ttdeci">@ HUMAIN</div><div class="ttdef"><b>Definition:</b> jeu.h:123</div></div>
+<div class="ttc" id="astructperso__s_html_aec8708341a2fd999cc98b0e5b802c429"><div class="ttname"><a href="structperso__s.html#aec8708341a2fd999cc98b0e5b802c429">perso_s::RACE</a></div><div class="ttdeci">int RACE</div><div class="ttdef"><b>Definition:</b> jeu.h:95</div></div>
+<div class="ttc" id="ajeu_8h_html_a9c6ae526d3bb89d5285b8d3da4920db5"><div class="ttname"><a href="jeu_8h.html#a9c6ae526d3bb89d5285b8d3da4920db5">J_s</a></div><div class="ttdeci">J_s</div><div class="ttdef"><b>Definition:</b> jeu.h:87</div></div>
+<div class="ttc" id="ajeu_8h_html_a9c6ae526d3bb89d5285b8d3da4920db5a8701d7066e8b0fb9f21e9d933739062e"><div class="ttname"><a href="jeu_8h.html#a9c6ae526d3bb89d5285b8d3da4920db5a8701d7066e8b0fb9f21e9d933739062e">BOT</a></div><div class="ttdeci">@ BOT</div><div class="ttdef"><b>Definition:</b> jeu.h:87</div></div>
+<div class="ttc" id="ajeu_8h_html_aba5a9724d6577776000cc8030a620addac482cec9850564270fde1520e0027024"><div class="ttname"><a href="jeu_8h.html#aba5a9724d6577776000cc8030a620addac482cec9850564270fde1520e0027024">ARCHER</a></div><div class="ttdeci">@ ARCHER</div><div class="ttdef"><b>Definition:</b> jeu.h:117</div></div>
+<div class="ttc" id="astructperso__s_html"><div class="ttname"><a href="structperso__s.html">perso_s</a></div><div class="ttdef"><b>Definition:</b> jeu.h:94</div></div>
+<div class="ttc" id="ajeu_8h_html_a12b6fe52a150b8f92fe32a7f2df7de7b"><div class="ttname"><a href="jeu_8h.html#a12b6fe52a150b8f92fe32a7f2df7de7b">chercher_chemin</a></div><div class="ttdeci">SDL_bool chercher_chemin(int *tab, int xd, int yd, int xa, int ya)</div><div class="ttdoc">Fonction qui cherche le chemin le plus court entre deux points.</div></div>
+<div class="ttc" id="astructcoords__s_html"><div class="ttname"><a href="structcoords__s.html">coords_s</a></div><div class="ttdef"><b>Definition:</b> fonctions.h:22</div></div>
+<div class="ttc" id="ajeu_8h_html_a9c93c102c9e98fda2cc99b7429348ef4"><div class="ttname"><a href="jeu_8h.html#a9c93c102c9e98fda2cc99b7429348ef4">marquer_chemin</a></div><div class="ttdeci">void marquer_chemin(int *tab, int x, int y, int *lgmin)</div><div class="ttdoc">Marque le chemin le plus court a partir de *(tab+x*M+y)</div></div>
+<div class="ttc" id="ajeu_8h_html_ad9c715cb868cbeb4aa829ec92a8c8bba"><div class="ttname"><a href="jeu_8h.html#ad9c715cb868cbeb4aa829ec92a8c8bba">classe_t</a></div><div class="ttdeci">enum classe_s classe_t</div></div>
+<div class="ttc" id="astructperso__s_html_aeb5a293641a5914dcff4a1ca75870431"><div class="ttname"><a href="structperso__s.html#aeb5a293641a5914dcff4a1ca75870431">perso_s::indice</a></div><div class="ttdeci">int indice</div><div class="ttdef"><b>Definition:</b> jeu.h:96</div></div>
+<div class="ttc" id="astructperso__s_html_af06dddfedbc1de10a213700b2b470cb3"><div class="ttname"><a href="structperso__s.html#af06dddfedbc1de10a213700b2b470cb3">perso_s::POR</a></div><div class="ttdeci">int POR</div><div class="ttdef"><b>Definition:</b> jeu.h:95</div></div>
+<div class="ttc" id="ajeu_8h_html_a78cda65cd9b26fc9f1ef13f89b316b94"><div class="ttname"><a href="jeu_8h.html#a78cda65cd9b26fc9f1ef13f89b316b94">joueur_t</a></div><div class="ttdeci">struct joueur_s joueur_t</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.18
+</small></address>
+</body>
+</html>

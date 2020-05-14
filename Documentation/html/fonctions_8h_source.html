@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.18"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Kaiser:  Fichier source de fonctions.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Kaiser
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.18 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">fonctions.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="fonctions_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef _FONCTIONS_H_</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define _FONCTIONS_H_</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="fonctions_8h.html#a7099ab901af284274123a705c7be8c38a3f91b7e1fe8846699ed6d913af7e3cb4">   10</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> <a class="code" href="fonctions_8h.html#a7099ab901af284274123a705c7be8c38">libre_s</a>{<a class="code" href="fonctions_8h.html#a7099ab901af284274123a705c7be8c38ad6dbf878e6193d82ef7dca342b6c32ad">LIBRE</a>, <a class="code" href="fonctions_8h.html#a7099ab901af284274123a705c7be8c38a3f91b7e1fe8846699ed6d913af7e3cb4">NON_LIBRE</a>}<a class="code" href="fonctions_8h.html#af070cd80b23946d33123f5390dbc19d0">libre_t</a>; </div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="fonctions_8h.html#aaf12aabdb00da5b9bfb92b5a2754caf3">   11</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> <a class="code" href="fonctions_8h.html#a091e84f73c558f015739ab8e7237e2d7">type_s</a>{<a class="code" href="fonctions_8h.html#a091e84f73c558f015739ab8e7237e2d7ab921f9083c52df371b0abb5f4672a8cd">FOND</a>, <a class="code" href="fonctions_8h.html#a091e84f73c558f015739ab8e7237e2d7ad3eae749e258b9be499b699b90e9b7ff">DECOR</a>, <a class="code" href="fonctions_8h.html#a091e84f73c558f015739ab8e7237e2d7a0ba592065a80a5b1d818f3f6b92bb0f3">RP</a>}<a class="code" href="fonctions_8h.html#aaf12aabdb00da5b9bfb92b5a2754caf3">type_t</a>; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define VIDE 0</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="fonctions_8h.html#a3ee479371002a0a258e5c4111cc6e54f">   13</a></span>&#160;<span class="preprocessor">#define RIEN -1 </span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structcase__s.html">   16</a></span>&#160;<span class="preprocessor">typedef struct case_s{</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structcase__s.html#abca7a7c2a216829acc5d1ad21027a640">   17</a></span>&#160;    <span class="keywordtype">int</span> *<a class="code" href="structcase__s.html#abca7a7c2a216829acc5d1ad21027a640">textures</a>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structcase__s.html#aefeb6e532adab00e0193397e4f611735">   18</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structperso__s.html">perso_s</a> *<a class="code" href="structcase__s.html#aefeb6e532adab00e0193397e4f611735">perso</a>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structcase__s.html#a0f7608c2b902aa32abd9ac7a29070a3a">   19</a></span>&#160;    SDL_bool <a class="code" href="structcase__s.html#a0f7608c2b902aa32abd9ac7a29070a3a">is_perso</a>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="fonctions_8h.html#a2a628b5c03e983edabf5b05625e5d9b5">   20</a></span>&#160;}<a class="code" href="fonctions_8h.html#a2a628b5c03e983edabf5b05625e5d9b5">case_t</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="fonctions_8h.html#a4e3b16e73360bde155b5cd4f9e6fa0d0">   22</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structcoords__s.html">coords_s</a>{<span class="keywordtype">int</span> <a class="code" href="structcoords__s.html#a6150e0515f7202e2fb518f7206ed97dc">x</a>, <a class="code" href="structcoords__s.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a>;}<a class="code" href="fonctions_8h.html#a4e3b16e73360bde155b5cd4f9e6fa0d0">coords_t</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="fonctions_8h.html#a2f90b7a4ba75d88f224063ed3d8c3586">   27</a></span>&#160;<a class="code" href="structcase__s.html">case_t</a> *<a class="code" href="fonctions_8h.html#a2f90b7a4ba75d88f224063ed3d8c3586">init_matrice</a>();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="fonctions_8h.html#af58ba367a2ccd7aa3fa5d0a59041e52e">   33</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="fonctions_8h.html#af58ba367a2ccd7aa3fa5d0a59041e52e">detruire_matrice</a>(<a class="code" href="structcase__s.html">case_t</a> *map);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="fonctions_8h.html#ae2b3a3e72ded877f3b14e9654a2199fc">   39</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="fonctions_8h.html#ae2b3a3e72ded877f3b14e9654a2199fc">aff_matrice</a>(<a class="code" href="structcase__s.html">case_t</a> *A);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="fonctions_8h.html#ae05d5d469aa3854d8d53495b6bf19b40">   46</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="fonctions_8h.html#ae05d5d469aa3854d8d53495b6bf19b40">load_matrice</a>(<a class="code" href="structcase__s.html">case_t</a> *map, <span class="keywordtype">int</span> n_map);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="fonctions_8h.html#ae2bc4f78509db219a55c04ecfe0ee1d3">   52</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="fonctions_8h.html#ae2bc4f78509db219a55c04ecfe0ee1d3">save_map</a>(<a class="code" href="structcase__s.html">case_t</a> *map);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="fonctions_8h.html#a68a9d46e65487cedecb7cd5d84f79503">   58</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="fonctions_8h.html#a68a9d46e65487cedecb7cd5d84f79503">aff_map</a>(<a class="code" href="structcase__s.html">case_t</a> *map, SDL_Renderer *renderer, SDL_Texture *pack_texture);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="fonctions_8h.html#a6f06d4b8cf2932078a9ed35f26db6ca2">   64</a></span>&#160;SDL_Texture *<a class="code" href="fonctions_8h.html#a6f06d4b8cf2932078a9ed35f26db6ca2">creerTexture</a>(SDL_Window *window, SDL_Renderer *renderer, <span class="keywordtype">char</span> sourceIMG[30]);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="fonctions_8h.html#a962dcf60ec33a85d2f913dd3e63dc4dc">   70</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="fonctions_8h.html#a962dcf60ec33a85d2f913dd3e63dc4dc">aff_tile</a>(SDL_Renderer *renderer, SDL_Texture *texture, <span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j, <span class="keywordtype">int</span> case_actuelle,  <span class="keywordtype">float</span> multi);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="fonctions_8h.html#a366f546eec50a67527cf6e87138e8d9c">   76</a></span>&#160;<a class="code" href="structcoords__s.html">coords_t</a> <a class="code" href="fonctions_8h.html#a366f546eec50a67527cf6e87138e8d9c">case_to_coords</a>(<span class="keywordtype">int</span> case_actuelle);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="fonctions_8h.html#a8523fd3290689ad822bd4f2f93e58751">   82</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="fonctions_8h.html#a8523fd3290689ad822bd4f2f93e58751">fill_map</a>(<a class="code" href="structcase__s.html">case_t</a> *map, <span class="keywordtype">int</span> case_actuelle);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="fonctions_8h.html#a92dbd4482a8440d5b47d966fe700067c">   88</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="fonctions_8h.html#a92dbd4482a8440d5b47d966fe700067c">ajout_texture_case</a>(<a class="code" href="structcase__s.html">case_t</a> *map,  <span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j, <span class="keywordtype">int</span> case_actuelle);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="fonctions_8h.html#a355bbc9c1f3f99ca8579836cf454f50a">   94</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="fonctions_8h.html#a355bbc9c1f3f99ca8579836cf454f50a">editeur_map</a>(SDL_Window *window, SDL_Renderer *renderer, <a class="code" href="structcase__s.html">case_t</a> *map, SDL_Texture *pack_texture);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="fonctions_8h.html#a5eeedab3f7bf018437c4bc8a2270d8dc">  100</a></span>&#160;SDL_bool <a class="code" href="fonctions_8h.html#a5eeedab3f7bf018437c4bc8a2270d8dc">valides</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="fonctions_8h.html#a6a9e5d6552098ff117889f54d3b23d03">  106</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="fonctions_8h.html#a6a9e5d6552098ff117889f54d3b23d03">creerTexte</a>(SDL_Renderer *renderer, TTF_Font *police, <span class="keywordtype">char</span> *str, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="fonctions_8h.html#af6a04b57093a69d2616a571d0af7746c">  112</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="fonctions_8h.html#af6a04b57093a69d2616a571d0af7746c">SDL_ExitWithError</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *message, SDL_Window *w, SDL_Renderer *r, SDL_Texture *t);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="fonctions_8h.html#afe579b0c5afda474e19411f424784c27">  118</a></span>&#160;<a class="code" href="fonctions_8h.html#aaf12aabdb00da5b9bfb92b5a2754caf3">type_t</a> <a class="code" href="fonctions_8h.html#afe579b0c5afda474e19411f424784c27">type_case</a>(<span class="keywordtype">int</span> case_actuelle);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="fonctions_8h.html#a72e6b45551a9204a62f655cd1d678500">  124</a></span>&#160;<a class="code" href="fonctions_8h.html#aaf12aabdb00da5b9bfb92b5a2754caf3">type_t</a> <a class="code" href="fonctions_8h.html#a72e6b45551a9204a62f655cd1d678500">type_texture</a>(<span class="keywordtype">int</span> case_actuelle);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="fonctions_8h.html#a784bb41eb4fccde4ffb4783a4cd63095">  130</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="fonctions_8h.html#a784bb41eb4fccde4ffb4783a4cd63095">settings</a>(SDL_Window *window, SDL_Renderer *renderer, <a class="code" href="structcase__s.html">case_t</a> *map, SDL_Texture *pack_texture);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="fonctions_8h.html#ab9e80ba44a9288d18cfe2cd60b808cc0">  136</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="fonctions_8h.html#ab9e80ba44a9288d18cfe2cd60b808cc0">menu</a>(SDL_Window *window, SDL_Renderer *renderer, <a class="code" href="structcase__s.html">case_t</a> *map, SDL_Texture *pack_texture);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno"><a class="line" href="fonctions_8h.html#afb7236c601b1e03cfeb37d61c4e1a333">  142</a></span>&#160;SDL_bool <a class="code" href="fonctions_8h.html#afb7236c601b1e03cfeb37d61c4e1a333">clickSurCase</a>(SDL_Event click, SDL_Rect caseRect);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="afonctions_8h_html_a68a9d46e65487cedecb7cd5d84f79503"><div class="ttname"><a href="fonctions_8h.html#a68a9d46e65487cedecb7cd5d84f79503">aff_map</a></div><div class="ttdeci">void aff_map(case_t *map, SDL_Renderer *renderer, SDL_Texture *pack_texture)</div></div>
+<div class="ttc" id="afonctions_8h_html_ae05d5d469aa3854d8d53495b6bf19b40"><div class="ttname"><a href="fonctions_8h.html#ae05d5d469aa3854d8d53495b6bf19b40">load_matrice</a></div><div class="ttdeci">void load_matrice(case_t *map, int n_map)</div></div>
+<div class="ttc" id="astructcase__s_html_a0f7608c2b902aa32abd9ac7a29070a3a"><div class="ttname"><a href="structcase__s.html#a0f7608c2b902aa32abd9ac7a29070a3a">case_s::is_perso</a></div><div class="ttdeci">SDL_bool is_perso</div><div class="ttdef"><b>Definition:</b> fonctions.h:19</div></div>
+<div class="ttc" id="afonctions_8h_html_a5eeedab3f7bf018437c4bc8a2270d8dc"><div class="ttname"><a href="fonctions_8h.html#a5eeedab3f7bf018437c4bc8a2270d8dc">valides</a></div><div class="ttdeci">SDL_bool valides(int x, int y)</div></div>
+<div class="ttc" id="afonctions_8h_html_ae2b3a3e72ded877f3b14e9654a2199fc"><div class="ttname"><a href="fonctions_8h.html#ae2b3a3e72ded877f3b14e9654a2199fc">aff_matrice</a></div><div class="ttdeci">void aff_matrice(case_t *A)</div></div>
+<div class="ttc" id="afonctions_8h_html_af6a04b57093a69d2616a571d0af7746c"><div class="ttname"><a href="fonctions_8h.html#af6a04b57093a69d2616a571d0af7746c">SDL_ExitWithError</a></div><div class="ttdeci">void SDL_ExitWithError(const char *message, SDL_Window *w, SDL_Renderer *r, SDL_Texture *t)</div></div>
+<div class="ttc" id="afonctions_8h_html_af58ba367a2ccd7aa3fa5d0a59041e52e"><div class="ttname"><a href="fonctions_8h.html#af58ba367a2ccd7aa3fa5d0a59041e52e">detruire_matrice</a></div><div class="ttdeci">void detruire_matrice(case_t *map)</div></div>
+<div class="ttc" id="afonctions_8h_html_a2a628b5c03e983edabf5b05625e5d9b5"><div class="ttname"><a href="fonctions_8h.html#a2a628b5c03e983edabf5b05625e5d9b5">case_t</a></div><div class="ttdeci">struct case_s case_t</div></div>
+<div class="ttc" id="astructcase__s_html"><div class="ttname"><a href="structcase__s.html">case_s</a></div><div class="ttdef"><b>Definition:</b> fonctions.h:16</div></div>
+<div class="ttc" id="afonctions_8h_html_a92dbd4482a8440d5b47d966fe700067c"><div class="ttname"><a href="fonctions_8h.html#a92dbd4482a8440d5b47d966fe700067c">ajout_texture_case</a></div><div class="ttdeci">void ajout_texture_case(case_t *map, int i, int j, int case_actuelle)</div></div>
+<div class="ttc" id="afonctions_8h_html_a7099ab901af284274123a705c7be8c38a3f91b7e1fe8846699ed6d913af7e3cb4"><div class="ttname"><a href="fonctions_8h.html#a7099ab901af284274123a705c7be8c38a3f91b7e1fe8846699ed6d913af7e3cb4">NON_LIBRE</a></div><div class="ttdeci">@ NON_LIBRE</div><div class="ttdef"><b>Definition:</b> fonctions.h:10</div></div>
+<div class="ttc" id="afonctions_8h_html_a8523fd3290689ad822bd4f2f93e58751"><div class="ttname"><a href="fonctions_8h.html#a8523fd3290689ad822bd4f2f93e58751">fill_map</a></div><div class="ttdeci">void fill_map(case_t *map, int case_actuelle)</div></div>
+<div class="ttc" id="afonctions_8h_html_a091e84f73c558f015739ab8e7237e2d7a0ba592065a80a5b1d818f3f6b92bb0f3"><div class="ttname"><a href="fonctions_8h.html#a091e84f73c558f015739ab8e7237e2d7a0ba592065a80a5b1d818f3f6b92bb0f3">RP</a></div><div class="ttdeci">@ RP</div><div class="ttdef"><b>Definition:</b> fonctions.h:11</div></div>
+<div class="ttc" id="afonctions_8h_html_a784bb41eb4fccde4ffb4783a4cd63095"><div class="ttname"><a href="fonctions_8h.html#a784bb41eb4fccde4ffb4783a4cd63095">settings</a></div><div class="ttdeci">void settings(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Texture *pack_texture)</div></div>
+<div class="ttc" id="afonctions_8h_html_afb7236c601b1e03cfeb37d61c4e1a333"><div class="ttname"><a href="fonctions_8h.html#afb7236c601b1e03cfeb37d61c4e1a333">clickSurCase</a></div><div class="ttdeci">SDL_bool clickSurCase(SDL_Event click, SDL_Rect caseRect)</div></div>
+<div class="ttc" id="afonctions_8h_html_a962dcf60ec33a85d2f913dd3e63dc4dc"><div class="ttname"><a href="fonctions_8h.html#a962dcf60ec33a85d2f913dd3e63dc4dc">aff_tile</a></div><div class="ttdeci">void aff_tile(SDL_Renderer *renderer, SDL_Texture *texture, int i, int j, int case_actuelle, float multi)</div></div>
+<div class="ttc" id="astructcase__s_html_aefeb6e532adab00e0193397e4f611735"><div class="ttname"><a href="structcase__s.html#aefeb6e532adab00e0193397e4f611735">case_s::perso</a></div><div class="ttdeci">struct perso_s * perso</div><div class="ttdef"><b>Definition:</b> fonctions.h:18</div></div>
+<div class="ttc" id="afonctions_8h_html_a7099ab901af284274123a705c7be8c38ad6dbf878e6193d82ef7dca342b6c32ad"><div class="ttname"><a href="fonctions_8h.html#a7099ab901af284274123a705c7be8c38ad6dbf878e6193d82ef7dca342b6c32ad">LIBRE</a></div><div class="ttdeci">@ LIBRE</div><div class="ttdef"><b>Definition:</b> fonctions.h:10</div></div>
+<div class="ttc" id="afonctions_8h_html_aaf12aabdb00da5b9bfb92b5a2754caf3"><div class="ttname"><a href="fonctions_8h.html#aaf12aabdb00da5b9bfb92b5a2754caf3">type_t</a></div><div class="ttdeci">enum type_s type_t</div></div>
+<div class="ttc" id="afonctions_8h_html_a6f06d4b8cf2932078a9ed35f26db6ca2"><div class="ttname"><a href="fonctions_8h.html#a6f06d4b8cf2932078a9ed35f26db6ca2">creerTexture</a></div><div class="ttdeci">SDL_Texture * creerTexture(SDL_Window *window, SDL_Renderer *renderer, char sourceIMG[30])</div></div>
+<div class="ttc" id="astructcoords__s_html_a6150e0515f7202e2fb518f7206ed97dc"><div class="ttname"><a href="structcoords__s.html#a6150e0515f7202e2fb518f7206ed97dc">coords_s::x</a></div><div class="ttdeci">int x</div><div class="ttdef"><b>Definition:</b> fonctions.h:22</div></div>
+<div class="ttc" id="afonctions_8h_html_a355bbc9c1f3f99ca8579836cf454f50a"><div class="ttname"><a href="fonctions_8h.html#a355bbc9c1f3f99ca8579836cf454f50a">editeur_map</a></div><div class="ttdeci">void editeur_map(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Texture *pack_texture)</div></div>
+<div class="ttc" id="afonctions_8h_html_ae2bc4f78509db219a55c04ecfe0ee1d3"><div class="ttname"><a href="fonctions_8h.html#ae2bc4f78509db219a55c04ecfe0ee1d3">save_map</a></div><div class="ttdeci">void save_map(case_t *map)</div></div>
+<div class="ttc" id="astructcoords__s_html_a0a2f84ed7838f07779ae24c5a9086d33"><div class="ttname"><a href="structcoords__s.html#a0a2f84ed7838f07779ae24c5a9086d33">coords_s::y</a></div><div class="ttdeci">int y</div><div class="ttdef"><b>Definition:</b> fonctions.h:22</div></div>
+<div class="ttc" id="afonctions_8h_html_a091e84f73c558f015739ab8e7237e2d7ad3eae749e258b9be499b699b90e9b7ff"><div class="ttname"><a href="fonctions_8h.html#a091e84f73c558f015739ab8e7237e2d7ad3eae749e258b9be499b699b90e9b7ff">DECOR</a></div><div class="ttdeci">@ DECOR</div><div class="ttdef"><b>Definition:</b> fonctions.h:11</div></div>
+<div class="ttc" id="afonctions_8h_html_a4e3b16e73360bde155b5cd4f9e6fa0d0"><div class="ttname"><a href="fonctions_8h.html#a4e3b16e73360bde155b5cd4f9e6fa0d0">coords_t</a></div><div class="ttdeci">struct coords_s coords_t</div></div>
+<div class="ttc" id="afonctions_8h_html_afe579b0c5afda474e19411f424784c27"><div class="ttname"><a href="fonctions_8h.html#afe579b0c5afda474e19411f424784c27">type_case</a></div><div class="ttdeci">type_t type_case(int case_actuelle)</div></div>
+<div class="ttc" id="afonctions_8h_html_a6a9e5d6552098ff117889f54d3b23d03"><div class="ttname"><a href="fonctions_8h.html#a6a9e5d6552098ff117889f54d3b23d03">creerTexte</a></div><div class="ttdeci">void creerTexte(SDL_Renderer *renderer, TTF_Font *police, char *str, int x, int y)</div></div>
+<div class="ttc" id="afonctions_8h_html_a091e84f73c558f015739ab8e7237e2d7"><div class="ttname"><a href="fonctions_8h.html#a091e84f73c558f015739ab8e7237e2d7">type_s</a></div><div class="ttdeci">type_s</div><div class="ttdef"><b>Definition:</b> fonctions.h:11</div></div>
+<div class="ttc" id="astructperso__s_html"><div class="ttname"><a href="structperso__s.html">perso_s</a></div><div class="ttdef"><b>Definition:</b> jeu.h:94</div></div>
+<div class="ttc" id="afonctions_8h_html_a366f546eec50a67527cf6e87138e8d9c"><div class="ttname"><a href="fonctions_8h.html#a366f546eec50a67527cf6e87138e8d9c">case_to_coords</a></div><div class="ttdeci">coords_t case_to_coords(int case_actuelle)</div></div>
+<div class="ttc" id="astructcoords__s_html"><div class="ttname"><a href="structcoords__s.html">coords_s</a></div><div class="ttdef"><b>Definition:</b> fonctions.h:22</div></div>
+<div class="ttc" id="afonctions_8h_html_a091e84f73c558f015739ab8e7237e2d7ab921f9083c52df371b0abb5f4672a8cd"><div class="ttname"><a href="fonctions_8h.html#a091e84f73c558f015739ab8e7237e2d7ab921f9083c52df371b0abb5f4672a8cd">FOND</a></div><div class="ttdeci">@ FOND</div><div class="ttdef"><b>Definition:</b> fonctions.h:11</div></div>
+<div class="ttc" id="afonctions_8h_html_a7099ab901af284274123a705c7be8c38"><div class="ttname"><a href="fonctions_8h.html#a7099ab901af284274123a705c7be8c38">libre_s</a></div><div class="ttdeci">libre_s</div><div class="ttdef"><b>Definition:</b> fonctions.h:10</div></div>
+<div class="ttc" id="astructcase__s_html_abca7a7c2a216829acc5d1ad21027a640"><div class="ttname"><a href="structcase__s.html#abca7a7c2a216829acc5d1ad21027a640">case_s::textures</a></div><div class="ttdeci">int * textures</div><div class="ttdef"><b>Definition:</b> fonctions.h:17</div></div>
+<div class="ttc" id="afonctions_8h_html_a72e6b45551a9204a62f655cd1d678500"><div class="ttname"><a href="fonctions_8h.html#a72e6b45551a9204a62f655cd1d678500">type_texture</a></div><div class="ttdeci">type_t type_texture(int case_actuelle)</div></div>
+<div class="ttc" id="afonctions_8h_html_a2f90b7a4ba75d88f224063ed3d8c3586"><div class="ttname"><a href="fonctions_8h.html#a2f90b7a4ba75d88f224063ed3d8c3586">init_matrice</a></div><div class="ttdeci">case_t * init_matrice()</div></div>
+<div class="ttc" id="afonctions_8h_html_ab9e80ba44a9288d18cfe2cd60b808cc0"><div class="ttname"><a href="fonctions_8h.html#ab9e80ba44a9288d18cfe2cd60b808cc0">menu</a></div><div class="ttdeci">void menu(SDL_Window *window, SDL_Renderer *renderer, case_t *map, SDL_Texture *pack_texture)</div></div>
+<div class="ttc" id="afonctions_8h_html_af070cd80b23946d33123f5390dbc19d0"><div class="ttname"><a href="fonctions_8h.html#af070cd80b23946d33123f5390dbc19d0">libre_t</a></div><div class="ttdeci">enum libre_s libre_t</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.18
+</small></address>
+</body>
+</html>

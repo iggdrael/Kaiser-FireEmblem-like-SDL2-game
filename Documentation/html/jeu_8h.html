@@ -1,0 +1,1629 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.18"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Kaiser: Référence du fichier jeu.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Kaiser
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.18 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Structures de données</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Définitions de type</a> &#124;
+<a href="#enum-members">Énumérations</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier jeu.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>fichier regroupant les fonctions permettantde jouer  
+<a href="#details">Plus de détails...</a></p>
+
+<p><a href="jeu_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Structures de données</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structperso__s.html">perso_s</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoueur__s.html">joueur_s</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a2347ca44d2772ecfa07c3e0ab3116f48"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a2347ca44d2772ecfa07c3e0ab3116f48">MIN_PERSO</a>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:a2347ca44d2772ecfa07c3e0ab3116f48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a533c1fb65994e993f3ed70e6472ba40e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a533c1fb65994e993f3ed70e6472ba40e">MAX_PERSO</a>&#160;&#160;&#160;10</td></tr>
+<tr class="separator:a533c1fb65994e993f3ed70e6472ba40e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a783f4545da71a8de28369b6f0804e8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a0a783f4545da71a8de28369b6f0804e8">NB_MAPS</a>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:a0a783f4545da71a8de28369b6f0804e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43d5d30fb665e6fd574678226134fbba"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a43d5d30fb665e6fd574678226134fbba">NB_CLASSES</a>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:a43d5d30fb665e6fd574678226134fbba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3f5f1ff00df0715db97068dc408541d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#aa3f5f1ff00df0715db97068dc408541d">TEXT_GUERRIER</a>&#160;&#160;&#160;481</td></tr>
+<tr class="separator:aa3f5f1ff00df0715db97068dc408541d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed3cfc424d952a4f60169354183068fb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#aed3cfc424d952a4f60169354183068fb">TEXT_MAGE</a>&#160;&#160;&#160;476</td></tr>
+<tr class="separator:aed3cfc424d952a4f60169354183068fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d8217e948740099f2606599bc283bca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a6d8217e948740099f2606599bc283bca">TEXT_ARCHER</a>&#160;&#160;&#160;478</td></tr>
+<tr class="separator:a6d8217e948740099f2606599bc283bca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7d8bc195633830c009465966dce6723"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#af7d8bc195633830c009465966dce6723">TEXT_HEALER</a>&#160;&#160;&#160;477</td></tr>
+<tr class="separator:af7d8bc195633830c009465966dce6723"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af92238b8fa70a5aaebb94d2db0edac1c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#af92238b8fa70a5aaebb94d2db0edac1c">TEXT_VOLEUR</a>&#160;&#160;&#160;480</td></tr>
+<tr class="separator:af92238b8fa70a5aaebb94d2db0edac1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af87ec967d02ea02ac6ceb5e9afa5549e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#af87ec967d02ea02ac6ceb5e9afa5549e">TEXT_GUERRIER_BOT</a>&#160;&#160;&#160;487</td></tr>
+<tr class="separator:af87ec967d02ea02ac6ceb5e9afa5549e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34685c7cda7886b2228cdeb58d117d77"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a34685c7cda7886b2228cdeb58d117d77">TEXT_MAGE_BOT</a>&#160;&#160;&#160;482</td></tr>
+<tr class="separator:a34685c7cda7886b2228cdeb58d117d77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48f0e9f47561669954e5b347603e15b2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a48f0e9f47561669954e5b347603e15b2">TEXT_ARCHER_BOT</a>&#160;&#160;&#160;484</td></tr>
+<tr class="separator:a48f0e9f47561669954e5b347603e15b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ad0e623c512c7c80b057d745d54e275"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a7ad0e623c512c7c80b057d745d54e275">TEXT_HEALER_BOT</a>&#160;&#160;&#160;483</td></tr>
+<tr class="separator:a7ad0e623c512c7c80b057d745d54e275"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a209ee8efc08a9f7725db1d6dfe1cae1b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a209ee8efc08a9f7725db1d6dfe1cae1b">TEXT_VOLEUR_BOT</a>&#160;&#160;&#160;486</td></tr>
+<tr class="separator:a209ee8efc08a9f7725db1d6dfe1cae1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85d5d132440cb4991f8d99622f5d81ae"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a85d5d132440cb4991f8d99622f5d81ae">PERSO_MORT</a>&#160;&#160;&#160;488</td></tr>
+<tr class="separator:a85d5d132440cb4991f8d99622f5d81ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d00779ade2a26536563afbe14eb0e5a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a4d00779ade2a26536563afbe14eb0e5a">G_PV</a>&#160;&#160;&#160;100</td></tr>
+<tr class="separator:a4d00779ade2a26536563afbe14eb0e5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac66c30c4a8fdeaf0c71b2a77a7582f5b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#ac66c30c4a8fdeaf0c71b2a77a7582f5b">G_ATK</a>&#160;&#160;&#160;40</td></tr>
+<tr class="separator:ac66c30c4a8fdeaf0c71b2a77a7582f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fc9228b93af2f206c1737f49ad731d8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a8fc9228b93af2f206c1737f49ad731d8">G_DEF</a>&#160;&#160;&#160;20</td></tr>
+<tr class="separator:a8fc9228b93af2f206c1737f49ad731d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4c4fce75a4d862e523c95a16b3b212c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#af4c4fce75a4d862e523c95a16b3b212c">G_ESQ</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:af4c4fce75a4d862e523c95a16b3b212c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4def1b1d71abcf9c7ad1a71d685222dc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a4def1b1d71abcf9c7ad1a71d685222dc">G_CRIT</a>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:a4def1b1d71abcf9c7ad1a71d685222dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb909806ce3b45f5337cb985b0337ec2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#abb909806ce3b45f5337cb985b0337ec2">G_POR</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:abb909806ce3b45f5337cb985b0337ec2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a656d11457667b01f48b3176a8d074333"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a656d11457667b01f48b3176a8d074333">G_DEP</a>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:a656d11457667b01f48b3176a8d074333"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec523545fc74f1f49de4c1f0ab21b3a7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#aec523545fc74f1f49de4c1f0ab21b3a7">M_PV</a>&#160;&#160;&#160;65</td></tr>
+<tr class="separator:aec523545fc74f1f49de4c1f0ab21b3a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a575e2032f6c4f45a17a18a6d78f152f0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a575e2032f6c4f45a17a18a6d78f152f0">M_ATK</a>&#160;&#160;&#160;60</td></tr>
+<tr class="separator:a575e2032f6c4f45a17a18a6d78f152f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60226dd28b626ae5011f1d1c9b7283fa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a60226dd28b626ae5011f1d1c9b7283fa">M_DEF</a>&#160;&#160;&#160;8</td></tr>
+<tr class="separator:a60226dd28b626ae5011f1d1c9b7283fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43236143b4a28d49436087c8c2403b1f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a43236143b4a28d49436087c8c2403b1f">M_ESQ</a>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:a43236143b4a28d49436087c8c2403b1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe12c9d4698738a67a81d4a291611411"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#abe12c9d4698738a67a81d4a291611411">M_CRIT</a>&#160;&#160;&#160;8</td></tr>
+<tr class="separator:abe12c9d4698738a67a81d4a291611411"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a576e56b1338573b625c04941f6228d7b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a576e56b1338573b625c04941f6228d7b">M_POR</a>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:a576e56b1338573b625c04941f6228d7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8782f68d22ccf49a1a786f85c416f303"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a8782f68d22ccf49a1a786f85c416f303">M_DEP</a>&#160;&#160;&#160;6</td></tr>
+<tr class="separator:a8782f68d22ccf49a1a786f85c416f303"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3131540d98a58068c217c116fe60d15"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#ab3131540d98a58068c217c116fe60d15">A_PV</a>&#160;&#160;&#160;60</td></tr>
+<tr class="separator:ab3131540d98a58068c217c116fe60d15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a8bca5ecc67e6a489d38cf3110437c5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a4a8bca5ecc67e6a489d38cf3110437c5">A_ATK</a>&#160;&#160;&#160;50</td></tr>
+<tr class="separator:a4a8bca5ecc67e6a489d38cf3110437c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f9343aa1d78e32f099ad2ed9d32112c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a6f9343aa1d78e32f099ad2ed9d32112c">A_DEF</a>&#160;&#160;&#160;9</td></tr>
+<tr class="separator:a6f9343aa1d78e32f099ad2ed9d32112c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad02ad21ad65ea9cc6aa70347d20338af"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#ad02ad21ad65ea9cc6aa70347d20338af">A_ESQ</a>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:ad02ad21ad65ea9cc6aa70347d20338af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf21fcbad231261d7a1bbdd9e634ef42"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#adf21fcbad231261d7a1bbdd9e634ef42">A_CRIT</a>&#160;&#160;&#160;6</td></tr>
+<tr class="separator:adf21fcbad231261d7a1bbdd9e634ef42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67ef9543e4df7bf839d87af6dcdda83e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a67ef9543e4df7bf839d87af6dcdda83e">A_POR</a>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:a67ef9543e4df7bf839d87af6dcdda83e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66981259d7bc0d37753b66e4fa734353"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a66981259d7bc0d37753b66e4fa734353">A_DEP</a>&#160;&#160;&#160;6</td></tr>
+<tr class="separator:a66981259d7bc0d37753b66e4fa734353"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae39e5b04226f9495f7d80bde53e6b6f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#aae39e5b04226f9495f7d80bde53e6b6f">H_PV</a>&#160;&#160;&#160;80</td></tr>
+<tr class="separator:aae39e5b04226f9495f7d80bde53e6b6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad71c62d8b6bc463ea3fb0f9e75000173"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#ad71c62d8b6bc463ea3fb0f9e75000173">H_ATK</a>&#160;&#160;&#160;15</td></tr>
+<tr class="separator:ad71c62d8b6bc463ea3fb0f9e75000173"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0172615e8e00c916ab478c1751f5a45e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a0172615e8e00c916ab478c1751f5a45e">H_DEF</a>&#160;&#160;&#160;10</td></tr>
+<tr class="separator:a0172615e8e00c916ab478c1751f5a45e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71a1c97b66356faf17112c7c89faf729"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a71a1c97b66356faf17112c7c89faf729">H_ESQ</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:a71a1c97b66356faf17112c7c89faf729"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d3201623b0fa389a55227320e1df1d3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a0d3201623b0fa389a55227320e1df1d3">H_CRIT</a>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:a0d3201623b0fa389a55227320e1df1d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43137eee58ff89d5be21d5a2538109d0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a43137eee58ff89d5be21d5a2538109d0">H_POR</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:a43137eee58ff89d5be21d5a2538109d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a029ce0fb4dd422027428eed058cfcb55"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a029ce0fb4dd422027428eed058cfcb55">H_DEP</a>&#160;&#160;&#160;6</td></tr>
+<tr class="separator:a029ce0fb4dd422027428eed058cfcb55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa538c8d401342bf82d09d0d2386bc3f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#afa538c8d401342bf82d09d0d2386bc3f">V_PV</a>&#160;&#160;&#160;45</td></tr>
+<tr class="separator:afa538c8d401342bf82d09d0d2386bc3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6dcf4e33eb148b32539514aeb839217"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#ae6dcf4e33eb148b32539514aeb839217">V_ATK</a>&#160;&#160;&#160;80</td></tr>
+<tr class="separator:ae6dcf4e33eb148b32539514aeb839217"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05fb245d0f3f0c7f49ab877b44cf955c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a05fb245d0f3f0c7f49ab877b44cf955c">V_DEF</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a05fb245d0f3f0c7f49ab877b44cf955c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54c0b308c462c31b39b29eebdbe686e2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a54c0b308c462c31b39b29eebdbe686e2">V_ESQ</a>&#160;&#160;&#160;20</td></tr>
+<tr class="separator:a54c0b308c462c31b39b29eebdbe686e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5db56554d32a8297170136c8bb284da1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a5db56554d32a8297170136c8bb284da1">V_CRIT</a>&#160;&#160;&#160;33</td></tr>
+<tr class="separator:a5db56554d32a8297170136c8bb284da1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0397c5d14848f56259e0ebea9189ffb0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a0397c5d14848f56259e0ebea9189ffb0">V_POR</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a0397c5d14848f56259e0ebea9189ffb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af66d25c8d7cf0e8b85ee30a953a50f2e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#af66d25c8d7cf0e8b85ee30a953a50f2e">V_DEP</a>&#160;&#160;&#160;6</td></tr>
+<tr class="separator:af66d25c8d7cf0e8b85ee30a953a50f2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cb742a1d41e4969b71f0f2fc8240006"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a9cb742a1d41e4969b71f0f2fc8240006">TAILLE_FONT_GUI</a>&#160;&#160;&#160;30</td></tr>
+<tr class="separator:a9cb742a1d41e4969b71f0f2fc8240006"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a942e78b6e953faf6dc70d34446c6d131"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a942e78b6e953faf6dc70d34446c6d131">TAILLE_MAIN_FONT</a>&#160;&#160;&#160;50</td></tr>
+<tr class="separator:a942e78b6e953faf6dc70d34446c6d131"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75553ae510eff0cdad9d71d775819c56"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a75553ae510eff0cdad9d71d775819c56">OP_R</a>&#160;&#160;&#160;100</td></tr>
+<tr class="separator:a75553ae510eff0cdad9d71d775819c56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a354df2fbb3c485a0d7f968673157e0a0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a354df2fbb3c485a0d7f968673157e0a0">OP_V</a>&#160;&#160;&#160;80</td></tr>
+<tr class="separator:a354df2fbb3c485a0d7f968673157e0a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a568af57a9d65600bf6d3dcb0a5ebeae4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a568af57a9d65600bf6d3dcb0a5ebeae4">OP_B</a>&#160;&#160;&#160;64</td></tr>
+<tr class="separator:a568af57a9d65600bf6d3dcb0a5ebeae4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:a99f492ae970bd50ebb199960995114d0"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="jeu_8h.html#a9c6ae526d3bb89d5285b8d3da4920db5">J_s</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a99f492ae970bd50ebb199960995114d0">J_t</a></td></tr>
+<tr class="separator:a99f492ae970bd50ebb199960995114d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a550089442e996a6b42d393992dbc5436"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structperso__s.html">perso_s</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a550089442e996a6b42d393992dbc5436">perso_t</a></td></tr>
+<tr class="separator:a550089442e996a6b42d393992dbc5436"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78cda65cd9b26fc9f1ef13f89b316b94"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structjoueur__s.html">joueur_s</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a78cda65cd9b26fc9f1ef13f89b316b94">joueur_t</a></td></tr>
+<tr class="separator:a78cda65cd9b26fc9f1ef13f89b316b94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9c715cb868cbeb4aa829ec92a8c8bba"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="jeu_8h.html#aba5a9724d6577776000cc8030a620add">classe_s</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#ad9c715cb868cbeb4aa829ec92a8c8bba">classe_t</a></td></tr>
+<tr class="separator:ad9c715cb868cbeb4aa829ec92a8c8bba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf1321d2260a7ff3db7e7607fb48e135"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="jeu_8h.html#a99a4cd6eba2d81ce2389cb24df5c7d70">race_s</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#adf1321d2260a7ff3db7e7607fb48e135">race_t</a></td></tr>
+<tr class="separator:adf1321d2260a7ff3db7e7607fb48e135"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:a9c6ae526d3bb89d5285b8d3da4920db5"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a9c6ae526d3bb89d5285b8d3da4920db5">J_s</a> { <a class="el" href="jeu_8h.html#a9c6ae526d3bb89d5285b8d3da4920db5a0da67f12aaf41e79f0bc7b68d0a69183">J1</a>, 
+<a class="el" href="jeu_8h.html#a9c6ae526d3bb89d5285b8d3da4920db5a8701d7066e8b0fb9f21e9d933739062e">BOT</a>
+ }</td></tr>
+<tr class="separator:a9c6ae526d3bb89d5285b8d3da4920db5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba5a9724d6577776000cc8030a620add"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#aba5a9724d6577776000cc8030a620add">classe_s</a> { <br />
+&#160;&#160;<a class="el" href="jeu_8h.html#aba5a9724d6577776000cc8030a620adda9f0ec0dd34ceeb8f08d0fed8679a031c">GUERRIER</a>, 
+<a class="el" href="jeu_8h.html#aba5a9724d6577776000cc8030a620adda010931f222a7946e90308d51d6ac283e">MAGE</a>, 
+<a class="el" href="jeu_8h.html#aba5a9724d6577776000cc8030a620addae954102adce155b6de15962072532fcf">VOLEUR</a>, 
+<a class="el" href="jeu_8h.html#aba5a9724d6577776000cc8030a620addac482cec9850564270fde1520e0027024">ARCHER</a>, 
+<br />
+&#160;&#160;<a class="el" href="jeu_8h.html#aba5a9724d6577776000cc8030a620adda8103cd625bbb9cc0e917a7e84cc7cd9b">PRETRE</a>
+<br />
+ }</td></tr>
+<tr class="separator:aba5a9724d6577776000cc8030a620add"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99a4cd6eba2d81ce2389cb24df5c7d70"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a99a4cd6eba2d81ce2389cb24df5c7d70">race_s</a> { <a class="el" href="jeu_8h.html#a99a4cd6eba2d81ce2389cb24df5c7d70ae37e61af10160d34a35b97427a55c28c">HUMAIN</a>, 
+<a class="el" href="jeu_8h.html#a99a4cd6eba2d81ce2389cb24df5c7d70a337e679eccf22a9d84b40cb45a1de433">ELFE</a>
+ }</td></tr>
+<tr class="separator:a99a4cd6eba2d81ce2389cb24df5c7d70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a2be04d090298a8438afdb53a8ce5ab90"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structjoueur__t.html">joueur_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a2be04d090298a8438afdb53a8ce5ab90">creer_joueurs</a> (int nb_persos)</td></tr>
+<tr class="memdesc:a2be04d090298a8438afdb53a8ce5ab90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui initialise les joueurs.  <a href="jeu_8h.html#a2be04d090298a8438afdb53a8ce5ab90">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a2be04d090298a8438afdb53a8ce5ab90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5eeafb4d3f11c02c69b978507dc51e96"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a5eeafb4d3f11c02c69b978507dc51e96">aff_perso</a> (SDL_Renderer *renderer, SDL_Texture *pack_texture, TTF_Font *police, <a class="el" href="structperso__t.html">perso_t</a> *perso, int text_perso)</td></tr>
+<tr class="memdesc:a5eeafb4d3f11c02c69b978507dc51e96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui affiche le personnage et les statistiques d'un personnage donnée.  <a href="jeu_8h.html#a5eeafb4d3f11c02c69b978507dc51e96">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a5eeafb4d3f11c02c69b978507dc51e96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2fa98981ae7b781fee96206135927b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#ad2fa98981ae7b781fee96206135927b8">lancer_jeu</a> (SDL_Window *window, SDL_Renderer *renderer, SDL_Texture *pack_texture, <a class="el" href="fonctions_8h.html#a2a628b5c03e983edabf5b05625e5d9b5">case_t</a> *map)</td></tr>
+<tr class="memdesc:ad2fa98981ae7b781fee96206135927b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction principal qui permet de jouer.  <a href="jeu_8h.html#ad2fa98981ae7b781fee96206135927b8">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad2fa98981ae7b781fee96206135927b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12b6fe52a150b8f92fe32a7f2df7de7b"><td class="memItemLeft" align="right" valign="top">SDL_bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a12b6fe52a150b8f92fe32a7f2df7de7b">chercher_chemin</a> (int *tab, int xd, int yd, int xa, int ya)</td></tr>
+<tr class="memdesc:a12b6fe52a150b8f92fe32a7f2df7de7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui cherche le chemin le plus court entre deux points.  <a href="jeu_8h.html#a12b6fe52a150b8f92fe32a7f2df7de7b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a12b6fe52a150b8f92fe32a7f2df7de7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c93c102c9e98fda2cc99b7429348ef4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a9c93c102c9e98fda2cc99b7429348ef4">marquer_chemin</a> (int *tab, int x, int y, int *lgmin)</td></tr>
+<tr class="memdesc:a9c93c102c9e98fda2cc99b7429348ef4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marque le chemin le plus court a partir de *(tab+x*M+y)  <a href="jeu_8h.html#a9c93c102c9e98fda2cc99b7429348ef4">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a9c93c102c9e98fda2cc99b7429348ef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2e9a5380109a24a2635e7087549d0ac"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#aa2e9a5380109a24a2635e7087549d0ac">map_to_bool</a> (<a class="el" href="fonctions_8h.html#a2a628b5c03e983edabf5b05625e5d9b5">case_t</a> *map, int *tab, int xa, int ya)</td></tr>
+<tr class="memdesc:aa2e9a5380109a24a2635e7087549d0ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui transforme la map en couloirs/murs.  <a href="jeu_8h.html#aa2e9a5380109a24a2635e7087549d0ac">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aa2e9a5380109a24a2635e7087549d0ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae253c1335dbb7e01f0239b4568612d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#aae253c1335dbb7e01f0239b4568612d9">aff_mat</a> (int *tab)</td></tr>
+<tr class="memdesc:aae253c1335dbb7e01f0239b4568612d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">affiche une matrice  <a href="jeu_8h.html#aae253c1335dbb7e01f0239b4568612d9">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aae253c1335dbb7e01f0239b4568612d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80da571dae12fd52ab483f319e2b47b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a80da571dae12fd52ab483f319e2b47b4">mat_copy</a> (int *src, int *dest)</td></tr>
+<tr class="memdesc:a80da571dae12fd52ab483f319e2b47b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copie une matrice.  <a href="jeu_8h.html#a80da571dae12fd52ab483f319e2b47b4">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a80da571dae12fd52ab483f319e2b47b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae22433b72901c6a2ecab552c02a69b7e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="fonctions_8h.html#a4e3b16e73360bde155b5cd4f9e6fa0d0">coords_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#ae22433b72901c6a2ecab552c02a69b7e">remarquer_chemin</a> (int *tab, int x1, int y1, int dep)</td></tr>
+<tr class="memdesc:ae22433b72901c6a2ecab552c02a69b7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">remarque le chemin, regarde autour de chaque position si elle est valide  <a href="jeu_8h.html#ae22433b72901c6a2ecab552c02a69b7e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae22433b72901c6a2ecab552c02a69b7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a955e9415334551d6e257524ebdffa251"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a955e9415334551d6e257524ebdffa251">retirer_perso</a> (<a class="el" href="fonctions_8h.html#a2a628b5c03e983edabf5b05625e5d9b5">case_t</a> *map, <a class="el" href="structjoueur__t.html">joueur_t</a> *joueur, int indice)</td></tr>
+<tr class="memdesc:a955e9415334551d6e257524ebdffa251"><td class="mdescLeft">&#160;</td><td class="mdescRight">retire personnage de la carte  <a href="jeu_8h.html#a955e9415334551d6e257524ebdffa251">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a955e9415334551d6e257524ebdffa251"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>fichier regroupant les fonctions permettantde jouer </p>
+<dl class="section author"><dt>Auteur</dt><dd>GUYON Arthur SANNA Florian RICHEFEU Mattéo </dd></dl>
+</div><h2 class="groupheader">Documentation des macros</h2>
+<a id="a4a8bca5ecc67e6a489d38cf3110437c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a8bca5ecc67e6a489d38cf3110437c5">&#9670;&nbsp;</a></span>A_ATK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define A_ATK&#160;&#160;&#160;50</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adf21fcbad231261d7a1bbdd9e634ef42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf21fcbad231261d7a1bbdd9e634ef42">&#9670;&nbsp;</a></span>A_CRIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define A_CRIT&#160;&#160;&#160;6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6f9343aa1d78e32f099ad2ed9d32112c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f9343aa1d78e32f099ad2ed9d32112c">&#9670;&nbsp;</a></span>A_DEF</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define A_DEF&#160;&#160;&#160;9</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a66981259d7bc0d37753b66e4fa734353"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66981259d7bc0d37753b66e4fa734353">&#9670;&nbsp;</a></span>A_DEP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define A_DEP&#160;&#160;&#160;6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad02ad21ad65ea9cc6aa70347d20338af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad02ad21ad65ea9cc6aa70347d20338af">&#9670;&nbsp;</a></span>A_ESQ</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define A_ESQ&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a67ef9543e4df7bf839d87af6dcdda83e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67ef9543e4df7bf839d87af6dcdda83e">&#9670;&nbsp;</a></span>A_POR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define A_POR&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab3131540d98a58068c217c116fe60d15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3131540d98a58068c217c116fe60d15">&#9670;&nbsp;</a></span>A_PV</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define A_PV&#160;&#160;&#160;60</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac66c30c4a8fdeaf0c71b2a77a7582f5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac66c30c4a8fdeaf0c71b2a77a7582f5b">&#9670;&nbsp;</a></span>G_ATK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define G_ATK&#160;&#160;&#160;40</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4def1b1d71abcf9c7ad1a71d685222dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4def1b1d71abcf9c7ad1a71d685222dc">&#9670;&nbsp;</a></span>G_CRIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define G_CRIT&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8fc9228b93af2f206c1737f49ad731d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fc9228b93af2f206c1737f49ad731d8">&#9670;&nbsp;</a></span>G_DEF</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define G_DEF&#160;&#160;&#160;20</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a656d11457667b01f48b3176a8d074333"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a656d11457667b01f48b3176a8d074333">&#9670;&nbsp;</a></span>G_DEP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define G_DEP&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af4c4fce75a4d862e523c95a16b3b212c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4c4fce75a4d862e523c95a16b3b212c">&#9670;&nbsp;</a></span>G_ESQ</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define G_ESQ&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abb909806ce3b45f5337cb985b0337ec2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb909806ce3b45f5337cb985b0337ec2">&#9670;&nbsp;</a></span>G_POR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define G_POR&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4d00779ade2a26536563afbe14eb0e5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d00779ade2a26536563afbe14eb0e5a">&#9670;&nbsp;</a></span>G_PV</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define G_PV&#160;&#160;&#160;100</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Stats par classe </p>
+
+</div>
+</div>
+<a id="ad71c62d8b6bc463ea3fb0f9e75000173"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad71c62d8b6bc463ea3fb0f9e75000173">&#9670;&nbsp;</a></span>H_ATK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define H_ATK&#160;&#160;&#160;15</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0d3201623b0fa389a55227320e1df1d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d3201623b0fa389a55227320e1df1d3">&#9670;&nbsp;</a></span>H_CRIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define H_CRIT&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0172615e8e00c916ab478c1751f5a45e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0172615e8e00c916ab478c1751f5a45e">&#9670;&nbsp;</a></span>H_DEF</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define H_DEF&#160;&#160;&#160;10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a029ce0fb4dd422027428eed058cfcb55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a029ce0fb4dd422027428eed058cfcb55">&#9670;&nbsp;</a></span>H_DEP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define H_DEP&#160;&#160;&#160;6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a71a1c97b66356faf17112c7c89faf729"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71a1c97b66356faf17112c7c89faf729">&#9670;&nbsp;</a></span>H_ESQ</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define H_ESQ&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a43137eee58ff89d5be21d5a2538109d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43137eee58ff89d5be21d5a2538109d0">&#9670;&nbsp;</a></span>H_POR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define H_POR&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aae39e5b04226f9495f7d80bde53e6b6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae39e5b04226f9495f7d80bde53e6b6f">&#9670;&nbsp;</a></span>H_PV</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define H_PV&#160;&#160;&#160;80</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a575e2032f6c4f45a17a18a6d78f152f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a575e2032f6c4f45a17a18a6d78f152f0">&#9670;&nbsp;</a></span>M_ATK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define M_ATK&#160;&#160;&#160;60</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abe12c9d4698738a67a81d4a291611411"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe12c9d4698738a67a81d4a291611411">&#9670;&nbsp;</a></span>M_CRIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define M_CRIT&#160;&#160;&#160;8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a60226dd28b626ae5011f1d1c9b7283fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60226dd28b626ae5011f1d1c9b7283fa">&#9670;&nbsp;</a></span>M_DEF</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define M_DEF&#160;&#160;&#160;8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8782f68d22ccf49a1a786f85c416f303"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8782f68d22ccf49a1a786f85c416f303">&#9670;&nbsp;</a></span>M_DEP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define M_DEP&#160;&#160;&#160;6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a43236143b4a28d49436087c8c2403b1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43236143b4a28d49436087c8c2403b1f">&#9670;&nbsp;</a></span>M_ESQ</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define M_ESQ&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a576e56b1338573b625c04941f6228d7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a576e56b1338573b625c04941f6228d7b">&#9670;&nbsp;</a></span>M_POR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define M_POR&#160;&#160;&#160;4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aec523545fc74f1f49de4c1f0ab21b3a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec523545fc74f1f49de4c1f0ab21b3a7">&#9670;&nbsp;</a></span>M_PV</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define M_PV&#160;&#160;&#160;65</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a533c1fb65994e993f3ed70e6472ba40e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a533c1fb65994e993f3ed70e6472ba40e">&#9670;&nbsp;</a></span>MAX_PERSO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_PERSO&#160;&#160;&#160;10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2347ca44d2772ecfa07c3e0ab3116f48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2347ca44d2772ecfa07c3e0ab3116f48">&#9670;&nbsp;</a></span>MIN_PERSO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MIN_PERSO&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a43d5d30fb665e6fd574678226134fbba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43d5d30fb665e6fd574678226134fbba">&#9670;&nbsp;</a></span>NB_CLASSES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NB_CLASSES&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0a783f4545da71a8de28369b6f0804e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a783f4545da71a8de28369b6f0804e8">&#9670;&nbsp;</a></span>NB_MAPS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NB_MAPS&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a568af57a9d65600bf6d3dcb0a5ebeae4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a568af57a9d65600bf6d3dcb0a5ebeae4">&#9670;&nbsp;</a></span>OP_B</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OP_B&#160;&#160;&#160;64</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a75553ae510eff0cdad9d71d775819c56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75553ae510eff0cdad9d71d775819c56">&#9670;&nbsp;</a></span>OP_R</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OP_R&#160;&#160;&#160;100</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Opacite des cases couleur </p>
+
+</div>
+</div>
+<a id="a354df2fbb3c485a0d7f968673157e0a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a354df2fbb3c485a0d7f968673157e0a0">&#9670;&nbsp;</a></span>OP_V</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OP_V&#160;&#160;&#160;80</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a85d5d132440cb4991f8d99622f5d81ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85d5d132440cb4991f8d99622f5d81ae">&#9670;&nbsp;</a></span>PERSO_MORT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PERSO_MORT&#160;&#160;&#160;488</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9cb742a1d41e4969b71f0f2fc8240006"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cb742a1d41e4969b71f0f2fc8240006">&#9670;&nbsp;</a></span>TAILLE_FONT_GUI</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TAILLE_FONT_GUI&#160;&#160;&#160;30</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a942e78b6e953faf6dc70d34446c6d131"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a942e78b6e953faf6dc70d34446c6d131">&#9670;&nbsp;</a></span>TAILLE_MAIN_FONT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TAILLE_MAIN_FONT&#160;&#160;&#160;50</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6d8217e948740099f2606599bc283bca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d8217e948740099f2606599bc283bca">&#9670;&nbsp;</a></span>TEXT_ARCHER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TEXT_ARCHER&#160;&#160;&#160;478</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a48f0e9f47561669954e5b347603e15b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48f0e9f47561669954e5b347603e15b2">&#9670;&nbsp;</a></span>TEXT_ARCHER_BOT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TEXT_ARCHER_BOT&#160;&#160;&#160;484</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa3f5f1ff00df0715db97068dc408541d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3f5f1ff00df0715db97068dc408541d">&#9670;&nbsp;</a></span>TEXT_GUERRIER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TEXT_GUERRIER&#160;&#160;&#160;481</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af87ec967d02ea02ac6ceb5e9afa5549e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af87ec967d02ea02ac6ceb5e9afa5549e">&#9670;&nbsp;</a></span>TEXT_GUERRIER_BOT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TEXT_GUERRIER_BOT&#160;&#160;&#160;487</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af7d8bc195633830c009465966dce6723"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7d8bc195633830c009465966dce6723">&#9670;&nbsp;</a></span>TEXT_HEALER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TEXT_HEALER&#160;&#160;&#160;477</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7ad0e623c512c7c80b057d745d54e275"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ad0e623c512c7c80b057d745d54e275">&#9670;&nbsp;</a></span>TEXT_HEALER_BOT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TEXT_HEALER_BOT&#160;&#160;&#160;483</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aed3cfc424d952a4f60169354183068fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed3cfc424d952a4f60169354183068fb">&#9670;&nbsp;</a></span>TEXT_MAGE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TEXT_MAGE&#160;&#160;&#160;476</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a34685c7cda7886b2228cdeb58d117d77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34685c7cda7886b2228cdeb58d117d77">&#9670;&nbsp;</a></span>TEXT_MAGE_BOT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TEXT_MAGE_BOT&#160;&#160;&#160;482</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af92238b8fa70a5aaebb94d2db0edac1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af92238b8fa70a5aaebb94d2db0edac1c">&#9670;&nbsp;</a></span>TEXT_VOLEUR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TEXT_VOLEUR&#160;&#160;&#160;480</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a209ee8efc08a9f7725db1d6dfe1cae1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a209ee8efc08a9f7725db1d6dfe1cae1b">&#9670;&nbsp;</a></span>TEXT_VOLEUR_BOT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TEXT_VOLEUR_BOT&#160;&#160;&#160;486</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae6dcf4e33eb148b32539514aeb839217"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6dcf4e33eb148b32539514aeb839217">&#9670;&nbsp;</a></span>V_ATK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define V_ATK&#160;&#160;&#160;80</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5db56554d32a8297170136c8bb284da1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5db56554d32a8297170136c8bb284da1">&#9670;&nbsp;</a></span>V_CRIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define V_CRIT&#160;&#160;&#160;33</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a05fb245d0f3f0c7f49ab877b44cf955c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05fb245d0f3f0c7f49ab877b44cf955c">&#9670;&nbsp;</a></span>V_DEF</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define V_DEF&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af66d25c8d7cf0e8b85ee30a953a50f2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af66d25c8d7cf0e8b85ee30a953a50f2e">&#9670;&nbsp;</a></span>V_DEP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define V_DEP&#160;&#160;&#160;6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a54c0b308c462c31b39b29eebdbe686e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54c0b308c462c31b39b29eebdbe686e2">&#9670;&nbsp;</a></span>V_ESQ</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define V_ESQ&#160;&#160;&#160;20</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0397c5d14848f56259e0ebea9189ffb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0397c5d14848f56259e0ebea9189ffb0">&#9670;&nbsp;</a></span>V_POR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define V_POR&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afa538c8d401342bf82d09d0d2386bc3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa538c8d401342bf82d09d0d2386bc3f">&#9670;&nbsp;</a></span>V_PV</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define V_PV&#160;&#160;&#160;45</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des définitions de type</h2>
+<a id="ad9c715cb868cbeb4aa829ec92a8c8bba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9c715cb868cbeb4aa829ec92a8c8bba">&#9670;&nbsp;</a></span>classe_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef enum <a class="el" href="jeu_8h.html#aba5a9724d6577776000cc8030a620add">classe_s</a> <a class="el" href="jeu_8h.html#ad9c715cb868cbeb4aa829ec92a8c8bba">classe_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a99f492ae970bd50ebb199960995114d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99f492ae970bd50ebb199960995114d0">&#9670;&nbsp;</a></span>J_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef enum <a class="el" href="jeu_8h.html#a9c6ae526d3bb89d5285b8d3da4920db5">J_s</a> <a class="el" href="jeu_8h.html#a99f492ae970bd50ebb199960995114d0">J_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a78cda65cd9b26fc9f1ef13f89b316b94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78cda65cd9b26fc9f1ef13f89b316b94">&#9670;&nbsp;</a></span>joueur_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structjoueur__s.html">joueur_s</a> <a class="el" href="structjoueur__t.html">joueur_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a550089442e996a6b42d393992dbc5436"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a550089442e996a6b42d393992dbc5436">&#9670;&nbsp;</a></span>perso_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structperso__s.html">perso_s</a> <a class="el" href="structperso__t.html">perso_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adf1321d2260a7ff3db7e7607fb48e135"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf1321d2260a7ff3db7e7607fb48e135">&#9670;&nbsp;</a></span>race_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef enum <a class="el" href="jeu_8h.html#a99a4cd6eba2d81ce2389cb24df5c7d70">race_s</a> <a class="el" href="jeu_8h.html#adf1321d2260a7ff3db7e7607fb48e135">race_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation du type de l'énumération</h2>
+<a id="aba5a9724d6577776000cc8030a620add"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba5a9724d6577776000cc8030a620add">&#9670;&nbsp;</a></span>classe_s</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="jeu_8h.html#aba5a9724d6577776000cc8030a620add">classe_s</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="aba5a9724d6577776000cc8030a620adda9f0ec0dd34ceeb8f08d0fed8679a031c"></a>GUERRIER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aba5a9724d6577776000cc8030a620adda010931f222a7946e90308d51d6ac283e"></a>MAGE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aba5a9724d6577776000cc8030a620addae954102adce155b6de15962072532fcf"></a>VOLEUR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aba5a9724d6577776000cc8030a620addac482cec9850564270fde1520e0027024"></a>ARCHER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aba5a9724d6577776000cc8030a620adda8103cd625bbb9cc0e917a7e84cc7cd9b"></a>PRETRE&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a9c6ae526d3bb89d5285b8d3da4920db5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c6ae526d3bb89d5285b8d3da4920db5">&#9670;&nbsp;</a></span>J_s</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="jeu_8h.html#a9c6ae526d3bb89d5285b8d3da4920db5">J_s</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a9c6ae526d3bb89d5285b8d3da4920db5a0da67f12aaf41e79f0bc7b68d0a69183"></a>J1&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9c6ae526d3bb89d5285b8d3da4920db5a8701d7066e8b0fb9f21e9d933739062e"></a>BOT&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a99a4cd6eba2d81ce2389cb24df5c7d70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99a4cd6eba2d81ce2389cb24df5c7d70">&#9670;&nbsp;</a></span>race_s</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="jeu_8h.html#a99a4cd6eba2d81ce2389cb24df5c7d70">race_s</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a99a4cd6eba2d81ce2389cb24df5c7d70ae37e61af10160d34a35b97427a55c28c"></a>HUMAIN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a99a4cd6eba2d81ce2389cb24df5c7d70a337e679eccf22a9d84b40cb45a1de433"></a>ELFE&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="aae253c1335dbb7e01f0239b4568612d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae253c1335dbb7e01f0239b4568612d9">&#9670;&nbsp;</a></span>aff_mat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">aff_mat </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>tab</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>affiche une matrice </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tab</td><td>la matrice </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5eeafb4d3f11c02c69b978507dc51e96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5eeafb4d3f11c02c69b978507dc51e96">&#9670;&nbsp;</a></span>aff_perso()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">aff_perso </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>pack_texture</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>police</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structperso__t.html">perso_t</a> *&#160;</td>
+          <td class="paramname"><em>perso</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>text_perso</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui affiche le personnage et les statistiques d'un personnage donnée. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">renderer</td><td>affichage </td></tr>
+    <tr><td class="paramname">pack_texture</td><td>prend le pack de texture </td></tr>
+    <tr><td class="paramname">police</td><td>prend la police </td></tr>
+    <tr><td class="paramname">perso</td><td>Le personnagea afficher </td></tr>
+    <tr><td class="paramname">text_perso</td><td>permet de savoir les différentes statistiques du personnage </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a12b6fe52a150b8f92fe32a7f2df7de7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12b6fe52a150b8f92fe32a7f2df7de7b">&#9670;&nbsp;</a></span>chercher_chemin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">chercher_chemin </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>tab</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>xd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>yd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>xa</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ya</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui cherche le chemin le plus court entre deux points. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tab</td><td></td></tr>
+    <tr><td class="paramname">xd,yd,xa,ya</td><td>coordonnées </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>vrai si le chemin existe, si non renvoi faux </dd></dl>
+
+</div>
+</div>
+<a id="a2be04d090298a8438afdb53a8ce5ab90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2be04d090298a8438afdb53a8ce5ab90">&#9670;&nbsp;</a></span>creer_joueurs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">creer_joueurs </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_persos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui initialise les joueurs. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nb_persos</td><td>Contientle nombre de personnages </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>les personnages initialisés </dd></dl>
+
+</div>
+</div>
+<a id="ad2fa98981ae7b781fee96206135927b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2fa98981ae7b781fee96206135927b8">&#9670;&nbsp;</a></span>lancer_jeu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">lancer_jeu </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>pack_texture</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fonctions_8h.html#a2a628b5c03e983edabf5b05625e5d9b5">case_t</a> *&#160;</td>
+          <td class="paramname"><em>map</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction principal qui permet de jouer. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window,renderer</td><td>Affichage </td></tr>
+    <tr><td class="paramname">pack_texture</td><td>charge le pack de texture </td></tr>
+    <tr><td class="paramname">map</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa2e9a5380109a24a2635e7087549d0ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2e9a5380109a24a2635e7087549d0ac">&#9670;&nbsp;</a></span>map_to_bool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">map_to_bool </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="fonctions_8h.html#a2a628b5c03e983edabf5b05625e5d9b5">case_t</a> *&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>tab</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>xa</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ya</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui transforme la map en couloirs/murs. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map,tab</td><td></td></tr>
+    <tr><td class="paramname">xa,ya</td><td>coordonnées </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9c93c102c9e98fda2cc99b7429348ef4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c93c102c9e98fda2cc99b7429348ef4">&#9670;&nbsp;</a></span>marquer_chemin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">marquer_chemin </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>tab</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>lgmin</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Marque le chemin le plus court a partir de *(tab+x*M+y) </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tab</td><td></td></tr>
+    <tr><td class="paramname">x,y</td><td>coordonnées </td></tr>
+    <tr><td class="paramname">lgmin</td><td>prend la taille du chemin </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a80da571dae12fd52ab483f319e2b47b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80da571dae12fd52ab483f319e2b47b4">&#9670;&nbsp;</a></span>mat_copy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">mat_copy </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>dest</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Copie une matrice. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scr</td><td>la matrice a copié </td></tr>
+    <tr><td class="paramname">dest</td><td>copie de la matrice </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae22433b72901c6a2ecab552c02a69b7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae22433b72901c6a2ecab552c02a69b7e">&#9670;&nbsp;</a></span>remarquer_chemin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">remarquer_chemin </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>tab</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dep</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>remarque le chemin, regarde autour de chaque position si elle est valide </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tab</td><td></td></tr>
+    <tr><td class="paramname">x1,y1</td><td>coordonnées </td></tr>
+    <tr><td class="paramname">dep</td><td>depart </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>les coordonnées d'arrivées </dd></dl>
+
+</div>
+</div>
+<a id="a955e9415334551d6e257524ebdffa251"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a955e9415334551d6e257524ebdffa251">&#9670;&nbsp;</a></span>retirer_perso()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">retirer_perso </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="fonctions_8h.html#a2a628b5c03e983edabf5b05625e5d9b5">case_t</a> *&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structjoueur__t.html">joueur_t</a> *&#160;</td>
+          <td class="paramname"><em>joueur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>indice</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>retire personnage de la carte </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td></td></tr>
+    <tr><td class="paramname">joueur</td><td>joueur a retirer </td></tr>
+    <tr><td class="paramname">indice</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.18
+</small></address>
+</body>
+</html>
