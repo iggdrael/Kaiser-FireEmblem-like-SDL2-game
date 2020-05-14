@@ -1,8 +1,6 @@
 <img src="https://image.noelshack.com/fichiers/2020/19/4/1588844836-logokaiser.png" title="logoKaiser" alt="logo">
 
->Bande son originale
-
-`https://www.dropbox.com/s/dqdzxiiemor8q0w/Kaiser%201.wav?dl=0`
+>Bande son originale https://www.dropbox.com/s/dqdzxiiemor8q0w/Kaiser%201.wav?dl=0
 
 ***Projet L2 S4 2020***
 
