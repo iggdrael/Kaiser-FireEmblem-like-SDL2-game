@@ -1,0 +1,396 @@
+\hypertarget{selection__equipe_8h}{}\doxysection{Référence du fichier selection\+\_\+equipe.\+h}
+\label{selection__equipe_8h}\index{selection\_equipe.h@{selection\_equipe.h}}
+
+
+fichier regroupant les fonctions pour la selection d\textquotesingle{}équipe avant de jouer  
+
+
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{selection__equipe_8h_aba32858323f5d77f1212c89f30afe2ad}{perso\+\_\+copy}} (\mbox{\hyperlink{structperso__t}{perso\+\_\+t}} $\ast$src, \mbox{\hyperlink{structperso__t}{perso\+\_\+t}} $\ast$dest)
+\begin{DoxyCompactList}\small\item\em Fonction permettant de copier le perso src dans le perso dest. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{selection__equipe_8h_a43b0ea8f574aa7cce904829241f1ab7f}{clean\+\_\+perso}} (\mbox{\hyperlink{structperso__t}{perso\+\_\+t}} $\ast$perso)
+\begin{DoxyCompactList}\small\item\em Fonction permettant de nettoyer un personnage passé en paramètre. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{selection__equipe_8h_a91a4ab39afde56ca66f86d811d8ba297}{aff\+\_\+perso\+\_\+console}} (\mbox{\hyperlink{structperso__t}{perso\+\_\+t}} $\ast$perso)
+\begin{DoxyCompactList}\small\item\em Fonction qui affiche un personnage passé en paramètre en console. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{selection__equipe_8h_a4a55f578db5bc3837cb99576fd373970}{aff\+\_\+persos\+\_\+console}} (\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$map)
+\begin{DoxyCompactList}\small\item\em Fonction de debuggage permettant de vérifier que les persos sont bien placés sur la map passée en paramètre. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{selection__equipe_8h_abaff69123482ba48caace72d848f84ac}{classe\+\_\+to\+\_\+text}} (int n\+\_\+classe, \mbox{\hyperlink{jeu_8h_a99f492ae970bd50ebb199960995114d0}{J\+\_\+t}} J)
+\begin{DoxyCompactList}\small\item\em Fonction qui retourne le numéro de la texture correspondant à la classe du perso en fonction de son équipe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{selection__equipe_8h_a86d6a1a6fa0c041a35781bd8deb81216}{change\+\_\+val\+\_\+text}} (\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$map, int n\+\_\+text, int i, int j, int val)
+\begin{DoxyCompactList}\small\item\em Fonction permettant de changer la valeur d\textquotesingle{}une texture sur une case passée en paramètre. \end{DoxyCompactList}\item 
+S\+D\+L\+\_\+bool \mbox{\hyperlink{selection__equipe_8h_a2c4cda20bf36aea220daba9519ac4e75}{case\+\_\+valide}} (\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$map, int i, int j)
+\begin{DoxyCompactList}\small\item\em Fonction qui retourne vrai si la case passée en paramètre est accessible par un personnage. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{selection__equipe_8h_a820c8e9b27142bff413ac29179b7dd88}{aff\+\_\+deplacements\+\_\+deb}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, \mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$map)
+\begin{DoxyCompactList}\small\item\em Fonction affichant où l\textquotesingle{}on peut déplacer ses personnagess en début de partie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{selection__equipe_8h_ada9a88c2eebd6574414689b9abd9151e}{placer\+\_\+persos}} (\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$map, \mbox{\hyperlink{structperso__t}{perso\+\_\+t}} $\ast$team, const int N\+B\+\_\+\+P\+E\+RS, int col\+\_\+inf, int col\+\_\+sup)
+\begin{DoxyCompactList}\small\item\em Fonction permettant au joueur de placer ses personnagess en début de partie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{selection__equipe_8h_aacaaecea82478ad531ce6618718ad790}{move\+\_\+perso}} (\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$map, int i, int j, int old\+\_\+i, int old\+\_\+j)
+\begin{DoxyCompactList}\small\item\em Fonction permettant de déplacer un personnage. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{selection__equipe_8h_a1c5b8f477c63cc21e5425f498f47f6ac}{deplacer\+\_\+persos}} (S\+D\+L\+\_\+\+Window $\ast$window, S\+D\+L\+\_\+\+Renderer $\ast$renderer, T\+T\+F\+\_\+\+Font $\ast$police, S\+D\+L\+\_\+\+Window $\ast$window\+\_\+gui, S\+D\+L\+\_\+\+Renderer $\ast$renderer\+\_\+gui, T\+T\+F\+\_\+\+Font $\ast$police\+\_\+gui, \mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$map, S\+D\+L\+\_\+\+Texture $\ast$pack\+\_\+texture, S\+D\+L\+\_\+\+Texture $\ast$pack\+\_\+texture\+\_\+gui, S\+D\+L\+\_\+\+Texture $\ast$interface)
+\begin{DoxyCompactList}\small\item\em Fonction permettant au joueur de déplacer ses personnages en début de partie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{selection__equipe_8h_a7e7f2005348ed072c764875b8d83158e}{bouton\+\_\+check}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, S\+D\+L\+\_\+\+Rect $\ast$validation, T\+T\+F\+\_\+\+Font $\ast$police)
+\begin{DoxyCompactList}\small\item\em Fonction affichant le bouton pour valider. \end{DoxyCompactList}\item 
+S\+D\+L\+\_\+bool \mbox{\hyperlink{selection__equipe_8h_a33a46bf429109a49ce437a86546f3419}{perso\+\_\+allie}} (\mbox{\hyperlink{jeu_8h_a99f492ae970bd50ebb199960995114d0}{J\+\_\+t}} J, int n\+\_\+text)
+\item 
+S\+D\+L\+\_\+bool \mbox{\hyperlink{selection__equipe_8h_a275ce95891913684eaf7a7771c39df07}{perso\+\_\+bot}} (int n\+\_\+text)
+\begin{DoxyCompactList}\small\item\em Retourne vrai si le numéro de la texture passée en paramètre correspond à un personnage ennemi. \end{DoxyCompactList}\item 
+S\+D\+L\+\_\+bool \mbox{\hyperlink{selection__equipe_8h_a0fbbe08ff0c0bc7732c7d671225fb3a4}{perso\+\_\+joueur}} (int n\+\_\+text)
+\begin{DoxyCompactList}\small\item\em Retourne vrai si le numéro de la texture passée en paramètre correspond à un personnage joueur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{selection__equipe_8h_a9dbbe26388864014fb45fdb75e47c2c3}{validation\+\_\+team}} (\mbox{\hyperlink{structperso__t}{perso\+\_\+t}} $\ast$team, int g, int m, int a, int h, int v, \mbox{\hyperlink{jeu_8h_a99f492ae970bd50ebb199960995114d0}{J\+\_\+t}} J)
+\item 
+void \mbox{\hyperlink{selection__equipe_8h_a1a2309d99f90c2408edbc51a58a62cf6}{rect\+Pos\+WH}} (S\+D\+L\+\_\+\+Rect $\ast$rectP, S\+D\+L\+\_\+\+Rect $\ast$rectM, int valeur)
+\begin{DoxyCompactList}\small\item\em Initialise la largeur et longueur des deux rectangle par la valeur passée en paramètre. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structperso__t}{perso\+\_\+t}} $\ast$ \mbox{\hyperlink{selection__equipe_8h_a906365222e8bce53ef1b0b752a9f638f}{create\+\_\+team}} (S\+D\+L\+\_\+\+Window $\ast$window, S\+D\+L\+\_\+\+Renderer $\ast$renderer, T\+T\+F\+\_\+\+Font $\ast$police, S\+D\+L\+\_\+\+Window $\ast$window\+\_\+gui, S\+D\+L\+\_\+\+Renderer $\ast$renderer\+\_\+gui, T\+T\+F\+\_\+\+Font $\ast$police\+\_\+gui, \mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$map, S\+D\+L\+\_\+\+Texture $\ast$pack\+\_\+texture, S\+D\+L\+\_\+\+Texture $\ast$pack\+\_\+texture\+\_\+gui, S\+D\+L\+\_\+\+Texture $\ast$interface, const int N\+B\+\_\+\+P\+E\+RS)
+\begin{DoxyCompactList}\small\item\em Affiche une interface pour que le joueur puisse créer l\textquotesingle{}équipe souhaitée. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{selection__equipe_8h_a0c184c93e9d1dbb14f744c596e96b203}{aff\+\_\+team\+\_\+console}} (\mbox{\hyperlink{structperso__t}{perso\+\_\+t}} $\ast$team, int nb\+\_\+persos)
+\item 
+\mbox{\hyperlink{structperso__t}{perso\+\_\+t}} $\ast$ \mbox{\hyperlink{selection__equipe_8h_a917073f659a28717942c1c3489f6833d}{create\+\_\+team\+\_\+bot}} (const int N\+B\+\_\+\+P\+E\+RS)
+\begin{DoxyCompactList}\small\item\em Crée une équipe aléatoire pour le bot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+fichier regroupant les fonctions pour la selection d\textquotesingle{}équipe avant de jouer 
+
+\begin{DoxyAuthor}{Auteur}
+G\+U\+Y\+ON Arthur S\+A\+N\+NA Florian R\+I\+C\+H\+E\+F\+EU Mattéo 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{selection__equipe_8h_a820c8e9b27142bff413ac29179b7dd88}\label{selection__equipe_8h_a820c8e9b27142bff413ac29179b7dd88}} 
+\index{selection\_equipe.h@{selection\_equipe.h}!aff\_deplacements\_deb@{aff\_deplacements\_deb}}
+\index{aff\_deplacements\_deb@{aff\_deplacements\_deb}!selection\_equipe.h@{selection\_equipe.h}}
+\doxysubsubsection{\texorpdfstring{aff\_deplacements\_deb()}{aff\_deplacements\_deb()}}
+{\footnotesize\ttfamily aff\+\_\+deplacements\+\_\+deb (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$}]{map }\end{DoxyParamCaption})}
+
+
+
+Fonction affichant où l\textquotesingle{}on peut déplacer ses personnagess en début de partie. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & \\
+\hline
+{\em map} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{selection__equipe_8h_a91a4ab39afde56ca66f86d811d8ba297}\label{selection__equipe_8h_a91a4ab39afde56ca66f86d811d8ba297}} 
+\index{selection\_equipe.h@{selection\_equipe.h}!aff\_perso\_console@{aff\_perso\_console}}
+\index{aff\_perso\_console@{aff\_perso\_console}!selection\_equipe.h@{selection\_equipe.h}}
+\doxysubsubsection{\texorpdfstring{aff\_perso\_console()}{aff\_perso\_console()}}
+{\footnotesize\ttfamily aff\+\_\+perso\+\_\+console (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structperso__t}{perso\+\_\+t}} $\ast$}]{perso }\end{DoxyParamCaption})}
+
+
+
+Fonction qui affiche un personnage passé en paramètre en console. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em perso} & Personnage à afficher \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{selection__equipe_8h_a4a55f578db5bc3837cb99576fd373970}\label{selection__equipe_8h_a4a55f578db5bc3837cb99576fd373970}} 
+\index{selection\_equipe.h@{selection\_equipe.h}!aff\_persos\_console@{aff\_persos\_console}}
+\index{aff\_persos\_console@{aff\_persos\_console}!selection\_equipe.h@{selection\_equipe.h}}
+\doxysubsubsection{\texorpdfstring{aff\_persos\_console()}{aff\_persos\_console()}}
+{\footnotesize\ttfamily aff\+\_\+persos\+\_\+console (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$}]{map }\end{DoxyParamCaption})}
+
+
+
+Fonction de debuggage permettant de vérifier que les persos sont bien placés sur la map passée en paramètre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em map} & Contient la map avec les personnages \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{selection__equipe_8h_a0c184c93e9d1dbb14f744c596e96b203}\label{selection__equipe_8h_a0c184c93e9d1dbb14f744c596e96b203}} 
+\index{selection\_equipe.h@{selection\_equipe.h}!aff\_team\_console@{aff\_team\_console}}
+\index{aff\_team\_console@{aff\_team\_console}!selection\_equipe.h@{selection\_equipe.h}}
+\doxysubsubsection{\texorpdfstring{aff\_team\_console()}{aff\_team\_console()}}
+{\footnotesize\ttfamily void aff\+\_\+team\+\_\+console (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structperso__t}{perso\+\_\+t}} $\ast$}]{team,  }\item[{int}]{nb\+\_\+persos }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{selection__equipe_8h_a7e7f2005348ed072c764875b8d83158e}\label{selection__equipe_8h_a7e7f2005348ed072c764875b8d83158e}} 
+\index{selection\_equipe.h@{selection\_equipe.h}!bouton\_check@{bouton\_check}}
+\index{bouton\_check@{bouton\_check}!selection\_equipe.h@{selection\_equipe.h}}
+\doxysubsubsection{\texorpdfstring{bouton\_check()}{bouton\_check()}}
+{\footnotesize\ttfamily bouton\+\_\+check (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Rect $\ast$}]{validation,  }\item[{T\+T\+F\+\_\+\+Font $\ast$}]{police }\end{DoxyParamCaption})}
+
+
+
+Fonction affichant le bouton pour valider. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Renderer utilisé pour l\textquotesingle{}interface de création d\textquotesingle{}équipe \\
+\hline
+{\em validation} & Rectangle contenant les paramètres du bouton validation \\
+\hline
+{\em police} & Police utilisée pour le texte du bouton \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{selection__equipe_8h_a2c4cda20bf36aea220daba9519ac4e75}\label{selection__equipe_8h_a2c4cda20bf36aea220daba9519ac4e75}} 
+\index{selection\_equipe.h@{selection\_equipe.h}!case\_valide@{case\_valide}}
+\index{case\_valide@{case\_valide}!selection\_equipe.h@{selection\_equipe.h}}
+\doxysubsubsection{\texorpdfstring{case\_valide()}{case\_valide()}}
+{\footnotesize\ttfamily case\+\_\+valide (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$}]{map,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+
+
+Fonction qui retourne vrai si la case passée en paramètre est accessible par un personnage. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em map} & \\
+\hline
+{\em i,j} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{selection__equipe_8h_a86d6a1a6fa0c041a35781bd8deb81216}\label{selection__equipe_8h_a86d6a1a6fa0c041a35781bd8deb81216}} 
+\index{selection\_equipe.h@{selection\_equipe.h}!change\_val\_text@{change\_val\_text}}
+\index{change\_val\_text@{change\_val\_text}!selection\_equipe.h@{selection\_equipe.h}}
+\doxysubsubsection{\texorpdfstring{change\_val\_text()}{change\_val\_text()}}
+{\footnotesize\ttfamily change\+\_\+val\+\_\+text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$}]{map,  }\item[{int}]{n\+\_\+text,  }\item[{int}]{i,  }\item[{int}]{j,  }\item[{int}]{val }\end{DoxyParamCaption})}
+
+
+
+Fonction permettant de changer la valeur d\textquotesingle{}une texture sur une case passée en paramètre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em map} & \\
+\hline
+{\em n\+\_\+text} & \\
+\hline
+{\em i,j} & \\
+\hline
+{\em val} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{selection__equipe_8h_abaff69123482ba48caace72d848f84ac}\label{selection__equipe_8h_abaff69123482ba48caace72d848f84ac}} 
+\index{selection\_equipe.h@{selection\_equipe.h}!classe\_to\_text@{classe\_to\_text}}
+\index{classe\_to\_text@{classe\_to\_text}!selection\_equipe.h@{selection\_equipe.h}}
+\doxysubsubsection{\texorpdfstring{classe\_to\_text()}{classe\_to\_text()}}
+{\footnotesize\ttfamily classe\+\_\+to\+\_\+text (\begin{DoxyParamCaption}\item[{int}]{n\+\_\+classe,  }\item[{\mbox{\hyperlink{jeu_8h_a99f492ae970bd50ebb199960995114d0}{J\+\_\+t}}}]{J }\end{DoxyParamCaption})}
+
+
+
+Fonction qui retourne le numéro de la texture correspondant à la classe du perso en fonction de son équipe. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em n\+\_\+classe} & \\
+\hline
+{\em J} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{selection__equipe_8h_a43b0ea8f574aa7cce904829241f1ab7f}\label{selection__equipe_8h_a43b0ea8f574aa7cce904829241f1ab7f}} 
+\index{selection\_equipe.h@{selection\_equipe.h}!clean\_perso@{clean\_perso}}
+\index{clean\_perso@{clean\_perso}!selection\_equipe.h@{selection\_equipe.h}}
+\doxysubsubsection{\texorpdfstring{clean\_perso()}{clean\_perso()}}
+{\footnotesize\ttfamily clean\+\_\+perso (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structperso__t}{perso\+\_\+t}} $\ast$}]{perso }\end{DoxyParamCaption})}
+
+
+
+Fonction permettant de nettoyer un personnage passé en paramètre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em perso} & Personnage à nettoyer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{selection__equipe_8h_a906365222e8bce53ef1b0b752a9f638f}\label{selection__equipe_8h_a906365222e8bce53ef1b0b752a9f638f}} 
+\index{selection\_equipe.h@{selection\_equipe.h}!create\_team@{create\_team}}
+\index{create\_team@{create\_team}!selection\_equipe.h@{selection\_equipe.h}}
+\doxysubsubsection{\texorpdfstring{create\_team()}{create\_team()}}
+{\footnotesize\ttfamily create\+\_\+team (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Window $\ast$}]{window,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{T\+T\+F\+\_\+\+Font $\ast$}]{police,  }\item[{S\+D\+L\+\_\+\+Window $\ast$}]{window\+\_\+gui,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer\+\_\+gui,  }\item[{T\+T\+F\+\_\+\+Font $\ast$}]{police\+\_\+gui,  }\item[{\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$}]{map,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{pack\+\_\+texture,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{pack\+\_\+texture\+\_\+gui,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{interface,  }\item[{const int}]{N\+B\+\_\+\+P\+E\+RS }\end{DoxyParamCaption})}
+
+
+
+Affiche une interface pour que le joueur puisse créer l\textquotesingle{}équipe souhaitée. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window,renderer} & Affiche le menu \\
+\hline
+{\em police} & Contient la police utilisée pour le menu \\
+\hline
+{\em window\+\_\+gui,renderer\+\_\+gui} & Affiche le gui \\
+\hline
+{\em police\+\_\+gui} & Contient la police utilisée pour le gui \\
+\hline
+{\em map} & Contient la map jouée par le joueur \\
+\hline
+{\em pack\+\_\+texture} & Contient le pack de texture \\
+\hline
+{\em pack\+\_\+texture\+\_\+gui} & Contient la texture utilisée pour le gui \\
+\hline
+{\em interface} & Contient l\textquotesingle{}interface du gui \\
+\hline
+{\em N\+B\+\_\+\+P\+E\+RS} & Nombre maximum de personnages dans une équipe \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{selection__equipe_8h_a917073f659a28717942c1c3489f6833d}\label{selection__equipe_8h_a917073f659a28717942c1c3489f6833d}} 
+\index{selection\_equipe.h@{selection\_equipe.h}!create\_team\_bot@{create\_team\_bot}}
+\index{create\_team\_bot@{create\_team\_bot}!selection\_equipe.h@{selection\_equipe.h}}
+\doxysubsubsection{\texorpdfstring{create\_team\_bot()}{create\_team\_bot()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structperso__t}{perso\+\_\+t}} $\ast$ create\+\_\+team\+\_\+bot (\begin{DoxyParamCaption}\item[{const int}]{N\+B\+\_\+\+P\+E\+RS }\end{DoxyParamCaption})}
+
+
+
+Crée une équipe aléatoire pour le bot. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em N\+B\+\_\+\+P\+E\+RS} & Nombre de personnages de l\textquotesingle{}équipe \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{selection__equipe_8h_a1c5b8f477c63cc21e5425f498f47f6ac}\label{selection__equipe_8h_a1c5b8f477c63cc21e5425f498f47f6ac}} 
+\index{selection\_equipe.h@{selection\_equipe.h}!deplacer\_persos@{deplacer\_persos}}
+\index{deplacer\_persos@{deplacer\_persos}!selection\_equipe.h@{selection\_equipe.h}}
+\doxysubsubsection{\texorpdfstring{deplacer\_persos()}{deplacer\_persos()}}
+{\footnotesize\ttfamily deplacer\+\_\+persos (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Window $\ast$}]{window,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{T\+T\+F\+\_\+\+Font $\ast$}]{police,  }\item[{S\+D\+L\+\_\+\+Window $\ast$}]{window\+\_\+gui,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer\+\_\+gui,  }\item[{T\+T\+F\+\_\+\+Font $\ast$}]{police\+\_\+gui,  }\item[{\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$}]{map,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{pack\+\_\+texture,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{pack\+\_\+texture\+\_\+gui,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{interface }\end{DoxyParamCaption})}
+
+
+
+Fonction permettant au joueur de déplacer ses personnages en début de partie. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window,renderer} & Affiche le menu \\
+\hline
+{\em police} & Contient la police utilisée pour le menu \\
+\hline
+{\em window\+\_\+gui,renderer\+\_\+gui} & Affiche le gui \\
+\hline
+{\em police\+\_\+gui} & Contient la police utilisée pour le gui \\
+\hline
+{\em map} & Contient la map jouée par le joueur \\
+\hline
+{\em pack\+\_\+texture} & Contient le pack de texture \\
+\hline
+{\em pack\+\_\+texture\+\_\+gui} & Contient la texture utilisée pour le gui \\
+\hline
+{\em interface} & Contient l\textquotesingle{}interface du gui \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{selection__equipe_8h_aacaaecea82478ad531ce6618718ad790}\label{selection__equipe_8h_aacaaecea82478ad531ce6618718ad790}} 
+\index{selection\_equipe.h@{selection\_equipe.h}!move\_perso@{move\_perso}}
+\index{move\_perso@{move\_perso}!selection\_equipe.h@{selection\_equipe.h}}
+\doxysubsubsection{\texorpdfstring{move\_perso()}{move\_perso()}}
+{\footnotesize\ttfamily move\+\_\+perso (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$}]{map,  }\item[{int}]{i,  }\item[{int}]{j,  }\item[{int}]{old\+\_\+i,  }\item[{int}]{old\+\_\+j }\end{DoxyParamCaption})}
+
+
+
+Fonction permettant de déplacer un personnage. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em map} & Contient la map utilisée \\
+\hline
+{\em i,j} & Contient les coordonnées (en case) du personnage \\
+\hline
+{\em old\+\_\+t,old\+\_\+j} & Contient les anciennes coordonnées (en case) du personnage \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{selection__equipe_8h_a33a46bf429109a49ce437a86546f3419}\label{selection__equipe_8h_a33a46bf429109a49ce437a86546f3419}} 
+\index{selection\_equipe.h@{selection\_equipe.h}!perso\_allie@{perso\_allie}}
+\index{perso\_allie@{perso\_allie}!selection\_equipe.h@{selection\_equipe.h}}
+\doxysubsubsection{\texorpdfstring{perso\_allie()}{perso\_allie()}}
+{\footnotesize\ttfamily S\+D\+L\+\_\+bool perso\+\_\+allie (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{jeu_8h_a99f492ae970bd50ebb199960995114d0}{J\+\_\+t}}}]{J,  }\item[{int}]{n\+\_\+text }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{selection__equipe_8h_a275ce95891913684eaf7a7771c39df07}\label{selection__equipe_8h_a275ce95891913684eaf7a7771c39df07}} 
+\index{selection\_equipe.h@{selection\_equipe.h}!perso\_bot@{perso\_bot}}
+\index{perso\_bot@{perso\_bot}!selection\_equipe.h@{selection\_equipe.h}}
+\doxysubsubsection{\texorpdfstring{perso\_bot()}{perso\_bot()}}
+{\footnotesize\ttfamily perso\+\_\+bot (\begin{DoxyParamCaption}\item[{int}]{n\+\_\+text }\end{DoxyParamCaption})}
+
+
+
+Retourne vrai si le numéro de la texture passée en paramètre correspond à un personnage ennemi. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em n\+\_\+text} & Contient le numéro de la texture passée en paramètre \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{selection__equipe_8h_aba32858323f5d77f1212c89f30afe2ad}\label{selection__equipe_8h_aba32858323f5d77f1212c89f30afe2ad}} 
+\index{selection\_equipe.h@{selection\_equipe.h}!perso\_copy@{perso\_copy}}
+\index{perso\_copy@{perso\_copy}!selection\_equipe.h@{selection\_equipe.h}}
+\doxysubsubsection{\texorpdfstring{perso\_copy()}{perso\_copy()}}
+{\footnotesize\ttfamily perso\+\_\+copy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structperso__t}{perso\+\_\+t}} $\ast$}]{src,  }\item[{\mbox{\hyperlink{structperso__t}{perso\+\_\+t}} $\ast$}]{dest }\end{DoxyParamCaption})}
+
+
+
+Fonction permettant de copier le perso src dans le perso dest. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em src} & Personnage source \\
+\hline
+{\em dest} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{selection__equipe_8h_a0fbbe08ff0c0bc7732c7d671225fb3a4}\label{selection__equipe_8h_a0fbbe08ff0c0bc7732c7d671225fb3a4}} 
+\index{selection\_equipe.h@{selection\_equipe.h}!perso\_joueur@{perso\_joueur}}
+\index{perso\_joueur@{perso\_joueur}!selection\_equipe.h@{selection\_equipe.h}}
+\doxysubsubsection{\texorpdfstring{perso\_joueur()}{perso\_joueur()}}
+{\footnotesize\ttfamily perso\+\_\+joueur (\begin{DoxyParamCaption}\item[{int}]{n\+\_\+text }\end{DoxyParamCaption})}
+
+
+
+Retourne vrai si le numéro de la texture passée en paramètre correspond à un personnage joueur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em n\+\_\+text} & Contient le numéro de la texture passée en paramètre \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{selection__equipe_8h_ada9a88c2eebd6574414689b9abd9151e}\label{selection__equipe_8h_ada9a88c2eebd6574414689b9abd9151e}} 
+\index{selection\_equipe.h@{selection\_equipe.h}!placer\_persos@{placer\_persos}}
+\index{placer\_persos@{placer\_persos}!selection\_equipe.h@{selection\_equipe.h}}
+\doxysubsubsection{\texorpdfstring{placer\_persos()}{placer\_persos()}}
+{\footnotesize\ttfamily placer\+\_\+persos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$}]{map,  }\item[{\mbox{\hyperlink{structperso__t}{perso\+\_\+t}} $\ast$}]{team,  }\item[{const int}]{N\+B\+\_\+\+P\+E\+RS,  }\item[{int}]{col\+\_\+inf,  }\item[{int}]{col\+\_\+sup }\end{DoxyParamCaption})}
+
+
+
+Fonction permettant au joueur de placer ses personnagess en début de partie. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em map} & \\
+\hline
+{\em team} & \\
+\hline
+{\em N\+B\+\_\+\+P\+E\+RS} & \\
+\hline
+{\em col\+\_\+inf} & \\
+\hline
+{\em col\+\_\+sup} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{selection__equipe_8h_a1a2309d99f90c2408edbc51a58a62cf6}\label{selection__equipe_8h_a1a2309d99f90c2408edbc51a58a62cf6}} 
+\index{selection\_equipe.h@{selection\_equipe.h}!rectPosWH@{rectPosWH}}
+\index{rectPosWH@{rectPosWH}!selection\_equipe.h@{selection\_equipe.h}}
+\doxysubsubsection{\texorpdfstring{rectPosWH()}{rectPosWH()}}
+{\footnotesize\ttfamily rect\+Pos\+WH (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Rect $\ast$}]{rectP,  }\item[{S\+D\+L\+\_\+\+Rect $\ast$}]{rectM,  }\item[{int}]{valeur }\end{DoxyParamCaption})}
+
+
+
+Initialise la largeur et longueur des deux rectangle par la valeur passée en paramètre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rectP,rectM} & Deux carrés \char`\"{}+\char`\"{} et \char`\"{}-\/\char`\"{} \\
+\hline
+{\em valeur} & taille en pixel du côté des carrés \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{selection__equipe_8h_a9dbbe26388864014fb45fdb75e47c2c3}\label{selection__equipe_8h_a9dbbe26388864014fb45fdb75e47c2c3}} 
+\index{selection\_equipe.h@{selection\_equipe.h}!validation\_team@{validation\_team}}
+\index{validation\_team@{validation\_team}!selection\_equipe.h@{selection\_equipe.h}}
+\doxysubsubsection{\texorpdfstring{validation\_team()}{validation\_team()}}
+{\footnotesize\ttfamily void validation\+\_\+team (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structperso__t}{perso\+\_\+t}} $\ast$}]{team,  }\item[{int}]{g,  }\item[{int}]{m,  }\item[{int}]{a,  }\item[{int}]{h,  }\item[{int}]{v,  }\item[{\mbox{\hyperlink{jeu_8h_a99f492ae970bd50ebb199960995114d0}{J\+\_\+t}}}]{J }\end{DoxyParamCaption})}
+

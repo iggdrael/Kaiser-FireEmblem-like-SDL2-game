@@ -1,0 +1,363 @@
+\hypertarget{fonctions_8h}{}\doxysection{Référence du fichier fonctions.\+h}
+\label{fonctions_8h}\index{fonctions.h@{fonctions.h}}
+\doxysubsection*{Structures de données}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcase__s}{case\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{structcoords__s}{coords\+\_\+s}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{fonctions_8h_a3ee479371002a0a258e5c4111cc6e54f}{V\+I\+DE}}~0
+\item 
+\#define \mbox{\hyperlink{fonctions_8h_a2ebb68473716de487c7927f692aaa91d}{R\+I\+EN}}~-\/1 /$\ast$$\ast$Texture inexistante$\ast$$\ast$/
+\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{fonctions_8h_a7099ab901af284274123a705c7be8c38}{libre\+\_\+s}} \mbox{\hyperlink{fonctions_8h_af070cd80b23946d33123f5390dbc19d0}{libre\+\_\+t}}
+\item 
+typedef enum \mbox{\hyperlink{fonctions_8h_a091e84f73c558f015739ab8e7237e2d7}{type\+\_\+s}} \mbox{\hyperlink{fonctions_8h_aaf12aabdb00da5b9bfb92b5a2754caf3}{type\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{structcase__s}{case\+\_\+s}} \mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{structcoords__s}{coords\+\_\+s}} \mbox{\hyperlink{fonctions_8h_a4e3b16e73360bde155b5cd4f9e6fa0d0}{coords\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{fonctions_8h_a7099ab901af284274123a705c7be8c38}{libre\+\_\+s}} \{ \mbox{\hyperlink{fonctions_8h_a7099ab901af284274123a705c7be8c38ad6dbf878e6193d82ef7dca342b6c32ad}{L\+I\+B\+RE}}, 
+\mbox{\hyperlink{fonctions_8h_a7099ab901af284274123a705c7be8c38a3f91b7e1fe8846699ed6d913af7e3cb4}{N\+O\+N\+\_\+\+L\+I\+B\+RE}}
+ \}
+\item 
+enum \mbox{\hyperlink{fonctions_8h_a091e84f73c558f015739ab8e7237e2d7}{type\+\_\+s}} \{ \mbox{\hyperlink{fonctions_8h_a091e84f73c558f015739ab8e7237e2d7ab921f9083c52df371b0abb5f4672a8cd}{F\+O\+ND}}, 
+\mbox{\hyperlink{fonctions_8h_a091e84f73c558f015739ab8e7237e2d7ad3eae749e258b9be499b699b90e9b7ff}{D\+E\+C\+OR}}, 
+\mbox{\hyperlink{fonctions_8h_a091e84f73c558f015739ab8e7237e2d7a0ba592065a80a5b1d818f3f6b92bb0f3}{RP}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$ \mbox{\hyperlink{fonctions_8h_a2f90b7a4ba75d88f224063ed3d8c3586}{init\+\_\+matrice}} ()
+\item 
+void \mbox{\hyperlink{fonctions_8h_af58ba367a2ccd7aa3fa5d0a59041e52e}{detruire\+\_\+matrice}} (\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$map)
+\item 
+void \mbox{\hyperlink{fonctions_8h_ae2b3a3e72ded877f3b14e9654a2199fc}{aff\+\_\+matrice}} (\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$A)
+\item 
+void \mbox{\hyperlink{fonctions_8h_ae05d5d469aa3854d8d53495b6bf19b40}{load\+\_\+matrice}} (\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$map, int n\+\_\+map)
+\item 
+void \mbox{\hyperlink{fonctions_8h_ae2bc4f78509db219a55c04ecfe0ee1d3}{save\+\_\+map}} (\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$map)
+\item 
+void \mbox{\hyperlink{fonctions_8h_a68a9d46e65487cedecb7cd5d84f79503}{aff\+\_\+map}} (\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$map, S\+D\+L\+\_\+\+Renderer $\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$pack\+\_\+texture)
+\item 
+S\+D\+L\+\_\+\+Texture $\ast$ \mbox{\hyperlink{fonctions_8h_a6f06d4b8cf2932078a9ed35f26db6ca2}{creer\+Texture}} (S\+D\+L\+\_\+\+Window $\ast$window, S\+D\+L\+\_\+\+Renderer $\ast$renderer, char source\+I\+MG\mbox{[}30\mbox{]})
+\item 
+void \mbox{\hyperlink{fonctions_8h_a962dcf60ec33a85d2f913dd3e63dc4dc}{aff\+\_\+tile}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$texture, int i, int j, int case\+\_\+actuelle, float multi)
+\item 
+\mbox{\hyperlink{fonctions_8h_a4e3b16e73360bde155b5cd4f9e6fa0d0}{coords\+\_\+t}} \mbox{\hyperlink{fonctions_8h_a366f546eec50a67527cf6e87138e8d9c}{case\+\_\+to\+\_\+coords}} (int case\+\_\+actuelle)
+\item 
+void \mbox{\hyperlink{fonctions_8h_a8523fd3290689ad822bd4f2f93e58751}{fill\+\_\+map}} (\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$map, int case\+\_\+actuelle)
+\item 
+void \mbox{\hyperlink{fonctions_8h_a92dbd4482a8440d5b47d966fe700067c}{ajout\+\_\+texture\+\_\+case}} (\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$map, int i, int j, int case\+\_\+actuelle)
+\item 
+void \mbox{\hyperlink{fonctions_8h_a355bbc9c1f3f99ca8579836cf454f50a}{editeur\+\_\+map}} (S\+D\+L\+\_\+\+Window $\ast$window, S\+D\+L\+\_\+\+Renderer $\ast$renderer, \mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$map, S\+D\+L\+\_\+\+Texture $\ast$pack\+\_\+texture)
+\item 
+S\+D\+L\+\_\+bool \mbox{\hyperlink{fonctions_8h_a5eeedab3f7bf018437c4bc8a2270d8dc}{valides}} (int x, int y)
+\item 
+void \mbox{\hyperlink{fonctions_8h_a6a9e5d6552098ff117889f54d3b23d03}{creer\+Texte}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, T\+T\+F\+\_\+\+Font $\ast$police, char $\ast$str, int x, int y)
+\item 
+void \mbox{\hyperlink{fonctions_8h_af6a04b57093a69d2616a571d0af7746c}{S\+D\+L\+\_\+\+Exit\+With\+Error}} (const char $\ast$message, S\+D\+L\+\_\+\+Window $\ast$w, S\+D\+L\+\_\+\+Renderer $\ast$r, S\+D\+L\+\_\+\+Texture $\ast$t)
+\item 
+\mbox{\hyperlink{fonctions_8h_aaf12aabdb00da5b9bfb92b5a2754caf3}{type\+\_\+t}} \mbox{\hyperlink{fonctions_8h_afe579b0c5afda474e19411f424784c27}{type\+\_\+case}} (int case\+\_\+actuelle)
+\item 
+\mbox{\hyperlink{fonctions_8h_aaf12aabdb00da5b9bfb92b5a2754caf3}{type\+\_\+t}} \mbox{\hyperlink{fonctions_8h_a72e6b45551a9204a62f655cd1d678500}{type\+\_\+texture}} (int case\+\_\+actuelle)
+\item 
+void \mbox{\hyperlink{fonctions_8h_a784bb41eb4fccde4ffb4783a4cd63095}{settings}} (S\+D\+L\+\_\+\+Window $\ast$window, S\+D\+L\+\_\+\+Renderer $\ast$renderer, \mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$map, S\+D\+L\+\_\+\+Texture $\ast$pack\+\_\+texture)
+\item 
+void \mbox{\hyperlink{fonctions_8h_ab9e80ba44a9288d18cfe2cd60b808cc0}{menu}} (S\+D\+L\+\_\+\+Window $\ast$window, S\+D\+L\+\_\+\+Renderer $\ast$renderer, \mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$map, S\+D\+L\+\_\+\+Texture $\ast$pack\+\_\+texture)
+\item 
+S\+D\+L\+\_\+bool \mbox{\hyperlink{fonctions_8h_afb7236c601b1e03cfeb37d61c4e1a333}{click\+Sur\+Case}} (S\+D\+L\+\_\+\+Event click, S\+D\+L\+\_\+\+Rect case\+Rect)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des macros}
+\mbox{\Hypertarget{fonctions_8h_a2ebb68473716de487c7927f692aaa91d}\label{fonctions_8h_a2ebb68473716de487c7927f692aaa91d}} 
+\index{fonctions.h@{fonctions.h}!RIEN@{RIEN}}
+\index{RIEN@{RIEN}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{RIEN}{RIEN}}
+{\footnotesize\ttfamily \#define R\+I\+EN~-\/1 /$\ast$$\ast$Texture inexistante$\ast$$\ast$/}
+
+\mbox{\Hypertarget{fonctions_8h_a3ee479371002a0a258e5c4111cc6e54f}\label{fonctions_8h_a3ee479371002a0a258e5c4111cc6e54f}} 
+\index{fonctions.h@{fonctions.h}!VIDE@{VIDE}}
+\index{VIDE@{VIDE}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{VIDE}{VIDE}}
+{\footnotesize\ttfamily \#define V\+I\+DE~0}
+
+Types de cases 
+
+\doxysubsection{Documentation des définitions de type}
+\mbox{\Hypertarget{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}\label{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}} 
+\index{fonctions.h@{fonctions.h}!case\_t@{case\_t}}
+\index{case\_t@{case\_t}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{case\_t}{case\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structcase__s}{case\+\_\+s}} \mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}}}
+
+\mbox{\Hypertarget{fonctions_8h_a4e3b16e73360bde155b5cd4f9e6fa0d0}\label{fonctions_8h_a4e3b16e73360bde155b5cd4f9e6fa0d0}} 
+\index{fonctions.h@{fonctions.h}!coords\_t@{coords\_t}}
+\index{coords\_t@{coords\_t}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{coords\_t}{coords\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structcoords__s}{coords\+\_\+s}} \mbox{\hyperlink{fonctions_8h_a4e3b16e73360bde155b5cd4f9e6fa0d0}{coords\+\_\+t}}}
+
+\mbox{\Hypertarget{fonctions_8h_af070cd80b23946d33123f5390dbc19d0}\label{fonctions_8h_af070cd80b23946d33123f5390dbc19d0}} 
+\index{fonctions.h@{fonctions.h}!libre\_t@{libre\_t}}
+\index{libre\_t@{libre\_t}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{libre\_t}{libre\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{fonctions_8h_a7099ab901af284274123a705c7be8c38}{libre\+\_\+s}} \mbox{\hyperlink{fonctions_8h_af070cd80b23946d33123f5390dbc19d0}{libre\+\_\+t}}}
+
+\mbox{\Hypertarget{fonctions_8h_aaf12aabdb00da5b9bfb92b5a2754caf3}\label{fonctions_8h_aaf12aabdb00da5b9bfb92b5a2754caf3}} 
+\index{fonctions.h@{fonctions.h}!type\_t@{type\_t}}
+\index{type\_t@{type\_t}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{type\_t}{type\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{fonctions_8h_a091e84f73c558f015739ab8e7237e2d7}{type\+\_\+s}} \mbox{\hyperlink{fonctions_8h_aaf12aabdb00da5b9bfb92b5a2754caf3}{type\+\_\+t}}}
+
+Types de cases 
+
+\doxysubsection{Documentation du type de l\textquotesingle{}énumération}
+\mbox{\Hypertarget{fonctions_8h_a7099ab901af284274123a705c7be8c38}\label{fonctions_8h_a7099ab901af284274123a705c7be8c38}} 
+\index{fonctions.h@{fonctions.h}!libre\_s@{libre\_s}}
+\index{libre\_s@{libre\_s}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{libre\_s}{libre\_s}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{fonctions_8h_a7099ab901af284274123a705c7be8c38}{libre\+\_\+s}}}
+
+\begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LIBRE@{LIBRE}!fonctions.h@{fonctions.h}}\index{fonctions.h@{fonctions.h}!LIBRE@{LIBRE}}}\mbox{\Hypertarget{fonctions_8h_a7099ab901af284274123a705c7be8c38ad6dbf878e6193d82ef7dca342b6c32ad}\label{fonctions_8h_a7099ab901af284274123a705c7be8c38ad6dbf878e6193d82ef7dca342b6c32ad}} 
+L\+I\+B\+RE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NON\_LIBRE@{NON\_LIBRE}!fonctions.h@{fonctions.h}}\index{fonctions.h@{fonctions.h}!NON\_LIBRE@{NON\_LIBRE}}}\mbox{\Hypertarget{fonctions_8h_a7099ab901af284274123a705c7be8c38a3f91b7e1fe8846699ed6d913af7e3cb4}\label{fonctions_8h_a7099ab901af284274123a705c7be8c38a3f91b7e1fe8846699ed6d913af7e3cb4}} 
+N\+O\+N\+\_\+\+L\+I\+B\+RE&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{fonctions_8h_a091e84f73c558f015739ab8e7237e2d7}\label{fonctions_8h_a091e84f73c558f015739ab8e7237e2d7}} 
+\index{fonctions.h@{fonctions.h}!type\_s@{type\_s}}
+\index{type\_s@{type\_s}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{type\_s}{type\_s}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{fonctions_8h_a091e84f73c558f015739ab8e7237e2d7}{type\+\_\+s}}}
+
+Types de cases \begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FOND@{FOND}!fonctions.h@{fonctions.h}}\index{fonctions.h@{fonctions.h}!FOND@{FOND}}}\mbox{\Hypertarget{fonctions_8h_a091e84f73c558f015739ab8e7237e2d7ab921f9083c52df371b0abb5f4672a8cd}\label{fonctions_8h_a091e84f73c558f015739ab8e7237e2d7ab921f9083c52df371b0abb5f4672a8cd}} 
+F\+O\+ND&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DECOR@{DECOR}!fonctions.h@{fonctions.h}}\index{fonctions.h@{fonctions.h}!DECOR@{DECOR}}}\mbox{\Hypertarget{fonctions_8h_a091e84f73c558f015739ab8e7237e2d7ad3eae749e258b9be499b699b90e9b7ff}\label{fonctions_8h_a091e84f73c558f015739ab8e7237e2d7ad3eae749e258b9be499b699b90e9b7ff}} 
+D\+E\+C\+OR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RP@{RP}!fonctions.h@{fonctions.h}}\index{fonctions.h@{fonctions.h}!RP@{RP}}}\mbox{\Hypertarget{fonctions_8h_a091e84f73c558f015739ab8e7237e2d7a0ba592065a80a5b1d818f3f6b92bb0f3}\label{fonctions_8h_a091e84f73c558f015739ab8e7237e2d7a0ba592065a80a5b1d818f3f6b92bb0f3}} 
+RP&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{fonctions_8h_a68a9d46e65487cedecb7cd5d84f79503}\label{fonctions_8h_a68a9d46e65487cedecb7cd5d84f79503}} 
+\index{fonctions.h@{fonctions.h}!aff\_map@{aff\_map}}
+\index{aff\_map@{aff\_map}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{aff\_map()}{aff\_map()}}
+{\footnotesize\ttfamily void aff\+\_\+map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$}]{map,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{pack\+\_\+texture }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em map,renderer,packtexture} & Afffiche les textures de la matrice sur l\textquotesingle{}écran \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{fonctions_8h_ae2b3a3e72ded877f3b14e9654a2199fc}\label{fonctions_8h_ae2b3a3e72ded877f3b14e9654a2199fc}} 
+\index{fonctions.h@{fonctions.h}!aff\_matrice@{aff\_matrice}}
+\index{aff\_matrice@{aff\_matrice}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{aff\_matrice()}{aff\_matrice()}}
+{\footnotesize\ttfamily void aff\+\_\+matrice (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$}]{A }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em A} & Matrice à afficher. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{fonctions_8h_a962dcf60ec33a85d2f913dd3e63dc4dc}\label{fonctions_8h_a962dcf60ec33a85d2f913dd3e63dc4dc}} 
+\index{fonctions.h@{fonctions.h}!aff\_tile@{aff\_tile}}
+\index{aff\_tile@{aff\_tile}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{aff\_tile()}{aff\_tile()}}
+{\footnotesize\ttfamily void aff\+\_\+tile (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture,  }\item[{int}]{i,  }\item[{int}]{j,  }\item[{int}]{case\+\_\+actuelle,  }\item[{float}]{multi }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{fonctions_8h_a92dbd4482a8440d5b47d966fe700067c}\label{fonctions_8h_a92dbd4482a8440d5b47d966fe700067c}} 
+\index{fonctions.h@{fonctions.h}!ajout\_texture\_case@{ajout\_texture\_case}}
+\index{ajout\_texture\_case@{ajout\_texture\_case}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{ajout\_texture\_case()}{ajout\_texture\_case()}}
+{\footnotesize\ttfamily void ajout\+\_\+texture\+\_\+case (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$}]{map,  }\item[{int}]{i,  }\item[{int}]{j,  }\item[{int}]{case\+\_\+actuelle }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em map,i,j,case\+\_\+actuelle} & Ecrase la case de la matrice par case\+\_\+actuelle et remplace cette case à l\textquotesingle{}écran \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{fonctions_8h_a366f546eec50a67527cf6e87138e8d9c}\label{fonctions_8h_a366f546eec50a67527cf6e87138e8d9c}} 
+\index{fonctions.h@{fonctions.h}!case\_to\_coords@{case\_to\_coords}}
+\index{case\_to\_coords@{case\_to\_coords}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{case\_to\_coords()}{case\_to\_coords()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fonctions_8h_a4e3b16e73360bde155b5cd4f9e6fa0d0}{coords\+\_\+t}} case\+\_\+to\+\_\+coords (\begin{DoxyParamCaption}\item[{int}]{case\+\_\+actuelle }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em case\+\_\+actuelle} & Transforme la case en coordonees de son emplacement dans le pack de texture \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{fonctions_8h_afb7236c601b1e03cfeb37d61c4e1a333}\label{fonctions_8h_afb7236c601b1e03cfeb37d61c4e1a333}} 
+\index{fonctions.h@{fonctions.h}!clickSurCase@{clickSurCase}}
+\index{clickSurCase@{clickSurCase}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{clickSurCase()}{clickSurCase()}}
+{\footnotesize\ttfamily S\+D\+L\+\_\+bool click\+Sur\+Case (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Event}]{click,  }\item[{S\+D\+L\+\_\+\+Rect}]{case\+Rect }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em click,case\+Rect} & Test si un click est dans un rectangle \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{fonctions_8h_a6a9e5d6552098ff117889f54d3b23d03}\label{fonctions_8h_a6a9e5d6552098ff117889f54d3b23d03}} 
+\index{fonctions.h@{fonctions.h}!creerTexte@{creerTexte}}
+\index{creerTexte@{creerTexte}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{creerTexte()}{creerTexte()}}
+{\footnotesize\ttfamily void creer\+Texte (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{T\+T\+F\+\_\+\+Font $\ast$}]{police,  }\item[{char $\ast$}]{str,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer,police,str,x,y} & Affiche un texte a l\textquotesingle{}écran au coordonees x y \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{fonctions_8h_a6f06d4b8cf2932078a9ed35f26db6ca2}\label{fonctions_8h_a6f06d4b8cf2932078a9ed35f26db6ca2}} 
+\index{fonctions.h@{fonctions.h}!creerTexture@{creerTexture}}
+\index{creerTexture@{creerTexture}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{creerTexture()}{creerTexture()}}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Texture $\ast$ creer\+Texture (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Window $\ast$}]{window,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{char}]{source\+I\+MG\mbox{[}30\mbox{]} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window,renderer,source\+I\+M\+G\mbox{[}30\mbox{]}} & Creer une texture associee au renderer et à la source passes en parametres \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{fonctions_8h_af58ba367a2ccd7aa3fa5d0a59041e52e}\label{fonctions_8h_af58ba367a2ccd7aa3fa5d0a59041e52e}} 
+\index{fonctions.h@{fonctions.h}!detruire\_matrice@{detruire\_matrice}}
+\index{detruire\_matrice@{detruire\_matrice}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{detruire\_matrice()}{detruire\_matrice()}}
+{\footnotesize\ttfamily void detruire\+\_\+matrice (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$}]{map }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em map} & Carte à détruire. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{fonctions_8h_a355bbc9c1f3f99ca8579836cf454f50a}\label{fonctions_8h_a355bbc9c1f3f99ca8579836cf454f50a}} 
+\index{fonctions.h@{fonctions.h}!editeur\_map@{editeur\_map}}
+\index{editeur\_map@{editeur\_map}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{editeur\_map()}{editeur\_map()}}
+{\footnotesize\ttfamily void editeur\+\_\+map (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Window $\ast$}]{window,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$}]{map,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{pack\+\_\+texture }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{fonctions_8h_a8523fd3290689ad822bd4f2f93e58751}\label{fonctions_8h_a8523fd3290689ad822bd4f2f93e58751}} 
+\index{fonctions.h@{fonctions.h}!fill\_map@{fill\_map}}
+\index{fill\_map@{fill\_map}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{fill\_map()}{fill\_map()}}
+{\footnotesize\ttfamily void fill\+\_\+map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$}]{map,  }\item[{int}]{case\+\_\+actuelle }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em map,case\+\_\+actuelle} & Fonction permettant de remplir la carte avec la touche selectionnee depuis ses coordonnees \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{fonctions_8h_a2f90b7a4ba75d88f224063ed3d8c3586}\label{fonctions_8h_a2f90b7a4ba75d88f224063ed3d8c3586}} 
+\index{fonctions.h@{fonctions.h}!init\_matrice@{init\_matrice}}
+\index{init\_matrice@{init\_matrice}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{init\_matrice()}{init\_matrice()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$ init\+\_\+matrice (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Structure de coordonees x, y \mbox{\Hypertarget{fonctions_8h_ae05d5d469aa3854d8d53495b6bf19b40}\label{fonctions_8h_ae05d5d469aa3854d8d53495b6bf19b40}} 
+\index{fonctions.h@{fonctions.h}!load\_matrice@{load\_matrice}}
+\index{load\_matrice@{load\_matrice}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{load\_matrice()}{load\_matrice()}}
+{\footnotesize\ttfamily void load\+\_\+matrice (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$}]{map,  }\item[{int}]{n\+\_\+map }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em map} & Charge la matrice. \\
+\hline
+{\em n\+\_\+map} & numero de la map a charger \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{fonctions_8h_ab9e80ba44a9288d18cfe2cd60b808cc0}\label{fonctions_8h_ab9e80ba44a9288d18cfe2cd60b808cc0}} 
+\index{fonctions.h@{fonctions.h}!menu@{menu}}
+\index{menu@{menu}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{menu()}{menu()}}
+{\footnotesize\ttfamily void menu (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Window $\ast$}]{window,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$}]{map,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{pack\+\_\+texture }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{fonctions_8h_ae2bc4f78509db219a55c04ecfe0ee1d3}\label{fonctions_8h_ae2bc4f78509db219a55c04ecfe0ee1d3}} 
+\index{fonctions.h@{fonctions.h}!save\_map@{save\_map}}
+\index{save\_map@{save\_map}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{save\_map()}{save\_map()}}
+{\footnotesize\ttfamily void save\+\_\+map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$}]{map }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em map} & Carte a sauvegarder \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{fonctions_8h_af6a04b57093a69d2616a571d0af7746c}\label{fonctions_8h_af6a04b57093a69d2616a571d0af7746c}} 
+\index{fonctions.h@{fonctions.h}!SDL\_ExitWithError@{SDL\_ExitWithError}}
+\index{SDL\_ExitWithError@{SDL\_ExitWithError}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_ExitWithError()}{SDL\_ExitWithError()}}
+{\footnotesize\ttfamily void S\+D\+L\+\_\+\+Exit\+With\+Error (\begin{DoxyParamCaption}\item[{const char $\ast$}]{message,  }\item[{S\+D\+L\+\_\+\+Window $\ast$}]{w,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{r,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{t }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em massage,x,r,t} & Gestion des erreurs et l\textquotesingle{}affiche \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{fonctions_8h_a784bb41eb4fccde4ffb4783a4cd63095}\label{fonctions_8h_a784bb41eb4fccde4ffb4783a4cd63095}} 
+\index{fonctions.h@{fonctions.h}!settings@{settings}}
+\index{settings@{settings}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{settings()}{settings()}}
+{\footnotesize\ttfamily void settings (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Window $\ast$}]{window,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$}]{map,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{pack\+\_\+texture }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{fonctions_8h_afe579b0c5afda474e19411f424784c27}\label{fonctions_8h_afe579b0c5afda474e19411f424784c27}} 
+\index{fonctions.h@{fonctions.h}!type\_case@{type\_case}}
+\index{type\_case@{type\_case}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{type\_case()}{type\_case()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fonctions_8h_aaf12aabdb00da5b9bfb92b5a2754caf3}{type\+\_\+t}} type\+\_\+case (\begin{DoxyParamCaption}\item[{int}]{case\+\_\+actuelle }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em case\+\_\+actuelle} & Savoir le type de la case actuelle \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{fonctions_8h_a72e6b45551a9204a62f655cd1d678500}\label{fonctions_8h_a72e6b45551a9204a62f655cd1d678500}} 
+\index{fonctions.h@{fonctions.h}!type\_texture@{type\_texture}}
+\index{type\_texture@{type\_texture}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{type\_texture()}{type\_texture()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fonctions_8h_aaf12aabdb00da5b9bfb92b5a2754caf3}{type\+\_\+t}} type\+\_\+texture (\begin{DoxyParamCaption}\item[{int}]{case\+\_\+actuelle }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em case\+\_\+actuelle} & Type de la texture \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{fonctions_8h_a5eeedab3f7bf018437c4bc8a2270d8dc}\label{fonctions_8h_a5eeedab3f7bf018437c4bc8a2270d8dc}} 
+\index{fonctions.h@{fonctions.h}!valides@{valides}}
+\index{valides@{valides}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{valides()}{valides()}}
+{\footnotesize\ttfamily S\+D\+L\+\_\+bool valides (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x,y} & coordonnees dans une matrice \\
+\hline
+\end{DoxyParams}

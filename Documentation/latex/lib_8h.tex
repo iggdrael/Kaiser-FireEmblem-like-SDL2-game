@@ -1,0 +1,167 @@
+\hypertarget{lib_8h}{}\doxysection{Référence du fichier lib.\+h}
+\label{lib_8h}\index{lib.h@{lib.h}}
+
+
+fichier regroupant les fonctions créer pour la simplification de certaine tache  
+
+
+\doxysubsection*{Structures de données}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structelement}{element}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structelement}{element}} \mbox{\hyperlink{lib_8h_aaa9f09bf55fb32a9090e2dc051b75a6a}{t\+\_\+element}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{lib_8h_ae2550f9b6ba95e9ea93c5c85d1c396fe}{randint}} (int min, int max)
+\item 
+int \mbox{\hyperlink{lib_8h_acaacdc53a59c8305f6a70f6fa579e074}{int\+\_\+len}} (unsigned x)
+\item 
+void \mbox{\hyperlink{lib_8h_a0137aa26814ffee19c55092f41aafe4b}{swap}} (char $\ast$c1, char $\ast$c2)
+\item 
+void \mbox{\hyperlink{lib_8h_af2c0f95bdedc4d81b85aefdbf5dfce19}{reverse}} (char str\mbox{[}$\,$\mbox{]}, int length)
+\item 
+char $\ast$ \mbox{\hyperlink{lib_8h_a88f06757a018a7b74dd69876925de407}{ft\+\_\+itoa}} (int num, int base)
+\item 
+void \mbox{\hyperlink{lib_8h_a273907fa64f10a578e107dde70a12876}{initfile}} (void)
+\item 
+void \mbox{\hyperlink{lib_8h_ac7273bd1a4e188d9e2035a1b7575aad4}{ajouter}} (int v)
+\item 
+void \mbox{\hyperlink{lib_8h_a08eddf9603567f4706419d8328ffcce0}{retirer}} (int $\ast$v)
+\item 
+int \mbox{\hyperlink{lib_8h_a4b48b65698f5783adf206700444ea9bd}{filevide}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{lib_8h_aaa9f09bf55fb32a9090e2dc051b75a6a}{t\+\_\+element}} $\ast$ \mbox{\hyperlink{lib_8h_ac64a6a741ed90e894c695c6f92ad31b8}{tete}}
+\item 
+\mbox{\hyperlink{lib_8h_aaa9f09bf55fb32a9090e2dc051b75a6a}{t\+\_\+element}} $\ast$ \mbox{\hyperlink{lib_8h_ae8f83cc1f73001fbaedaa4ee4e4312ae}{queue}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+fichier regroupant les fonctions créer pour la simplification de certaine tache 
+
+\begin{DoxyAuthor}{Auteur}
+G\+U\+Y\+ON Arthur S\+A\+N\+NA Florian R\+I\+C\+H\+E\+F\+EU Mattéo 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des définitions de type}
+\mbox{\Hypertarget{lib_8h_aaa9f09bf55fb32a9090e2dc051b75a6a}\label{lib_8h_aaa9f09bf55fb32a9090e2dc051b75a6a}} 
+\index{lib.h@{lib.h}!t\_element@{t\_element}}
+\index{t\_element@{t\_element}!lib.h@{lib.h}}
+\doxysubsubsection{\texorpdfstring{t\_element}{t\_element}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structelement}{element}} \mbox{\hyperlink{lib_8h_aaa9f09bf55fb32a9090e2dc051b75a6a}{t\+\_\+element}}}
+
+Primitives de files 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{lib_8h_ac7273bd1a4e188d9e2035a1b7575aad4}\label{lib_8h_ac7273bd1a4e188d9e2035a1b7575aad4}} 
+\index{lib.h@{lib.h}!ajouter@{ajouter}}
+\index{ajouter@{ajouter}!lib.h@{lib.h}}
+\doxysubsubsection{\texorpdfstring{ajouter()}{ajouter()}}
+{\footnotesize\ttfamily void ajouter (\begin{DoxyParamCaption}\item[{int}]{v }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lib_8h_a4b48b65698f5783adf206700444ea9bd}\label{lib_8h_a4b48b65698f5783adf206700444ea9bd}} 
+\index{lib.h@{lib.h}!filevide@{filevide}}
+\index{filevide@{filevide}!lib.h@{lib.h}}
+\doxysubsubsection{\texorpdfstring{filevide()}{filevide()}}
+{\footnotesize\ttfamily int filevide (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lib_8h_a88f06757a018a7b74dd69876925de407}\label{lib_8h_a88f06757a018a7b74dd69876925de407}} 
+\index{lib.h@{lib.h}!ft\_itoa@{ft\_itoa}}
+\index{ft\_itoa@{ft\_itoa}!lib.h@{lib.h}}
+\doxysubsubsection{\texorpdfstring{ft\_itoa()}{ft\_itoa()}}
+{\footnotesize\ttfamily char $\ast$ ft\+\_\+itoa (\begin{DoxyParamCaption}\item[{int}]{num,  }\item[{int}]{base }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em num} & le nombre a convertir \\
+\hline
+{\em base} & la base du nombre \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{lib_8h_a273907fa64f10a578e107dde70a12876}\label{lib_8h_a273907fa64f10a578e107dde70a12876}} 
+\index{lib.h@{lib.h}!initfile@{initfile}}
+\index{initfile@{initfile}!lib.h@{lib.h}}
+\doxysubsubsection{\texorpdfstring{initfile()}{initfile()}}
+{\footnotesize\ttfamily void initfile (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lib_8h_acaacdc53a59c8305f6a70f6fa579e074}\label{lib_8h_acaacdc53a59c8305f6a70f6fa579e074}} 
+\index{lib.h@{lib.h}!int\_len@{int\_len}}
+\index{int\_len@{int\_len}!lib.h@{lib.h}}
+\doxysubsubsection{\texorpdfstring{int\_len()}{int\_len()}}
+{\footnotesize\ttfamily int int\+\_\+len (\begin{DoxyParamCaption}\item[{unsigned}]{x }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & l entier a etudier \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{lib_8h_ae2550f9b6ba95e9ea93c5c85d1c396fe}\label{lib_8h_ae2550f9b6ba95e9ea93c5c85d1c396fe}} 
+\index{lib.h@{lib.h}!randint@{randint}}
+\index{randint@{randint}!lib.h@{lib.h}}
+\doxysubsubsection{\texorpdfstring{randint()}{randint()}}
+{\footnotesize\ttfamily int randint (\begin{DoxyParamCaption}\item[{int}]{min,  }\item[{int}]{max }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em min} & borne inferieure \\
+\hline
+{\em max} & borne superieure \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{lib_8h_a08eddf9603567f4706419d8328ffcce0}\label{lib_8h_a08eddf9603567f4706419d8328ffcce0}} 
+\index{lib.h@{lib.h}!retirer@{retirer}}
+\index{retirer@{retirer}!lib.h@{lib.h}}
+\doxysubsubsection{\texorpdfstring{retirer()}{retirer()}}
+{\footnotesize\ttfamily void retirer (\begin{DoxyParamCaption}\item[{int $\ast$}]{v }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lib_8h_af2c0f95bdedc4d81b85aefdbf5dfce19}\label{lib_8h_af2c0f95bdedc4d81b85aefdbf5dfce19}} 
+\index{lib.h@{lib.h}!reverse@{reverse}}
+\index{reverse@{reverse}!lib.h@{lib.h}}
+\doxysubsubsection{\texorpdfstring{reverse()}{reverse()}}
+{\footnotesize\ttfamily void reverse (\begin{DoxyParamCaption}\item[{char}]{str\mbox{[}$\,$\mbox{]},  }\item[{int}]{length }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em str} & la string a retourner \\
+\hline
+{\em length} & la taille de la string \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{lib_8h_a0137aa26814ffee19c55092f41aafe4b}\label{lib_8h_a0137aa26814ffee19c55092f41aafe4b}} 
+\index{lib.h@{lib.h}!swap@{swap}}
+\index{swap@{swap}!lib.h@{lib.h}}
+\doxysubsubsection{\texorpdfstring{swap()}{swap()}}
+{\footnotesize\ttfamily void swap (\begin{DoxyParamCaption}\item[{char $\ast$}]{c1,  }\item[{char $\ast$}]{c2 }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em c1} & caractere a echanger \\
+\hline
+{\em c2} & le second \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentation des variables}
+\mbox{\Hypertarget{lib_8h_ae8f83cc1f73001fbaedaa4ee4e4312ae}\label{lib_8h_ae8f83cc1f73001fbaedaa4ee4e4312ae}} 
+\index{lib.h@{lib.h}!queue@{queue}}
+\index{queue@{queue}!lib.h@{lib.h}}
+\doxysubsubsection{\texorpdfstring{queue}{queue}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lib_8h_aaa9f09bf55fb32a9090e2dc051b75a6a}{t\+\_\+element}}$\ast$ queue}
+
+\mbox{\Hypertarget{lib_8h_ac64a6a741ed90e894c695c6f92ad31b8}\label{lib_8h_ac64a6a741ed90e894c695c6f92ad31b8}} 
+\index{lib.h@{lib.h}!tete@{tete}}
+\index{tete@{tete}!lib.h@{lib.h}}
+\doxysubsubsection{\texorpdfstring{tete}{tete}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lib_8h_aaa9f09bf55fb32a9090e2dc051b75a6a}{t\+\_\+element}}$\ast$ tete}
+

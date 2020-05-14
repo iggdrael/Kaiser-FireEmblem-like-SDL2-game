@@ -1,0 +1,207 @@
+\hypertarget{commun_8h}{}\doxysection{Référence du fichier commun.\+h}
+\label{commun_8h}\index{commun.h@{commun.h}}
+
+
+fichier regroupant les constante utilisées dans les différents fichiers  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}lib.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fonctions.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}jeu.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}selection\+\_\+equipe.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{commun_8h_a9c3a2f7f87e19ecd44a7aa39c5d209bf}{W\+\_\+\+T\+E\+X\+T\+U\+R\+ES}}~408/$\ast$$\ast$Largeur de la fenetre du pack de texture$\ast$$\ast$/
+\item 
+\#define \mbox{\hyperlink{commun_8h_a74e092231b33a646cc154b7fa8f43544}{H\+\_\+\+T\+E\+X\+T\+U\+R\+ES}}~720/$\ast$$\ast$Hauteur de la fenetre du pack de texture$\ast$$\ast$/
+\item 
+\#define \mbox{\hyperlink{commun_8h_a12491bd8cdbac2730ce9ba1505844b23}{L\+A\+R\+G\+E\+U\+R\+\_\+\+T\+I\+LE}}~32 /$\ast$$\ast$Taille d un tile en pixels$\ast$$\ast$/
+\item 
+\#define \mbox{\hyperlink{commun_8h_a0db79c057d77ec76d8423b9b2c88c476}{H\+A\+U\+T\+E\+U\+R\+\_\+\+T\+I\+LE}}~32
+\item 
+\#define \mbox{\hyperlink{commun_8h_aca6a32b1663668330f9bd7bb521a200f}{N\+O\+M\+B\+R\+E\+\_\+\+B\+L\+O\+C\+S\+\_\+\+L\+A\+R\+G\+E\+UR}}~17 /$\ast$$\ast$Nombre de tiles sur le pack de texture$\ast$$\ast$/
+\item 
+\#define \mbox{\hyperlink{commun_8h_a789df0669b9be7839c687d0a83069dbb}{N\+O\+M\+B\+R\+E\+\_\+\+B\+L\+O\+C\+S\+\_\+\+H\+A\+U\+T\+E\+UR}}~30
+\item 
+\#define \mbox{\hyperlink{commun_8h_a6f83eeeca7ad2d7ad5ba41f3ae6d904e}{M\+A\+X\+\_\+\+T\+E\+X\+T\+U\+R\+ES}}~3 /$\ast$$\ast$Nombre maximum de textures qu une case de la matrice peut avoir$\ast$$\ast$/
+\item 
+\#define \mbox{\hyperlink{commun_8h_afc33ef3eddf1936762c617120891ee1f}{N\+O\+M\+\_\+\+F\+O\+NT}}~\char`\"{}L\+L\+H\+P.\+ttf\char`\"{} /$\ast$$\ast$Nom de la police d ecriture$\ast$$\ast$/
+\item 
+\#define \mbox{\hyperlink{commun_8h_a1bd2e58a183206537e3365f36d514eec}{P\+\_\+R}}~25
+\item 
+\#define \mbox{\hyperlink{commun_8h_a0fa286a619ee028391743a06f25e3cad}{P\+\_\+G}}~25
+\item 
+\#define \mbox{\hyperlink{commun_8h_a06441a74086d94a7aa28f9b236881455}{P\+\_\+B}}~25
+\item 
+\#define \mbox{\hyperlink{commun_8h_a73e63d75c483e6c3b11888b6aff86d0e}{R\+\_\+R}}~125
+\item 
+\#define \mbox{\hyperlink{commun_8h_acf85d89fd4c3538cbcda5c726a89114c}{R\+\_\+G}}~125
+\item 
+\#define \mbox{\hyperlink{commun_8h_a4fb93d1a733c1e1a79b1f796d59ce6e2}{R\+\_\+B}}~125
+\item 
+\#define \mbox{\hyperlink{commun_8h_a52037c938e3c1b126c6277da5ca689d0}{M}}~39 /$\ast$$\ast$Matrice de \mbox{\hyperlink{commun_8h_a0240ac851181b84ac374872dc5434ee4}{N}} $\ast$ M cases, \mbox{\hyperlink{commun_8h_a0240ac851181b84ac374872dc5434ee4}{N}} est calculee automatiquement pour rester en 16/9$\ast$$\ast$/
+\item 
+\#define \mbox{\hyperlink{commun_8h_a0240ac851181b84ac374872dc5434ee4}{N}}~(int)(\mbox{\hyperlink{commun_8h_a52037c938e3c1b126c6277da5ca689d0}{M}} / (16.\+0/9.\+0) + 1)
+\item 
+\#define \mbox{\hyperlink{commun_8h_a4556ed63950df9e6b1c3c4273e8048b7}{L\+A\+R\+G\+E\+U\+R\+\_\+\+C\+A\+SE}}~(\mbox{\hyperlink{commun_8h_a59c3bba4b17cd5e19f149ea175fa6989}{W\+I\+D\+TH}} / \mbox{\hyperlink{commun_8h_a52037c938e3c1b126c6277da5ca689d0}{M}}) /$\ast$$\ast$Largeur en pixels d une case en fonction de la taille de la fenetre$\ast$$\ast$/
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{commun_8h_a59c3bba4b17cd5e19f149ea175fa6989}{W\+I\+D\+TH}}
+\item 
+int \mbox{\hyperlink{commun_8h_a4e81322eb1085aca9cd7c5527f5e4c6b}{H\+E\+I\+G\+HT}}
+\item 
+int \mbox{\hyperlink{commun_8h_a479fef6384cbf7744ef1985d7b560ede}{W\+\_\+\+G\+UI}}
+\item 
+int \mbox{\hyperlink{commun_8h_a9fa872e143f2ab4b6b791c21234a863c}{H\+\_\+\+G\+UI}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+fichier regroupant les constante utilisées dans les différents fichiers 
+
+\begin{DoxyAuthor}{Auteur}
+G\+U\+Y\+ON Arthur S\+A\+N\+NA Florian R\+I\+C\+H\+E\+F\+EU Mattéo 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des macros}
+\mbox{\Hypertarget{commun_8h_a74e092231b33a646cc154b7fa8f43544}\label{commun_8h_a74e092231b33a646cc154b7fa8f43544}} 
+\index{commun.h@{commun.h}!H\_TEXTURES@{H\_TEXTURES}}
+\index{H\_TEXTURES@{H\_TEXTURES}!commun.h@{commun.h}}
+\doxysubsubsection{\texorpdfstring{H\_TEXTURES}{H\_TEXTURES}}
+{\footnotesize\ttfamily \#define H\+\_\+\+T\+E\+X\+T\+U\+R\+ES~720/$\ast$$\ast$Hauteur de la fenetre du pack de texture$\ast$$\ast$/}
+
+\mbox{\Hypertarget{commun_8h_a0db79c057d77ec76d8423b9b2c88c476}\label{commun_8h_a0db79c057d77ec76d8423b9b2c88c476}} 
+\index{commun.h@{commun.h}!HAUTEUR\_TILE@{HAUTEUR\_TILE}}
+\index{HAUTEUR\_TILE@{HAUTEUR\_TILE}!commun.h@{commun.h}}
+\doxysubsubsection{\texorpdfstring{HAUTEUR\_TILE}{HAUTEUR\_TILE}}
+{\footnotesize\ttfamily \#define H\+A\+U\+T\+E\+U\+R\+\_\+\+T\+I\+LE~32}
+
+\mbox{\Hypertarget{commun_8h_a4556ed63950df9e6b1c3c4273e8048b7}\label{commun_8h_a4556ed63950df9e6b1c3c4273e8048b7}} 
+\index{commun.h@{commun.h}!LARGEUR\_CASE@{LARGEUR\_CASE}}
+\index{LARGEUR\_CASE@{LARGEUR\_CASE}!commun.h@{commun.h}}
+\doxysubsubsection{\texorpdfstring{LARGEUR\_CASE}{LARGEUR\_CASE}}
+{\footnotesize\ttfamily \#define L\+A\+R\+G\+E\+U\+R\+\_\+\+C\+A\+SE~(\mbox{\hyperlink{commun_8h_a59c3bba4b17cd5e19f149ea175fa6989}{W\+I\+D\+TH}} / \mbox{\hyperlink{commun_8h_a52037c938e3c1b126c6277da5ca689d0}{M}}) /$\ast$$\ast$Largeur en pixels d une case en fonction de la taille de la fenetre$\ast$$\ast$/}
+
+\mbox{\Hypertarget{commun_8h_a12491bd8cdbac2730ce9ba1505844b23}\label{commun_8h_a12491bd8cdbac2730ce9ba1505844b23}} 
+\index{commun.h@{commun.h}!LARGEUR\_TILE@{LARGEUR\_TILE}}
+\index{LARGEUR\_TILE@{LARGEUR\_TILE}!commun.h@{commun.h}}
+\doxysubsubsection{\texorpdfstring{LARGEUR\_TILE}{LARGEUR\_TILE}}
+{\footnotesize\ttfamily \#define L\+A\+R\+G\+E\+U\+R\+\_\+\+T\+I\+LE~32 /$\ast$$\ast$Taille d un tile en pixels$\ast$$\ast$/}
+
+\mbox{\Hypertarget{commun_8h_a52037c938e3c1b126c6277da5ca689d0}\label{commun_8h_a52037c938e3c1b126c6277da5ca689d0}} 
+\index{commun.h@{commun.h}!M@{M}}
+\index{M@{M}!commun.h@{commun.h}}
+\doxysubsubsection{\texorpdfstring{M}{M}}
+{\footnotesize\ttfamily \#define M~39 /$\ast$$\ast$Matrice de \mbox{\hyperlink{commun_8h_a0240ac851181b84ac374872dc5434ee4}{N}} $\ast$ M cases, \mbox{\hyperlink{commun_8h_a0240ac851181b84ac374872dc5434ee4}{N}} est calculee automatiquement pour rester en 16/9$\ast$$\ast$/}
+
+\mbox{\Hypertarget{commun_8h_a6f83eeeca7ad2d7ad5ba41f3ae6d904e}\label{commun_8h_a6f83eeeca7ad2d7ad5ba41f3ae6d904e}} 
+\index{commun.h@{commun.h}!MAX\_TEXTURES@{MAX\_TEXTURES}}
+\index{MAX\_TEXTURES@{MAX\_TEXTURES}!commun.h@{commun.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_TEXTURES}{MAX\_TEXTURES}}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+T\+E\+X\+T\+U\+R\+ES~3 /$\ast$$\ast$Nombre maximum de textures qu une case de la matrice peut avoir$\ast$$\ast$/}
+
+\mbox{\Hypertarget{commun_8h_a0240ac851181b84ac374872dc5434ee4}\label{commun_8h_a0240ac851181b84ac374872dc5434ee4}} 
+\index{commun.h@{commun.h}!N@{N}}
+\index{N@{N}!commun.h@{commun.h}}
+\doxysubsubsection{\texorpdfstring{N}{N}}
+{\footnotesize\ttfamily \#define N~(int)(\mbox{\hyperlink{commun_8h_a52037c938e3c1b126c6277da5ca689d0}{M}} / (16.\+0/9.\+0) + 1)}
+
+\mbox{\Hypertarget{commun_8h_afc33ef3eddf1936762c617120891ee1f}\label{commun_8h_afc33ef3eddf1936762c617120891ee1f}} 
+\index{commun.h@{commun.h}!NOM\_FONT@{NOM\_FONT}}
+\index{NOM\_FONT@{NOM\_FONT}!commun.h@{commun.h}}
+\doxysubsubsection{\texorpdfstring{NOM\_FONT}{NOM\_FONT}}
+{\footnotesize\ttfamily \#define N\+O\+M\+\_\+\+F\+O\+NT~\char`\"{}L\+L\+H\+P.\+ttf\char`\"{} /$\ast$$\ast$Nom de la police d ecriture$\ast$$\ast$/}
+
+\mbox{\Hypertarget{commun_8h_a789df0669b9be7839c687d0a83069dbb}\label{commun_8h_a789df0669b9be7839c687d0a83069dbb}} 
+\index{commun.h@{commun.h}!NOMBRE\_BLOCS\_HAUTEUR@{NOMBRE\_BLOCS\_HAUTEUR}}
+\index{NOMBRE\_BLOCS\_HAUTEUR@{NOMBRE\_BLOCS\_HAUTEUR}!commun.h@{commun.h}}
+\doxysubsubsection{\texorpdfstring{NOMBRE\_BLOCS\_HAUTEUR}{NOMBRE\_BLOCS\_HAUTEUR}}
+{\footnotesize\ttfamily \#define N\+O\+M\+B\+R\+E\+\_\+\+B\+L\+O\+C\+S\+\_\+\+H\+A\+U\+T\+E\+UR~30}
+
+\mbox{\Hypertarget{commun_8h_aca6a32b1663668330f9bd7bb521a200f}\label{commun_8h_aca6a32b1663668330f9bd7bb521a200f}} 
+\index{commun.h@{commun.h}!NOMBRE\_BLOCS\_LARGEUR@{NOMBRE\_BLOCS\_LARGEUR}}
+\index{NOMBRE\_BLOCS\_LARGEUR@{NOMBRE\_BLOCS\_LARGEUR}!commun.h@{commun.h}}
+\doxysubsubsection{\texorpdfstring{NOMBRE\_BLOCS\_LARGEUR}{NOMBRE\_BLOCS\_LARGEUR}}
+{\footnotesize\ttfamily \#define N\+O\+M\+B\+R\+E\+\_\+\+B\+L\+O\+C\+S\+\_\+\+L\+A\+R\+G\+E\+UR~17 /$\ast$$\ast$Nombre de tiles sur le pack de texture$\ast$$\ast$/}
+
+\mbox{\Hypertarget{commun_8h_a06441a74086d94a7aa28f9b236881455}\label{commun_8h_a06441a74086d94a7aa28f9b236881455}} 
+\index{commun.h@{commun.h}!P\_B@{P\_B}}
+\index{P\_B@{P\_B}!commun.h@{commun.h}}
+\doxysubsubsection{\texorpdfstring{P\_B}{P\_B}}
+{\footnotesize\ttfamily \#define P\+\_\+B~25}
+
+\mbox{\Hypertarget{commun_8h_a0fa286a619ee028391743a06f25e3cad}\label{commun_8h_a0fa286a619ee028391743a06f25e3cad}} 
+\index{commun.h@{commun.h}!P\_G@{P\_G}}
+\index{P\_G@{P\_G}!commun.h@{commun.h}}
+\doxysubsubsection{\texorpdfstring{P\_G}{P\_G}}
+{\footnotesize\ttfamily \#define P\+\_\+G~25}
+
+\mbox{\Hypertarget{commun_8h_a1bd2e58a183206537e3365f36d514eec}\label{commun_8h_a1bd2e58a183206537e3365f36d514eec}} 
+\index{commun.h@{commun.h}!P\_R@{P\_R}}
+\index{P\_R@{P\_R}!commun.h@{commun.h}}
+\doxysubsubsection{\texorpdfstring{P\_R}{P\_R}}
+{\footnotesize\ttfamily \#define P\+\_\+R~25}
+
+Code R\+GB de la police d ecriture \mbox{\Hypertarget{commun_8h_a4fb93d1a733c1e1a79b1f796d59ce6e2}\label{commun_8h_a4fb93d1a733c1e1a79b1f796d59ce6e2}} 
+\index{commun.h@{commun.h}!R\_B@{R\_B}}
+\index{R\_B@{R\_B}!commun.h@{commun.h}}
+\doxysubsubsection{\texorpdfstring{R\_B}{R\_B}}
+{\footnotesize\ttfamily \#define R\+\_\+B~125}
+
+\mbox{\Hypertarget{commun_8h_acf85d89fd4c3538cbcda5c726a89114c}\label{commun_8h_acf85d89fd4c3538cbcda5c726a89114c}} 
+\index{commun.h@{commun.h}!R\_G@{R\_G}}
+\index{R\_G@{R\_G}!commun.h@{commun.h}}
+\doxysubsubsection{\texorpdfstring{R\_G}{R\_G}}
+{\footnotesize\ttfamily \#define R\+\_\+G~125}
+
+\mbox{\Hypertarget{commun_8h_a73e63d75c483e6c3b11888b6aff86d0e}\label{commun_8h_a73e63d75c483e6c3b11888b6aff86d0e}} 
+\index{commun.h@{commun.h}!R\_R@{R\_R}}
+\index{R\_R@{R\_R}!commun.h@{commun.h}}
+\doxysubsubsection{\texorpdfstring{R\_R}{R\_R}}
+{\footnotesize\ttfamily \#define R\+\_\+R~125}
+
+Code R\+GB des rectangles d affichage \mbox{\Hypertarget{commun_8h_a9c3a2f7f87e19ecd44a7aa39c5d209bf}\label{commun_8h_a9c3a2f7f87e19ecd44a7aa39c5d209bf}} 
+\index{commun.h@{commun.h}!W\_TEXTURES@{W\_TEXTURES}}
+\index{W\_TEXTURES@{W\_TEXTURES}!commun.h@{commun.h}}
+\doxysubsubsection{\texorpdfstring{W\_TEXTURES}{W\_TEXTURES}}
+{\footnotesize\ttfamily \#define W\+\_\+\+T\+E\+X\+T\+U\+R\+ES~408/$\ast$$\ast$Largeur de la fenetre du pack de texture$\ast$$\ast$/}
+
+Hauteur de la fenetre interface combat 
+
+\doxysubsection{Documentation des variables}
+\mbox{\Hypertarget{commun_8h_a9fa872e143f2ab4b6b791c21234a863c}\label{commun_8h_a9fa872e143f2ab4b6b791c21234a863c}} 
+\index{commun.h@{commun.h}!H\_GUI@{H\_GUI}}
+\index{H\_GUI@{H\_GUI}!commun.h@{commun.h}}
+\doxysubsubsection{\texorpdfstring{H\_GUI}{H\_GUI}}
+{\footnotesize\ttfamily int H\+\_\+\+G\+UI}
+
+Largeur de la fenetre interface combat \mbox{\Hypertarget{commun_8h_a4e81322eb1085aca9cd7c5527f5e4c6b}\label{commun_8h_a4e81322eb1085aca9cd7c5527f5e4c6b}} 
+\index{commun.h@{commun.h}!HEIGHT@{HEIGHT}}
+\index{HEIGHT@{HEIGHT}!commun.h@{commun.h}}
+\doxysubsubsection{\texorpdfstring{HEIGHT}{HEIGHT}}
+{\footnotesize\ttfamily int H\+E\+I\+G\+HT}
+
+Largeur de la fenetre principale \mbox{\Hypertarget{commun_8h_a479fef6384cbf7744ef1985d7b560ede}\label{commun_8h_a479fef6384cbf7744ef1985d7b560ede}} 
+\index{commun.h@{commun.h}!W\_GUI@{W\_GUI}}
+\index{W\_GUI@{W\_GUI}!commun.h@{commun.h}}
+\doxysubsubsection{\texorpdfstring{W\_GUI}{W\_GUI}}
+{\footnotesize\ttfamily int W\+\_\+\+G\+UI}
+
+Hauteur de la fenetre principale \mbox{\Hypertarget{commun_8h_a59c3bba4b17cd5e19f149ea175fa6989}\label{commun_8h_a59c3bba4b17cd5e19f149ea175fa6989}} 
+\index{commun.h@{commun.h}!WIDTH@{WIDTH}}
+\index{WIDTH@{WIDTH}!commun.h@{commun.h}}
+\doxysubsubsection{\texorpdfstring{WIDTH}{WIDTH}}
+{\footnotesize\ttfamily int W\+I\+D\+TH}
+

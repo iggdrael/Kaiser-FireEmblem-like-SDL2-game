@@ -1,0 +1,812 @@
+\hypertarget{jeu_8h}{}\doxysection{Référence du fichier jeu.\+h}
+\label{jeu_8h}\index{jeu.h@{jeu.h}}
+
+
+fichier regroupant les fonctions permettantde jouer  
+
+
+\doxysubsection*{Structures de données}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structperso__s}{perso\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{structjoueur__s}{joueur\+\_\+s}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a2347ca44d2772ecfa07c3e0ab3116f48}{M\+I\+N\+\_\+\+P\+E\+R\+SO}}~5
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a533c1fb65994e993f3ed70e6472ba40e}{M\+A\+X\+\_\+\+P\+E\+R\+SO}}~10
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a0a783f4545da71a8de28369b6f0804e8}{N\+B\+\_\+\+M\+A\+PS}}~5
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a43d5d30fb665e6fd574678226134fbba}{N\+B\+\_\+\+C\+L\+A\+S\+S\+ES}}~5
+\item 
+\#define \mbox{\hyperlink{jeu_8h_aa3f5f1ff00df0715db97068dc408541d}{T\+E\+X\+T\+\_\+\+G\+U\+E\+R\+R\+I\+ER}}~481
+\item 
+\#define \mbox{\hyperlink{jeu_8h_aed3cfc424d952a4f60169354183068fb}{T\+E\+X\+T\+\_\+\+M\+A\+GE}}~476
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a6d8217e948740099f2606599bc283bca}{T\+E\+X\+T\+\_\+\+A\+R\+C\+H\+ER}}~478
+\item 
+\#define \mbox{\hyperlink{jeu_8h_af7d8bc195633830c009465966dce6723}{T\+E\+X\+T\+\_\+\+H\+E\+A\+L\+ER}}~477
+\item 
+\#define \mbox{\hyperlink{jeu_8h_af92238b8fa70a5aaebb94d2db0edac1c}{T\+E\+X\+T\+\_\+\+V\+O\+L\+E\+UR}}~480
+\item 
+\#define \mbox{\hyperlink{jeu_8h_af87ec967d02ea02ac6ceb5e9afa5549e}{T\+E\+X\+T\+\_\+\+G\+U\+E\+R\+R\+I\+E\+R\+\_\+\+B\+OT}}~487
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a34685c7cda7886b2228cdeb58d117d77}{T\+E\+X\+T\+\_\+\+M\+A\+G\+E\+\_\+\+B\+OT}}~482
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a48f0e9f47561669954e5b347603e15b2}{T\+E\+X\+T\+\_\+\+A\+R\+C\+H\+E\+R\+\_\+\+B\+OT}}~484
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a7ad0e623c512c7c80b057d745d54e275}{T\+E\+X\+T\+\_\+\+H\+E\+A\+L\+E\+R\+\_\+\+B\+OT}}~483
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a209ee8efc08a9f7725db1d6dfe1cae1b}{T\+E\+X\+T\+\_\+\+V\+O\+L\+E\+U\+R\+\_\+\+B\+OT}}~486
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a85d5d132440cb4991f8d99622f5d81ae}{P\+E\+R\+S\+O\+\_\+\+M\+O\+RT}}~488
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a4d00779ade2a26536563afbe14eb0e5a}{G\+\_\+\+PV}}~100
+\item 
+\#define \mbox{\hyperlink{jeu_8h_ac66c30c4a8fdeaf0c71b2a77a7582f5b}{G\+\_\+\+A\+TK}}~40
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a8fc9228b93af2f206c1737f49ad731d8}{G\+\_\+\+D\+EF}}~20
+\item 
+\#define \mbox{\hyperlink{jeu_8h_af4c4fce75a4d862e523c95a16b3b212c}{G\+\_\+\+E\+SQ}}~0
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a4def1b1d71abcf9c7ad1a71d685222dc}{G\+\_\+\+C\+R\+IT}}~5
+\item 
+\#define \mbox{\hyperlink{jeu_8h_abb909806ce3b45f5337cb985b0337ec2}{G\+\_\+\+P\+OR}}~1
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a656d11457667b01f48b3176a8d074333}{G\+\_\+\+D\+EP}}~5
+\item 
+\#define \mbox{\hyperlink{jeu_8h_aec523545fc74f1f49de4c1f0ab21b3a7}{M\+\_\+\+PV}}~65
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a575e2032f6c4f45a17a18a6d78f152f0}{M\+\_\+\+A\+TK}}~60
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a60226dd28b626ae5011f1d1c9b7283fa}{M\+\_\+\+D\+EF}}~8
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a43236143b4a28d49436087c8c2403b1f}{M\+\_\+\+E\+SQ}}~5
+\item 
+\#define \mbox{\hyperlink{jeu_8h_abe12c9d4698738a67a81d4a291611411}{M\+\_\+\+C\+R\+IT}}~8
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a576e56b1338573b625c04941f6228d7b}{M\+\_\+\+P\+OR}}~4
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a8782f68d22ccf49a1a786f85c416f303}{M\+\_\+\+D\+EP}}~6
+\item 
+\#define \mbox{\hyperlink{jeu_8h_ab3131540d98a58068c217c116fe60d15}{A\+\_\+\+PV}}~60
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a4a8bca5ecc67e6a489d38cf3110437c5}{A\+\_\+\+A\+TK}}~50
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a6f9343aa1d78e32f099ad2ed9d32112c}{A\+\_\+\+D\+EF}}~9
+\item 
+\#define \mbox{\hyperlink{jeu_8h_ad02ad21ad65ea9cc6aa70347d20338af}{A\+\_\+\+E\+SQ}}~5
+\item 
+\#define \mbox{\hyperlink{jeu_8h_adf21fcbad231261d7a1bbdd9e634ef42}{A\+\_\+\+C\+R\+IT}}~6
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a67ef9543e4df7bf839d87af6dcdda83e}{A\+\_\+\+P\+OR}}~5
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a66981259d7bc0d37753b66e4fa734353}{A\+\_\+\+D\+EP}}~6
+\item 
+\#define \mbox{\hyperlink{jeu_8h_aae39e5b04226f9495f7d80bde53e6b6f}{H\+\_\+\+PV}}~80
+\item 
+\#define \mbox{\hyperlink{jeu_8h_ad71c62d8b6bc463ea3fb0f9e75000173}{H\+\_\+\+A\+TK}}~15
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a0172615e8e00c916ab478c1751f5a45e}{H\+\_\+\+D\+EF}}~10
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a71a1c97b66356faf17112c7c89faf729}{H\+\_\+\+E\+SQ}}~2
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a0d3201623b0fa389a55227320e1df1d3}{H\+\_\+\+C\+R\+IT}}~5
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a43137eee58ff89d5be21d5a2538109d0}{H\+\_\+\+P\+OR}}~2
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a029ce0fb4dd422027428eed058cfcb55}{H\+\_\+\+D\+EP}}~6
+\item 
+\#define \mbox{\hyperlink{jeu_8h_afa538c8d401342bf82d09d0d2386bc3f}{V\+\_\+\+PV}}~45
+\item 
+\#define \mbox{\hyperlink{jeu_8h_ae6dcf4e33eb148b32539514aeb839217}{V\+\_\+\+A\+TK}}~80
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a05fb245d0f3f0c7f49ab877b44cf955c}{V\+\_\+\+D\+EF}}~0
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a54c0b308c462c31b39b29eebdbe686e2}{V\+\_\+\+E\+SQ}}~20
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a5db56554d32a8297170136c8bb284da1}{V\+\_\+\+C\+R\+IT}}~33
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a0397c5d14848f56259e0ebea9189ffb0}{V\+\_\+\+P\+OR}}~1
+\item 
+\#define \mbox{\hyperlink{jeu_8h_af66d25c8d7cf0e8b85ee30a953a50f2e}{V\+\_\+\+D\+EP}}~6
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a9cb742a1d41e4969b71f0f2fc8240006}{T\+A\+I\+L\+L\+E\+\_\+\+F\+O\+N\+T\+\_\+\+G\+UI}}~30
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a942e78b6e953faf6dc70d34446c6d131}{T\+A\+I\+L\+L\+E\+\_\+\+M\+A\+I\+N\+\_\+\+F\+O\+NT}}~50
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a75553ae510eff0cdad9d71d775819c56}{O\+P\+\_\+R}}~100
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a354df2fbb3c485a0d7f968673157e0a0}{O\+P\+\_\+V}}~80
+\item 
+\#define \mbox{\hyperlink{jeu_8h_a568af57a9d65600bf6d3dcb0a5ebeae4}{O\+P\+\_\+B}}~64
+\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{jeu_8h_a9c6ae526d3bb89d5285b8d3da4920db5}{J\+\_\+s}} \mbox{\hyperlink{jeu_8h_a99f492ae970bd50ebb199960995114d0}{J\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{structperso__s}{perso\+\_\+s}} \mbox{\hyperlink{jeu_8h_a550089442e996a6b42d393992dbc5436}{perso\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{structjoueur__s}{joueur\+\_\+s}} \mbox{\hyperlink{jeu_8h_a78cda65cd9b26fc9f1ef13f89b316b94}{joueur\+\_\+t}}
+\item 
+typedef enum \mbox{\hyperlink{jeu_8h_aba5a9724d6577776000cc8030a620add}{classe\+\_\+s}} \mbox{\hyperlink{jeu_8h_ad9c715cb868cbeb4aa829ec92a8c8bba}{classe\+\_\+t}}
+\item 
+typedef enum \mbox{\hyperlink{jeu_8h_a99a4cd6eba2d81ce2389cb24df5c7d70}{race\+\_\+s}} \mbox{\hyperlink{jeu_8h_adf1321d2260a7ff3db7e7607fb48e135}{race\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{jeu_8h_a9c6ae526d3bb89d5285b8d3da4920db5}{J\+\_\+s}} \{ \mbox{\hyperlink{jeu_8h_a9c6ae526d3bb89d5285b8d3da4920db5a0da67f12aaf41e79f0bc7b68d0a69183}{J1}}, 
+\mbox{\hyperlink{jeu_8h_a9c6ae526d3bb89d5285b8d3da4920db5a8701d7066e8b0fb9f21e9d933739062e}{B\+OT}}
+ \}
+\item 
+enum \mbox{\hyperlink{jeu_8h_aba5a9724d6577776000cc8030a620add}{classe\+\_\+s}} \{ \newline
+\mbox{\hyperlink{jeu_8h_aba5a9724d6577776000cc8030a620adda9f0ec0dd34ceeb8f08d0fed8679a031c}{G\+U\+E\+R\+R\+I\+ER}}, 
+\mbox{\hyperlink{jeu_8h_aba5a9724d6577776000cc8030a620adda010931f222a7946e90308d51d6ac283e}{M\+A\+GE}}, 
+\mbox{\hyperlink{jeu_8h_aba5a9724d6577776000cc8030a620addae954102adce155b6de15962072532fcf}{V\+O\+L\+E\+UR}}, 
+\mbox{\hyperlink{jeu_8h_aba5a9724d6577776000cc8030a620addac482cec9850564270fde1520e0027024}{A\+R\+C\+H\+ER}}, 
+\newline
+\mbox{\hyperlink{jeu_8h_aba5a9724d6577776000cc8030a620adda8103cd625bbb9cc0e917a7e84cc7cd9b}{P\+R\+E\+T\+RE}}
+ \}
+\item 
+enum \mbox{\hyperlink{jeu_8h_a99a4cd6eba2d81ce2389cb24df5c7d70}{race\+\_\+s}} \{ \mbox{\hyperlink{jeu_8h_a99a4cd6eba2d81ce2389cb24df5c7d70ae37e61af10160d34a35b97427a55c28c}{H\+U\+M\+A\+IN}}, 
+\mbox{\hyperlink{jeu_8h_a99a4cd6eba2d81ce2389cb24df5c7d70a337e679eccf22a9d84b40cb45a1de433}{E\+L\+FE}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structjoueur__t}{joueur\+\_\+t}} $\ast$ \mbox{\hyperlink{jeu_8h_a2be04d090298a8438afdb53a8ce5ab90}{creer\+\_\+joueurs}} (int nb\+\_\+persos)
+\begin{DoxyCompactList}\small\item\em Fonction qui initialise les joueurs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{jeu_8h_a5eeafb4d3f11c02c69b978507dc51e96}{aff\+\_\+perso}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$pack\+\_\+texture, T\+T\+F\+\_\+\+Font $\ast$police, \mbox{\hyperlink{structperso__t}{perso\+\_\+t}} $\ast$perso, int text\+\_\+perso)
+\begin{DoxyCompactList}\small\item\em Fonction qui affiche le personnage et les statistiques d\textquotesingle{}un personnage donnée. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{jeu_8h_ad2fa98981ae7b781fee96206135927b8}{lancer\+\_\+jeu}} (S\+D\+L\+\_\+\+Window $\ast$window, S\+D\+L\+\_\+\+Renderer $\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$pack\+\_\+texture, \mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$map)
+\begin{DoxyCompactList}\small\item\em Fonction principal qui permet de jouer. \end{DoxyCompactList}\item 
+S\+D\+L\+\_\+bool \mbox{\hyperlink{jeu_8h_a12b6fe52a150b8f92fe32a7f2df7de7b}{chercher\+\_\+chemin}} (int $\ast$tab, int xd, int yd, int xa, int ya)
+\begin{DoxyCompactList}\small\item\em Fonction qui cherche le chemin le plus court entre deux points. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{jeu_8h_a9c93c102c9e98fda2cc99b7429348ef4}{marquer\+\_\+chemin}} (int $\ast$tab, int x, int y, int $\ast$lgmin)
+\begin{DoxyCompactList}\small\item\em Marque le chemin le plus court a partir de $\ast$(tab+x$\ast$\+M+y) \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{jeu_8h_aa2e9a5380109a24a2635e7087549d0ac}{map\+\_\+to\+\_\+bool}} (\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$map, int $\ast$tab, int xa, int ya)
+\begin{DoxyCompactList}\small\item\em Fonction qui transforme la map en couloirs/murs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{jeu_8h_aae253c1335dbb7e01f0239b4568612d9}{aff\+\_\+mat}} (int $\ast$tab)
+\begin{DoxyCompactList}\small\item\em affiche une matrice \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{jeu_8h_a80da571dae12fd52ab483f319e2b47b4}{mat\+\_\+copy}} (int $\ast$src, int $\ast$dest)
+\begin{DoxyCompactList}\small\item\em Copie une matrice. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{fonctions_8h_a4e3b16e73360bde155b5cd4f9e6fa0d0}{coords\+\_\+t}} \mbox{\hyperlink{jeu_8h_ae22433b72901c6a2ecab552c02a69b7e}{remarquer\+\_\+chemin}} (int $\ast$tab, int x1, int y1, int dep)
+\begin{DoxyCompactList}\small\item\em remarque le chemin, regarde autour de chaque position si elle est valide \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{jeu_8h_a955e9415334551d6e257524ebdffa251}{retirer\+\_\+perso}} (\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$map, \mbox{\hyperlink{structjoueur__t}{joueur\+\_\+t}} $\ast$joueur, int indice)
+\begin{DoxyCompactList}\small\item\em retire personnage de la carte \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+fichier regroupant les fonctions permettantde jouer 
+
+\begin{DoxyAuthor}{Auteur}
+G\+U\+Y\+ON Arthur S\+A\+N\+NA Florian R\+I\+C\+H\+E\+F\+EU Mattéo 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des macros}
+\mbox{\Hypertarget{jeu_8h_a4a8bca5ecc67e6a489d38cf3110437c5}\label{jeu_8h_a4a8bca5ecc67e6a489d38cf3110437c5}} 
+\index{jeu.h@{jeu.h}!A\_ATK@{A\_ATK}}
+\index{A\_ATK@{A\_ATK}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{A\_ATK}{A\_ATK}}
+{\footnotesize\ttfamily \#define A\+\_\+\+A\+TK~50}
+
+\mbox{\Hypertarget{jeu_8h_adf21fcbad231261d7a1bbdd9e634ef42}\label{jeu_8h_adf21fcbad231261d7a1bbdd9e634ef42}} 
+\index{jeu.h@{jeu.h}!A\_CRIT@{A\_CRIT}}
+\index{A\_CRIT@{A\_CRIT}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{A\_CRIT}{A\_CRIT}}
+{\footnotesize\ttfamily \#define A\+\_\+\+C\+R\+IT~6}
+
+\mbox{\Hypertarget{jeu_8h_a6f9343aa1d78e32f099ad2ed9d32112c}\label{jeu_8h_a6f9343aa1d78e32f099ad2ed9d32112c}} 
+\index{jeu.h@{jeu.h}!A\_DEF@{A\_DEF}}
+\index{A\_DEF@{A\_DEF}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{A\_DEF}{A\_DEF}}
+{\footnotesize\ttfamily \#define A\+\_\+\+D\+EF~9}
+
+\mbox{\Hypertarget{jeu_8h_a66981259d7bc0d37753b66e4fa734353}\label{jeu_8h_a66981259d7bc0d37753b66e4fa734353}} 
+\index{jeu.h@{jeu.h}!A\_DEP@{A\_DEP}}
+\index{A\_DEP@{A\_DEP}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{A\_DEP}{A\_DEP}}
+{\footnotesize\ttfamily \#define A\+\_\+\+D\+EP~6}
+
+\mbox{\Hypertarget{jeu_8h_ad02ad21ad65ea9cc6aa70347d20338af}\label{jeu_8h_ad02ad21ad65ea9cc6aa70347d20338af}} 
+\index{jeu.h@{jeu.h}!A\_ESQ@{A\_ESQ}}
+\index{A\_ESQ@{A\_ESQ}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{A\_ESQ}{A\_ESQ}}
+{\footnotesize\ttfamily \#define A\+\_\+\+E\+SQ~5}
+
+\mbox{\Hypertarget{jeu_8h_a67ef9543e4df7bf839d87af6dcdda83e}\label{jeu_8h_a67ef9543e4df7bf839d87af6dcdda83e}} 
+\index{jeu.h@{jeu.h}!A\_POR@{A\_POR}}
+\index{A\_POR@{A\_POR}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{A\_POR}{A\_POR}}
+{\footnotesize\ttfamily \#define A\+\_\+\+P\+OR~5}
+
+\mbox{\Hypertarget{jeu_8h_ab3131540d98a58068c217c116fe60d15}\label{jeu_8h_ab3131540d98a58068c217c116fe60d15}} 
+\index{jeu.h@{jeu.h}!A\_PV@{A\_PV}}
+\index{A\_PV@{A\_PV}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{A\_PV}{A\_PV}}
+{\footnotesize\ttfamily \#define A\+\_\+\+PV~60}
+
+\mbox{\Hypertarget{jeu_8h_ac66c30c4a8fdeaf0c71b2a77a7582f5b}\label{jeu_8h_ac66c30c4a8fdeaf0c71b2a77a7582f5b}} 
+\index{jeu.h@{jeu.h}!G\_ATK@{G\_ATK}}
+\index{G\_ATK@{G\_ATK}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{G\_ATK}{G\_ATK}}
+{\footnotesize\ttfamily \#define G\+\_\+\+A\+TK~40}
+
+\mbox{\Hypertarget{jeu_8h_a4def1b1d71abcf9c7ad1a71d685222dc}\label{jeu_8h_a4def1b1d71abcf9c7ad1a71d685222dc}} 
+\index{jeu.h@{jeu.h}!G\_CRIT@{G\_CRIT}}
+\index{G\_CRIT@{G\_CRIT}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{G\_CRIT}{G\_CRIT}}
+{\footnotesize\ttfamily \#define G\+\_\+\+C\+R\+IT~5}
+
+\mbox{\Hypertarget{jeu_8h_a8fc9228b93af2f206c1737f49ad731d8}\label{jeu_8h_a8fc9228b93af2f206c1737f49ad731d8}} 
+\index{jeu.h@{jeu.h}!G\_DEF@{G\_DEF}}
+\index{G\_DEF@{G\_DEF}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{G\_DEF}{G\_DEF}}
+{\footnotesize\ttfamily \#define G\+\_\+\+D\+EF~20}
+
+\mbox{\Hypertarget{jeu_8h_a656d11457667b01f48b3176a8d074333}\label{jeu_8h_a656d11457667b01f48b3176a8d074333}} 
+\index{jeu.h@{jeu.h}!G\_DEP@{G\_DEP}}
+\index{G\_DEP@{G\_DEP}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{G\_DEP}{G\_DEP}}
+{\footnotesize\ttfamily \#define G\+\_\+\+D\+EP~5}
+
+\mbox{\Hypertarget{jeu_8h_af4c4fce75a4d862e523c95a16b3b212c}\label{jeu_8h_af4c4fce75a4d862e523c95a16b3b212c}} 
+\index{jeu.h@{jeu.h}!G\_ESQ@{G\_ESQ}}
+\index{G\_ESQ@{G\_ESQ}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{G\_ESQ}{G\_ESQ}}
+{\footnotesize\ttfamily \#define G\+\_\+\+E\+SQ~0}
+
+\mbox{\Hypertarget{jeu_8h_abb909806ce3b45f5337cb985b0337ec2}\label{jeu_8h_abb909806ce3b45f5337cb985b0337ec2}} 
+\index{jeu.h@{jeu.h}!G\_POR@{G\_POR}}
+\index{G\_POR@{G\_POR}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{G\_POR}{G\_POR}}
+{\footnotesize\ttfamily \#define G\+\_\+\+P\+OR~1}
+
+\mbox{\Hypertarget{jeu_8h_a4d00779ade2a26536563afbe14eb0e5a}\label{jeu_8h_a4d00779ade2a26536563afbe14eb0e5a}} 
+\index{jeu.h@{jeu.h}!G\_PV@{G\_PV}}
+\index{G\_PV@{G\_PV}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{G\_PV}{G\_PV}}
+{\footnotesize\ttfamily \#define G\+\_\+\+PV~100}
+
+Stats par classe \mbox{\Hypertarget{jeu_8h_ad71c62d8b6bc463ea3fb0f9e75000173}\label{jeu_8h_ad71c62d8b6bc463ea3fb0f9e75000173}} 
+\index{jeu.h@{jeu.h}!H\_ATK@{H\_ATK}}
+\index{H\_ATK@{H\_ATK}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{H\_ATK}{H\_ATK}}
+{\footnotesize\ttfamily \#define H\+\_\+\+A\+TK~15}
+
+\mbox{\Hypertarget{jeu_8h_a0d3201623b0fa389a55227320e1df1d3}\label{jeu_8h_a0d3201623b0fa389a55227320e1df1d3}} 
+\index{jeu.h@{jeu.h}!H\_CRIT@{H\_CRIT}}
+\index{H\_CRIT@{H\_CRIT}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{H\_CRIT}{H\_CRIT}}
+{\footnotesize\ttfamily \#define H\+\_\+\+C\+R\+IT~5}
+
+\mbox{\Hypertarget{jeu_8h_a0172615e8e00c916ab478c1751f5a45e}\label{jeu_8h_a0172615e8e00c916ab478c1751f5a45e}} 
+\index{jeu.h@{jeu.h}!H\_DEF@{H\_DEF}}
+\index{H\_DEF@{H\_DEF}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{H\_DEF}{H\_DEF}}
+{\footnotesize\ttfamily \#define H\+\_\+\+D\+EF~10}
+
+\mbox{\Hypertarget{jeu_8h_a029ce0fb4dd422027428eed058cfcb55}\label{jeu_8h_a029ce0fb4dd422027428eed058cfcb55}} 
+\index{jeu.h@{jeu.h}!H\_DEP@{H\_DEP}}
+\index{H\_DEP@{H\_DEP}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{H\_DEP}{H\_DEP}}
+{\footnotesize\ttfamily \#define H\+\_\+\+D\+EP~6}
+
+\mbox{\Hypertarget{jeu_8h_a71a1c97b66356faf17112c7c89faf729}\label{jeu_8h_a71a1c97b66356faf17112c7c89faf729}} 
+\index{jeu.h@{jeu.h}!H\_ESQ@{H\_ESQ}}
+\index{H\_ESQ@{H\_ESQ}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{H\_ESQ}{H\_ESQ}}
+{\footnotesize\ttfamily \#define H\+\_\+\+E\+SQ~2}
+
+\mbox{\Hypertarget{jeu_8h_a43137eee58ff89d5be21d5a2538109d0}\label{jeu_8h_a43137eee58ff89d5be21d5a2538109d0}} 
+\index{jeu.h@{jeu.h}!H\_POR@{H\_POR}}
+\index{H\_POR@{H\_POR}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{H\_POR}{H\_POR}}
+{\footnotesize\ttfamily \#define H\+\_\+\+P\+OR~2}
+
+\mbox{\Hypertarget{jeu_8h_aae39e5b04226f9495f7d80bde53e6b6f}\label{jeu_8h_aae39e5b04226f9495f7d80bde53e6b6f}} 
+\index{jeu.h@{jeu.h}!H\_PV@{H\_PV}}
+\index{H\_PV@{H\_PV}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{H\_PV}{H\_PV}}
+{\footnotesize\ttfamily \#define H\+\_\+\+PV~80}
+
+\mbox{\Hypertarget{jeu_8h_a575e2032f6c4f45a17a18a6d78f152f0}\label{jeu_8h_a575e2032f6c4f45a17a18a6d78f152f0}} 
+\index{jeu.h@{jeu.h}!M\_ATK@{M\_ATK}}
+\index{M\_ATK@{M\_ATK}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{M\_ATK}{M\_ATK}}
+{\footnotesize\ttfamily \#define M\+\_\+\+A\+TK~60}
+
+\mbox{\Hypertarget{jeu_8h_abe12c9d4698738a67a81d4a291611411}\label{jeu_8h_abe12c9d4698738a67a81d4a291611411}} 
+\index{jeu.h@{jeu.h}!M\_CRIT@{M\_CRIT}}
+\index{M\_CRIT@{M\_CRIT}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{M\_CRIT}{M\_CRIT}}
+{\footnotesize\ttfamily \#define M\+\_\+\+C\+R\+IT~8}
+
+\mbox{\Hypertarget{jeu_8h_a60226dd28b626ae5011f1d1c9b7283fa}\label{jeu_8h_a60226dd28b626ae5011f1d1c9b7283fa}} 
+\index{jeu.h@{jeu.h}!M\_DEF@{M\_DEF}}
+\index{M\_DEF@{M\_DEF}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{M\_DEF}{M\_DEF}}
+{\footnotesize\ttfamily \#define M\+\_\+\+D\+EF~8}
+
+\mbox{\Hypertarget{jeu_8h_a8782f68d22ccf49a1a786f85c416f303}\label{jeu_8h_a8782f68d22ccf49a1a786f85c416f303}} 
+\index{jeu.h@{jeu.h}!M\_DEP@{M\_DEP}}
+\index{M\_DEP@{M\_DEP}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{M\_DEP}{M\_DEP}}
+{\footnotesize\ttfamily \#define M\+\_\+\+D\+EP~6}
+
+\mbox{\Hypertarget{jeu_8h_a43236143b4a28d49436087c8c2403b1f}\label{jeu_8h_a43236143b4a28d49436087c8c2403b1f}} 
+\index{jeu.h@{jeu.h}!M\_ESQ@{M\_ESQ}}
+\index{M\_ESQ@{M\_ESQ}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{M\_ESQ}{M\_ESQ}}
+{\footnotesize\ttfamily \#define M\+\_\+\+E\+SQ~5}
+
+\mbox{\Hypertarget{jeu_8h_a576e56b1338573b625c04941f6228d7b}\label{jeu_8h_a576e56b1338573b625c04941f6228d7b}} 
+\index{jeu.h@{jeu.h}!M\_POR@{M\_POR}}
+\index{M\_POR@{M\_POR}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{M\_POR}{M\_POR}}
+{\footnotesize\ttfamily \#define M\+\_\+\+P\+OR~4}
+
+\mbox{\Hypertarget{jeu_8h_aec523545fc74f1f49de4c1f0ab21b3a7}\label{jeu_8h_aec523545fc74f1f49de4c1f0ab21b3a7}} 
+\index{jeu.h@{jeu.h}!M\_PV@{M\_PV}}
+\index{M\_PV@{M\_PV}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{M\_PV}{M\_PV}}
+{\footnotesize\ttfamily \#define M\+\_\+\+PV~65}
+
+\mbox{\Hypertarget{jeu_8h_a533c1fb65994e993f3ed70e6472ba40e}\label{jeu_8h_a533c1fb65994e993f3ed70e6472ba40e}} 
+\index{jeu.h@{jeu.h}!MAX\_PERSO@{MAX\_PERSO}}
+\index{MAX\_PERSO@{MAX\_PERSO}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_PERSO}{MAX\_PERSO}}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+P\+E\+R\+SO~10}
+
+\mbox{\Hypertarget{jeu_8h_a2347ca44d2772ecfa07c3e0ab3116f48}\label{jeu_8h_a2347ca44d2772ecfa07c3e0ab3116f48}} 
+\index{jeu.h@{jeu.h}!MIN\_PERSO@{MIN\_PERSO}}
+\index{MIN\_PERSO@{MIN\_PERSO}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{MIN\_PERSO}{MIN\_PERSO}}
+{\footnotesize\ttfamily \#define M\+I\+N\+\_\+\+P\+E\+R\+SO~5}
+
+\mbox{\Hypertarget{jeu_8h_a43d5d30fb665e6fd574678226134fbba}\label{jeu_8h_a43d5d30fb665e6fd574678226134fbba}} 
+\index{jeu.h@{jeu.h}!NB\_CLASSES@{NB\_CLASSES}}
+\index{NB\_CLASSES@{NB\_CLASSES}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{NB\_CLASSES}{NB\_CLASSES}}
+{\footnotesize\ttfamily \#define N\+B\+\_\+\+C\+L\+A\+S\+S\+ES~5}
+
+\mbox{\Hypertarget{jeu_8h_a0a783f4545da71a8de28369b6f0804e8}\label{jeu_8h_a0a783f4545da71a8de28369b6f0804e8}} 
+\index{jeu.h@{jeu.h}!NB\_MAPS@{NB\_MAPS}}
+\index{NB\_MAPS@{NB\_MAPS}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{NB\_MAPS}{NB\_MAPS}}
+{\footnotesize\ttfamily \#define N\+B\+\_\+\+M\+A\+PS~5}
+
+\mbox{\Hypertarget{jeu_8h_a568af57a9d65600bf6d3dcb0a5ebeae4}\label{jeu_8h_a568af57a9d65600bf6d3dcb0a5ebeae4}} 
+\index{jeu.h@{jeu.h}!OP\_B@{OP\_B}}
+\index{OP\_B@{OP\_B}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{OP\_B}{OP\_B}}
+{\footnotesize\ttfamily \#define O\+P\+\_\+B~64}
+
+\mbox{\Hypertarget{jeu_8h_a75553ae510eff0cdad9d71d775819c56}\label{jeu_8h_a75553ae510eff0cdad9d71d775819c56}} 
+\index{jeu.h@{jeu.h}!OP\_R@{OP\_R}}
+\index{OP\_R@{OP\_R}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{OP\_R}{OP\_R}}
+{\footnotesize\ttfamily \#define O\+P\+\_\+R~100}
+
+Opacite des cases couleur \mbox{\Hypertarget{jeu_8h_a354df2fbb3c485a0d7f968673157e0a0}\label{jeu_8h_a354df2fbb3c485a0d7f968673157e0a0}} 
+\index{jeu.h@{jeu.h}!OP\_V@{OP\_V}}
+\index{OP\_V@{OP\_V}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{OP\_V}{OP\_V}}
+{\footnotesize\ttfamily \#define O\+P\+\_\+V~80}
+
+\mbox{\Hypertarget{jeu_8h_a85d5d132440cb4991f8d99622f5d81ae}\label{jeu_8h_a85d5d132440cb4991f8d99622f5d81ae}} 
+\index{jeu.h@{jeu.h}!PERSO\_MORT@{PERSO\_MORT}}
+\index{PERSO\_MORT@{PERSO\_MORT}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{PERSO\_MORT}{PERSO\_MORT}}
+{\footnotesize\ttfamily \#define P\+E\+R\+S\+O\+\_\+\+M\+O\+RT~488}
+
+\mbox{\Hypertarget{jeu_8h_a9cb742a1d41e4969b71f0f2fc8240006}\label{jeu_8h_a9cb742a1d41e4969b71f0f2fc8240006}} 
+\index{jeu.h@{jeu.h}!TAILLE\_FONT\_GUI@{TAILLE\_FONT\_GUI}}
+\index{TAILLE\_FONT\_GUI@{TAILLE\_FONT\_GUI}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{TAILLE\_FONT\_GUI}{TAILLE\_FONT\_GUI}}
+{\footnotesize\ttfamily \#define T\+A\+I\+L\+L\+E\+\_\+\+F\+O\+N\+T\+\_\+\+G\+UI~30}
+
+\mbox{\Hypertarget{jeu_8h_a942e78b6e953faf6dc70d34446c6d131}\label{jeu_8h_a942e78b6e953faf6dc70d34446c6d131}} 
+\index{jeu.h@{jeu.h}!TAILLE\_MAIN\_FONT@{TAILLE\_MAIN\_FONT}}
+\index{TAILLE\_MAIN\_FONT@{TAILLE\_MAIN\_FONT}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{TAILLE\_MAIN\_FONT}{TAILLE\_MAIN\_FONT}}
+{\footnotesize\ttfamily \#define T\+A\+I\+L\+L\+E\+\_\+\+M\+A\+I\+N\+\_\+\+F\+O\+NT~50}
+
+\mbox{\Hypertarget{jeu_8h_a6d8217e948740099f2606599bc283bca}\label{jeu_8h_a6d8217e948740099f2606599bc283bca}} 
+\index{jeu.h@{jeu.h}!TEXT\_ARCHER@{TEXT\_ARCHER}}
+\index{TEXT\_ARCHER@{TEXT\_ARCHER}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{TEXT\_ARCHER}{TEXT\_ARCHER}}
+{\footnotesize\ttfamily \#define T\+E\+X\+T\+\_\+\+A\+R\+C\+H\+ER~478}
+
+\mbox{\Hypertarget{jeu_8h_a48f0e9f47561669954e5b347603e15b2}\label{jeu_8h_a48f0e9f47561669954e5b347603e15b2}} 
+\index{jeu.h@{jeu.h}!TEXT\_ARCHER\_BOT@{TEXT\_ARCHER\_BOT}}
+\index{TEXT\_ARCHER\_BOT@{TEXT\_ARCHER\_BOT}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{TEXT\_ARCHER\_BOT}{TEXT\_ARCHER\_BOT}}
+{\footnotesize\ttfamily \#define T\+E\+X\+T\+\_\+\+A\+R\+C\+H\+E\+R\+\_\+\+B\+OT~484}
+
+\mbox{\Hypertarget{jeu_8h_aa3f5f1ff00df0715db97068dc408541d}\label{jeu_8h_aa3f5f1ff00df0715db97068dc408541d}} 
+\index{jeu.h@{jeu.h}!TEXT\_GUERRIER@{TEXT\_GUERRIER}}
+\index{TEXT\_GUERRIER@{TEXT\_GUERRIER}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{TEXT\_GUERRIER}{TEXT\_GUERRIER}}
+{\footnotesize\ttfamily \#define T\+E\+X\+T\+\_\+\+G\+U\+E\+R\+R\+I\+ER~481}
+
+\mbox{\Hypertarget{jeu_8h_af87ec967d02ea02ac6ceb5e9afa5549e}\label{jeu_8h_af87ec967d02ea02ac6ceb5e9afa5549e}} 
+\index{jeu.h@{jeu.h}!TEXT\_GUERRIER\_BOT@{TEXT\_GUERRIER\_BOT}}
+\index{TEXT\_GUERRIER\_BOT@{TEXT\_GUERRIER\_BOT}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{TEXT\_GUERRIER\_BOT}{TEXT\_GUERRIER\_BOT}}
+{\footnotesize\ttfamily \#define T\+E\+X\+T\+\_\+\+G\+U\+E\+R\+R\+I\+E\+R\+\_\+\+B\+OT~487}
+
+\mbox{\Hypertarget{jeu_8h_af7d8bc195633830c009465966dce6723}\label{jeu_8h_af7d8bc195633830c009465966dce6723}} 
+\index{jeu.h@{jeu.h}!TEXT\_HEALER@{TEXT\_HEALER}}
+\index{TEXT\_HEALER@{TEXT\_HEALER}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{TEXT\_HEALER}{TEXT\_HEALER}}
+{\footnotesize\ttfamily \#define T\+E\+X\+T\+\_\+\+H\+E\+A\+L\+ER~477}
+
+\mbox{\Hypertarget{jeu_8h_a7ad0e623c512c7c80b057d745d54e275}\label{jeu_8h_a7ad0e623c512c7c80b057d745d54e275}} 
+\index{jeu.h@{jeu.h}!TEXT\_HEALER\_BOT@{TEXT\_HEALER\_BOT}}
+\index{TEXT\_HEALER\_BOT@{TEXT\_HEALER\_BOT}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{TEXT\_HEALER\_BOT}{TEXT\_HEALER\_BOT}}
+{\footnotesize\ttfamily \#define T\+E\+X\+T\+\_\+\+H\+E\+A\+L\+E\+R\+\_\+\+B\+OT~483}
+
+\mbox{\Hypertarget{jeu_8h_aed3cfc424d952a4f60169354183068fb}\label{jeu_8h_aed3cfc424d952a4f60169354183068fb}} 
+\index{jeu.h@{jeu.h}!TEXT\_MAGE@{TEXT\_MAGE}}
+\index{TEXT\_MAGE@{TEXT\_MAGE}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{TEXT\_MAGE}{TEXT\_MAGE}}
+{\footnotesize\ttfamily \#define T\+E\+X\+T\+\_\+\+M\+A\+GE~476}
+
+\mbox{\Hypertarget{jeu_8h_a34685c7cda7886b2228cdeb58d117d77}\label{jeu_8h_a34685c7cda7886b2228cdeb58d117d77}} 
+\index{jeu.h@{jeu.h}!TEXT\_MAGE\_BOT@{TEXT\_MAGE\_BOT}}
+\index{TEXT\_MAGE\_BOT@{TEXT\_MAGE\_BOT}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{TEXT\_MAGE\_BOT}{TEXT\_MAGE\_BOT}}
+{\footnotesize\ttfamily \#define T\+E\+X\+T\+\_\+\+M\+A\+G\+E\+\_\+\+B\+OT~482}
+
+\mbox{\Hypertarget{jeu_8h_af92238b8fa70a5aaebb94d2db0edac1c}\label{jeu_8h_af92238b8fa70a5aaebb94d2db0edac1c}} 
+\index{jeu.h@{jeu.h}!TEXT\_VOLEUR@{TEXT\_VOLEUR}}
+\index{TEXT\_VOLEUR@{TEXT\_VOLEUR}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{TEXT\_VOLEUR}{TEXT\_VOLEUR}}
+{\footnotesize\ttfamily \#define T\+E\+X\+T\+\_\+\+V\+O\+L\+E\+UR~480}
+
+\mbox{\Hypertarget{jeu_8h_a209ee8efc08a9f7725db1d6dfe1cae1b}\label{jeu_8h_a209ee8efc08a9f7725db1d6dfe1cae1b}} 
+\index{jeu.h@{jeu.h}!TEXT\_VOLEUR\_BOT@{TEXT\_VOLEUR\_BOT}}
+\index{TEXT\_VOLEUR\_BOT@{TEXT\_VOLEUR\_BOT}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{TEXT\_VOLEUR\_BOT}{TEXT\_VOLEUR\_BOT}}
+{\footnotesize\ttfamily \#define T\+E\+X\+T\+\_\+\+V\+O\+L\+E\+U\+R\+\_\+\+B\+OT~486}
+
+\mbox{\Hypertarget{jeu_8h_ae6dcf4e33eb148b32539514aeb839217}\label{jeu_8h_ae6dcf4e33eb148b32539514aeb839217}} 
+\index{jeu.h@{jeu.h}!V\_ATK@{V\_ATK}}
+\index{V\_ATK@{V\_ATK}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{V\_ATK}{V\_ATK}}
+{\footnotesize\ttfamily \#define V\+\_\+\+A\+TK~80}
+
+\mbox{\Hypertarget{jeu_8h_a5db56554d32a8297170136c8bb284da1}\label{jeu_8h_a5db56554d32a8297170136c8bb284da1}} 
+\index{jeu.h@{jeu.h}!V\_CRIT@{V\_CRIT}}
+\index{V\_CRIT@{V\_CRIT}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{V\_CRIT}{V\_CRIT}}
+{\footnotesize\ttfamily \#define V\+\_\+\+C\+R\+IT~33}
+
+\mbox{\Hypertarget{jeu_8h_a05fb245d0f3f0c7f49ab877b44cf955c}\label{jeu_8h_a05fb245d0f3f0c7f49ab877b44cf955c}} 
+\index{jeu.h@{jeu.h}!V\_DEF@{V\_DEF}}
+\index{V\_DEF@{V\_DEF}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{V\_DEF}{V\_DEF}}
+{\footnotesize\ttfamily \#define V\+\_\+\+D\+EF~0}
+
+\mbox{\Hypertarget{jeu_8h_af66d25c8d7cf0e8b85ee30a953a50f2e}\label{jeu_8h_af66d25c8d7cf0e8b85ee30a953a50f2e}} 
+\index{jeu.h@{jeu.h}!V\_DEP@{V\_DEP}}
+\index{V\_DEP@{V\_DEP}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{V\_DEP}{V\_DEP}}
+{\footnotesize\ttfamily \#define V\+\_\+\+D\+EP~6}
+
+\mbox{\Hypertarget{jeu_8h_a54c0b308c462c31b39b29eebdbe686e2}\label{jeu_8h_a54c0b308c462c31b39b29eebdbe686e2}} 
+\index{jeu.h@{jeu.h}!V\_ESQ@{V\_ESQ}}
+\index{V\_ESQ@{V\_ESQ}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{V\_ESQ}{V\_ESQ}}
+{\footnotesize\ttfamily \#define V\+\_\+\+E\+SQ~20}
+
+\mbox{\Hypertarget{jeu_8h_a0397c5d14848f56259e0ebea9189ffb0}\label{jeu_8h_a0397c5d14848f56259e0ebea9189ffb0}} 
+\index{jeu.h@{jeu.h}!V\_POR@{V\_POR}}
+\index{V\_POR@{V\_POR}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{V\_POR}{V\_POR}}
+{\footnotesize\ttfamily \#define V\+\_\+\+P\+OR~1}
+
+\mbox{\Hypertarget{jeu_8h_afa538c8d401342bf82d09d0d2386bc3f}\label{jeu_8h_afa538c8d401342bf82d09d0d2386bc3f}} 
+\index{jeu.h@{jeu.h}!V\_PV@{V\_PV}}
+\index{V\_PV@{V\_PV}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{V\_PV}{V\_PV}}
+{\footnotesize\ttfamily \#define V\+\_\+\+PV~45}
+
+
+
+\doxysubsection{Documentation des définitions de type}
+\mbox{\Hypertarget{jeu_8h_ad9c715cb868cbeb4aa829ec92a8c8bba}\label{jeu_8h_ad9c715cb868cbeb4aa829ec92a8c8bba}} 
+\index{jeu.h@{jeu.h}!classe\_t@{classe\_t}}
+\index{classe\_t@{classe\_t}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{classe\_t}{classe\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{jeu_8h_aba5a9724d6577776000cc8030a620add}{classe\+\_\+s}} \mbox{\hyperlink{jeu_8h_ad9c715cb868cbeb4aa829ec92a8c8bba}{classe\+\_\+t}}}
+
+\mbox{\Hypertarget{jeu_8h_a99f492ae970bd50ebb199960995114d0}\label{jeu_8h_a99f492ae970bd50ebb199960995114d0}} 
+\index{jeu.h@{jeu.h}!J\_t@{J\_t}}
+\index{J\_t@{J\_t}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{J\_t}{J\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{jeu_8h_a9c6ae526d3bb89d5285b8d3da4920db5}{J\+\_\+s}} \mbox{\hyperlink{jeu_8h_a99f492ae970bd50ebb199960995114d0}{J\+\_\+t}}}
+
+\mbox{\Hypertarget{jeu_8h_a78cda65cd9b26fc9f1ef13f89b316b94}\label{jeu_8h_a78cda65cd9b26fc9f1ef13f89b316b94}} 
+\index{jeu.h@{jeu.h}!joueur\_t@{joueur\_t}}
+\index{joueur\_t@{joueur\_t}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{joueur\_t}{joueur\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structjoueur__s}{joueur\+\_\+s}} \mbox{\hyperlink{structjoueur__t}{joueur\+\_\+t}}}
+
+\mbox{\Hypertarget{jeu_8h_a550089442e996a6b42d393992dbc5436}\label{jeu_8h_a550089442e996a6b42d393992dbc5436}} 
+\index{jeu.h@{jeu.h}!perso\_t@{perso\_t}}
+\index{perso\_t@{perso\_t}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{perso\_t}{perso\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structperso__s}{perso\+\_\+s}} \mbox{\hyperlink{structperso__t}{perso\+\_\+t}}}
+
+\mbox{\Hypertarget{jeu_8h_adf1321d2260a7ff3db7e7607fb48e135}\label{jeu_8h_adf1321d2260a7ff3db7e7607fb48e135}} 
+\index{jeu.h@{jeu.h}!race\_t@{race\_t}}
+\index{race\_t@{race\_t}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{race\_t}{race\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{jeu_8h_a99a4cd6eba2d81ce2389cb24df5c7d70}{race\+\_\+s}} \mbox{\hyperlink{jeu_8h_adf1321d2260a7ff3db7e7607fb48e135}{race\+\_\+t}}}
+
+
+
+\doxysubsection{Documentation du type de l\textquotesingle{}énumération}
+\mbox{\Hypertarget{jeu_8h_aba5a9724d6577776000cc8030a620add}\label{jeu_8h_aba5a9724d6577776000cc8030a620add}} 
+\index{jeu.h@{jeu.h}!classe\_s@{classe\_s}}
+\index{classe\_s@{classe\_s}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{classe\_s}{classe\_s}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{jeu_8h_aba5a9724d6577776000cc8030a620add}{classe\+\_\+s}}}
+
+\begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GUERRIER@{GUERRIER}!jeu.h@{jeu.h}}\index{jeu.h@{jeu.h}!GUERRIER@{GUERRIER}}}\mbox{\Hypertarget{jeu_8h_aba5a9724d6577776000cc8030a620adda9f0ec0dd34ceeb8f08d0fed8679a031c}\label{jeu_8h_aba5a9724d6577776000cc8030a620adda9f0ec0dd34ceeb8f08d0fed8679a031c}} 
+G\+U\+E\+R\+R\+I\+ER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MAGE@{MAGE}!jeu.h@{jeu.h}}\index{jeu.h@{jeu.h}!MAGE@{MAGE}}}\mbox{\Hypertarget{jeu_8h_aba5a9724d6577776000cc8030a620adda010931f222a7946e90308d51d6ac283e}\label{jeu_8h_aba5a9724d6577776000cc8030a620adda010931f222a7946e90308d51d6ac283e}} 
+M\+A\+GE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VOLEUR@{VOLEUR}!jeu.h@{jeu.h}}\index{jeu.h@{jeu.h}!VOLEUR@{VOLEUR}}}\mbox{\Hypertarget{jeu_8h_aba5a9724d6577776000cc8030a620addae954102adce155b6de15962072532fcf}\label{jeu_8h_aba5a9724d6577776000cc8030a620addae954102adce155b6de15962072532fcf}} 
+V\+O\+L\+E\+UR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ARCHER@{ARCHER}!jeu.h@{jeu.h}}\index{jeu.h@{jeu.h}!ARCHER@{ARCHER}}}\mbox{\Hypertarget{jeu_8h_aba5a9724d6577776000cc8030a620addac482cec9850564270fde1520e0027024}\label{jeu_8h_aba5a9724d6577776000cc8030a620addac482cec9850564270fde1520e0027024}} 
+A\+R\+C\+H\+ER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PRETRE@{PRETRE}!jeu.h@{jeu.h}}\index{jeu.h@{jeu.h}!PRETRE@{PRETRE}}}\mbox{\Hypertarget{jeu_8h_aba5a9724d6577776000cc8030a620adda8103cd625bbb9cc0e917a7e84cc7cd9b}\label{jeu_8h_aba5a9724d6577776000cc8030a620adda8103cd625bbb9cc0e917a7e84cc7cd9b}} 
+P\+R\+E\+T\+RE&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{jeu_8h_a9c6ae526d3bb89d5285b8d3da4920db5}\label{jeu_8h_a9c6ae526d3bb89d5285b8d3da4920db5}} 
+\index{jeu.h@{jeu.h}!J\_s@{J\_s}}
+\index{J\_s@{J\_s}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{J\_s}{J\_s}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{jeu_8h_a9c6ae526d3bb89d5285b8d3da4920db5}{J\+\_\+s}}}
+
+\begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{J1@{J1}!jeu.h@{jeu.h}}\index{jeu.h@{jeu.h}!J1@{J1}}}\mbox{\Hypertarget{jeu_8h_a9c6ae526d3bb89d5285b8d3da4920db5a0da67f12aaf41e79f0bc7b68d0a69183}\label{jeu_8h_a9c6ae526d3bb89d5285b8d3da4920db5a0da67f12aaf41e79f0bc7b68d0a69183}} 
+J1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BOT@{BOT}!jeu.h@{jeu.h}}\index{jeu.h@{jeu.h}!BOT@{BOT}}}\mbox{\Hypertarget{jeu_8h_a9c6ae526d3bb89d5285b8d3da4920db5a8701d7066e8b0fb9f21e9d933739062e}\label{jeu_8h_a9c6ae526d3bb89d5285b8d3da4920db5a8701d7066e8b0fb9f21e9d933739062e}} 
+B\+OT&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{jeu_8h_a99a4cd6eba2d81ce2389cb24df5c7d70}\label{jeu_8h_a99a4cd6eba2d81ce2389cb24df5c7d70}} 
+\index{jeu.h@{jeu.h}!race\_s@{race\_s}}
+\index{race\_s@{race\_s}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{race\_s}{race\_s}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{jeu_8h_a99a4cd6eba2d81ce2389cb24df5c7d70}{race\+\_\+s}}}
+
+\begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HUMAIN@{HUMAIN}!jeu.h@{jeu.h}}\index{jeu.h@{jeu.h}!HUMAIN@{HUMAIN}}}\mbox{\Hypertarget{jeu_8h_a99a4cd6eba2d81ce2389cb24df5c7d70ae37e61af10160d34a35b97427a55c28c}\label{jeu_8h_a99a4cd6eba2d81ce2389cb24df5c7d70ae37e61af10160d34a35b97427a55c28c}} 
+H\+U\+M\+A\+IN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ELFE@{ELFE}!jeu.h@{jeu.h}}\index{jeu.h@{jeu.h}!ELFE@{ELFE}}}\mbox{\Hypertarget{jeu_8h_a99a4cd6eba2d81ce2389cb24df5c7d70a337e679eccf22a9d84b40cb45a1de433}\label{jeu_8h_a99a4cd6eba2d81ce2389cb24df5c7d70a337e679eccf22a9d84b40cb45a1de433}} 
+E\+L\+FE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{jeu_8h_aae253c1335dbb7e01f0239b4568612d9}\label{jeu_8h_aae253c1335dbb7e01f0239b4568612d9}} 
+\index{jeu.h@{jeu.h}!aff\_mat@{aff\_mat}}
+\index{aff\_mat@{aff\_mat}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{aff\_mat()}{aff\_mat()}}
+{\footnotesize\ttfamily aff\+\_\+mat (\begin{DoxyParamCaption}\item[{int $\ast$}]{tab }\end{DoxyParamCaption})}
+
+
+
+affiche une matrice 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em tab} & la matrice \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{jeu_8h_a5eeafb4d3f11c02c69b978507dc51e96}\label{jeu_8h_a5eeafb4d3f11c02c69b978507dc51e96}} 
+\index{jeu.h@{jeu.h}!aff\_perso@{aff\_perso}}
+\index{aff\_perso@{aff\_perso}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{aff\_perso()}{aff\_perso()}}
+{\footnotesize\ttfamily aff\+\_\+perso (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{pack\+\_\+texture,  }\item[{T\+T\+F\+\_\+\+Font $\ast$}]{police,  }\item[{\mbox{\hyperlink{structperso__t}{perso\+\_\+t}} $\ast$}]{perso,  }\item[{int}]{text\+\_\+perso }\end{DoxyParamCaption})}
+
+
+
+Fonction qui affiche le personnage et les statistiques d\textquotesingle{}un personnage donnée. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & affichage \\
+\hline
+{\em pack\+\_\+texture} & prend le pack de texture \\
+\hline
+{\em police} & prend la police \\
+\hline
+{\em perso} & Le personnagea afficher \\
+\hline
+{\em text\+\_\+perso} & permet de savoir les différentes statistiques du personnage \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{jeu_8h_a12b6fe52a150b8f92fe32a7f2df7de7b}\label{jeu_8h_a12b6fe52a150b8f92fe32a7f2df7de7b}} 
+\index{jeu.h@{jeu.h}!chercher\_chemin@{chercher\_chemin}}
+\index{chercher\_chemin@{chercher\_chemin}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{chercher\_chemin()}{chercher\_chemin()}}
+{\footnotesize\ttfamily chercher\+\_\+chemin (\begin{DoxyParamCaption}\item[{int $\ast$}]{tab,  }\item[{int}]{xd,  }\item[{int}]{yd,  }\item[{int}]{xa,  }\item[{int}]{ya }\end{DoxyParamCaption})}
+
+
+
+Fonction qui cherche le chemin le plus court entre deux points. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em tab} & \\
+\hline
+{\em xd,yd,xa,ya} & coordonnées \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+vrai si le chemin existe, si non renvoi faux 
+\end{DoxyReturn}
+\mbox{\Hypertarget{jeu_8h_a2be04d090298a8438afdb53a8ce5ab90}\label{jeu_8h_a2be04d090298a8438afdb53a8ce5ab90}} 
+\index{jeu.h@{jeu.h}!creer\_joueurs@{creer\_joueurs}}
+\index{creer\_joueurs@{creer\_joueurs}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{creer\_joueurs()}{creer\_joueurs()}}
+{\footnotesize\ttfamily creer\+\_\+joueurs (\begin{DoxyParamCaption}\item[{int}]{nb\+\_\+persos }\end{DoxyParamCaption})}
+
+
+
+Fonction qui initialise les joueurs. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em nb\+\_\+persos} & Contientle nombre de personnages \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+les personnages initialisés 
+\end{DoxyReturn}
+\mbox{\Hypertarget{jeu_8h_ad2fa98981ae7b781fee96206135927b8}\label{jeu_8h_ad2fa98981ae7b781fee96206135927b8}} 
+\index{jeu.h@{jeu.h}!lancer\_jeu@{lancer\_jeu}}
+\index{lancer\_jeu@{lancer\_jeu}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{lancer\_jeu()}{lancer\_jeu()}}
+{\footnotesize\ttfamily lancer\+\_\+jeu (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Window $\ast$}]{window,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{pack\+\_\+texture,  }\item[{\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$}]{map }\end{DoxyParamCaption})}
+
+
+
+Fonction principal qui permet de jouer. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window,renderer} & Affichage \\
+\hline
+{\em pack\+\_\+texture} & charge le pack de texture \\
+\hline
+{\em map} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{jeu_8h_aa2e9a5380109a24a2635e7087549d0ac}\label{jeu_8h_aa2e9a5380109a24a2635e7087549d0ac}} 
+\index{jeu.h@{jeu.h}!map\_to\_bool@{map\_to\_bool}}
+\index{map\_to\_bool@{map\_to\_bool}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{map\_to\_bool()}{map\_to\_bool()}}
+{\footnotesize\ttfamily map\+\_\+to\+\_\+bool (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$}]{map,  }\item[{int $\ast$}]{tab,  }\item[{int}]{xa,  }\item[{int}]{ya }\end{DoxyParamCaption})}
+
+
+
+Fonction qui transforme la map en couloirs/murs. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em map,tab} & \\
+\hline
+{\em xa,ya} & coordonnées \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{jeu_8h_a9c93c102c9e98fda2cc99b7429348ef4}\label{jeu_8h_a9c93c102c9e98fda2cc99b7429348ef4}} 
+\index{jeu.h@{jeu.h}!marquer\_chemin@{marquer\_chemin}}
+\index{marquer\_chemin@{marquer\_chemin}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{marquer\_chemin()}{marquer\_chemin()}}
+{\footnotesize\ttfamily marquer\+\_\+chemin (\begin{DoxyParamCaption}\item[{int $\ast$}]{tab,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int $\ast$}]{lgmin }\end{DoxyParamCaption})}
+
+
+
+Marque le chemin le plus court a partir de $\ast$(tab+x$\ast$\+M+y) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em tab} & \\
+\hline
+{\em x,y} & coordonnées \\
+\hline
+{\em lgmin} & prend la taille du chemin \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{jeu_8h_a80da571dae12fd52ab483f319e2b47b4}\label{jeu_8h_a80da571dae12fd52ab483f319e2b47b4}} 
+\index{jeu.h@{jeu.h}!mat\_copy@{mat\_copy}}
+\index{mat\_copy@{mat\_copy}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{mat\_copy()}{mat\_copy()}}
+{\footnotesize\ttfamily mat\+\_\+copy (\begin{DoxyParamCaption}\item[{int $\ast$}]{src,  }\item[{int $\ast$}]{dest }\end{DoxyParamCaption})}
+
+
+
+Copie une matrice. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em scr} & la matrice a copié \\
+\hline
+{\em dest} & copie de la matrice \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{jeu_8h_ae22433b72901c6a2ecab552c02a69b7e}\label{jeu_8h_ae22433b72901c6a2ecab552c02a69b7e}} 
+\index{jeu.h@{jeu.h}!remarquer\_chemin@{remarquer\_chemin}}
+\index{remarquer\_chemin@{remarquer\_chemin}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{remarquer\_chemin()}{remarquer\_chemin()}}
+{\footnotesize\ttfamily remarquer\+\_\+chemin (\begin{DoxyParamCaption}\item[{int $\ast$}]{tab,  }\item[{int}]{x1,  }\item[{int}]{y1,  }\item[{int}]{dep }\end{DoxyParamCaption})}
+
+
+
+remarque le chemin, regarde autour de chaque position si elle est valide 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em tab} & \\
+\hline
+{\em x1,y1} & coordonnées \\
+\hline
+{\em dep} & depart \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+les coordonnées d\textquotesingle{}arrivées 
+\end{DoxyReturn}
+\mbox{\Hypertarget{jeu_8h_a955e9415334551d6e257524ebdffa251}\label{jeu_8h_a955e9415334551d6e257524ebdffa251}} 
+\index{jeu.h@{jeu.h}!retirer\_perso@{retirer\_perso}}
+\index{retirer\_perso@{retirer\_perso}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{retirer\_perso()}{retirer\_perso()}}
+{\footnotesize\ttfamily retirer\+\_\+perso (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fonctions_8h_a2a628b5c03e983edabf5b05625e5d9b5}{case\+\_\+t}} $\ast$}]{map,  }\item[{\mbox{\hyperlink{structjoueur__t}{joueur\+\_\+t}} $\ast$}]{joueur,  }\item[{int}]{indice }\end{DoxyParamCaption})}
+
+
+
+retire personnage de la carte 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em map} & \\
+\hline
+{\em joueur} & joueur a retirer \\
+\hline
+{\em indice} & \\
+\hline
+\end{DoxyParams}
