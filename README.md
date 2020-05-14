@@ -15,25 +15,32 @@
 ### Le jeu
 
 > Création de l'équipe
+
 ![Recordit GIF](http://g.recordit.co/1awayUkE9E.gif)
 
 > Placement des personnages
+
 ![Recordit GIF](http://g.recordit.co/ACcv1xpPfG.gif)
 
 > Déplacements, combat, radius d'aide au joueur
+
 ![Recordit GIF](http://g.recordit.co/uDkxkfqXEX.gif)
 
 > Fenêtre de statistiques
+
 ![Recordit GIF](http://g.recordit.co/tlAwqUGRIS.gif)
 
 ### L'éditeur de maps
 
 > Créez vos propres plateaux
+
 ![Recordit GIF](http://g.recordit.co/feK6HTXUcS.gif)
 
 > Pack de textures customisé 
 
 ![Pack de textures](https://image.noelshack.com/fichiers/2020/20/4/1589462293-packtexture.png)
+
+
 ### Les paramètres
 
 ![Recordit GIF](http://g.recordit.co/PsfCPAeJhK.gif)
