@@ -14,12 +14,16 @@
 
 ### Le jeu
 
+> Création de l'équipe
 ![Recordit GIF](http://g.recordit.co/1awayUkE9E.gif)
 
+> Placement des personnages
 ![Recordit GIF](http://g.recordit.co/ACcv1xpPfG.gif)
 
+> Déplacements, combat, radius d'aide au joueur
 ![Recordit GIF](http://g.recordit.co/uDkxkfqXEX.gif)
 
+> Fenêtre de statistiques
 ![Recordit GIF](http://g.recordit.co/tlAwqUGRIS.gif)
 
 ### L'éditeur de maps
